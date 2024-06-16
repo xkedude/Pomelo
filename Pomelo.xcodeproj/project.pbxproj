@@ -1,0 +1,815 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		384F188E2C1DCB4F0073375C /* PomeloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F188D2C1DCB4F0073375C /* PomeloApp.swift */; };
+		384F18902C1DCB4F0073375C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F188F2C1DCB4F0073375C /* ContentView.swift */; };
+		384F18922C1DCB520073375C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18912C1DCB520073375C /* Assets.xcassets */; };
+		384F18952C1DCB520073375C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18942C1DCB520073375C /* Preview Assets.xcassets */; };
+		38966AF92C1DDE760021C1A9 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38966AF82C1DDE680021C1A9 /* LibraryView.swift */; };
+		38C50D012C1DCF150007A953 /* libavcodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; };
+		38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AF2C1DCE8900331706 /* libavformat.xcframework */; };
+		38C50D042C1DCF190007A953 /* libavformat.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AF2C1DCE8900331706 /* libavformat.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38C50D052C1DCF1B0007A953 /* libavutil.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B02C1DCE8900331706 /* libavutil.xcframework */; };
+		38C50D062C1DCF1B0007A953 /* libavutil.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B02C1DCE8900331706 /* libavutil.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38C50D072C1DCF1E0007A953 /* libavfilter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AE2C1DCE8900331706 /* libavfilter.xcframework */; };
+		38C50D082C1DCF1E0007A953 /* libavfilter.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AE2C1DCE8900331706 /* libavfilter.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38C50D092C1DCF3E0007A953 /* libswresample.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B12C1DCE8900331706 /* libswresample.xcframework */; };
+		38C50D0A2C1DCF3E0007A953 /* libswresample.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B12C1DCE8900331706 /* libswresample.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38C50D0B2C1DCF420007A953 /* libswscale.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B22C1DCE8900331706 /* libswscale.xcframework */; };
+		38C50D0C2C1DCF420007A953 /* libswscale.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B22C1DCE8900331706 /* libswscale.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38C50D0D2C1DCF480007A953 /* MoltenVK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; };
+		38C50D0E2C1DCF480007A953 /* MoltenVK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38C50D102C1DCF5F0007A953 /* SwiftSyntax in Frameworks */ = {isa = PBXBuildFile; productRef = 38C50D0F2C1DCF5F0007A953 /* SwiftSyntax */; };
+		38C50D122C1DCF690007A953 /* SwiftSyntaxMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 38C50D112C1DCF690007A953 /* SwiftSyntaxMacros */; };
+		38C50D152C1DD4570007A953 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C50D142C1DD4570007A953 /* GameController.framework */; };
+		38C50D172C1DD45F0007A953 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */; };
+		38C50D182C1DD5370007A953 /* boost_context.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B62C1DCE8900331706 /* boost_context.xcframework */; };
+		38C50D1A2C1DD5390007A953 /* boost_iostreams.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B72C1DCE8900331706 /* boost_iostreams.xcframework */; };
+		38C50D1C2C1DD53C0007A953 /* boost_program_options.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B82C1DCE8900331706 /* boost_program_options.xcframework */; };
+		38C50D1E2C1DD5400007A953 /* boost_serialization.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B92C1DCE8900331706 /* boost_serialization.xcframework */; };
+		38C50D202C1DD5450007A953 /* libcryptopp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BA2C1DCE8900331706 /* libcryptopp.xcframework */; };
+		38C50D222C1DD5490007A953 /* libdynarmic.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BB2C1DCE8900331706 /* libdynarmic.xcframework */; };
+		38C50D242C1DD54B0007A953 /* libenet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BC2C1DCE8900331706 /* libenet.xcframework */; };
+		38C50D262C1DD54E0007A953 /* libfaad.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BD2C1DCE8900331706 /* libfaad.xcframework */; };
+		38C50D282C1DD5510007A953 /* libfmt.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BE2C1DCE8900331706 /* libfmt.xcframework */; };
+		38C50D2A2C1DD5530007A953 /* libGenericCodeGen.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B32C1DCE8900331706 /* libGenericCodeGen.xcframework */; };
+		38C50D2C2C1DD5590007A953 /* libglslang.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B42C1DCE8900331706 /* libglslang.xcframework */; };
+		38C50D2E2C1DD5650007A953 /* libmbedcrypto.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BF2C1DCE8900331706 /* libmbedcrypto.xcframework */; };
+		38C50D302C1DD5690007A953 /* libmbedtls.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C02C1DCE8900331706 /* libmbedtls.xcframework */; };
+		38C50D322C1DD56B0007A953 /* libmbedx509.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C12C1DCE8900331706 /* libmbedx509.xcframework */; };
+		38C50D342C1DD56E0007A953 /* libmcl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C22C1DCE8900331706 /* libmcl.xcframework */; };
+		38C50D362C1DD5710007A953 /* libOpenAL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C32C1DCE8900331706 /* libOpenAL.xcframework */; };
+		38C50D382C1DD5740007A953 /* libopus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C42C1DCE8900331706 /* libopus.xcframework */; };
+		38C50D3A2C1DD5760007A953 /* libsirit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C52C1DCE8900331706 /* libsirit.xcframework */; };
+		38C50D3C2C1DD5780007A953 /* libSoundTouch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C62C1DCE8900331706 /* libSoundTouch.xcframework */; };
+		38C50D3E2C1DD57A0007A953 /* libSPIRV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; };
+		38C846552C1DCC7200331706 /* SDL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846542C1DCC7200331706 /* SDL */; };
+		38C846592C1DCC8400331706 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846582C1DCC8400331706 /* OpenSSL */; };
+		38C846832C1DCD2200331706 /* SudachiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846772C1DCD2200331706 /* SudachiGame.swift */; };
+		38C846862C1DCD2200331706 /* JITEnabler.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C8466E2C1DCD2200331706 /* JITEnabler.m */; };
+		38C846872C1DCD2200331706 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 38C846682C1DCD2200331706 /* fishhook.c */; };
+		38C846882C1DCD2200331706 /* VirtualControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */; };
+		38C846892C1DCD2200331706 /* VirtualControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */; };
+		38C8468F2C1DCD2200331706 /* MinimalRoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467B2C1DCD2200331706 /* MinimalRoundedTextField.swift */; };
+		38C846902C1DCD2200331706 /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C8466D2C1DCD2200331706 /* utils.m */; };
+		38C846922C1DCD2200331706 /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846792C1DCD2200331706 /* LibraryManager.swift */; };
+		38C846932C1DCD2200331706 /* VirtualControllerButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */; };
+		38C846952C1DCD2200331706 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 38C8466A2C1DCD2200331706 /* LICENSE */; };
+		38C846A32C1DCDC100331706 /* SudachiEmulationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */; };
+		38C846A62C1DCDC100331706 /* EmulationScreensController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846972C1DCDC100331706 /* EmulationScreensController.swift */; };
+		38C846A72C1DCDC100331706 /* INIEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846A12C1DCDC100331706 /* INIEditController.swift */; };
+		38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */; };
+		38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */; };
+		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		38C50CF22C1DCEA40007A953 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E63583612B95822D00D35422;
+			remoteInfo = Sudachi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		38C50D002C1DCEE90007A953 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				38C50D0E2C1DCF480007A953 /* MoltenVK.xcframework in Embed Frameworks */,
+				38C50D082C1DCF1E0007A953 /* libavfilter.xcframework in Embed Frameworks */,
+				38C50D042C1DCF190007A953 /* libavformat.xcframework in Embed Frameworks */,
+				38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */,
+				38C50D062C1DCF1B0007A953 /* libavutil.xcframework in Embed Frameworks */,
+				38C50D0C2C1DCF420007A953 /* libswscale.xcframework in Embed Frameworks */,
+				38C50D0A2C1DCF3E0007A953 /* libswresample.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		384F188A2C1DCB4F0073375C /* Pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		384F188D2C1DCB4F0073375C /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
+		384F188F2C1DCB4F0073375C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		384F18912C1DCB520073375C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		384F18942C1DCB520073375C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		384F18962C1DCB520073375C /* Pomelo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pomelo.entitlements; sourceTree = "<group>"; };
+		384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sudachi.xcodeproj; path = Sudachi/Sudachi.xcodeproj; sourceTree = "<group>"; };
+		38966AF82C1DDE680021C1A9 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
+		38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		38C50D482C1DD7BA0007A953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		38C846682C1DCD2200331706 /* fishhook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		38C846692C1DCD2200331706 /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		38C8466A2C1DCD2200331706 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		38C8466C2C1DCD2200331706 /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		38C8466D2C1DCD2200331706 /* utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
+		38C8466E2C1DCD2200331706 /* JITEnabler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JITEnabler.m; sourceTree = "<group>"; };
+		38C846772C1DCD2200331706 /* SudachiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiGame.swift; sourceTree = "<group>"; };
+		38C846792C1DCD2200331706 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
+		38C8467B2C1DCD2200331706 /* MinimalRoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalRoundedTextField.swift; sourceTree = "<group>"; };
+		38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButton.swift; sourceTree = "<group>"; };
+		38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButtonDelegate.swift; sourceTree = "<group>"; };
+		38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerView.swift; sourceTree = "<group>"; };
+		38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulationVirtualControllerController.swift; sourceTree = "<group>"; };
+		38C846972C1DCDC100331706 /* EmulationScreensController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulationScreensController.swift; sourceTree = "<group>"; };
+		38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationController.swift; sourceTree = "<group>"; };
+		38C846A12C1DCDC100331706 /* INIEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INIEditController.swift; sourceTree = "<group>"; };
+		38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MoltenVK.xcframework; sourceTree = "<group>"; };
+		38C846AD2C1DCE8900331706 /* libavcodec.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavcodec.xcframework; sourceTree = "<group>"; };
+		38C846AE2C1DCE8900331706 /* libavfilter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavfilter.xcframework; sourceTree = "<group>"; };
+		38C846AF2C1DCE8900331706 /* libavformat.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavformat.xcframework; sourceTree = "<group>"; };
+		38C846B02C1DCE8900331706 /* libavutil.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavutil.xcframework; sourceTree = "<group>"; };
+		38C846B12C1DCE8900331706 /* libswresample.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libswresample.xcframework; sourceTree = "<group>"; };
+		38C846B22C1DCE8900331706 /* libswscale.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libswscale.xcframework; sourceTree = "<group>"; };
+		38C846B32C1DCE8900331706 /* libGenericCodeGen.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libGenericCodeGen.xcframework; sourceTree = "<group>"; };
+		38C846B42C1DCE8900331706 /* libglslang.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libglslang.xcframework; sourceTree = "<group>"; };
+		38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libMachineIndependent.xcframework; sourceTree = "<group>"; };
+		38C846B62C1DCE8900331706 /* boost_context.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = boost_context.xcframework; sourceTree = "<group>"; };
+		38C846B72C1DCE8900331706 /* boost_iostreams.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = boost_iostreams.xcframework; sourceTree = "<group>"; };
+		38C846B82C1DCE8900331706 /* boost_program_options.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = boost_program_options.xcframework; sourceTree = "<group>"; };
+		38C846B92C1DCE8900331706 /* boost_serialization.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = boost_serialization.xcframework; sourceTree = "<group>"; };
+		38C846BA2C1DCE8900331706 /* libcryptopp.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libcryptopp.xcframework; sourceTree = "<group>"; };
+		38C846BB2C1DCE8900331706 /* libdynarmic.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libdynarmic.xcframework; sourceTree = "<group>"; };
+		38C846BC2C1DCE8900331706 /* libenet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libenet.xcframework; sourceTree = "<group>"; };
+		38C846BD2C1DCE8900331706 /* libfaad.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libfaad.xcframework; sourceTree = "<group>"; };
+		38C846BE2C1DCE8900331706 /* libfmt.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libfmt.xcframework; sourceTree = "<group>"; };
+		38C846BF2C1DCE8900331706 /* libmbedcrypto.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libmbedcrypto.xcframework; sourceTree = "<group>"; };
+		38C846C02C1DCE8900331706 /* libmbedtls.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libmbedtls.xcframework; sourceTree = "<group>"; };
+		38C846C12C1DCE8900331706 /* libmbedx509.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libmbedx509.xcframework; sourceTree = "<group>"; };
+		38C846C22C1DCE8900331706 /* libmcl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libmcl.xcframework; sourceTree = "<group>"; };
+		38C846C32C1DCE8900331706 /* libOpenAL.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libOpenAL.xcframework; sourceTree = "<group>"; };
+		38C846C42C1DCE8900331706 /* libopus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libopus.xcframework; sourceTree = "<group>"; };
+		38C846C52C1DCE8900331706 /* libsirit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libsirit.xcframework; sourceTree = "<group>"; };
+		38C846C62C1DCE8900331706 /* libSoundTouch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSoundTouch.xcframework; sourceTree = "<group>"; };
+		38C846C72C1DCE8900331706 /* libSPIRV.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSPIRV.xcframework; sourceTree = "<group>"; };
+		38C846C82C1DCE8900331706 /* libteakra.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libteakra.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		384F18872C1DCB4F0073375C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C50D3A2C1DD5760007A953 /* libsirit.xcframework in Frameworks */,
+				38C846552C1DCC7200331706 /* SDL in Frameworks */,
+				38C50D302C1DD5690007A953 /* libmbedtls.xcframework in Frameworks */,
+				38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */,
+				38C50D242C1DD54B0007A953 /* libenet.xcframework in Frameworks */,
+				38C50D2C2C1DD5590007A953 /* libglslang.xcframework in Frameworks */,
+				38C50D182C1DD5370007A953 /* boost_context.xcframework in Frameworks */,
+				38C50D3C2C1DD5780007A953 /* libSoundTouch.xcframework in Frameworks */,
+				38C50D382C1DD5740007A953 /* libopus.xcframework in Frameworks */,
+				38C50D3E2C1DD57A0007A953 /* libSPIRV.xcframework in Frameworks */,
+				38C50D2A2C1DD5530007A953 /* libGenericCodeGen.xcframework in Frameworks */,
+				38C50D122C1DCF690007A953 /* SwiftSyntaxMacros in Frameworks */,
+				38C50D092C1DCF3E0007A953 /* libswresample.xcframework in Frameworks */,
+				38C50D0B2C1DCF420007A953 /* libswscale.xcframework in Frameworks */,
+				38C50D202C1DD5450007A953 /* libcryptopp.xcframework in Frameworks */,
+				38C50D172C1DD45F0007A953 /* CoreBluetooth.framework in Frameworks */,
+				38C50D0D2C1DCF480007A953 /* MoltenVK.xcframework in Frameworks */,
+				38C50D1E2C1DD5400007A953 /* boost_serialization.xcframework in Frameworks */,
+				38C50D342C1DD56E0007A953 /* libmcl.xcframework in Frameworks */,
+				38C50D362C1DD5710007A953 /* libOpenAL.xcframework in Frameworks */,
+				38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */,
+				38C50D262C1DD54E0007A953 /* libfaad.xcframework in Frameworks */,
+				38C50D222C1DD5490007A953 /* libdynarmic.xcframework in Frameworks */,
+				38C50D072C1DCF1E0007A953 /* libavfilter.xcframework in Frameworks */,
+				38C50D2E2C1DD5650007A953 /* libmbedcrypto.xcframework in Frameworks */,
+				38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */,
+				38C50D1C2C1DD53C0007A953 /* boost_program_options.xcframework in Frameworks */,
+				38C50D152C1DD4570007A953 /* GameController.framework in Frameworks */,
+				38C50D1A2C1DD5390007A953 /* boost_iostreams.xcframework in Frameworks */,
+				38C50D052C1DCF1B0007A953 /* libavutil.xcframework in Frameworks */,
+				38C50D012C1DCF150007A953 /* libavcodec.xcframework in Frameworks */,
+				38C50D102C1DCF5F0007A953 /* SwiftSyntax in Frameworks */,
+				38C846592C1DCC8400331706 /* OpenSSL in Frameworks */,
+				38C50D282C1DD5510007A953 /* libfmt.xcframework in Frameworks */,
+				38C50D322C1DD56B0007A953 /* libmbedx509.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		384F18812C1DCB4F0073375C = {
+			isa = PBXGroup;
+			children = (
+				384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */,
+				384F188C2C1DCB4F0073375C /* Pomelo */,
+				384F188B2C1DCB4F0073375C /* Products */,
+				38C50D132C1DD4570007A953 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		384F188B2C1DCB4F0073375C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				384F188A2C1DCB4F0073375C /* Pomelo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		384F188C2C1DCB4F0073375C /* Pomelo */ = {
+			isa = PBXGroup;
+			children = (
+				38C50D482C1DD7BA0007A953 /* Info.plist */,
+				38C846CA2C1DCE8900331706 /* Dependencies */,
+				38C846A22C1DCDC100331706 /* Controllers */,
+				38C846822C1DCD2200331706 /* Classes */,
+				384F188D2C1DCB4F0073375C /* PomeloApp.swift */,
+				384F188F2C1DCB4F0073375C /* ContentView.swift */,
+				38966AF82C1DDE680021C1A9 /* LibraryView.swift */,
+				384F18912C1DCB520073375C /* Assets.xcassets */,
+				384F18962C1DCB520073375C /* Pomelo.entitlements */,
+				384F18932C1DCB520073375C /* Preview Content */,
+			);
+			path = Pomelo;
+			sourceTree = "<group>";
+		};
+		384F18932C1DCB520073375C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				384F18942C1DCB520073375C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		38C50CEF2C1DCEA10007A953 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38C50CF32C1DCEA40007A953 /* libSudachi.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38C50D132C1DD4570007A953 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */,
+				38C50D142C1DD4570007A953 /* GameController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		38C8466B2C1DCD2200331706 /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				38C846682C1DCD2200331706 /* fishhook.c */,
+				38C846692C1DCD2200331706 /* fishhook.h */,
+				38C8466A2C1DCD2200331706 /* LICENSE */,
+			);
+			path = fishhook;
+			sourceTree = "<group>";
+		};
+		38C8466F2C1DCD2200331706 /* JITEnabler */ = {
+			isa = PBXGroup;
+			children = (
+				38C8466B2C1DCD2200331706 /* fishhook */,
+				38C8466C2C1DCD2200331706 /* utils.h */,
+				38C8466D2C1DCD2200331706 /* utils.m */,
+				38C8466E2C1DCD2200331706 /* JITEnabler.m */,
+			);
+			path = JITEnabler;
+			sourceTree = "<group>";
+		};
+		38C846782C1DCD2200331706 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				38C846772C1DCD2200331706 /* SudachiGame.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		38C8467A2C1DCD2200331706 /* LibraryManager */ = {
+			isa = PBXGroup;
+			children = (
+				38C846782C1DCD2200331706 /* Games */,
+				38C846792C1DCD2200331706 /* LibraryManager.swift */,
+			);
+			path = LibraryManager;
+			sourceTree = "<group>";
+		};
+		38C8467C2C1DCD2200331706 /* MinimalRoundedTextField */ = {
+			isa = PBXGroup;
+			children = (
+				38C8467B2C1DCD2200331706 /* MinimalRoundedTextField.swift */,
+			);
+			path = MinimalRoundedTextField;
+			sourceTree = "<group>";
+		};
+		38C846802C1DCD2200331706 /* VirtualController */ = {
+			isa = PBXGroup;
+			children = (
+				38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */,
+				38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */,
+				38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */,
+			);
+			path = VirtualController;
+			sourceTree = "<group>";
+		};
+		38C846822C1DCD2200331706 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				38C8466F2C1DCD2200331706 /* JITEnabler */,
+				38C8467A2C1DCD2200331706 /* LibraryManager */,
+				38C8467C2C1DCD2200331706 /* MinimalRoundedTextField */,
+				38C846802C1DCD2200331706 /* VirtualController */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		38C846982C1DCDC100331706 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */,
+				38C846972C1DCDC100331706 /* EmulationScreensController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		38C8469D2C1DCDC100331706 /* EmulationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38C846982C1DCDC100331706 /* Base */,
+				38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */,
+			);
+			path = EmulationControllers;
+			sourceTree = "<group>";
+		};
+		38C846A22C1DCDC100331706 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				38C8469D2C1DCDC100331706 /* EmulationControllers */,
+				38C846A12C1DCDC100331706 /* INIEditController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		38C846C92C1DCE8900331706 /* XCFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */,
+				38C846AD2C1DCE8900331706 /* libavcodec.xcframework */,
+				38C846AE2C1DCE8900331706 /* libavfilter.xcframework */,
+				38C846AF2C1DCE8900331706 /* libavformat.xcframework */,
+				38C846B02C1DCE8900331706 /* libavutil.xcframework */,
+				38C846B12C1DCE8900331706 /* libswresample.xcframework */,
+				38C846B22C1DCE8900331706 /* libswscale.xcframework */,
+				38C846B32C1DCE8900331706 /* libGenericCodeGen.xcframework */,
+				38C846B42C1DCE8900331706 /* libglslang.xcframework */,
+				38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */,
+				38C846B62C1DCE8900331706 /* boost_context.xcframework */,
+				38C846B72C1DCE8900331706 /* boost_iostreams.xcframework */,
+				38C846B82C1DCE8900331706 /* boost_program_options.xcframework */,
+				38C846B92C1DCE8900331706 /* boost_serialization.xcframework */,
+				38C846BA2C1DCE8900331706 /* libcryptopp.xcframework */,
+				38C846BB2C1DCE8900331706 /* libdynarmic.xcframework */,
+				38C846BC2C1DCE8900331706 /* libenet.xcframework */,
+				38C846BD2C1DCE8900331706 /* libfaad.xcframework */,
+				38C846BE2C1DCE8900331706 /* libfmt.xcframework */,
+				38C846BF2C1DCE8900331706 /* libmbedcrypto.xcframework */,
+				38C846C02C1DCE8900331706 /* libmbedtls.xcframework */,
+				38C846C12C1DCE8900331706 /* libmbedx509.xcframework */,
+				38C846C22C1DCE8900331706 /* libmcl.xcframework */,
+				38C846C32C1DCE8900331706 /* libOpenAL.xcframework */,
+				38C846C42C1DCE8900331706 /* libopus.xcframework */,
+				38C846C52C1DCE8900331706 /* libsirit.xcframework */,
+				38C846C62C1DCE8900331706 /* libSoundTouch.xcframework */,
+				38C846C72C1DCE8900331706 /* libSPIRV.xcframework */,
+				38C846C82C1DCE8900331706 /* libteakra.xcframework */,
+			);
+			path = XCFrameworks;
+			sourceTree = "<group>";
+		};
+		38C846CA2C1DCE8900331706 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				38C846C92C1DCE8900331706 /* XCFrameworks */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		384F18892C1DCB4F0073375C /* Pomelo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 384F18AF2C1DCB520073375C /* Build configuration list for PBXNativeTarget "Pomelo" */;
+			buildPhases = (
+				384F18862C1DCB4F0073375C /* Sources */,
+				384F18872C1DCB4F0073375C /* Frameworks */,
+				384F18882C1DCB4F0073375C /* Resources */,
+				38C50D002C1DCEE90007A953 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pomelo;
+			packageProductDependencies = (
+				38C846542C1DCC7200331706 /* SDL */,
+				38C846582C1DCC8400331706 /* OpenSSL */,
+				38C50D0F2C1DCF5F0007A953 /* SwiftSyntax */,
+				38C50D112C1DCF690007A953 /* SwiftSyntaxMacros */,
+			);
+			productName = Pomelo;
+			productReference = 384F188A2C1DCB4F0073375C /* Pomelo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		384F18822C1DCB4F0073375C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					384F18892C1DCB4F0073375C = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 384F18852C1DCB4F0073375C /* Build configuration list for PBXProject "Pomelo" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 384F18812C1DCB4F0073375C;
+			packageReferences = (
+				38C846532C1DCC7200331706 /* XCRemoteSwiftPackageReference "SwiftSDL2" */,
+				38C846572C1DCC8400331706 /* XCRemoteSwiftPackageReference "OpenSSL" */,
+				38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */,
+			);
+			productRefGroup = 384F188B2C1DCB4F0073375C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 38C50CEF2C1DCEA10007A953 /* Products */;
+					ProjectRef = 384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				384F18892C1DCB4F0073375C /* Pomelo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		38C50CF32C1DCEA40007A953 /* libSudachi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSudachi.a;
+			remoteRef = 38C50CF22C1DCEA40007A953 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		384F18882C1DCB4F0073375C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C846952C1DCD2200331706 /* LICENSE in Resources */,
+				384F18952C1DCB520073375C /* Preview Assets.xcassets in Resources */,
+				384F18922C1DCB520073375C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		384F18862C1DCB4F0073375C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384F18902C1DCB4F0073375C /* ContentView.swift in Sources */,
+				384F188E2C1DCB4F0073375C /* PomeloApp.swift in Sources */,
+				38C846832C1DCD2200331706 /* SudachiGame.swift in Sources */,
+				38C846862C1DCD2200331706 /* JITEnabler.m in Sources */,
+				38C846872C1DCD2200331706 /* fishhook.c in Sources */,
+				38C846882C1DCD2200331706 /* VirtualControllerButton.swift in Sources */,
+				38C846A32C1DCDC100331706 /* SudachiEmulationController.swift in Sources */,
+				38C846A62C1DCDC100331706 /* EmulationScreensController.swift in Sources */,
+				38C846A72C1DCDC100331706 /* INIEditController.swift in Sources */,
+				38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */,
+				38C846892C1DCD2200331706 /* VirtualControllerView.swift in Sources */,
+				38C8468F2C1DCD2200331706 /* MinimalRoundedTextField.swift in Sources */,
+				38C846902C1DCD2200331706 /* utils.m in Sources */,
+				38C846922C1DCD2200331706 /* LibraryManager.swift in Sources */,
+				38C846932C1DCD2200331706 /* VirtualControllerButtonDelegate.swift in Sources */,
+				38966AF92C1DDE760021C1A9 /* LibraryView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		384F18AD2C1DCB520073375C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		384F18AE2C1DCB520073375C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		384F18B02C1DCB520073375C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pomelo/Preview Content\"";
+				DEVELOPMENT_TEAM = 95J8WZ4TN8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pomelo/Info.plist;
+				INFOPLIST_KEY_GCSupportsControllerUserInteraction = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Pomelo needs local network access for P2P Multiplayer ";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
+				);
+				MARKETING_VERSION = 0.0.2;
+				OTHER_LDFLAGS = "-lSudachi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		384F18B12C1DCB520073375C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pomelo/Preview Content\"";
+				DEVELOPMENT_TEAM = 95J8WZ4TN8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pomelo/Info.plist;
+				INFOPLIST_KEY_GCSupportsControllerUserInteraction = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Pomelo needs local network access for P2P Multiplayer ";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
+				);
+				MARKETING_VERSION = 0.0.2;
+				OTHER_LDFLAGS = "-lSudachi";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		384F18852C1DCB4F0073375C /* Build configuration list for PBXProject "Pomelo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				384F18AD2C1DCB520073375C /* Debug */,
+				384F18AE2C1DCB520073375C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		384F18AF2C1DCB520073375C /* Build configuration list for PBXNativeTarget "Pomelo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				384F18B02C1DCB520073375C /* Debug */,
+				384F18B12C1DCB520073375C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38C846532C1DCC7200331706 /* XCRemoteSwiftPackageReference "SwiftSDL2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ctreffs/SwiftSDL2";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+		38C846572C1DCC8400331706 /* XCRemoteSwiftPackageReference "OpenSSL" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/OpenSSL";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.5004;
+			};
+		};
+		38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-syntax.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 510.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38C50D0F2C1DCF5F0007A953 /* SwiftSyntax */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */;
+			productName = SwiftSyntax;
+		};
+		38C50D112C1DCF690007A953 /* SwiftSyntaxMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */;
+			productName = SwiftSyntaxMacros;
+		};
+		38C846542C1DCC7200331706 /* SDL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38C846532C1DCC7200331706 /* XCRemoteSwiftPackageReference "SwiftSDL2" */;
+			productName = SDL;
+		};
+		38C846582C1DCC8400331706 /* OpenSSL */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38C846572C1DCC8400331706 /* XCRemoteSwiftPackageReference "OpenSSL" */;
+			productName = OpenSSL;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 384F18822C1DCB4F0073375C /* Project object */;
+}

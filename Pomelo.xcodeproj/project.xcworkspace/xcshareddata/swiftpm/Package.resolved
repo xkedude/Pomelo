@@ -1,0 +1,51 @@
+{
+  "originHash" : "3bf7ffe4a4eacd87f82d75765feefa23c1f74d4f7eb0867be1deff282bd597f2",
+  "pins" : [
+    {
+      "identity" : "lz4-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/milch/lz4-spm",
+      "state" : {
+        "revision" : "9e6aa5e4e833e6454ba3a357250dd4eb31c48f99",
+        "version" : "1.9.3"
+      }
+    },
+    {
+      "identity" : "openssl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/OpenSSL",
+      "state" : {
+        "revision" : "84a8ae774291a4ab1971e42908d5114d98d4b623",
+        "version" : "3.1.5004"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "303e5c5c36d6a558407d364878df131c3546fad8",
+        "version" : "510.0.2"
+      }
+    },
+    {
+      "identity" : "swiftsdl2",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ctreffs/SwiftSDL2",
+      "state" : {
+        "revision" : "30a2886bd68e43fc19ba29b63ffe230ac0e4db7a",
+        "version" : "1.4.1"
+      }
+    },
+    {
+      "identity" : "zstd",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/facebook/zstd",
+      "state" : {
+        "branch" : "dev",
+        "revision" : "3242ac598e6f17d8008f6110337a3b4c1205842b"
+      }
+    }
+  ],
+  "version" : 3
+}
