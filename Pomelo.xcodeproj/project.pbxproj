@@ -11,6 +11,9 @@
 		384F18902C1DCB4F0073375C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F188F2C1DCB4F0073375C /* ContentView.swift */; };
 		384F18922C1DCB520073375C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18912C1DCB520073375C /* Assets.xcassets */; };
 		384F18952C1DCB520073375C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18942C1DCB520073375C /* Preview Assets.xcassets */; };
+		387EC3EC2C1EC79300314FF4 /* EnableJIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */; };
+		387EC3EE2C1EC7A600314FF4 /* DetectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */; };
+		387EC3F02C1EC7DF00314FF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */; };
 		38966AF92C1DDE760021C1A9 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38966AF82C1DDE680021C1A9 /* LibraryView.swift */; };
 		38C50D012C1DCF150007A953 /* libavcodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; };
 		38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -108,6 +111,9 @@
 		384F18942C1DCB520073375C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384F18962C1DCB520073375C /* Pomelo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pomelo.entitlements; sourceTree = "<group>"; };
 		384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sudachi.xcodeproj; path = Sudachi/Sudachi.xcodeproj; sourceTree = "<group>"; };
+		387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableJIT.swift; sourceTree = "<group>"; };
+		387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectServer.swift; sourceTree = "<group>"; };
+		387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		38966AF82C1DDE680021C1A9 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
@@ -119,7 +125,7 @@
 		38C8466D2C1DCD2200331706 /* utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
 		38C8466E2C1DCD2200331706 /* JITEnabler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JITEnabler.m; sourceTree = "<group>"; };
 		38C846772C1DCD2200331706 /* SudachiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiGame.swift; sourceTree = "<group>"; };
-		38C846792C1DCD2200331706 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
+		38C846792C1DCD2200331706 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; tabWidth = 3; };
 		38C8467B2C1DCD2200331706 /* MinimalRoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalRoundedTextField.swift; sourceTree = "<group>"; };
 		38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButton.swift; sourceTree = "<group>"; };
 		38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButtonDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 				384F18912C1DCB520073375C /* Assets.xcassets */,
 				384F18962C1DCB520073375C /* Pomelo.entitlements */,
 				384F18932C1DCB520073375C /* Preview Content */,
+				387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */,
 			);
 			path = Pomelo;
 			sourceTree = "<group>";
@@ -246,6 +253,26 @@
 				384F18942C1DCB520073375C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		387EC3E92C1EC76100314FF4 /* Trollstore */ = {
+			isa = PBXGroup;
+			children = (
+				38C8466B2C1DCD2200331706 /* fishhook */,
+				38C8466C2C1DCD2200331706 /* utils.h */,
+				38C8466D2C1DCD2200331706 /* utils.m */,
+				38C8466E2C1DCD2200331706 /* JITEnabler.m */,
+			);
+			path = Trollstore;
+			sourceTree = "<group>";
+		};
+		387EC3EA2C1EC76E00314FF4 /* SideJITServer */ = {
+			isa = PBXGroup;
+			children = (
+				387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */,
+				387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */,
+			);
+			path = SideJITServer;
 			sourceTree = "<group>";
 		};
 		38C50CEF2C1DCEA10007A953 /* Products */ = {
@@ -278,10 +305,8 @@
 		38C8466F2C1DCD2200331706 /* JITEnabler */ = {
 			isa = PBXGroup;
 			children = (
-				38C8466B2C1DCD2200331706 /* fishhook */,
-				38C8466C2C1DCD2200331706 /* utils.h */,
-				38C8466D2C1DCD2200331706 /* utils.m */,
-				38C8466E2C1DCD2200331706 /* JITEnabler.m */,
+				387EC3EA2C1EC76E00314FF4 /* SideJITServer */,
+				387EC3E92C1EC76100314FF4 /* Trollstore */,
 			);
 			path = JITEnabler;
 			sourceTree = "<group>";
@@ -489,6 +514,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387EC3F02C1EC7DF00314FF4 /* Settings.bundle in Resources */,
 				38C846952C1DCD2200331706 /* LICENSE in Resources */,
 				384F18952C1DCB520073375C /* Preview Assets.xcassets in Resources */,
 				384F18922C1DCB520073375C /* Assets.xcassets in Resources */,
@@ -504,6 +530,8 @@
 			files = (
 				384F18902C1DCB4F0073375C /* ContentView.swift in Sources */,
 				384F188E2C1DCB4F0073375C /* PomeloApp.swift in Sources */,
+				387EC3EC2C1EC79300314FF4 /* EnableJIT.swift in Sources */,
+				387EC3EE2C1EC7A600314FF4 /* DetectServer.swift in Sources */,
 				38C846832C1DCD2200331706 /* SudachiGame.swift in Sources */,
 				38C846862C1DCD2200331706 /* JITEnabler.m in Sources */,
 				38C846872C1DCD2200331706 /* fishhook.c in Sources */,

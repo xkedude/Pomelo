@@ -1,6 +1,6 @@
 //
 //  EmulationScreensController.swift
-//  Folium
+//  Pomelo
 //
 //  Created by Jarrod Norwell on 17/3/2024.
 //

@@ -193,6 +193,97 @@ struct InfoView: View {
     }
 }
 
+struct SideJITServerSettings: View {
+    @AppStorage("sidejitserver-ip") var ip: String = ""
+    @AppStorage("sidejitserver-udid") var udid: String = ""
+    @AppStorage("sidejitserver-NavigationLink") var showAlert: Bool = false
+    @AppStorage("alertstring") var alertstring = ""
+    @AppStorage("alert") var alert = false
+    @AppStorage("issue") var issue = false
+    var body: some View {
+        VStack {
+            //Text("SideJITServer:")
+                //.font(.largeTitle)
+            TextField("SideJITServer IP", text: $ip)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            Text("This is not needed if SideJITServer has already been detected")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            SecureField("UDID", text: $udid)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            Button {
+                var sidejitip2 = ip
+                if sidejitip2.isEmpty {
+                    sidejitip2 = "http://sidejitserver._http._tcp.local:8080"
+                }
+                
+                guard udid.isEmpty else {
+                    alertstring = "Cannot Find Current Device UDID please input it inside the SideJITServer Settings"
+                    issue = true
+                    showAlert = false
+                    return
+                }
+                
+                let sidejitip = sidejitip2 + "/" + udid + "/Pomelo/"
+                sendrequestsidejit(url: sidejitip) { completion in
+                    switch completion {
+                    case .success(()):
+                        print("yippee")
+                        alert = true
+                        showAlert = false
+                    case .failure(let error):
+                        switch error {
+                        case .invalidURL:
+                            alertstring = "Invalid URL"
+                            issue = true
+                            showAlert = false
+                        case .errorConnecting:
+                            alertstring = "Unable to connect to SideJITServer Please check that you are on the Same Wi-Fi and your Firewall has been set correctly"
+                            issue = true
+                            showAlert = false
+                        case .deviceNotFound:
+                            alertstring = "SideJITServer is unable to connect to your iDevice Please make sure you have paired your Device by doing 'SideJITServer -y' or try Refreshing SideJITServer from Settings"
+                            issue = true
+                            showAlert = false
+                        case .other(let message):
+                            if let startRange = message.range(of: "<p>"),
+                               let endRange = message.range(of: "</p>", range: startRange.upperBound..<message.endIndex) {
+                                let pContent = message[startRange.upperBound..<endRange.lowerBound]
+                                //self.finish(.failure(OperationError.SideJITIssue(error: String(pContent))))
+                                if message != "JIT already enabled for 'Pomelo'!" {
+                                    alertstring = "SideJITServer Error: \((pContent))"
+                                    issue = true
+                                }
+                                showAlert = false
+                                print(message + " + " + String(pContent))
+                                    
+                            } else {
+                                print(message)
+                                if message != "JIT already enabled for 'Pomelo'!" {
+                                    alertstring = "SideJITServer Error: \(message)"
+                                    issue = true
+                                    print(message)
+                                }
+                                    showAlert = false
+                            }
+                        }
+                    }
+                }
+            } label: {
+                Text("Refresh SideJITServer and Close")
+            }
+        }
+        .alert(isPresented: $issue) {
+            Alert(title: Text("SideJITServer Refresh"), message: Text(alertstring), dismissButton: .default(Text("OK")))
+        }
+        .alert(isPresented: $alert) {
+            Alert(title: Text("SideJITServer Refresh"), message: Text("SideJITServer Refreshed Successfully"), dismissButton: .default(Text("OK")))
+        }
+        .navigationTitle("SideJITServer Settings")
+    }
+}
 
 
 struct LibraryView: View {
@@ -200,12 +291,22 @@ struct LibraryView: View {
     @State var showingEditConfig = false
     @State private var isActive: Bool = false
     @State private var showprompt: Bool = false
+    @AppStorage("sidejitserver-enable") var sidejitserver: Bool = false
+    @AppStorage("sidejitserver-NavigationLink") var showAlert: Bool = false
+    @AppStorage("sidejitserver-ip") var ip: String = ""
+    @AppStorage("sidejitserver-udid") var udid: String = ""
+    @AppStorage("sidejitserver-enable-auto") var sidejitserverauto: Bool = false
+    @AppStorage("alertstring") var alertstring = ""
+    @AppStorage("alert") var alert = false
+    @AppStorage("issue") var issue = false
 
     var body: some View {
         NavigationView {
             VStack {
                 let (doesKeyExist, doesProdExist) = doeskeysexist()
                 NavigationLink(destination: InfoView(), isActive: $isActive) {
+                  }
+                NavigationLink(destination: SideJITServerSettings(), isActive: $showAlert) {
                   }
                   .hidden()
                 if doesKeyExist && doesProdExist {
@@ -254,6 +355,75 @@ struct LibraryView: View {
                             }) {
                                 Label("TrollStore", systemImage: UserDefaults.standard.bool(forKey: "useTrollStore") ? "checkmark" : "")
                             }
+                        } else {
+                            Button(action: {
+                                sidejitserver.toggle()
+                            }) {
+                                Label("Enable SideJITServer", systemImage: sidejitserver ? "checkmark" : "")
+                            }
+                        }
+                        if sidejitserver {
+                            Button(action: {
+                                showAlert = true
+                            }) {
+                                Label("SideJITServer Settings", systemImage: "")
+                            }
+                            Button(action: {
+                                sidejitserverauto.toggle()
+                            }) {
+                                Label("Enable JIT with SideJITServer On Launch", systemImage: sidejitserverauto ? "checkmark" : "")
+                            }
+                        }
+                        if !sidejitserverauto && sidejitserver {
+                            Button(action: {
+                                let defaults = UserDefaults.standard
+                                var sidejitip2 = ip
+                                DispatchQueue.global(qos: .userInteractive).async {
+                                    if sidejitip2.isEmpty {
+                                        sidejitip2 = "http://sidejitserver._http._tcp.local:8080"
+                                    }
+                                    if sidejitserver {
+                                        let sidejitip = sidejitip2 + "/" + udid + "/Pomelo/"
+                                        print(sidejitip)
+                                        sendrequestsidejit(url: sidejitip) { completion in
+                                            switch completion {
+                                            case .success(()):
+                                                print("yippee")
+                                            case .failure(let error):
+                                                switch error {
+                                                case .invalidURL:
+                                                    alertstring = "Invalid URL"
+                                                    issue = true
+                                                case .errorConnecting:
+                                                    alertstring = "Unable to connect to SideJITServer Please check that you are on the Same Wi-Fi and your Firewall has been set correctly"
+                                                    issue = true
+                                                case .deviceNotFound:
+                                                    alertstring = "SideJITServer is unable to connect to your iDevice Please make sure you have paired your Device by doing 'SideJITServer -y' or try Refreshing SideJITServer from Settings"
+                                                    issue = true
+                                                case .other(let message):
+                                                    if let startRange = message.range(of: "<p>"),
+                                                       let endRange = message.range(of: "</p>", range: startRange.upperBound..<message.endIndex) {
+                                                        let pContent = message[startRange.upperBound..<endRange.lowerBound]
+                                                        //self.finish(.failure(OperationError.SideJITIssue(error: String(pContent))))
+                                                        alertstring = "SideJITServer Error: \((pContent))"
+                                                        issue = true
+                                                        print(message + " + " + String(pContent))
+                                                    } else {
+                                                        print(message)
+                                                        if message.hasPrefix("JIT Already Enabled For") {
+                                                            alertstring = "SideJITServer Error: \(message)"
+                                                            issue = true
+                                                        }
+                                                    
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }) {
+                                Label("Enable JIT with SideJITServer", systemImage: sidejitserverauto ? "checkmark" : "")
+                            }
                         }
                         Button {
                             self.isActive = true
@@ -288,6 +458,7 @@ struct LibraryView: View {
             .alert(isPresented: $showprompt) {
                 Alert(title: Text("TrollStore"), message: Text("Enabling JIT in App is currenly not supported please enabble JIT from inside TrollStore."), dismissButton: .default(Text("OK")))
             }
+            
         }
         
     }

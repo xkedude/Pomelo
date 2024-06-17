@@ -1,17 +1,11 @@
 //
 //  LibraryManager.swift
-//  Folium
+//  Pomelo
 //
 //  Created by Jarrod Norwell on 1/18/24.
 //
 
-#if canImport(Cytrus)
-import Cytrus
-#endif
-
-#if canImport(Sudachi)
 import Sudachi
-#endif
 
 import Foundation
 import UIKit
@@ -42,38 +36,30 @@ struct MissingFile : Hashable, Identifiable {
 
 enum Core2 : String, Codable, Hashable {
     enum Console : String, Codable, Hashable {
-        case gba = "Game Boy Advance"
         case nSwitch = "Nintendo Switch"
-        case nds = "Nintendo DS"
-        case nes = "Nintendo Entertainment System"
         
         var shortened: String {
             switch self {
-            case .gba: "GBA"
             case .nSwitch: "3DS"
-            case .nds: "NDS"
-            case .nes: "NES"
             }
         }
     }
     
     case Sudachi = "Sudachi"
-    case grape = "Grape"
     
     var console: Console {
         switch self {
         case .Sudachi: .nSwitch
-        case .grape: .nds
         }
     }
     
     var isNintendo: Bool {
-        self == .Sudachi || self == .grape
+        self == .Sudachi
     }
     
 
     
-    static let cores: [Core2] = [.Sudachi, .grape]
+    static let cores: [Core2] = [.Sudachi]
 }
 
 
@@ -109,14 +95,17 @@ struct Core : Comparable, Hashable {
 class DirectoriesManager {
     static let shared = DirectoriesManager()
     
-    func directories() -> [String : [String : [String : MissingFile.FileImportance]]] {
+    func directories() -> [String : [String : MissingFile.FileImportance]] {
         [
                 "amiibo" : [:],
                 "cache" : [:],
                 "config" : [:],
                 "crash_dumps" : [:],
                 "dump" : [:],
-                "keys" : [:],
+                "keys" : [
+                    "prod.keys" : .required,
+                    "title.keys" : .required
+                ],
                 "load" : [:],
                 "log" : [:],
                 "nand" : [:],
@@ -133,40 +122,29 @@ class DirectoriesManager {
     
     func createMissingDirectoriesInDocumentsDirectory() throws {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        try directories().forEach { directory, subdirectories in
+        try directories().forEach { directory, _ in
             let coreDirectory = documentsDirectory.appendingPathComponent(directory, conformingTo: .folder)
             if !FileManager.default.fileExists(atPath: coreDirectory.path) {
                 try FileManager.default.createDirectory(at: coreDirectory, withIntermediateDirectories: false)
-                
-                try subdirectories.forEach { subdirectory, files in
-                    let coreSubdirectory = coreDirectory.appendingPathComponent(subdirectory, conformingTo: .folder)
-                    if !FileManager.default.fileExists(atPath: coreSubdirectory.path) {
-                        try FileManager.default.createDirectory(at: coreSubdirectory, withIntermediateDirectories: false)
-                    }
-                }
-            } else {
-                try subdirectories.forEach { subdirectory, files in
-                    let coreSubdirectory = coreDirectory.appendingPathComponent(subdirectory, conformingTo: .folder)
-                    if !FileManager.default.fileExists(atPath: coreSubdirectory.path) {
-                        try FileManager.default.createDirectory(at: coreSubdirectory, withIntermediateDirectories: false)
-                    }
-                }
             }
         }
     }
     
     func scanDirectoriesForRequiredFiles(for core: inout Core) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        guard let directory = directories().first(where: { $0.key == "" }) else {
-            return
-        }
         
-        directory.value.forEach { subdirectory, fileNames in
-            let coreSubdirectory = documentsDirectory.appendingPathComponent(directory.key, conformingTo: .folder)
-                .appendingPathComponent(subdirectory, conformingTo: .folder)
-            fileNames.forEach { (fileName, fileImportance) in
-                if !FileManager.default.fileExists(atPath: coreSubdirectory.appendingPathComponent(fileName, conformingTo: .fileURL).path) {
-                    core.missingFiles.append(.init(coreName:core.name, directory: coreSubdirectory, fileImportance: fileImportance, fileName: fileName))
+        directories().forEach { directory in
+            directory.value.forEach { subdirectory, fileNames in
+                let coreSubdirectory = documentsDirectory.appendingPathComponent(directory.key, conformingTo: .folder)
+                    .appendingPathComponent(subdirectory, conformingTo: .folder)
+                
+                // Ensure fileNames is treated as a dictionary of [String: MissingFile.FileImportance]
+                if let fileNamesDict = fileNames as? [String: MissingFile.FileImportance] {
+                    fileNamesDict.forEach { (fileName, fileImportance) in
+                        if !FileManager.default.fileExists(atPath: coreSubdirectory.appendingPathComponent(fileName, conformingTo: .fileURL).path) {
+                            core.missingFiles.append(.init(coreName: core.name, directory: coreSubdirectory, fileImportance: fileImportance, fileName: fileName))
+                        }
+                    }
                 }
             }
         }
