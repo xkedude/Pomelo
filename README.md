@@ -3,7 +3,7 @@ Pomelo is a Nintendo Switch Emulator for iOS (source code will become avalible a
 
 ## Info and FAQ
 
-THIS CAN NOT BE SIDELOADED NORMALLY (with a free dev account) YOU CAN TRY IT BUT I GUARRENTY IT WONT WORK BUT IG IT DOES JOIN THE DISCORD
+THIS CAN NOT BE SIDELOADED NORMALLY (with a free dev account) YOU CAN TRY IT BUT I GUARANTEE IT WONT WORK BUT IG IT DOES JOIN THE DISCORD
 
 1. This needs a Paid Apple developer account or you can build it with Xcode (guide comming soon)
 2. you need JIT if your on iOS 17+ you can use [SideJITServer](https://github.com/nythepegasus/SideJITServer) if your on iOS 16.7+ then you can just use SideStore or Jitterbug
