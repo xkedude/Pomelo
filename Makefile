@@ -157,9 +157,10 @@ test:
 ## -- Building --
 
 build:
-	@xcodebuild -project Pomelo.xcodeproj \
+	@xcodebuild -workspace Pomelo.xcodeproj/project.xcworkspace \
 				-scheme Pomelo \
 				-sdk iphoneos \
+				-destination generic/platform=iOS
 				archive -archivePath ./archive \
 				CODE_SIGNING_REQUIRED=NO \
 				AD_HOC_CODE_SIGNING_ALLOWED=YES \
