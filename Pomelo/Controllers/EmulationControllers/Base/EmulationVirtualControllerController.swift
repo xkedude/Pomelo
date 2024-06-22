@@ -9,6 +9,7 @@ import Foundation
 import GameController
 import UIKit
 
+
 class EmulationVirtualControllerController : UIViewController, VirtualControllerButtonDelegate {
     var virtualControllerView: VirtualControllerView!
     
@@ -24,7 +25,16 @@ class EmulationVirtualControllerController : UIViewController, VirtualController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        
+        
+        let oldsaved = UserDefaults.standard.color(forKey: "color")
+        if let savedColor = oldsaved {
+            print("\(savedColor)" + "fun theme")
+            view.backgroundColor = savedColor
+        } else {
+            print("\(oldsaved)" + "fun theme nil")
+            view.backgroundColor = .systemBackground // Default color
+        }
         
         switch game {
         case let SudachiGame as SudachiGame:

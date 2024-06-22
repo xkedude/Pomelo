@@ -7,28 +7,11 @@
 
 import SwiftUI
 import Foundation
-
-func registerDefaultsFromSettingsBundle()
-{
-    let settingsUrl = Bundle.main.url(forResource: "Settings", withExtension: "bundle")!.appendingPathComponent("Root.plist")
-    let settingsPlist = NSDictionary(contentsOf:settingsUrl)!
-    let preferences = settingsPlist["PreferenceSpecifiers"] as! [NSDictionary]
-    
-    var defaultsToRegister = Dictionary<String, Any>()
-    
-    for preference in preferences {
-        guard let key = preference["sidejitserver-enable"] as? String else {
-            NSLog("Key not found")
-            continue
-        }
-        defaultsToRegister[key] = preference[false]
-    }
-    UserDefaults.standard.register(defaults: defaultsToRegister)
-}
+import UIKit
 
 @main
 struct PomeloApp: App {
-    @State private var cores: [Core] = []
+    @State var cores: Core = Core(console: .nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(fileURLWithPath: "/"))
     @AppStorage("entitlementNotExists") private var entitlementNotExists: Bool = false
     @AppStorage("sidejitserver-enable") var sidejitserver: Bool = false
     @AppStorage("sidejitserver-NavigationLink") var showAlert: Bool = false
@@ -42,10 +25,12 @@ struct PomeloApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LibraryView(core: $cores)
+            // LibraryView(core: $cores)
+            NavView(cores: $cores)
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
-                    registerDefaultsFromSettingsBundle()
+                    // registerDefaultsFromSettingsBundle()
+                    
                     print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path)
                     do {
                         try DirectoriesManager.shared.createMissingDirectoriesInDocumentsDirectory()
@@ -60,60 +45,7 @@ struct PomeloApp: App {
                     }
                     let defaults = UserDefaults.standard
                     if #available(iOS 17.0, *) {
-                        if sidejitserverauto {
-                            var sidejitip2 = ip
-                            DispatchQueue.global(qos: .userInteractive).async {
-                                if sidejitip2.isEmpty {
-                                    sidejitip2 = "http://sidejitserver._http._tcp.local:8080"
-                                }
-                                
-                                guard udid.isEmpty else {
-                                    alertstring = "Cannot Find Current Device UDID please input it inside the SideJITServer Settings"
-                                    issue = true
-                                    return
-                                }
-                                
-                                    let sidejitip = sidejitip2 + "/" + udid + "/Pomelo/"
-                                    print(sidejitip)
-                                sendrequestsidejit(url: sidejitip) { completion in
-                                    switch completion {
-                                    case .success(()):
-                                        print("yippee")
-                                    case .failure(let error):
-                                        switch error {
-                                        case .invalidURL:
-                                            alertstring = "Invalid URL"
-                                            issue = true
-                                        case .errorConnecting:
-                                            alertstring = "Unable to connect to SideJITServer Please check that you are on the Same Wi-Fi and your Firewall has been set correctly"
-                                            issue = true
-                                        case .deviceNotFound:
-                                            alertstring = "SideJITServer is unable to connect to your iDevice Please make sure you have paired your Device by doing 'SideJITServer -y' or try Refreshing SideJITServer from Settings"
-                                            issue = true
-                                        case .other(let message):
-                                            if let startRange = message.range(of: "<p>"),
-                                               let endRange = message.range(of: "</p>", range: startRange.upperBound..<message.endIndex) {
-                                                let pContent = message[startRange.upperBound..<endRange.lowerBound]
-                                                //self.finish(.failure(OperationError.SideJITIssue(error: String(pContent))))
-                                                if message != "JIT already enabled for 'Pomelo'!" {
-                                                    alertstring = "SideJITServer Error: \(pContent)"
-                                                    issue = true
-                                                    print(message)
-                                                }
-                                                print(message + " + " + String(pContent))
-                                            } else {
-                                                print(message)
-                                                if message != "JIT already enabled for 'Pomelo'!" {
-                                                    alertstring = "SideJITServer Error: \(message)"
-                                                    issue = true
-                                                    print(message)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        } else {
+                        if !sidejitserver {
                             isSideJITServerDetected { completion in
                                 DispatchQueue.main.async {
                                     switch completion {
@@ -155,55 +87,25 @@ struct PomeloApp: App {
         }
     }
     
-    func fetchLatestVersion() {
-        guard let url = URL(string: "https://api.github.com/repos/stossy11/Pomelo/releases/latest") else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
-                print("Error fetching latest version: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                if let tagName = json?["tag_name"] as? String {
-                    DispatchQueue.main.async {
-                        self.latestVersion = tagName
-                        checkForUpdate(tagName)
-                    }
+}
+
+struct NavView: View {
+    @Binding var cores: Core
+    var body: some View {
+        TabView {
+            LibraryView(core: $cores)
+                .tabItem {
+                    Label("Games", systemImage: "rectangle.on.rectangle")
                 }
-            } catch {
-                print("Error parsing JSON: \(error.localizedDescription)")
-            }
+            BootOSView(core: cores)
+                .tabItem {
+                    Label("Home Menu", systemImage: "house")
+                }
+            SettingsView(core: cores)
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
         
-        task.resume()
     }
-}
-
-
-func checkForUpdate(_ latestVersion: String) {
-    if isNewVersionAvailable(latestVersion) {
-        showUpdatePrompt()
-    }
-}
-
-func isNewVersionAvailable(_ latestVersion: String) -> Bool {
-    guard let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
-        return false
-    }
-    
-    // Compare versions
-    return currentVersion.compare(latestVersion, options: .numeric) == .orderedAscending
-}
-
-func showUpdatePrompt() {
-    let alert = UIAlertController(title: "Update Available", message: "A new version is available on GitHub. Do you want to update?", preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-        if let url = URL(string: "https://github.com//stossy11/Pomelo/") {
-            UIApplication.shared.open(url)
-        }
-    })
-    
-    UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
 }

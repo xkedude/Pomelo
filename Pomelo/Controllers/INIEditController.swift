@@ -6,8 +6,6 @@
 //
 
 import Sudachi
-
-
 import Foundation
 import UIKit
 
@@ -30,7 +28,8 @@ class INIEditController : UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.setLeftBarButton(.init(systemItem: .close, primaryAction: .init(handler: { _ in self.dismiss(animated: true) })), animated: true)
+        // navigationItem.setLeftBarButton(.init(systemItem: .close, primaryAction: .init(handler: { _ in self.dismiss(animated: true) })), animated: true)
+        navigationItem.leftBarButtonItem = nil // Remove the default "Back" button
         navigationItem.setRightBarButton(.init(systemItem: .save, primaryAction: .init(handler: { _ in
             self.save()
             
@@ -46,6 +45,7 @@ class INIEditController : UIViewController, UITextViewDelegate {
             self.dismiss(animated: true)
         })), animated: true)
         view.backgroundColor = .systemBackground
+        
         
         textView = .init()
         textView.translatesAutoresizingMaskIntoConstraints = false

@@ -40,7 +40,7 @@ enum Core2 : String, Codable, Hashable {
         
         var shortened: String {
             switch self {
-            case .nSwitch: "3DS"
+            case .nSwitch: "nSwitch"
             }
         }
     }
@@ -72,12 +72,29 @@ struct Core : Comparable, Hashable {
         case nSwitch = "Nintendo Switch"
         
         func buttonColors() -> [VirtualControllerButton.ButtonType : UIColor] {
-            switch self {
-            default:
-                [
-                    :
+            var colors: [VirtualControllerButton.ButtonType: UIColor] = [:]
+            
+            // Load theme
+            if let theme = ThemeLoader.shared.loadTheme() {
+                colors = [
+                    .a: theme.color(for: .a) ?? .systemGray,
+                    .b: theme.color(for: .b) ?? .systemGray,
+                    .x: theme.color(for: .x) ?? .systemGray,
+                    .y: theme.color(for: .y) ?? .systemGray,
+                    // Add more buttons as needed
+                ]
+            } else {
+                // Default to system colors if theme fails to load
+                colors = [
+                    .a: .systemGray,
+                    .b: .systemGray,
+                    .x: .systemGray,
+                    .y: .systemGray,
+                    // Add more buttons as needed
                 ]
             }
+            
+            return colors
         }
     }
     
@@ -92,11 +109,13 @@ struct Core : Comparable, Hashable {
     }
 }
 
+
 class DirectoriesManager {
     static let shared = DirectoriesManager()
     
     func directories() -> [String : [String : MissingFile.FileImportance]] {
         [
+                "themes" : ["theme.json": .optional],
                 "amiibo" : [:],
                 "cache" : [:],
                 "config" : [:],
@@ -122,10 +141,21 @@ class DirectoriesManager {
     
     func createMissingDirectoriesInDocumentsDirectory() throws {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        try directories().forEach { directory, _ in
+        try directories().forEach { directory, files in
             let coreDirectory = documentsDirectory.appendingPathComponent(directory, conformingTo: .folder)
             if !FileManager.default.fileExists(atPath: coreDirectory.path) {
                 try FileManager.default.createDirectory(at: coreDirectory, withIntermediateDirectories: false)
+            }
+            
+            // Create theme.json file if it doesn't exist
+            if directory == "themes" {
+                let themeFileURL = coreDirectory.appendingPathComponent("theme.json")
+                if !FileManager.default.fileExists(atPath: themeFileURL.path) {
+                    let defaultTheme = Theme(color: "", a: "", b: "", x: "", y: "")
+                    if let jsonData = try? JSONEncoder().encode(defaultTheme) {
+                        FileManager.default.createFile(atPath: themeFileURL.path, contents: jsonData, attributes: nil)
+                    }
+                }
             }
         }
     }
@@ -158,7 +188,7 @@ enum LibraryManagerError : Error {
 class LibraryManager {
     static let shared = LibraryManager()
     
-    func library() throws -> [Core] {
+    func library() throws -> Core {
         func romsDirectoryCrawler(for coreName: Core.Name) throws -> [URL] {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             guard let enumerator = FileManager.default.enumerator(at: documentsDirectory.appendingPathComponent(coreName.rawValue, conformingTo: .folder)
@@ -211,22 +241,14 @@ class LibraryManager {
         
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
-#if canImport(Cytrus)
-        var cytrusCore = Core(console: .n3ds, name: .cytrus, games: [], missingFiles: [], root: directory.appendingPathComponent(Core.Name.cytrus.rawValue, conformingTo: .folder))
-        games(from: try romsDirectoryCrawler(for: .cytrus), for: &cytrusCore)
-        DirectoriesManager.shared.scanDirectoriesForRequiredFiles(for: &cytrusCore)
-#endif
-        
 #if canImport(Sudachi)
         var SudachiCore = Core(console: .nSwitch, name: .Sudachi, games: [], missingFiles: [], root: directory.appendingPathComponent(Core.Name.Sudachi.rawValue, conformingTo: .folder))
         games(from: try romsDirectoryCrawler(for: .Sudachi), for: &SudachiCore)
         DirectoriesManager.shared.scanDirectoriesForRequiredFiles(for: &SudachiCore)
 #endif
         
-#if canImport(Cytrus)
-        return [cytrusCore, grapeCore, kiwiCore]
-#elseif canImport(Sudachi)
-        return [SudachiCore]
+#if canImport(Sudachi)
+        return SudachiCore
 #endif
     }
 }

@@ -128,30 +128,34 @@ __attribute__((constructor)) static void entry(int argc, char **argv)
 {
     double systemVersion = [[[UIDevice currentDevice] systemVersion] doubleValue];
     
-    if (([[NSUserDefaults standardUserDefaults] boolForKey:@"useTrollStore"]) && (systemVersion == 14.0 || (systemVersion >= 15.0 && systemVersion < 16.7) || systemVersion == 17.0)) {
+    /*if (getEntitlementValue(@"com.apple.private.security.no-container")
+        || getEntitlementValue(@"com.apple.private.security.container-required")
+        || getEntitlementValue(@"com.apple.private.security.no-sandbox")) {
         pid_t me = getpid();
-
+        
         // Create the file path in the app's Documents directory
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"pid.txt"];
-
+        
         // Write the C code snippet to the file
         NSString *codeSnippet = [NSString stringWithFormat:@"%d", me];
         NSError *error;
-
+        
         if (![codeSnippet writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
             NSLog(@"Error writing code snippet to file: %@", error);
             exit(1);
         }
-
         tryEnableJIT(argc, argv);
-    } else if (!getEntitlementValue(@"com.apple.developer.kernel.increased-memory-limit")) {
+    }
+     */
+    if (!getEntitlementValue(@"com.apple.developer.kernel.increased-memory-limit")) {
         NSLog(@"Entitlement Does Not Exist");
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setBool:YES forKey:@"entitlementNotExists"];
         [defaults synchronize]; // Ensure the value is saved immediately
-    } else if (getEntitlementValue(@"com.apple.developer.kernel.increased-memory-limit")) {
+    }
+    if (getEntitlementValue(@"com.apple.developer.kernel.increased-memory-limit")) {
         NSLog(@"Entitlement Exists");
         if (getEntitlementValue(@"com.apple.developer.kernel.increased-debugging-memory-limit")) {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -164,4 +168,5 @@ __attribute__((constructor)) static void entry(int argc, char **argv)
             [defaults synchronize]; // Ensure the value is saved immediately
         }
     }
+        
 }

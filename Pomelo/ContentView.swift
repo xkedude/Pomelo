@@ -5,13 +5,14 @@
 //  Created by Stossy11 on 15/6/2024.
 //
 
+import CarPlay
 import SwiftUI
 import UIKit
 
 
 struct ContentView: View {
-    @Binding var cores: [Core]
-    @Binding var showAlert: Bool
+    @State private var cores: Core
+    @State var showAlert = false
     @AppStorage("sidejitserver-enable") var sidejitserver: Bool = false
     @AppStorage("sidejitserver-ip") var ip: String = ""
     @AppStorage("sidejitserver-udid") var udid: String = ""
@@ -53,3 +54,36 @@ struct ContentView: View {
     }
 }
 
+
+struct BootOSView: View {
+    @State var core: Core?
+    var body: some View {
+       Text("beans")
+            .onAppear {
+                if let core = core {
+                    let PomeloGame = SudachiGame(core: core, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
+                    presentPomeloEmulation(PomeloGame: PomeloGame)
+                }
+            }
+    }
+}
+
+func presentPomeloEmulation(PomeloGame: SudachiGame) {
+    var backgroundColor: UIColor = .systemBackground
+    let PomeloEmulationController = SudachiEmulationController(game: PomeloGame)
+    PomeloEmulationController.modalPresentationStyle = .fullScreen
+    
+    ThemeLoader.shared.loadTheme { color in
+        if let color = color {
+            UserDefaults.standard.setValue(nil, forKey: "color")
+            UserDefaults.standard.setColor(color, forKey: "color")
+            backgroundColor = color
+        }
+    }
+
+    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+       let window = scene.windows.first,
+       let rootViewController = window.rootViewController {
+        rootViewController.present(PomeloEmulationController, animated: true, completion: nil)
+    }
+}

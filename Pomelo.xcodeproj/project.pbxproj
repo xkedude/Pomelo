@@ -10,11 +10,11 @@
 		384F188E2C1DCB4F0073375C /* PomeloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F188D2C1DCB4F0073375C /* PomeloApp.swift */; };
 		384F18902C1DCB4F0073375C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F188F2C1DCB4F0073375C /* ContentView.swift */; };
 		384F18922C1DCB520073375C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18912C1DCB520073375C /* Assets.xcassets */; };
-		384F18952C1DCB520073375C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18942C1DCB520073375C /* Preview Assets.xcassets */; };
 		387EC3EC2C1EC79300314FF4 /* EnableJIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */; };
 		387EC3EE2C1EC7A600314FF4 /* DetectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */; };
 		387EC3F02C1EC7DF00314FF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */; };
 		38966AF92C1DDE760021C1A9 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38966AF82C1DDE680021C1A9 /* LibraryView.swift */; };
+		38B93F7A2C21256800E219ED /* ThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B93F792C21256800E219ED /* ThemeLoader.swift */; };
 		38C50D012C1DCF150007A953 /* libavcodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; };
 		38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AF2C1DCE8900331706 /* libavformat.xcframework */; };
@@ -60,7 +60,6 @@
 		38C846872C1DCD2200331706 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 38C846682C1DCD2200331706 /* fishhook.c */; };
 		38C846882C1DCD2200331706 /* VirtualControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */; };
 		38C846892C1DCD2200331706 /* VirtualControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */; };
-		38C8468F2C1DCD2200331706 /* MinimalRoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467B2C1DCD2200331706 /* MinimalRoundedTextField.swift */; };
 		38C846902C1DCD2200331706 /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C8466D2C1DCD2200331706 /* utils.m */; };
 		38C846922C1DCD2200331706 /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846792C1DCD2200331706 /* LibraryManager.swift */; };
 		38C846932C1DCD2200331706 /* VirtualControllerButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */; };
@@ -71,6 +70,7 @@
 		38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */; };
 		38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */; };
 		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
+		38F284C92C26514F00994A77 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F284C82C26514F00994A77 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,13 +108,13 @@
 		384F188D2C1DCB4F0073375C /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
 		384F188F2C1DCB4F0073375C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		384F18912C1DCB520073375C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		384F18942C1DCB520073375C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		384F18962C1DCB520073375C /* Pomelo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pomelo.entitlements; sourceTree = "<group>"; };
 		384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sudachi.xcodeproj; path = Sudachi/Sudachi.xcodeproj; sourceTree = "<group>"; };
 		387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableJIT.swift; sourceTree = "<group>"; };
 		387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectServer.swift; sourceTree = "<group>"; };
 		387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		38966AF82C1DDE680021C1A9 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		38B93F792C21256800E219ED /* ThemeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeLoader.swift; sourceTree = "<group>"; };
 		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D482C1DD7BA0007A953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -126,7 +126,6 @@
 		38C8466E2C1DCD2200331706 /* JITEnabler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JITEnabler.m; sourceTree = "<group>"; };
 		38C846772C1DCD2200331706 /* SudachiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiGame.swift; sourceTree = "<group>"; };
 		38C846792C1DCD2200331706 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; tabWidth = 3; };
-		38C8467B2C1DCD2200331706 /* MinimalRoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimalRoundedTextField.swift; sourceTree = "<group>"; };
 		38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButton.swift; sourceTree = "<group>"; };
 		38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButtonDelegate.swift; sourceTree = "<group>"; };
 		38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerView.swift; sourceTree = "<group>"; };
@@ -163,6 +162,8 @@
 		38C846C62C1DCE8900331706 /* libSoundTouch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSoundTouch.xcframework; sourceTree = "<group>"; };
 		38C846C72C1DCE8900331706 /* libSPIRV.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSPIRV.xcframework; sourceTree = "<group>"; };
 		38C846C82C1DCE8900331706 /* libteakra.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libteakra.xcframework; sourceTree = "<group>"; };
+		38F284C82C26514F00994A77 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		38F284CA2C266D4400994A77 /* Makefile.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,12 +215,14 @@
 		384F18812C1DCB4F0073375C = {
 			isa = PBXGroup;
 			children = (
+				38F284CA2C266D4400994A77 /* Makefile.txt */,
 				384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */,
 				384F188C2C1DCB4F0073375C /* Pomelo */,
 				384F188B2C1DCB4F0073375C /* Products */,
 				38C50D132C1DD4570007A953 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 0;
 		};
 		384F188B2C1DCB4F0073375C /* Products */ = {
 			isa = PBXGroup;
@@ -239,20 +242,12 @@
 				384F188D2C1DCB4F0073375C /* PomeloApp.swift */,
 				384F188F2C1DCB4F0073375C /* ContentView.swift */,
 				38966AF82C1DDE680021C1A9 /* LibraryView.swift */,
+				38F284C82C26514F00994A77 /* SettingsView.swift */,
 				384F18912C1DCB520073375C /* Assets.xcassets */,
 				384F18962C1DCB520073375C /* Pomelo.entitlements */,
-				384F18932C1DCB520073375C /* Preview Content */,
 				387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */,
 			);
 			path = Pomelo;
-			sourceTree = "<group>";
-		};
-		384F18932C1DCB520073375C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				384F18942C1DCB520073375C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		387EC3E92C1EC76100314FF4 /* Trollstore */ = {
@@ -273,6 +268,14 @@
 				387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */,
 			);
 			path = SideJITServer;
+			sourceTree = "<group>";
+		};
+		38B93F762C21253000E219ED /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				38B93F792C21256800E219ED /* ThemeLoader.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 		38C50CEF2C1DCEA10007A953 /* Products */ = {
@@ -323,17 +326,8 @@
 			isa = PBXGroup;
 			children = (
 				38C846782C1DCD2200331706 /* Games */,
-				38C846792C1DCD2200331706 /* LibraryManager.swift */,
 			);
 			path = LibraryManager;
-			sourceTree = "<group>";
-		};
-		38C8467C2C1DCD2200331706 /* MinimalRoundedTextField */ = {
-			isa = PBXGroup;
-			children = (
-				38C8467B2C1DCD2200331706 /* MinimalRoundedTextField.swift */,
-			);
-			path = MinimalRoundedTextField;
 			sourceTree = "<group>";
 		};
 		38C846802C1DCD2200331706 /* VirtualController */ = {
@@ -349,9 +343,10 @@
 		38C846822C1DCD2200331706 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				38B93F762C21253000E219ED /* Themes */,
 				38C8466F2C1DCD2200331706 /* JITEnabler */,
 				38C8467A2C1DCD2200331706 /* LibraryManager */,
-				38C8467C2C1DCD2200331706 /* MinimalRoundedTextField */,
+				38C846792C1DCD2200331706 /* LibraryManager.swift */,
 				38C846802C1DCD2200331706 /* VirtualController */,
 			);
 			path = Classes;
@@ -516,7 +511,6 @@
 			files = (
 				387EC3F02C1EC7DF00314FF4 /* Settings.bundle in Resources */,
 				38C846952C1DCD2200331706 /* LICENSE in Resources */,
-				384F18952C1DCB520073375C /* Preview Assets.xcassets in Resources */,
 				384F18922C1DCB520073375C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,7 +525,9 @@
 				384F18902C1DCB4F0073375C /* ContentView.swift in Sources */,
 				384F188E2C1DCB4F0073375C /* PomeloApp.swift in Sources */,
 				387EC3EC2C1EC79300314FF4 /* EnableJIT.swift in Sources */,
+				38B93F7A2C21256800E219ED /* ThemeLoader.swift in Sources */,
 				387EC3EE2C1EC7A600314FF4 /* DetectServer.swift in Sources */,
+				38F284C92C26514F00994A77 /* SettingsView.swift in Sources */,
 				38C846832C1DCD2200331706 /* SudachiGame.swift in Sources */,
 				38C846862C1DCD2200331706 /* JITEnabler.m in Sources */,
 				38C846872C1DCD2200331706 /* fishhook.c in Sources */,
@@ -541,7 +537,6 @@
 				38C846A72C1DCDC100331706 /* INIEditController.swift in Sources */,
 				38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */,
 				38C846892C1DCD2200331706 /* VirtualControllerView.swift in Sources */,
-				38C8468F2C1DCD2200331706 /* MinimalRoundedTextField.swift in Sources */,
 				38C846902C1DCD2200331706 /* utils.m in Sources */,
 				38C846922C1DCD2200331706 /* LibraryManager.swift in Sources */,
 				38C846932C1DCD2200331706 /* VirtualControllerButtonDelegate.swift in Sources */,
@@ -678,14 +673,13 @@
 				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Pomelo/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pomelo/Info.plist;
-				INFOPLIST_KEY_GCSupportsControllerUserInteraction = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -705,13 +699,15 @@
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.5;
 				OTHER_LDFLAGS = "-lSudachi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -726,14 +722,13 @@
 				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Pomelo/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pomelo/Info.plist;
-				INFOPLIST_KEY_GCSupportsControllerUserInteraction = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -753,13 +748,15 @@
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.5;
 				OTHER_LDFLAGS = "-lSudachi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -776,7 +773,7 @@
 				384F18AE2C1DCB520073375C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		384F18AF2C1DCB520073375C /* Build configuration list for PBXNativeTarget "Pomelo" */ = {
 			isa = XCConfigurationList;
@@ -785,7 +782,7 @@
 				384F18B12C1DCB520073375C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

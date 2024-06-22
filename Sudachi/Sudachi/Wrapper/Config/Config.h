@@ -157,7 +157,7 @@ use_multi_core =
 
 # Enable unsafe extended guest system memory layout (8GB DRAM)
 # 0 (default): Disabled, 1: Enabled
-use_unsafe_extended_memory_layout =
+use_unsafe_extended_memory_layout = 1
 
 [Cpu]
 # Adjusts various optimizations.
@@ -496,7 +496,7 @@ gdbstub_port=6543
 # 0: No, 1 (default): Yes
 enable_telemetry =
 # URL for Web API
-web_api_url = https://api.yuzu-emu.org
+web_api_url =
 # Username and token for yuzu Web Service
 # See https://profile.yuzu-emu.org/ for more info
 yuzu_username =

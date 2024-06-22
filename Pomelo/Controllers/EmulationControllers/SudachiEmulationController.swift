@@ -39,7 +39,14 @@ class SudachiEmulationController : EmulationScreensController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        let oldsaved = UserDefaults.standard.color(forKey: "color")
+        if let savedColor = oldsaved {
+            print("\(savedColor)" + "fun theme")
+            view.backgroundColor = savedColor
+        } else {
+            print("\(oldsaved)" + "fun theme nil")
+            view.backgroundColor = .systemBackground // Default color
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -314,7 +321,15 @@ class SudachiEmulationController2 : UIViewController, VirtualControllerButtonDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        
+        let oldsaved = UserDefaults.standard.color(forKey: "color")
+        if let savedColor = oldsaved {
+            print("\(savedColor)" + "fun theme")
+            view.backgroundColor = savedColor
+        } else {
+            print("\(oldsaved)" + "fun theme nil")
+            view.backgroundColor = .systemBackground // Default color
+        }
         
         thread = .init(block: step)
         thread.name = "Sudachi"
