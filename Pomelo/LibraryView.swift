@@ -97,13 +97,7 @@ struct CoreDetailView: View {
         
         VStack(alignment: .leading) {
             if core != nil {
-                let columns = [
-                    GridItem(.flexible()),
-                    GridItem(.flexible())
-                ]
-                
-                LazyVGrid(columns: columns, spacing: 10) {
-                    
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                     ForEach(0..<filteredGames.count, id: \.self) { index in
                         if let game = core.games[index] as? SudachiGame {
                             Button {
@@ -121,6 +115,7 @@ struct CoreDetailView: View {
         }
         .padding()
     }
+    
     
     func presentPomeloEmulation(PomeloGame: SudachiGame) {
         var backgroundColor: UIColor = .systemBackground

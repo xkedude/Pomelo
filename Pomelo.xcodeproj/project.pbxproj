@@ -163,7 +163,7 @@
 		38C846C72C1DCE8900331706 /* libSPIRV.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSPIRV.xcframework; sourceTree = "<group>"; };
 		38C846C82C1DCE8900331706 /* libteakra.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libteakra.xcframework; sourceTree = "<group>"; };
 		38F284C82C26514F00994A77 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		38F284CA2C266D4400994A77 /* Makefile.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Makefile.txt; sourceTree = "<group>"; };
+		38F284CB2C2683A000994A77 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +215,7 @@
 		384F18812C1DCB4F0073375C = {
 			isa = PBXGroup;
 			children = (
-				38F284CA2C266D4400994A77 /* Makefile.txt */,
+				38F284CB2C2683A000994A77 /* Makefile */,
 				384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */,
 				384F188C2C1DCB4F0073375C /* Pomelo */,
 				384F188B2C1DCB4F0073375C /* Products */,
