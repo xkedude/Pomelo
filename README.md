@@ -50,10 +50,10 @@ W.I.P (this would ~99% require a mac)
 W.I.P (trollstore will probably never work)
 
 
-# Discord
- [Join the discord!](https://discord.gg/JkuKZezxeJ)
+## Discord
+### [Join the discord!](https://discord.gg/JkuKZezxeJ)
 
-#Screenshots
+# Screenshots
 
 ![menu](https://github.com/stossy11/Pomelo/blob/main/images/IMG_081EF53F67C9-1.jpeg)
 
