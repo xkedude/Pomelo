@@ -23,7 +23,7 @@ This is based on the F x Sudachi 1.1.4 code that was originally based of Yuzu (d
 
 ## Paid Dev Account
 
-1. Sideload it normally
+1. Sideload it normally (Through SideStore, AltStore or any Apple ID Sideloader)
 
 2. Go to https://developer.apple.com/account/resources/identifiers
 
