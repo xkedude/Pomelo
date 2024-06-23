@@ -3,7 +3,7 @@ Pomelo is a Nintendo Switch Emulator for iOS
 
 # Piracy
 
-WE DO NOT CONDONE OR SUPPORT PIRACY AT ALL. if you want to use Pomelo you will be required to dump the decryption keys and roms from a legally owned real Switch system (not your friends or your cousins nothing **Your** own legally owned Switch).
+WE DO NOT CONDONE OR SUPPORT PIRACY AT ALL. if you want to use Pomelo you will be required to dump the decryption keys, Firmware and roms from a legally owned real Switch system (not your friends or your cousins nothing **Your** own legally owned Switch).
 
 
 
@@ -21,9 +21,18 @@ This is based on the F x Sudachi 1.1.4 code that was originally based of Yuzu (d
 
 # Setup Guide
 
-## W.I.P
-i dont know when im gonna do the setup guide
+## Paid Dev Account
+1. Sideload it normally
 
+2. Go to https://developer.apple.com/account/resources/identifiers
+
+3. find Pomelo and then enable these entitlements
+
+```Extended Virtual Addressing```
+
+```Increased Memory Limit```
+
+```Increased Debugging Memory Limit```
 
 # Downloads
 Download it / get help in the discord server [here](https://discord.gg/JkuKZezxeJ)
