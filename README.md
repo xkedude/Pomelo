@@ -50,7 +50,7 @@ W.I.P (this would ~99% require a mac)
 W.I.P (trollstore will probably never work)
 
 
-## Discord
+# Discord
 ### [Join the discord!](https://discord.gg/JkuKZezxeJ)
 
 # Screenshots
