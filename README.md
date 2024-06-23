@@ -45,6 +45,10 @@ Presto you can now play games!
 
 W.I.P (this would ~99% require a mac)
 
+## Trollstore
+
+W.I.P (trollstore will probably never work)
+
 
 # Downloads
 Download it / get help in the discord server [here](https://discord.gg/JkuKZezxeJ)
