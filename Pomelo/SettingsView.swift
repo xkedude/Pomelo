@@ -20,6 +20,22 @@ struct SettingsView: View {
                     }
                     .padding()
                     
+                    NavigationLink(destination: InfoView()) {
+                        Rectangle()
+                            .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
+                            .cornerRadius(10) // Apply rounded corners
+                            .frame(width: .infinity, height: 50) // Set the desired dimensions
+                            .overlay() {
+                                HStack {
+                                    Text("About")
+                                        .foregroundColor(.primary)
+                                        .padding()
+                                    Spacer()
+                                }
+                            }
+                    }
+                    .padding()
+                    
                     NavigationLink {
                         let configURL = core.root.appendingPathComponent("config").appendingPathComponent("config.ini")
                         INIEditControllerWrapper(console: core.console, configURL: configURL)
@@ -33,7 +49,7 @@ struct SettingsView: View {
                             .frame(width: .infinity, height: 50) // Set the desired dimensions
                             .overlay() {
                                 HStack {
-                                    Text("Settings")
+                                    Text("Core Settings")
                                         .foregroundColor(.primary)
                                         .padding()
                                     Spacer()
@@ -89,14 +105,15 @@ struct SettingsView: View {
                         }
                         .padding()
                     }
-                    NavigationLink(destination: InfoView()) {
+                    // NavigationLink(
+                    NavigationLink(destination: AdvancedSettingsView()) {
                         Rectangle()
                             .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
                             .cornerRadius(10) // Apply rounded corners
                             .frame(width: .infinity, height: 50) // Set the desired dimensions
                             .overlay() {
                                 HStack {
-                                    Text("About")
+                                    Text("Advanced Settings")
                                         .foregroundColor(.primary)
                                         .padding()
                                     Spacer()
@@ -121,4 +138,28 @@ struct SettingsView: View {
     }
 }
 
+struct AdvancedSettingsView: View {
+    @AppStorage("isfullscreen") var isFullScreen: Bool = false
+    var body: some View {
+        ScrollView {
+            Rectangle()
+                .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
+                .cornerRadius(10) // Apply rounded corners
+                .frame(width: .infinity, height: 50) // Set the desired dimensions
+                .overlay() {
+                    HStack {
+                        Toggle("FullScreen", isOn: $isFullScreen)
+                            .padding()
+                    }
+                }
+            Text("This is unstable and can lead to crashes. Use at your own risk.")
+                .padding(.bottom)
+                .font(.footnote)
+                .foregroundColor(.gray)
+                
+        }
+    }
+}
 
+// let userDefaults = UserDefaults.standard
+// userDefaults.set(true, forKey: "isfullscreen")

@@ -83,7 +83,7 @@ struct GameRowView: View {
 
 
 struct CoreDetailView: View {
-    var core: Core
+    @State var core: Core
     @State private var searchText = ""
     @State var ispoped = false
 
@@ -94,47 +94,38 @@ struct CoreDetailView: View {
             }
             return false // Default case if the cast fails
         }
-        
-        VStack(alignment: .leading) {
-            if core != nil {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
-                    ForEach(0..<filteredGames.count, id: \.self) { index in
-                        if let game = core.games[index] as? SudachiGame {
-                            Button {
-                                presentPomeloEmulation(PomeloGame: game)
-                            } label: {
-                                GameRowView(game: game)
-                                    .frame(maxWidth: .infinity, minHeight: 200) // Set a consistent height for each row
+        ScrollView {
+            VStack(alignment: .leading) {
+                if core != nil {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
+                        ForEach(0..<filteredGames.count, id: \.self) { index in
+                            if let game = core.games[index] as? SudachiGame {
+                                Button {
+                                    presentPomeloEmulation(PomeloGame: game)
+                                } label: {
+                                    GameRowView(game: game)
+                                        .frame(maxWidth: .infinity, minHeight: 200) // Set a consistent height for each row
+                                }
                             }
                         }
                     }
+                    .searchable(text: $searchText) // Add this line
+                    .frame(maxWidth: .infinity)
                 }
-                .searchable(text: $searchText) // Add this line
-                .frame(maxWidth: .infinity)
+            }
+            .padding()
+        }
+        .refreshable {
+            core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(string: "[]")!)
+            do {
+                core = try LibraryManager.shared.library()
+            } catch {
+                print("Failed to fetch library: \(error)")
             }
         }
-        .padding()
     }
     
-    
-    func presentPomeloEmulation(PomeloGame: SudachiGame) {
-        var backgroundColor: UIColor = .systemBackground
-        let PomeloEmulationController = SudachiEmulationController(game: PomeloGame)
-        PomeloEmulationController.modalPresentationStyle = .fullScreen
-        
-        ThemeLoader.shared.loadTheme { color in
-            if let color = color {
-                UserDefaults.standard.setValue(nil, forKey: "color")
-                UserDefaults.standard.setColor(color, forKey: "color")
-            }
-        }
 
-        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = scene.windows.first,
-           let rootViewController = window.rootViewController {
-            rootViewController.present(PomeloEmulationController, animated: true, completion: nil)
-        }
-    }
 }
 
 
@@ -372,9 +363,7 @@ struct LibraryView: View {
             VStack {
                 let (doesKeyExist, doesProdExist) = doeskeysexist()
                 if doesKeyExist && doesProdExist {
-                    ScrollView {
-                        CoreDetailView(core: core)
-                    }
+                    CoreDetailView(core: core)
                 } else {
                     Text("You Are Missing These Files:")
                         .font(.headline)

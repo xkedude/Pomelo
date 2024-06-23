@@ -67,23 +67,3 @@ struct BootOSView: View {
             }
     }
 }
-
-func presentPomeloEmulation(PomeloGame: SudachiGame) {
-    var backgroundColor: UIColor = .systemBackground
-    let PomeloEmulationController = SudachiEmulationController(game: PomeloGame)
-    PomeloEmulationController.modalPresentationStyle = .fullScreen
-    
-    ThemeLoader.shared.loadTheme { color in
-        if let color = color {
-            UserDefaults.standard.setValue(nil, forKey: "color")
-            UserDefaults.standard.setColor(color, forKey: "color")
-            backgroundColor = color
-        }
-    }
-
-    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-       let window = scene.windows.first,
-       let rootViewController = window.rootViewController {
-        rootViewController.present(PomeloEmulationController, animated: true, completion: nil)
-    }
-}

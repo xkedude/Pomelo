@@ -19,8 +19,8 @@
 void EmulationWindow::OnSurfaceChanged(CA::MetalLayer* surface, CGSize size) {
     m_size = size;
     
-    m_window_width = is_portrait ? size.width : size.height;
-    m_window_height = is_portrait ? size.height : size.width;
+    m_window_width = size.width;
+    m_window_height = size.height;
 
     // Ensures that we emulate with the correct aspect ratio.
     UpdateCurrentFramebufferLayout(m_window_width, m_window_height);
