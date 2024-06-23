@@ -22,17 +22,25 @@ This is based on the F x Sudachi 1.1.4 code that was originally based of Yuzu (d
 # Setup Guide
 
 ## Paid Dev Account
+
 1. Sideload it normally
 
 2. Go to https://developer.apple.com/account/resources/identifiers
 
-3. find Pomelo and then enable these entitlements
+3. Find Pomelo and then enable these entitlements
 
 ```Extended Virtual Addressing```
 
 ```Increased Memory Limit```
 
 ```Increased Debugging Memory Limit```
+
+4. Then you will need to Delete and Sideload it again
+
+5. Enable JIT Through your prefered method.
+
+Presto you can now play games!
+
 
 # Downloads
 Download it / get help in the discord server [here](https://discord.gg/JkuKZezxeJ)
