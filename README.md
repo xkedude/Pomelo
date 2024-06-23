@@ -41,6 +41,10 @@ This is based on the F x Sudachi 1.1.4 code that was originally based of Yuzu (d
 
 Presto you can now play games!
 
+## Free Dev Account
+
+W.I.P (this would ~99% require a mac)
+
 
 # Downloads
 Download it / get help in the discord server [here](https://discord.gg/JkuKZezxeJ)
