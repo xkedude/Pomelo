@@ -159,7 +159,7 @@ class DirectoriesManager {
                     try FileManager.default.createDirectory(at: themeimagefoler, withIntermediateDirectories: false)
                 }
                 if !FileManager.default.fileExists(atPath: themeFileURL.path) {
-                    let defaultTheme = Theme(background: "", a: "", b: "", x: "", y: "")
+                    let defaultTheme = Theme(background: "", a: "", b: "", x: "", y: "", dpadUp: "", dpadLeft: "", dpadDown: "", dpadRight: "", minus: "", plus: "", l: "", zl: "", r: "", zr: "")
                     if let jsonData = try? JSONEncoder().encode(defaultTheme) {
                         FileManager.default.createFile(atPath: themeFileURL.path, contents: jsonData, attributes: nil)
                     }

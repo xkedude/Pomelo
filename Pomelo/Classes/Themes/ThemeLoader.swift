@@ -15,6 +15,16 @@ struct Theme: Codable {
     let b: String?
     let x: String?
     let y: String?
+    let dpadUp: String?
+    let dpadLeft: String?
+    let dpadDown: String?
+    let dpadRight: String?
+    let minus: String?
+    let plus: String?
+    let l: String?
+    let zl: String?
+    let r: String?
+    let zr: String?
     // Add more properties for other button types as needed
     
     func color(for buttonType: VirtualControllerButton.ButtonType) -> UIColor? {
@@ -27,9 +37,26 @@ struct Theme: Codable {
             return UIColor(hex: x ?? "")
         case .y:
             return UIColor(hex: y ?? "")
-        // Add cases for other button types
-        default:
-            return nil
+        case .dpadUp:
+            return UIColor(hex: y ?? "")
+        case .dpadLeft:
+            return UIColor(hex: y ?? "")
+        case .dpadDown:
+            return UIColor(hex: y ?? "")
+        case .dpadRight:
+            return UIColor(hex: y ?? "")
+        case .minus:
+            return UIColor(hex: y ?? "")
+        case .plus:
+            return UIColor(hex: y ?? "")
+        case .l:
+            return UIColor(hex: y ?? "")
+        case .zl:
+            return UIColor(hex: y ?? "")
+        case .r:
+            return UIColor(hex: y ?? "")
+        case .zr:
+            return UIColor(hex: y ?? "")
         }
     }
 }
