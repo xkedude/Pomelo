@@ -23,7 +23,7 @@ This is based on the F x Sudachi 1.1.4 code that was originally based of Yuzu (d
 
 ## Paid Dev Account
 
-1. Sideload it normally
+1. Sideload it normally (Through SideStore, AltStore or any Apple ID Sideloader)
 
 2. Go to https://developer.apple.com/account/resources/identifiers
 
@@ -50,10 +50,10 @@ W.I.P (this would ~99% require a mac)
 W.I.P (trollstore will probably never work)
 
 
-# Downloads
-Download it / get help in the discord server [here](https://discord.gg/JkuKZezxeJ)
+# Discord
+### [Join the discord!](https://discord.gg/JkuKZezxeJ)
 
-
+# Screenshots
 
 ![menu](https://github.com/stossy11/Pomelo/blob/main/images/IMG_081EF53F67C9-1.jpeg)
 
