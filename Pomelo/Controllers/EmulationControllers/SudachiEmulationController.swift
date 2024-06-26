@@ -12,6 +12,7 @@ import Foundation
 import GameController
 import MetalKit.MTKView
 import UIKit
+import SwiftUI
 
 class SudachiEmulationController : EmulationScreensController {
     fileprivate var thread: Thread!
@@ -28,7 +29,7 @@ class SudachiEmulationController : EmulationScreensController {
         sudachiGame = game
         
         thread = .init(block: step)
-        thread.name = "Sudachi"
+        thread.name = "Pomelo"
         thread.qualityOfService = .userInteractive
         thread.threadPriority = 0.9
     }
@@ -39,13 +40,49 @@ class SudachiEmulationController : EmulationScreensController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let oldsaved = UserDefaults.standard.color(forKey: "color")
-        if let savedColor = oldsaved {
-            print("\(savedColor)" + "fun theme")
+        let userDefaults = UserDefaults.standard
+        
+        if let urlString = userDefaults.string(forKey: "background") {
+            let fileManager = FileManager.default
+            let backgroundURL = URL(fileURLWithPath: urlString)
+            
+            let exists = fileManager.fileExists(atPath: urlString)
+            
+            if exists {
+                if let image = UIImage(contentsOfFile: urlString) {
+                    let backgroundImageView = UIImageView(image: image)
+                    backgroundImageView.contentMode = .scaleAspectFill
+                    self.view.addSubview(backgroundImageView)
+                    self.view.sendSubviewToBack(backgroundImageView)
+                } else {
+                    print("Error: Unable to load image from path: \(urlString)")
+                    if let savedColor = userDefaults.color(forKey: "color") {
+                        print("\(savedColor)" + " fun theme")
+                        view.backgroundColor = savedColor
+                    } else {
+                        print("fun theme nil")
+                        view.backgroundColor = .systemBackground // Default color
+                    }
+                }
+            } else {
+                print("Error: File does not exist or is a directory at path: \(urlString)")
+                if let savedColor = userDefaults.color(forKey: "color") {
+                    print("\(savedColor)" + " fun theme")
+                    view.backgroundColor = savedColor
+                } else {
+                    print("fun theme nil")
+                    view.backgroundColor = .systemBackground // Default color
+                }
+            }
+        } else if let savedColor = userDefaults.color(forKey: "color") {
+            print("\(savedColor)" + " fun theme")
             view.backgroundColor = savedColor
         } else {
-            print("\(oldsaved)" + "fun theme nil")
+            print("fun theme nil")
             view.backgroundColor = .systemBackground // Default color
+        }
+        if userDefaults.bool(forKey: "exitgame") {
+            customButton.addTarget(self, action: #selector(customButtonTapped), for: .touchUpInside)
         }
     }
     
@@ -77,6 +114,18 @@ class SudachiEmulationController : EmulationScreensController {
                 self.sudachi.orientationChanged(orientation: UIApplication.shared.statusBarOrientation, with: self.primaryScreen.layer as! CAMetalLayer,
                                                 size: self.primaryScreen.frame.size)
             }
+        }
+    }
+    
+    @objc func customButtonTapped() {
+        stopEmulation()
+    }
+    func stopEmulation() {
+        if isRunning {
+            self.dismiss(animated: true)
+            isRunning = false
+            sudachi.bootOS1()
+            thread.cancel()
         }
     }
     
@@ -301,6 +350,21 @@ class SudachiEmulationController : EmulationScreensController {
     }
 }
 
+struct SudachiEmulationViewController: UIViewControllerRepresentable {
+    var game: SudachiGame
+    @Binding var shouldStopEmulation: Bool
 
+    func makeUIViewController(context: Context) -> SudachiEmulationController {
+        let controller = SudachiEmulationController(game: game)
+        controller.modalPresentationStyle = .fullScreen
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: SudachiEmulationController, context: Context) {
+        if shouldStopEmulation {
+            uiViewController.stopEmulation()
+        }
+    }
+}
 
 #endif

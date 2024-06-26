@@ -14,6 +14,52 @@
 #include "common/fs/fs.h"
 #include "common/fs/path_util.h"
 #include "common/settings.h"
+#include "common/fs/fs.h"
+#include "core/file_sys/patch_manager.h"
+#include "core/file_sys/savedata_factory.h"
+#include "core/loader/nro.h"
+#include "frontend_common/content_manager.h"
+
+#include "common/detached_tasks.h"
+#include "common/dynamic_library.h"
+#include "common/fs/path_util.h"
+#include "common/logging/backend.h"
+#include "common/logging/log.h"
+#include "common/microprofile.h"
+#include "common/scm_rev.h"
+#include "common/scope_exit.h"
+#include "common/settings.h"
+#include "common/string_util.h"
+#include "core/core.h"
+#include "core/cpu_manager.h"
+#include "core/crypto/key_manager.h"
+#include "core/file_sys/card_image.h"
+#include "core/file_sys/content_archive.h"
+#include "core/file_sys/fs_filesystem.h"
+#include "core/file_sys/submission_package.h"
+#include "core/file_sys/vfs/vfs.h"
+#include "core/file_sys/vfs/vfs_real.h"
+#include "core/frontend/applets/cabinet.h"
+#include "core/frontend/applets/controller.h"
+#include "core/frontend/applets/error.h"
+#include "core/frontend/applets/general.h"
+#include "core/frontend/applets/mii_edit.h"
+#include "core/frontend/applets/profile_select.h"
+#include "core/frontend/applets/software_keyboard.h"
+#include "core/frontend/applets/web_browser.h"
+#include "core/hle/service/am/applet_manager.h"
+#include "core/hle/service/am/frontend/applets.h"
+#include "core/hle/service/filesystem/filesystem.h"
+#include "core/loader/loader.h"
+#include "frontend_common/yuzu_config.h"
+#include "hid_core/frontend/emulated_controller.h"
+#include "hid_core/hid_core.h"
+#include "hid_core/hid_types.h"
+#include "video_core/renderer_base.h"
+#include "video_core/renderer_vulkan/renderer_vulkan.h"
+#include "video_core/vulkan_common/vulkan_instance.h"
+#include "video_core/vulkan_common/vulkan_surface.h"
+
 
 #import <mach/mach.h>
 
@@ -46,7 +92,49 @@
     return sharedInstance;
 }
 
+- (BOOL)ispaused {
+    return EmulationSession::GetInstance().IsPaused();
+}
+
+-(void) pause {
+    EmulationSession::GetInstance().System().Pause();
+    void(EmulationSession::GetInstance().PauseEmulation());
+}
+
+-(void) play {
+    EmulationSession::GetInstance().System().Run();
+    void(EmulationSession::GetInstance().UnPauseEmulation());
+}
+
+- (BOOL)canGetFullPath {
+    @try {
+        Core::System& system = EmulationSession::GetInstance().System();
+        auto bis_system = system.GetFileSystemController().GetSystemNANDContents();
+        
+        if (bis_system == nullptr) {
+            return NO;
+        }
+
+        constexpr u64 QLaunchId = static_cast<u64>(Service::AM::AppletProgramId::QLaunch);
+        auto qlaunch_applet_nca = bis_system->GetEntry(QLaunchId, FileSys::ContentRecordType::Program);
+
+        if (qlaunch_applet_nca == nullptr) {
+            return NO;
+        }
+
+        const auto filename = qlaunch_applet_nca->GetFullPath();
+        
+        // If GetFullPath() is successful
+        return YES;
+    } @catch (NSException *exception) {
+        // Handle the exception if needed
+        return NO;
+    }
+}
+
 -(void) quit {
+    EmulationSession::GetInstance().HaltEmulation();
+    EmulationSession::GetInstance().System().Exit();
     void(EmulationSession::GetInstance().ShutdownEmulation());
 }
 

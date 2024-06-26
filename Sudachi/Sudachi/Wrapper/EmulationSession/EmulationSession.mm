@@ -314,7 +314,7 @@ Core::SystemResultStatus EmulationSession::BootOS() {
     // Register an ExecuteProgram callback such that Core can execute a sub-program
     m_system.RegisterExecuteProgramCallback([&](std::size_t program_index_) {
         m_next_program_index = program_index_;
-        EmulationSession::GetInstance().HaltEmulation();
+        // EmulationSession::GetInstance().HaltEmulation();
     });
 
     OnEmulationStarted();

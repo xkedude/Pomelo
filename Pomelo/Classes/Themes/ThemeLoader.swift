@@ -10,7 +10,7 @@ import SwiftUI
 import Foundation
 
 struct Theme: Codable {
-    let color: String
+    let background: String
     let a: String?
     let b: String?
     let x: String?
@@ -37,10 +37,10 @@ struct Theme: Codable {
 class ThemeLoader {
     static let shared = ThemeLoader()
 
-    func loadTheme(completion: @escaping (UIColor?) -> Void) {
+    func loadTheme(completion: @escaping (UIColor?, URL?) -> Void) {
         let fileManager = FileManager.default
         guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            completion(nil)
+            completion(nil, nil)
             print("Unable to get documents directory.")
             return
         }
@@ -51,21 +51,33 @@ class ThemeLoader {
             do {
                 let data = try Data(contentsOf: themeURL)
                 let theme = try JSONDecoder().decode(Theme.self, from: data)
-                let color = UIColor(hex: theme.color)
+                let fileExtension = (theme.background as NSString).pathExtension.lowercased()
+                let color = UIColor(hex: theme.background)
                 DispatchQueue.main.async {
-                    print("Loaded theme color: \(color) from \(themeURL)")
-                    completion(color)
+                    if fileExtension == "png" || fileExtension == "jpg" || fileExtension == "jpeg" {
+                        let themeURLs = documentsDirectory.appendingPathComponent("themes/images/\(theme.background)")
+                        if fileManager.fileExists(atPath: themeURLs.path) {
+                            print(themeURLs.path)
+                            completion(nil, themeURLs)
+                        } else {
+                            print("Unable To get image trying to load theme colors: \(color) from \(themeURL)")
+                            completion(color, nil)
+                        }
+                    } else {
+                        print("Loaded theme color: \(color) from \(themeURL)")
+                        completion(color, nil)
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {
                     print("Error loading theme: \(error.localizedDescription)")
-                    completion(nil)
+                    completion(nil, nil)
                 }
             }
         }
     }
     
-    func loadTheme() -> Theme? {
+    func loadThemes() -> Theme? {
         let fileManager = FileManager.default
         guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return nil
@@ -81,6 +93,10 @@ class ThemeLoader {
             print("Error loading theme: \(error.localizedDescription)")
             return nil
         }
+    }
+    
+    func LoadBackgroundImage() {
+        
     }
 }
 

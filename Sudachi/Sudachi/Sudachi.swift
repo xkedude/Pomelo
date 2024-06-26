@@ -34,6 +34,30 @@ public struct Sudachi {
         sudachiObjC.bootOS()
     }
     
+    public func pause() {
+        sudachiObjC.pause()
+    }
+    
+    public func play() {
+        sudachiObjC.play()
+    }
+    
+    public func togglepause() {
+        if sudachiObjC.ispaused() {
+            sudachiObjC.play()
+        } else {
+            sudachiObjC.pause()
+        }
+    }
+    
+    public func ispaused() -> Bool {
+        return sudachiObjC.ispaused()
+    }
+    
+    public func canGetFullPath() -> Bool {
+        return sudachiObjC.canGetFullPath()
+    }
+    
     public func bootOS1() {
         sudachiObjC.quit()
     }

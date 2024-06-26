@@ -15,7 +15,7 @@ struct ScreenConfiguration {
     static let cornerRadius: CGFloat = 10
 }
 
-class EmulationScreensController : EmulationVirtualControllerController {
+class EmulationScreensController: EmulationVirtualControllerController {
     var primaryScreen, secondaryScreen: UIView!
     var primaryBlurredScreen, secondaryBlurredScreen: UIView!
     fileprivate var visualEffectView: UIVisualEffectView!
@@ -26,9 +26,23 @@ class EmulationScreensController : EmulationVirtualControllerController {
     
     fileprivate var portraitConstraints, landscapeConstraints: [NSLayoutConstraint]!
     
+    fileprivate var customButtonPortraitConstraints, customButtonLandscapeConstraints: [NSLayoutConstraint]!
+    
+    let customButton: UIButton = {
+        let button = UIButton(type: .system)
+        // Set the system image for the button
+        let image = UIImage(systemName: "x.square")
+        button.setImage(image, for: .normal)
+        // Adjust button appearance if necessary
+        button.tintColor = .white
+        button.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        let userDefaults = UserDefaults.standard
         
         visualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
         visualEffectView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,21 +71,30 @@ class EmulationScreensController : EmulationVirtualControllerController {
         if #available(iOS 17, *) {
             registerForTraitChanges([UITraitUserInterfaceStyle.self], action: #selector(traitDidChange))
         }
+        
+        // Add the custom button
+        if userDefaults.bool(forKey: "exitgame") {
+            addCustomButton()
+            
+            // Add the initial constraints for the custom button
+            applyCustomButtonConstraints(for: view.bounds.size)
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: "exitgame") {
+            // Update the custom button constraints based on the new size
+            applyCustomButtonConstraints(for: size)
+        }
+        
         if userDefaults.bool(forKey: "isfullscreen") {
-            if UIApplication.shared.statusBarOrientation == .portrait {
-                view.removeConstraints(fullScreenConstraints)
-                view.addConstraints(portraitConstraints)
-            } else {
-                view.removeConstraints(fullScreenConstraints)
-                view.addConstraints(fullScreenConstraints)
-            }
+            view.removeConstraints(fullScreenConstraints)
+            view.addConstraints(fullScreenConstraints)
         } else {
-            if UIApplication.shared.statusBarOrientation == .portrait || UIApplication.shared.statusBarOrientation == .portraitUpsideDown {
+            if UIApplication.shared.statusBarOrientation.isPortrait {
                 view.removeConstraints(landscapeConstraints)
                 view.addConstraints(portraitConstraints)
             } else {
@@ -109,13 +132,6 @@ class EmulationScreensController : EmulationVirtualControllerController {
             primaryScreen.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             primaryScreen.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             primaryScreen.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ]
-        
-        portraitConstraints = [
-            primaryScreen.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            primaryScreen.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            primaryScreen.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            primaryScreen.heightAnchor.constraint(equalTo: primaryScreen.widthAnchor, multiplier: 9 / 16),
         ]
         
         view.addConstraints(fullScreenConstraints)
@@ -163,8 +179,7 @@ class EmulationScreensController : EmulationVirtualControllerController {
             primaryBlurredScreen.trailingAnchor.constraint(equalTo: primaryScreen.trailingAnchor, constant: 10)
         ]
         
-        view.addConstraints(UIApplication.shared.statusBarOrientation == .portrait ||
-                            UIApplication.shared.statusBarOrientation == .portraitUpsideDown ? portraitConstraints : landscapeConstraints)
+        view.addConstraints(UIApplication.shared.statusBarOrientation.isPortrait ? portraitConstraints : landscapeConstraints)
     }
     
     @objc fileprivate func traitDidChange() {
@@ -197,5 +212,35 @@ class EmulationScreensController : EmulationVirtualControllerController {
                            decode: nil, shouldInterpolate: false, intent: .defaultIntent)
         
         return imageRef
+    }
+    
+    func addCustomButton() {
+        customButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(customButton)
+        
+        customButtonPortraitConstraints = [
+            customButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            customButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            customButton.widthAnchor.constraint(equalToConstant: 100), // Increased width
+            customButton.heightAnchor.constraint(equalToConstant: 100) // Increased height
+        ]
+        
+        customButtonLandscapeConstraints = [
+            customButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            customButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            customButton.widthAnchor.constraint(equalToConstant: 100), // Increased width
+            customButton.heightAnchor.constraint(equalToConstant: 100) // Increased height
+        ]
+    }
+    
+    func applyCustomButtonConstraints(for size: CGSize) {
+        view.removeConstraints(customButtonPortraitConstraints)
+        view.removeConstraints(customButtonLandscapeConstraints)
+        
+        if size.width > size.height {
+            view.addConstraints(customButtonLandscapeConstraints)
+        } else {
+            view.addConstraints(customButtonPortraitConstraints)
+        }
     }
 }

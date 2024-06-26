@@ -50,6 +50,10 @@ typedef NS_ENUM(NSUInteger, VirtualControllerButtonType) {
 +(SudachiObjC *) sharedInstance NS_SWIFT_NAME(shared());
 -(void) configureLayer:(CAMetalLayer *)layer withSize:(CGSize)size NS_SWIFT_NAME(configure(layer:with:));
 -(void) bootOS;
+-(void) pause;
+-(void) play;
+-(BOOL) ispaused;
+-(BOOL) canGetFullPath;
 -(void) quit;
 -(void) insertGame:(NSURL *)url NS_SWIFT_NAME(insert(game:));
 -(void) insertGames:(NSArray<NSURL *> *)games NS_SWIFT_NAME(insert(games:));

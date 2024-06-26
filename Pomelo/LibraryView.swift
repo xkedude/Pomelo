@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 import UIKit
+import UniformTypeIdentifiers
 
 struct Help : Comparable, Hashable, Identifiable {
     var id = UUID()
@@ -29,19 +30,6 @@ struct Help : Comparable, Hashable, Identifiable {
     }
 }
 
-
-struct CoreRowView: View {
-    var core: Core
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(core.name.rawValue)
-                .font(.headline)
-            Text(core.console.rawValue)
-                .font(.subheadline)
-        }
-    }
-}
 
 struct GameRowView: View {
     var game: SudachiGame
@@ -86,6 +74,7 @@ struct CoreDetailView: View {
     @State var core: Core
     @State private var searchText = ""
     @State var ispoped = false
+    @State var game: SudachiGame? = nil
 
     var body: some View {
         let filteredGames = core.games.filter { game in
@@ -101,6 +90,8 @@ struct CoreDetailView: View {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
                             if let game = core.games[index] as? SudachiGame {
                                 Button {
+                                    self.game = game
+                                    // ispoped = true
                                     presentPomeloEmulation(PomeloGame: game)
                                 } label: {
                                     GameRowView(game: game)
@@ -114,6 +105,14 @@ struct CoreDetailView: View {
                 }
             }
             .padding()
+        }
+        .onAppear() {
+            core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(string: "[]")!)
+            do {
+                core = try LibraryManager.shared.library()
+            } catch {
+                print("Failed to fetch library: \(error)")
+            }
         }
         .refreshable {
             core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(string: "[]")!)
@@ -200,10 +199,10 @@ struct InfoView: View {
 }
 
 struct SideJITServerSettings: View {
-    @AppStorage("sidejitserver-enable") var sidejitserver: Bool = false
-    @AppStorage("sidejitserver-NavigationLink") var showAlert: Bool = false
-    @AppStorage("sidejitserver-ip") var ip: String = ""
-    @AppStorage("sidejitserver-udid") var udid: String = ""
+    @AppStorage("sidejitserver-enable-true") var sidejitserver: Bool = false
+    @AppStorage("sidejitserver-NavigationLink-true") var showAlert: Bool = false
+    @AppStorage("sidejitserver-ip-true") var ip: String = ""
+    @AppStorage("sidejitserver-udid-true") var udid: String = ""
     @AppStorage("sidejitserver-enable-auto") var sidejitserverauto: Bool = false
     @AppStorage("alertstring") var alertstring = ""
     @AppStorage("alert") var alert = false
@@ -214,10 +213,11 @@ struct SideJITServerSettings: View {
                 .font(.largeTitle)
             TextField("SideJITServer IP", text: $ip)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+                .padding(.top)
             Text("This is not needed if SideJITServer has already been detected")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+                .padding(.bottom)
             SecureField("UDID", text: $udid)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
@@ -343,11 +343,33 @@ struct SideJITServerSettings: View {
     }
 }
 
+extension UTType {
+    static var nro: UTType {
+        UTType(exportedAs: "com.stossy11.nro")
+    }
+    static var nca: UTType {
+        UTType(exportedAs: "com.stossy11.nca")
+    }
+    static var nso: UTType {
+        UTType(exportedAs: "com.stossy11.nso")
+    }
+    static var nsp: UTType {
+        UTType(exportedAs: "com.stossy11.nsp")
+    }
+    static var xci: UTType {
+        UTType(exportedAs: "com.stossy11.xci")
+    }
+    static var keys: UTType {
+        UTType(exportedAs: "com.stossy11.keys")
+    }
+}
+
 
 struct LibraryView: View {
     @Binding var core: Core
     @State var showingEditConfig = false
     @State private var isActive: Bool = false
+    @State private var isimport: Bool = false
     @State private var showprompt: Bool = false
     @AppStorage("sidejitserver-enable") var sidejitserver: Bool = false
     @AppStorage("sidejitserver-NavigationLink") var showAlert: Bool = false
@@ -359,7 +381,7 @@ struct LibraryView: View {
     @AppStorage("issue") var issue = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 let (doesKeyExist, doesProdExist) = doeskeysexist()
                 if doesKeyExist && doesProdExist {
@@ -389,38 +411,92 @@ struct LibraryView: View {
                 }
                 
             }
+            .fileImporter(isPresented: $isimport, allowedContentTypes: [.data], onCompletion: { result in
+                switch result {
+                case .success(let file):
+                    if file.startAccessingSecurityScopedResource() {
+                        moveFileToAppropriateFolder(file)
+                        file.stopAccessingSecurityScopedResource()
+                    } else {
+                        print("Failed to access the file")
+                    }
+                    
+                case .failure(let error):
+                    isimport = false
+                    print(error.localizedDescription)
+                }
+                //moveFileToAppropriateFolder()
+            })
             .navigationBarTitle("Library", displayMode: .inline)
-            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isimport = true
+                    } label: {
+                        Image(systemName: "folder.badge.plus")
+                    }
+                }
+            }
         }
         
     }
     
+    private func moveFileToAppropriateFolder(_ fileURL: URL) {
+           let fileManager = FileManager.default
+           let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+           
+           let romsDirectory = documentsDirectory.appendingPathComponent("roms")
+           let keysDirectory = documentsDirectory.appendingPathComponent("keys")
+           
+           let fileExtension = fileURL.pathExtension.lowercased()
+           if ["nca", "nro", "nso", "nsp", "xci"].contains(fileExtension) {
+               do {
+                   try fileManager.moveItem(at: fileURL, to: romsDirectory.appendingPathComponent(fileURL.lastPathComponent))
+               } catch {
+                   print("Error moving file to roms folder: \(error.localizedDescription)")
+               }
+           } else if fileExtension == "keys" {
+               do {
+                   try fileManager.moveItem(at: fileURL, to: keysDirectory.appendingPathComponent(fileURL.lastPathComponent))
+               } catch {
+                   print("Error moving file to keys folder: \(error.localizedDescription)")
+               }
+           }
+       }
     
     
     func doeskeysexist() -> (Bool, Bool) {
         var doesprodexist = false
         var doestitleexist = false
+        var bean: [MissingFile] = []
+
         if core != nil {
-            let title = core.root.appendingPathComponent("keys").appendingPathComponent("title.keys")
-            let prod = core.root.appendingPathComponent("keys").appendingPathComponent("prod.keys")
-            let fileManager = FileManager.default
-            let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            
-            if fileManager.fileExists(atPath: prod.path) {
-                doesprodexist = true
-            } else {
-                print("File does not exist")
+            do {
+                bean = try LibraryManager.shared.library().missingFiles
+            } catch {
+                print("uhoh stinky")
             }
             
-            if fileManager.fileExists(atPath: title.path) {
-                doestitleexist = true
-            } else {
-                print("File does not exist")
+            print(bean.count)
+            print(bean)
+            
+            // Check if "prod.keys" is missing
+            doesprodexist = !bean.contains { $0.fileName == "prod.keys" && $0.directory.lastPathComponent == "keys" }
+            if !doesprodexist {
+                print("prod.keys does not exist")
+            }
+            
+            // Check if "title.keys" is missing
+            doestitleexist = !bean.contains { $0.fileName == "title.keys" && $0.directory.lastPathComponent == "keys" }
+            if (!doestitleexist) {
+                print("title.keys does not exist")
             }
         }
-        return((doestitleexist, doesprodexist))
+        return (doestitleexist, doesprodexist)
     }
 }
+
+
 
 struct INIEditControllerWrapper: UIViewControllerRepresentable {
     let console: Core.Console // Replace Console with your actual type

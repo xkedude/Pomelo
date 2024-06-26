@@ -8,15 +8,16 @@
 import SwiftUI
 import Foundation
 import UIKit
+import Sudachi
 
 @main
 struct PomeloApp: App {
     @State var cores: Core = Core(console: .nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(fileURLWithPath: "/"))
     @AppStorage("entitlementNotExists") private var entitlementNotExists: Bool = false
-    @AppStorage("sidejitserver-enable") var sidejitserver: Bool = false
-    @AppStorage("sidejitserver-NavigationLink") var showAlert: Bool = false
-    @AppStorage("sidejitserver-ip") var ip: String = ""
-    @AppStorage("sidejitserver-udid") var udid: String = ""
+    @AppStorage("sidejitserver-enable-true") var sidejitserver: Bool = false
+    @AppStorage("sidejitserver-NavigationLink-true") var showAlert: Bool = false
+    @AppStorage("sidejitserver-ip-true") var ip: String = ""
+    @AppStorage("sidejitserver-udid-true") var udid: String = ""
     @AppStorage("sidejitserver-enable-auto") var sidejitserverauto: Bool = false
     @State private var latestVersion: String?
     @State var alertstring = ""
@@ -74,7 +75,7 @@ struct PomeloApp: App {
                 .alert(isPresented: $alert) {
                     Alert(
                         title: Text("SideJITServer"),
-                        message: Text("SideJITServer has been found on your network would you like to enable support."),
+                        message: Text("SideJITServer has been found on your network would you like to enable support. (Please Configure SideJITServer in Settings)"),
                         primaryButton: .default(Text("OK"), action: {
                             UserDefaults.standard.set(true, forKey: "sidejitserver-enable")
                         }),
@@ -91,36 +92,64 @@ struct PomeloApp: App {
 
 struct NavView: View {
     @Binding var cores: Core
+    let sudachi = Sudachi.shared
+    @State private var selectedTab = 0
+    @State private var isTabDisabled = false
+    @State private var showAlert = false
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             LibraryView(core: $cores)
                 .tabItem {
                     Label("Games", systemImage: "rectangle.on.rectangle")
                 }
-            BootOSView(core: cores)
-                .tabItem {
-                    Label("Home Menu", systemImage: "house")
-                }
+                .tag(0)
+            if sudachi.canGetFullPath() {
+                LibraryView(core: $cores)
+                    .onChange(of: selectedTab) { newValue in
+                        if newValue == 1 {
+                            selectedTab = 0
+                            let PomeloGame = SudachiGame(core: cores, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
+                            presentPomeloEmulation(PomeloGame: PomeloGame)
+                        }
+                    }
+                    .tabItem {
+                        Label("Home Menu", systemImage: "house")
+                    }
+                    .tag(1)
+            } else {
+                NoBootOS()
+                    .tabItem {
+                        Label("Home Menu", systemImage: "house")
+                    }
+                    .tag(1)
+            }
             SettingsView(core: cores)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+                .tag(2)
         }
-        
     }
 }
 
+
 func presentPomeloEmulation(PomeloGame: SudachiGame) {
-    var backgroundColor: UIColor = .systemBackground
     let PomeloEmulationController = SudachiEmulationController(game: PomeloGame)
     PomeloEmulationController.modalPresentationStyle = .fullScreen
     
     UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     
-    ThemeLoader.shared.loadTheme { color in
+    ThemeLoader.shared.loadTheme { color, image in
+        let userdefaults = UserDefaults.standard
         if let color = color {
-            UserDefaults.standard.setValue(nil, forKey: "color")
-            UserDefaults.standard.setColor(color, forKey: "color")
+            userdefaults.setValue(nil, forKey: "color")
+            userdefaults.setValue(nil, forKey: "background")
+            userdefaults.setColor(color, forKey: "color")
+        } else if let image = image {
+            userdefaults.setValue(nil, forKey: "color")
+            userdefaults.setValue(nil, forKey: "background")
+            userdefaults.setValue(image.path, forKey: "background")
         }
     }
 
@@ -128,5 +157,19 @@ func presentPomeloEmulation(PomeloGame: SudachiGame) {
        let window = scene.windows.first,
        let rootViewController = window.rootViewController {
         rootViewController.present(PomeloEmulationController, animated: true, completion: nil)
+    }
+}
+
+struct NoBootOS: View {
+    let sudachi = Sudachi.shared
+    
+    var body: some View {
+        VStack {
+            Text("Unable Launch Switch OS")
+                .font(.largeTitle)
+                .padding()
+            Text("You do not have the Switch Home Menu Files Needed to launch the Ηome Menu")
+            
+        }
     }
 }

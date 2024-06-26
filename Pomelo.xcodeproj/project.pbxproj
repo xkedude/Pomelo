@@ -131,7 +131,7 @@
 		38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerView.swift; sourceTree = "<group>"; };
 		38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulationVirtualControllerController.swift; sourceTree = "<group>"; };
 		38C846972C1DCDC100331706 /* EmulationScreensController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulationScreensController.swift; sourceTree = "<group>"; };
-		38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationController.swift; sourceTree = "<group>"; };
+		38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		38C846A12C1DCDC100331706 /* INIEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INIEditController.swift; sourceTree = "<group>"; };
 		38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MoltenVK.xcframework; sourceTree = "<group>"; };
 		38C846AD2C1DCE8900331706 /* libavcodec.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavcodec.xcframework; sourceTree = "<group>"; };
@@ -670,6 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -708,6 +709,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -719,6 +721,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -757,6 +760,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

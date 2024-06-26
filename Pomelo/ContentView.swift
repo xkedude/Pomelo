@@ -55,15 +55,3 @@ struct ContentView: View {
 }
 
 
-struct BootOSView: View {
-    @State var core: Core?
-    var body: some View {
-       Text("beans")
-            .onAppear {
-                if let core = core {
-                    let PomeloGame = SudachiGame(core: core, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
-                    presentPomeloEmulation(PomeloGame: PomeloGame)
-                }
-            }
-    }
-}

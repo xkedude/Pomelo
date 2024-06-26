@@ -75,12 +75,13 @@ struct Core : Comparable, Hashable {
             var colors: [VirtualControllerButton.ButtonType: UIColor] = [:]
             
             // Load theme
-            if let theme = ThemeLoader.shared.loadTheme() {
+            if let theme = ThemeLoader.shared.loadThemes() {
                 colors = [
                     .a: theme.color(for: .a) ?? .systemGray,
                     .b: theme.color(for: .b) ?? .systemGray,
                     .x: theme.color(for: .x) ?? .systemGray,
                     .y: theme.color(for: .y) ?? .systemGray,
+                    
                     // Add more buttons as needed
                 ]
             } else {
@@ -115,7 +116,8 @@ class DirectoriesManager {
     
     func directories() -> [String : [String : MissingFile.FileImportance]] {
         [
-                "themes" : ["theme.json": .optional],
+            "themes" : [
+                "theme.json": .optional],
                 "amiibo" : [:],
                 "cache" : [:],
                 "config" : [:],
@@ -147,11 +149,17 @@ class DirectoriesManager {
                 try FileManager.default.createDirectory(at: coreDirectory, withIntermediateDirectories: false)
             }
             
+            var isDirectory: ObjCBool = true
+            
             // Create theme.json file if it doesn't exist
             if directory == "themes" {
                 let themeFileURL = coreDirectory.appendingPathComponent("theme.json")
+                let themeimagefoler = coreDirectory.appendingPathComponent("images/")
+                if !FileManager.default.fileExists(atPath: themeimagefoler.path, isDirectory: &isDirectory) {
+                    try FileManager.default.createDirectory(at: themeimagefoler, withIntermediateDirectories: false)
+                }
                 if !FileManager.default.fileExists(atPath: themeFileURL.path) {
-                    let defaultTheme = Theme(color: "", a: "", b: "", x: "", y: "")
+                    let defaultTheme = Theme(background: "", a: "", b: "", x: "", y: "")
                     if let jsonData = try? JSONEncoder().encode(defaultTheme) {
                         FileManager.default.createFile(atPath: themeFileURL.path, contents: jsonData, attributes: nil)
                     }
@@ -163,18 +171,14 @@ class DirectoriesManager {
     func scanDirectoriesForRequiredFiles(for core: inout Core) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
-        directories().forEach { directory in
-            directory.value.forEach { subdirectory, fileNames in
-                let coreSubdirectory = documentsDirectory.appendingPathComponent(directory.key, conformingTo: .folder)
-                    .appendingPathComponent(subdirectory, conformingTo: .folder)
+        directories().forEach { directory, fileNames in
+            let coreDirectory = documentsDirectory.appendingPathComponent(directory, conformingTo: .folder)
+            
+            fileNames.forEach { (fileName, fileImportance) in
+                let fileURL = coreDirectory.appendingPathComponent(fileName, conformingTo: .fileURL)
                 
-                // Ensure fileNames is treated as a dictionary of [String: MissingFile.FileImportance]
-                if let fileNamesDict = fileNames as? [String: MissingFile.FileImportance] {
-                    fileNamesDict.forEach { (fileName, fileImportance) in
-                        if !FileManager.default.fileExists(atPath: coreSubdirectory.appendingPathComponent(fileName, conformingTo: .fileURL).path) {
-                            core.missingFiles.append(.init(coreName: core.name, directory: coreSubdirectory, fileImportance: fileImportance, fileName: fileName))
-                        }
-                    }
+                if !FileManager.default.fileExists(atPath: fileURL.path) {
+                    core.missingFiles.append(.init(coreName: core.name, directory: coreDirectory, fileImportance: fileImportance, fileName: fileName))
                 }
             }
         }
