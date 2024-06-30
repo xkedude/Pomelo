@@ -43,7 +43,7 @@ Presto you can now play games!
 
 ## Free Dev Account
 
-W.I.P (this would ~99% require a mac)
+Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(Free-Dev-Acc))
 
 ## Trollstore
 
