@@ -31,6 +31,7 @@ struct PomeloApp: App {
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
                     // registerDefaultsFromSettingsBundle()
+                
                     
                     print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path)
                     do {

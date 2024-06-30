@@ -282,7 +282,7 @@ private:
             .timestamp = duration_cast<microseconds>(steady_clock::now() - time_origin),
             .log_class = log_class,
             .log_level = log_level,
-            .filename = filename,
+            // .filename = filename,
             .line_num = line_nr,
             .function = function,
             .message = std::move(message),

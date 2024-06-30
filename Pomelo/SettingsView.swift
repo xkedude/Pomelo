@@ -21,17 +21,7 @@ struct SettingsView: View {
             ScrollView {
                 VStack(alignment: .center) {
                     if iconused == 1 {
-                        Image("AppIcon-inapp")
-                            .resizable()
-                            .frame(width: 200, height: 200)
-                            .cornerRadius(20)
-                    } else if iconused == 2 {
-                        Image(.appIconSecondaryInapp)
-                            .resizable()
-                            .frame(width: 200, height: 200)
-                            .cornerRadius(20)
-                    } else {
-                        Image(.appIconInvertedInapp)
+                        Image("AppIcon")
                             .resizable()
                             .frame(width: 200, height: 200)
                             .cornerRadius(20)
@@ -143,7 +133,7 @@ struct SettingsView: View {
                         }
                     }
                     
-                    
+                    /*
                     NavigationLink(destination: AppIconView()) {
                         Rectangle()
                             .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
@@ -159,6 +149,7 @@ struct SettingsView: View {
                             }
                     }
                     .padding()
+                     */
                 
                     // NavigationLink(
                     NavigationLink(destination: AdvancedSettingsView()) {
@@ -230,73 +221,5 @@ struct AdvancedSettingsView: View {
     }
 }
 
-struct AppIconView: View {
-    let icons = ["AppIcon-1", "Appicon-Secondary", "Appicon-inverted"] // Replace with your icon names
-    @AppStorage("icon") var iconused = 1
-    
-    var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                ForEach(icons, id: \.self) { iconName in
-                    Button {
-                        if iconName == "AppIcon" {
-                            iconused = 1
-                            UIApplication.shared.setAlternateIconName(iconName) { error in
-                                if let error = error {
-                                    print("fuck \(error.localizedDescription)")
-                                }
-                            }
-                        } else if iconName == "Appicon-Secondary" {
-                            iconused = 2
-                            UIApplication.shared.setAlternateIconName(iconName) { error in
-                                if let error = error {
-                                    print("fuck \(error.localizedDescription)")
-                                }
-                            }
-                        } else {
-                            UIApplication.shared.setAlternateIconName(iconName) { error in
-                                if let error = error {
-                                    print("fuck \(error.localizedDescription)")
-                                }
-                            }
-                        }
-                    } label: {
-                        VStack {
-                            if iconName == "AppIcon-1" {
-                                Image(.appIconInapp)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 80, height: 80) // Adjust size as needed
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                                Text("Main App Icon")
-                            } else if iconName == "Appicon-Secondary" {
-                                Image(.appIconSecondaryInapp)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 80, height: 80) // Adjust size as needed
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                                Text("Secondary App Icon")
-                            } else if iconName == "Appicon-inverted" {
-                                Image(.appIconInvertedInapp)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 80, height: 80) // Adjust size as needed
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                                Text("Inverted Main App Icon")
-                            } 
-                        }
-                    }
-                }
-            }
-        }
-        .padding()
-        .navigationTitle("App Icons")
-        Spacer()
-        Text("All of these icons were generously made by ZxATHER")
-            .padding(.bottom)
-            .font(.footnote)
-            .foregroundColor(.gray)
-    }
-}
 // let userDefaults = UserDefaults.standard
 // userDefaults.set(true, forKey: "isfullscreen")
