@@ -10,6 +10,22 @@ import Foundation
 import UIKit
 import UniformTypeIdentifiers
 
+@propertyWrapper
+struct UserDefault<T> {
+    let key: String
+    let defaultValue: T
+
+    var wrappedValue: T {
+        get {
+            UserDefaults.standard.object(forKey: key) as? T ?? defaultValue
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: key)
+        }
+    }
+}
+
+
 struct Help : Comparable, Hashable, Identifiable {
     var id = UUID()
     
@@ -75,6 +91,8 @@ struct CoreDetailView: View {
     @State private var searchText = ""
     @State var ispoped = false
     @State var game: SudachiGame? = nil
+    @UserDefault(key: "JIT-NOT-ENABLED", defaultValue: false) var JIT: Bool
+    @State var ShowPopup = false
 
     var body: some View {
         let filteredGames = core.games.filter { game in
@@ -90,9 +108,13 @@ struct CoreDetailView: View {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
                             if let game = core.games[index] as? SudachiGame {
                                 Button {
-                                    self.game = game
-                                    // ispoped = true
-                                    presentPomeloEmulation(PomeloGame: game)
+                                    if !JIT {
+                                        self.game = game
+                                        // ispoped = true
+                                        presentPomeloEmulation(PomeloGame: game)
+                                    } else {
+                                        ShowPopup = true
+                                    }
                                 } label: {
                                     GameRowView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 200) // Set a consistent height for each row
@@ -106,6 +128,7 @@ struct CoreDetailView: View {
             }
             .padding()
         }
+        .background(AlertController(isPresented: $ShowPopup))
         .onAppear() {
             core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(string: "[]")!)
             do {
@@ -123,8 +146,6 @@ struct CoreDetailView: View {
             }
         }
     }
-    
-
 }
 
 
@@ -333,6 +354,7 @@ struct SideJITServerSettings: View {
                 Text("Refresh SideJITServer")
             }
         }
+        
         .alert(isPresented: $issue) {
             Alert(title: Text("SideJITServer Refresh"), message: Text(alertstring), dismissButton: .default(Text("OK")))
         }
@@ -513,4 +535,22 @@ struct INIEditControllerWrapper: UIViewControllerRepresentable {
     }
 }
 
+struct AlertController: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
 
+    func makeUIViewController(context: Context) -> UIViewController {
+        return UIViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        if isPresented && uiViewController.presentedViewController == nil {
+            let alert = UIAlertController(title: "Waiting for JIT", message: "Pomelo Needs Just-in-time compilation for the Emulation to run.", preferredStyle: .alert)
+
+            uiViewController.present(alert, animated: true, completion: nil)
+        }
+
+        if !isPresented && uiViewController.presentedViewController != nil {
+            uiViewController.dismiss(animated: true, completion: nil)
+        }
+    }
+}

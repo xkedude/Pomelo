@@ -187,6 +187,7 @@ struct SettingsView: View {
 struct AdvancedSettingsView: View {
     @AppStorage("isfullscreen") var isFullScreen: Bool = false
     @AppStorage("exitgame") var exitgame: Bool = false
+    @AppStorage("ClearBackingRegion") var kpagetable: Bool = true
     var body: some View {
         ScrollView {
             Rectangle()
@@ -217,6 +218,23 @@ struct AdvancedSettingsView: View {
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)
+            Rectangle()
+                .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
+                .cornerRadius(10) // Apply rounded corners
+                .frame(width: .infinity, height: 50) // Set the desired dimensions
+                .overlay() {
+                    HStack {
+                        Toggle("Ram Usage Decrease", isOn: $kpagetable)
+                            .padding()
+                    }
+                }
+            Text("This is a bit unstable but can lead to slower preformance but also can allow for a bunch more games to be playable")
+                .padding(.bottom)
+                .font(.footnote)
+                .foregroundColor(.gray)
+                .onChange(of: exitgame) { newValue in
+                    UserDefaults.standard.setValue(newValue, forKey: "ClearBackingRegion")
+                }
         }
     }
 }

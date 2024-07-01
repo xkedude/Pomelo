@@ -149,6 +149,19 @@ __attribute__((constructor)) static void entry(int argc, char **argv)
         tryEnableJIT(argc, argv);
     }
      */
+    
+    if (isJITEnabled()) {
+        NSLog(@"yippee");
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:NO forKey:@"JIT-NOT-ENABLED"];
+        [defaults synchronize]; // Ensure the value is saved immediately
+    } else {
+        NSLog(@":(");
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:YES forKey:@"JIT-NOT-ENABLED"];
+        [defaults synchronize]; // Ensure the value is saved immediately
+    }
+    
     if (!getEntitlementValue(@"com.apple.developer.kernel.increased-memory-limit")) {
         NSLog(@"Entitlement Does Not Exist");
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		387EC3E82C1EAFE800314FF4 /* SudachiObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 387EC3E72C1EAFE800314FF4 /* SudachiObjC.mm */; };
+		38FA3A9C2C32D39C00587B4F /* NSUserDefaultsWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 38FA3A9B2C32D39C00587B4F /* NSUserDefaultsWrapper.mm */; };
 		E604234D2BA15F4300120AD9 /* emit_glasm_barriers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6041E842BA15F2700120AD9 /* emit_glasm_barriers.cpp */; };
 		E604234E2BA15F4300120AD9 /* emit_glasm_bitwise_conversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6041E852BA15F2700120AD9 /* emit_glasm_bitwise_conversion.cpp */; };
 		E604234F2BA15F4300120AD9 /* emit_glasm_composite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6041E862BA15F2700120AD9 /* emit_glasm_composite.cpp */; };
@@ -1087,6 +1088,8 @@
 
 /* Begin PBXFileReference section */
 		387EC3E72C1EAFE800314FF4 /* SudachiObjC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SudachiObjC.mm; sourceTree = "<group>"; };
+		38FA3A9A2C32D39C00587B4F /* NSUserDefaultsWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSUserDefaultsWrapper.h; sourceTree = "<group>"; };
+		38FA3A9B2C32D39C00587B4F /* NSUserDefaultsWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NSUserDefaultsWrapper.mm; sourceTree = "<group>"; };
 		E6041E842BA15F2700120AD9 /* emit_glasm_barriers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = emit_glasm_barriers.cpp; sourceTree = "<group>"; };
 		E6041E852BA15F2700120AD9 /* emit_glasm_bitwise_conversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = emit_glasm_bitwise_conversion.cpp; sourceTree = "<group>"; };
 		E6041E862BA15F2700120AD9 /* emit_glasm_composite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = emit_glasm_composite.cpp; sourceTree = "<group>"; };
@@ -2923,6 +2926,8 @@
 				E604203A2BA15F2C00120AD9 /* k_page_group.cpp */,
 				E604203B2BA15F2C00120AD9 /* k_page_heap.cpp */,
 				E604203C2BA15F2C00120AD9 /* k_page_table_base.cpp */,
+				38FA3A9A2C32D39C00587B4F /* NSUserDefaultsWrapper.h */,
+				38FA3A9B2C32D39C00587B4F /* NSUserDefaultsWrapper.mm */,
 				E604203D2BA15F2C00120AD9 /* k_port.cpp */,
 				E604203E2BA15F2C00120AD9 /* k_process.cpp */,
 				E604203F2BA15F2C00120AD9 /* k_readable_event.cpp */,
@@ -4955,6 +4960,7 @@
 				E60426012BA15F4400120AD9 /* time_zone_service.cpp in Sources */,
 				E60427122BA15F4400120AD9 /* blit_image.cpp in Sources */,
 				E60423682BA15F4300120AD9 /* emit_glsl_floating_point.cpp in Sources */,
+				38FA3A9C2C32D39C00587B4F /* NSUserDefaultsWrapper.mm in Sources */,
 				E60426E92BA15F4400120AD9 /* audio_manager.cpp in Sources */,
 				E604272B2BA15F4400120AD9 /* vk_swapchain.cpp in Sources */,
 				E60423952BA15F4300120AD9 /* value.cpp in Sources */,
@@ -6037,8 +6043,8 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SYSTEM_HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"\"$(HOME)/VulkanSDK-2/1.3.275.0/macOS/include\"",
-					"\"$(HOME)/VulkanSDK-2/1.3.275.0/macOS/include/vma\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include/vma\"",
 				);
 				USER_HEADER_SEARCH_PATHS = Sudachi/Core/include;
 				USE_HEADERMAP = NO;
@@ -6113,8 +6119,8 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Sudachi/Sudachi-Bridging-Header.h";
 				SYSTEM_HEADER_SEARCH_PATHS = (
 					/usr/local/include,
-					"\"$(HOME)/VulkanSDK-2/1.3.275.0/macOS/include\"",
-					"\"$(HOME)/VulkanSDK-2/1.3.275.0/macOS/include/vma\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include/vma\"",
 				);
 				USER_HEADER_SEARCH_PATHS = Sudachi/Core/include;
 				USE_HEADERMAP = NO;

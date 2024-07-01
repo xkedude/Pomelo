@@ -8,6 +8,7 @@
 #include "core/hle/kernel/k_page_table_base.h"
 #include "core/hle/kernel/k_scoped_resource_reservation.h"
 #include "core/hle/kernel/k_system_resource.h"
+#include "NSUserDefaultsWrapper.h"
 
 namespace Kernel {
 
@@ -86,10 +87,21 @@ void InvalidateInstructionCache(KernelCore& kernel, KPageTableBase* table, Addre
     }
 }
 
-void ClearBackingRegion(Core::System& system, KPhysicalAddress addr, uint_fast8_t size, uint8_t fill_value) {
+bool Shouldu32oru8() {
+    // Get Bool From UserDefaults that we can chamge in our SwiftUI View :)
+    return GetBoolFromUserDefaults("ClearBackingRegion");
+}
+
+void ClearBackingRegion(Core::System& system, KPhysicalAddress addr, u64 size, u32 fill_value) {
         system.DeviceMemory().buffer.ClearBackingRegion(GetInteger(addr) - Core::DramMemoryMap::Base,
                                                         size, fill_value);
 }
+
+void ClearBackingRegion2(Core::System& system, KPhysicalAddress addr, uint_fast8_t size, uint8_t fill_value) {
+        system.DeviceMemory().buffer.ClearBackingRegion(GetInteger(addr) - Core::DramMemoryMap::Base,
+                                                        size, fill_value);
+}
+
 
 template <typename AddressType>
 Result InvalidateDataCache(AddressType addr, u64 size) {
@@ -1403,7 +1415,11 @@ Result KPageTableBase::MapInsecureMemory(KProcessAddress address, size_t size) {
 
     // Clear all the newly allocated pages.
     for (const auto& it : pg) {
-        ClearBackingRegion(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        if (Shouldu32oru8()) {
+            ClearBackingRegion2(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        } else {
+            ClearBackingRegion(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        }
     }
 
     // Lock the table.
@@ -1611,7 +1627,11 @@ Result KPageTableBase::AllocateAndMapPagesImpl(PageLinkedList* page_list, KProce
 
     // Clear all pages.
     for (const auto& it : pg) {
-        ClearBackingRegion(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        if (Shouldu32oru8()) {
+            ClearBackingRegion2(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        } else {
+            ClearBackingRegion(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        }
     }
 
     // Map the pages.
@@ -2201,7 +2221,11 @@ Result KPageTableBase::SetHeapSize(KProcessAddress* out, size_t size) {
 
     // Clear all the newly allocated pages.
     for (const auto& it : pg) {
-        ClearBackingRegion(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        if (Shouldu32oru8()) {
+            ClearBackingRegion2(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        } else {
+            ClearBackingRegion(m_system, it.GetAddress(), it.GetSize(), m_heap_fill_value);
+        }
     }
 
     // Map the pages.

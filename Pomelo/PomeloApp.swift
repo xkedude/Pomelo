@@ -23,7 +23,7 @@ struct PomeloApp: App {
     @State var alertstring = ""
     @State var alert = false
     @State var issue = false
-    
+
     var body: some Scene {
         WindowGroup {
             // LibraryView(core: $cores)
@@ -31,7 +31,6 @@ struct PomeloApp: App {
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
                     // registerDefaultsFromSettingsBundle()
-                
                     
                     print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path)
                     do {
@@ -171,6 +170,15 @@ struct NoBootOS: View {
                 .padding()
             Text("You do not have the Switch Home Menu Files Needed to launch the Ηome Menu")
             
+        }
+    }
+}
+
+struct NoJIT: View {
+    var body: some View {
+        VStack(alignment: .center) {
+            Text("Waiting for JIT")
+                .font(.largeTitle)
         }
     }
 }
