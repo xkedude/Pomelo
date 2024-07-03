@@ -1,17 +1,18 @@
+![icon](https://raw.githubusercontent.com/stossy11/Pomelo/main/Pmelo/Assets.xcassets/AppIcon.imageset/fun%201.png)
+
 # Pomelo
-Pomelo is a Nintendo Switch Emulator for iOS 
+
+Pomelo is a Nintendo Switch Emulator based off of Sudachi for iOS devices.
 
 # Piracy
 
-WE DO NOT CONDONE OR SUPPORT PIRACY AT ALL. if you want to use Pomelo you will be required to dump the decryption keys, Firmware and roms from a legally owned real Switch system (not your friends or your cousins nothing **Your** own legally owned Switch).
-
-
+WE DO NOT CONDONE OR SUPPORT PIRACY AT ALL. If you want to use Pomelo you will be required to dump the decryption keys, firmware and roms from a legally owned real Nintendo Switch system (not your friends or your cousins, nothing, **Your** own legally owned Switch).
 
 # Info and FAQ
 
-### NOTE: THIS CAN NOT BE SIDELOADED NORMALLY (with a free dev account or trollstore) YOU CAN TRY IT BUT I GUARANTEE IT WONT WORK BUT IF IT DOES FOR YOU PLEASE JOIN THE DISCORD AND TELL US
+### NOTE: Some entitlements Pomelo depends on require a PAID Apple Developer Account. Your mileage with a free account or Trollstore might be limited. 
 
-This is based on the F x Sudachi 1.1.4 code that was originally based of Yuzu (dont currently know what build yet but i will get onto that soon).
+Pomelo is based on the Folium x Sudachi 1.1.4 code which was orginally sourced from the now defunct Yuzu emulator.
 
 ## iOS
 
