@@ -1,4 +1,4 @@
-![icon](https://raw.githubusercontent.com/stossy11/Pomelo/main/Pmelo/Assets.xcassets/AppIcon.imageset/fun%201.png)
+![icon](blob:https://github.com/6cbb368d-12d1-4ade-aad4-fe55401d8583)
 
 # Pomelo
 
