@@ -95,7 +95,9 @@ struct NavView: View {
     let sudachi = Sudachi.shared
     @State private var selectedTab = 0
     @State private var isTabDisabled = false
-    @State private var showAlert = false
+    @State var showJITAlert = false
+    @UserDefault(key: "JIT-NOT-ENABLED", defaultValue: false) var JIT: Bool
+    @AppStorage("WaitingforJIT") var waitingJIT: Bool = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -106,11 +108,19 @@ struct NavView: View {
                 .tag(0)
             if sudachi.canGetFullPath() {
                 LibraryView(core: $cores)
+                    .background(AlertController(isPresented: $showJITAlert))
                     .onChange(of: selectedTab) { newValue in
                         if newValue == 1 {
                             selectedTab = 0
-                            let PomeloGame = SudachiGame(core: cores, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
-                            presentPomeloEmulation(PomeloGame: PomeloGame)
+                            if waitingJIT {
+                                let PomeloGame = SudachiGame(core: cores, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
+                                presentPomeloEmulation(PomeloGame: PomeloGame)
+                            } else if !JIT {
+                                showJITAlert = true
+                            } else {
+                                let PomeloGame = SudachiGame(core: cores, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
+                                presentPomeloEmulation(PomeloGame: PomeloGame)
+                            }
                         }
                     }
                     .tabItem {

@@ -97,7 +97,7 @@ void ClearBackingRegion(Core::System& system, KPhysicalAddress addr, u64 size, u
                                                         size, fill_value);
 }
 
-void ClearBackingRegion2(Core::System& system, KPhysicalAddress addr, uint_fast8_t size, uint8_t fill_value) {
+void ClearBackingRegion2(Core::System& system, KPhysicalAddress addr, u16 size, u8 fill_value) {
         system.DeviceMemory().buffer.ClearBackingRegion(GetInteger(addr) - Core::DramMemoryMap::Base,
                                                         size, fill_value);
 }

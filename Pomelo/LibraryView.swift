@@ -93,6 +93,7 @@ struct CoreDetailView: View {
     @State var game: SudachiGame? = nil
     @UserDefault(key: "JIT-NOT-ENABLED", defaultValue: false) var JIT: Bool
     @State var ShowPopup = false
+    @AppStorage("WaitingforJIT") var waitingJIT: Bool = false
 
     var body: some View {
         let filteredGames = core.games.filter { game in
@@ -108,12 +109,18 @@ struct CoreDetailView: View {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
                             if let game = core.games[index] as? SudachiGame {
                                 Button {
-                                    if !JIT {
+                                    if waitingJIT {
                                         self.game = game
                                         // ispoped = true
                                         presentPomeloEmulation(PomeloGame: game)
                                     } else {
-                                        ShowPopup = true
+                                        if !JIT {
+                                            self.game = game
+                                            // ispoped = true
+                                            presentPomeloEmulation(PomeloGame: game)
+                                        } else {
+                                            ShowPopup = true
+                                        }
                                     }
                                 } label: {
                                     GameRowView(game: game)

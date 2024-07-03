@@ -188,6 +188,7 @@ struct AdvancedSettingsView: View {
     @AppStorage("isfullscreen") var isFullScreen: Bool = false
     @AppStorage("exitgame") var exitgame: Bool = false
     @AppStorage("ClearBackingRegion") var kpagetable: Bool = true
+    @AppStorage("WaitingforJIT") var waitingJIT: Bool = false
     var body: some View {
         ScrollView {
             Rectangle()
@@ -232,9 +233,20 @@ struct AdvancedSettingsView: View {
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)
-                .onChange(of: exitgame) { newValue in
-                    UserDefaults.standard.setValue(newValue, forKey: "ClearBackingRegion")
+            Rectangle()
+                .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
+                .cornerRadius(10) // Apply rounded corners
+                .frame(width: .infinity, height: 50) // Set the desired dimensions
+                .overlay() {
+                    HStack {
+                        Toggle("Bypass Waiting for JIT Popup", isOn: $waitingJIT)
+                            .padding()
+                    }
                 }
+            Text("This can cause crashes if you forget you didnt have JIT or something")
+                .padding(.bottom)
+                .font(.footnote)
+                .foregroundColor(.gray)
         }
     }
 }

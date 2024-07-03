@@ -33,6 +33,7 @@ BOOL isJITEnabled(void)
     {
         return YES;
     }
+    
     int flags;
     csops(getpid(), 0, &flags, sizeof(flags));
     return (flags & CS_DEBUGGED) != 0;
