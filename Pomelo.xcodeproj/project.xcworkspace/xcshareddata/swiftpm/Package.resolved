@@ -1,4 +1,5 @@
 {
+  "originHash" : "3bf7ffe4a4eacd87f82d75765feefa23c1f74d4f7eb0867be1deff282bd597f2",
   "pins" : [
     {
       "identity" : "lz4-spm",
@@ -46,5 +47,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

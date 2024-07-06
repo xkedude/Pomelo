@@ -108,6 +108,12 @@ struct CoreDetailView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
                             if let game = core.games[index] as? SudachiGame {
+                                let PomeloGame = SudachiGame(core: core, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
+                                NavigationLink(destination: SudachiEmulationView(game: PomeloGame)) {
+                                    GameRowView(game: game)
+                                        .frame(maxWidth: .infinity, minHeight: 200) // Set a consistent height for each row
+                                }
+                                 /*
                                 Button {
                                     if waitingJIT {
                                         self.game = game
@@ -126,6 +132,7 @@ struct CoreDetailView: View {
                                     GameRowView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 200) // Set a consistent height for each row
                                 }
+                                  */
                             }
                         }
                     }
@@ -137,7 +144,7 @@ struct CoreDetailView: View {
         }
         .background(AlertController(isPresented: $ShowPopup))
         .onAppear() {
-            core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(string: "[]")!)
+            core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
             do {
                 core = try LibraryManager.shared.library()
             } catch {
@@ -145,7 +152,7 @@ struct CoreDetailView: View {
             }
         }
         .refreshable {
-            core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(string: "[]")!)
+            core = Core(console: Core.Console.nSwitch, name: .Sudachi, games: [], missingFiles: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
             do {
                 core = try LibraryManager.shared.library()
             } catch {

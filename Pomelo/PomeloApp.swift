@@ -12,7 +12,7 @@ import Sudachi
 
 @main
 struct PomeloApp: App {
-    @State var cores: Core = Core(console: .nSwitch, name: .Sudachi, games: [], missingFiles: [], root: URL(fileURLWithPath: "/"))
+    @State var cores: Core = Core(console: .nSwitch, name: .Sudachi, games: [], missingFiles: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
     @AppStorage("entitlementNotExists") private var entitlementNotExists: Bool = false
     @AppStorage("sidejitserver-enable-true") var sidejitserver: Bool = false
     @AppStorage("sidejitserver-NavigationLink-true") var showAlert: Bool = false
@@ -31,7 +31,6 @@ struct PomeloApp: App {
                 .edgesIgnoringSafeArea(.all)
                 .onAppear {
                     // registerDefaultsFromSettingsBundle()
-                    
                     print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path)
                     do {
                         try DirectoriesManager.shared.createMissingDirectoriesInDocumentsDirectory()
@@ -112,15 +111,8 @@ struct NavView: View {
                     .onChange(of: selectedTab) { newValue in
                         if newValue == 1 {
                             selectedTab = 0
-                            if waitingJIT {
-                                let PomeloGame = SudachiGame(core: cores, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
-                                presentPomeloEmulation(PomeloGame: PomeloGame)
-                            } else if !JIT {
-                                showJITAlert = true
-                            } else {
-                                let PomeloGame = SudachiGame(core: cores, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
-                                presentPomeloEmulation(PomeloGame: PomeloGame)
-                            }
+                            let PomeloGame = SudachiGame(core: cores, developer: "", fileURL: URL(string: "{")!, imageData: Data(), title: "")
+                            presentPomeloEmulation(PomeloGame: PomeloGame)
                         }
                     }
                     .tabItem {

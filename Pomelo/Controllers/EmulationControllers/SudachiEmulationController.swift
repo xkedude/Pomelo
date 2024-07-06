@@ -157,6 +157,7 @@ class SudachiEmulationController : EmulationScreensController {
                                                         with: touch.location(in: virtualControllerView.xybaView)).x,
                                    y: position(in: virtualControllerView.xybaView, with: touch.location(in: virtualControllerView.xybaView)).y)
         case primaryScreen:
+            print("Tap location: \(touch.location(in: primaryScreen))")
             sudachi.touchBegan(at: touch.location(in: primaryScreen), for: 0)
         default:
             break
@@ -175,6 +176,7 @@ class SudachiEmulationController : EmulationScreensController {
         case virtualControllerView.xybaView:
             sudachi.thumbstickMoved(.right, x: 0, y: 0)
         case primaryScreen:
+            print("Tap location let go")
             sudachi.touchEnded(for: 0)
         default:
             break
@@ -202,6 +204,7 @@ class SudachiEmulationController : EmulationScreensController {
                                                         with: touch.location(in: virtualControllerView.xybaView)).x,
                                    y: position(in: virtualControllerView.xybaView, with: touch.location(in: virtualControllerView.xybaView)).y)
         case primaryScreen:
+            print("Tap location moved: \(touch.location(in: primaryScreen))")
             sudachi.touchMoved(at: touch.location(in: primaryScreen), for: 0)
         default:
             break

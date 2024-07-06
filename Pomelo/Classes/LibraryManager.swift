@@ -246,7 +246,7 @@ class LibraryManager {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
 #if canImport(Sudachi)
-        var SudachiCore = Core(console: .nSwitch, name: .Sudachi, games: [], missingFiles: [], root: directory.appendingPathComponent(Core.Name.Sudachi.rawValue, conformingTo: .folder))
+        var SudachiCore = Core(console: .nSwitch, name: .Sudachi, games: [], missingFiles: [], root: directory)
         games(from: try romsDirectoryCrawler(for: .Sudachi), for: &SudachiCore)
         DirectoriesManager.shared.scanDirectoriesForRequiredFiles(for: &SudachiCore)
 #endif

@@ -70,6 +70,7 @@
 		38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */; };
 		38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */; };
 		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
+		38D350592C37F6B500CF2A0F /* ReplicatedEmulationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D350582C37F6AD00CF2A0F /* ReplicatedEmulationController.swift */; };
 		38F284C92C26514F00994A77 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F284C82C26514F00994A77 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +163,7 @@
 		38C846C62C1DCE8900331706 /* libSoundTouch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSoundTouch.xcframework; sourceTree = "<group>"; };
 		38C846C72C1DCE8900331706 /* libSPIRV.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSPIRV.xcframework; sourceTree = "<group>"; };
 		38C846C82C1DCE8900331706 /* libteakra.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libteakra.xcframework; sourceTree = "<group>"; };
+		38D350582C37F6AD00CF2A0F /* ReplicatedEmulationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatedEmulationController.swift; sourceTree = "<group>"; };
 		38F284C82C26514F00994A77 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		38F284CB2C2683A000994A77 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,6 +359,7 @@
 			children = (
 				38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */,
 				38C846972C1DCDC100331706 /* EmulationScreensController.swift */,
+				38D350582C37F6AD00CF2A0F /* ReplicatedEmulationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				38C846A32C1DCDC100331706 /* SudachiEmulationController.swift in Sources */,
 				38C846A62C1DCDC100331706 /* EmulationScreensController.swift in Sources */,
 				38C846A72C1DCDC100331706 /* INIEditController.swift in Sources */,
+				38D350592C37F6B500CF2A0F /* ReplicatedEmulationController.swift in Sources */,
 				38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */,
 				38C846892C1DCD2200331706 /* VirtualControllerView.swift in Sources */,
 				38C846902C1DCD2200331706 /* utils.m in Sources */,

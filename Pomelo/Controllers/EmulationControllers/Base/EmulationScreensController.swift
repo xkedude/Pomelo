@@ -61,8 +61,13 @@ class EmulationScreensController: EmulationVirtualControllerController {
                 setupSudachiScreen2()
                 print("lmao")
             } else {
-                setupSudachiScreen()
-                print("beans")
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    setupSudachiScreen3()
+                    print("mayonaise")
+                } else  {
+                    setupSudachiScreen()
+                    print("beans")
+                }
             }
         default:
             fatalError()
@@ -94,6 +99,7 @@ class EmulationScreensController: EmulationVirtualControllerController {
             view.removeConstraints(fullScreenConstraints)
             view.addConstraints(fullScreenConstraints)
         } else {
+            
             if UIApplication.shared.statusBarOrientation.isPortrait {
                 view.removeConstraints(landscapeConstraints)
                 view.addConstraints(portraitConstraints)
@@ -161,6 +167,43 @@ class EmulationScreensController: EmulationVirtualControllerController {
             primaryScreen.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             primaryScreen.heightAnchor.constraint(equalTo: primaryScreen.widthAnchor, multiplier: 9 / 16),
             
+        ]
+        
+        landscapeConstraints = [
+            primaryScreen.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            primaryScreen.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            primaryScreen.widthAnchor.constraint(equalTo: primaryScreen.heightAnchor, multiplier: 16 / 9),
+            primaryScreen.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            
+        ]
+        
+        view.addConstraints(UIApplication.shared.statusBarOrientation.isPortrait ? portraitConstraints : landscapeConstraints)
+    }
+    
+    func setupSudachiScreen3() {
+        primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
+        primaryScreen.translatesAutoresizingMaskIntoConstraints = false
+        primaryScreen.clipsToBounds = true
+        primaryScreen.layer.borderColor = ScreenConfiguration.borderColor
+        primaryScreen.layer.borderWidth = ScreenConfiguration.borderWidth
+        primaryScreen.layer.cornerCurve = .continuous
+        primaryScreen.layer.cornerRadius = ScreenConfiguration.cornerRadius
+        view.addSubview(primaryScreen)
+        
+        primaryBlurredScreen = UIImageView(frame: .zero)
+        primaryBlurredScreen.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(primaryBlurredScreen)
+        
+        view.insertSubview(primaryScreen, belowSubview: virtualControllerView)
+        view.insertSubview(visualEffectView, belowSubview: primaryScreen)
+        view.insertSubview(primaryBlurredScreen, belowSubview: visualEffectView)
+        
+        portraitConstraints = [
+            primaryScreen.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            primaryScreen.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            primaryScreen.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            primaryScreen.heightAnchor.constraint(equalTo: primaryScreen.widthAnchor, multiplier: 9 / 16),
+            
             primaryBlurredScreen.topAnchor.constraint(equalTo: view.topAnchor),
             primaryBlurredScreen.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             primaryBlurredScreen.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -170,7 +213,7 @@ class EmulationScreensController: EmulationVirtualControllerController {
         landscapeConstraints = [
             primaryScreen.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             primaryScreen.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            primaryScreen.widthAnchor.constraint(equalTo: primaryScreen.heightAnchor, multiplier: 16 / 9),
+            primaryScreen.widthAnchor.constraint(equalTo: primaryScreen.heightAnchor, multiplier: 13 / 9),
             primaryScreen.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             
             primaryBlurredScreen.topAnchor.constraint(equalTo: view.topAnchor),
