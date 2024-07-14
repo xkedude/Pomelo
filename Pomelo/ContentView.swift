@@ -2,23 +2,31 @@
 //  ContentView.swift
 //  Pomelo
 //
-//  Created by Stossy11 on 15/6/2024.
+//  Created by Stossy11 on 13/7/2024.
 //
 
-import CarPlay
 import SwiftUI
-import UIKit
-
+import Sudachi
 
 struct ContentView: View {
-    @AppStorage("JIT-NOT-ENABKED") var JIT = false
-    
+    @State var core = Core(console: .nSwitch, name: .Pomelo, games: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
     var body: some View {
-        Text("cool")
-            .alert(isPresented: $JIT) {
-                Alert(title: Text("JIT"), message: Text("Test"), dismissButton: .default(Text("OK")))
+        NavView(core: $core)
+            .onAppear() {
+                do {
+                    try DirectoriesManager.shared.createMissingDirectoriesInDocumentsDirectory()
+                    
+                    do {
+                        core = try LibraryManager.shared.library()
+                    } catch {
+                        print("Failed to fetch library: \(error)")
+                    }
+                    
+                } catch {
+                    print("Failed to create directories: \(error)")
+                    return
+                }
             }
     }
 }
-
 

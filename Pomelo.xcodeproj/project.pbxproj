@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		384F188E2C1DCB4F0073375C /* PomeloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F188D2C1DCB4F0073375C /* PomeloApp.swift */; };
-		384F18902C1DCB4F0073375C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F188F2C1DCB4F0073375C /* ContentView.swift */; };
+		38020F302C43568500029E9A /* AdvancedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F2F2C43567F00029E9A /* AdvancedSettingsView.swift */; };
+		38020F352C43720200029E9A /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F342C4371FC00029E9A /* NavView.swift */; };
+		38020F412C43754700029E9A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 38020F3B2C43754700029E9A /* LICENSE */; };
+		38020F422C43754700029E9A /* JITEnabler.m in Sources */ = {isa = PBXBuildFile; fileRef = 38020F3F2C43754700029E9A /* JITEnabler.m */; };
+		38020F432C43754700029E9A /* EnableJIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F362C43754700029E9A /* EnableJIT.swift */; };
+		38020F442C43754700029E9A /* DetectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F372C43754700029E9A /* DetectServer.swift */; };
+		38020F452C43754700029E9A /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 38020F392C43754700029E9A /* fishhook.c */; };
+		38020F462C43754700029E9A /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 38020F3E2C43754700029E9A /* utils.m */; };
+		38020F4A2C43760A00029E9A /* SudachiScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F492C43760A00029E9A /* SudachiScreenView.swift */; };
+		38020F4D2C43765400029E9A /* SudachiEmuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F4C2C43765400029E9A /* SudachiEmuHandler.swift */; };
+		38020F512C43769900029E9A /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F502C43769600029E9A /* MetalView.swift */; };
+		38020F542C43770500029E9A /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F532C4376F300029E9A /* ControllerView.swift */; };
+		38020F562C43A02100029E9A /* BootOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F552C43A01D00029E9A /* BootOSView.swift */; };
+		38020F5A2C43AFFA00029E9A /* CoreSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F592C43AFF300029E9A /* CoreSettingsView.swift */; };
 		384F18922C1DCB520073375C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18912C1DCB520073375C /* Assets.xcassets */; };
-		387EC3EC2C1EC79300314FF4 /* EnableJIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */; };
-		387EC3EE2C1EC7A600314FF4 /* DetectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */; };
-		387EC3F02C1EC7DF00314FF4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */; };
-		38966AF92C1DDE760021C1A9 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38966AF82C1DDE680021C1A9 /* LibraryView.swift */; };
-		38B93F7A2C21256800E219ED /* ThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B93F792C21256800E219ED /* ThemeLoader.swift */; };
+		386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDE2C42E0B900C62EBE /* GameButtonView.swift */; };
+		386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6ED92C42E0B900C62EBE /* ContentView.swift */; };
+		386F6EE72C42E0B900C62EBE /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EE02C42E0B900C62EBE /* GameListView.swift */; };
+		386F6EE82C42E0B900C62EBE /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EE22C42E0B900C62EBE /* LibraryView.swift */; };
+		386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDA2C42E0B900C62EBE /* FileManager.swift */; };
+		386F6EEA2C42E0B900C62EBE /* SudachiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDC2C42E0B900C62EBE /* SudachiGame.swift */; };
+		386F6EEC2C42E0C800C62EBE /* PomeloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */; };
+		386F6EEF2C42E0EA00C62EBE /* SudachiEmuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EED2C42E0EA00C62EBE /* SudachiEmuView.swift */; };
+		386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6F2F2C42E63A00C62EBE /* SettingsView.swift */; };
+		386F6F342C42E98700C62EBE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6F332C42E98700C62EBE /* InfoView.swift */; };
 		38C50D012C1DCF150007A953 /* libavcodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; };
 		38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AF2C1DCE8900331706 /* libavformat.xcframework */; };
@@ -55,23 +72,8 @@
 		38C50D3E2C1DD57A0007A953 /* libSPIRV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; };
 		38C846552C1DCC7200331706 /* SDL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846542C1DCC7200331706 /* SDL */; };
 		38C846592C1DCC8400331706 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846582C1DCC8400331706 /* OpenSSL */; };
-		38C846832C1DCD2200331706 /* SudachiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846772C1DCD2200331706 /* SudachiGame.swift */; };
-		38C846862C1DCD2200331706 /* JITEnabler.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C8466E2C1DCD2200331706 /* JITEnabler.m */; };
-		38C846872C1DCD2200331706 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 38C846682C1DCD2200331706 /* fishhook.c */; };
-		38C846882C1DCD2200331706 /* VirtualControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */; };
-		38C846892C1DCD2200331706 /* VirtualControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */; };
-		38C846902C1DCD2200331706 /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C8466D2C1DCD2200331706 /* utils.m */; };
-		38C846922C1DCD2200331706 /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846792C1DCD2200331706 /* LibraryManager.swift */; };
-		38C846932C1DCD2200331706 /* VirtualControllerButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */; };
-		38C846952C1DCD2200331706 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 38C8466A2C1DCD2200331706 /* LICENSE */; };
-		38C846A32C1DCDC100331706 /* SudachiEmulationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */; };
-		38C846A62C1DCDC100331706 /* EmulationScreensController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846972C1DCDC100331706 /* EmulationScreensController.swift */; };
-		38C846A72C1DCDC100331706 /* INIEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846A12C1DCDC100331706 /* INIEditController.swift */; };
-		38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */; };
 		38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */; };
 		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
-		38D350592C37F6B500CF2A0F /* ReplicatedEmulationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D350582C37F6AD00CF2A0F /* ReplicatedEmulationController.swift */; };
-		38F284C92C26514F00994A77 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F284C82C26514F00994A77 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,35 +107,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38020F2F2C43567F00029E9A /* AdvancedSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettingsView.swift; sourceTree = "<group>"; };
+		38020F342C4371FC00029E9A /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
+		38020F362C43754700029E9A /* EnableJIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableJIT.swift; sourceTree = "<group>"; };
+		38020F372C43754700029E9A /* DetectServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectServer.swift; sourceTree = "<group>"; };
+		38020F392C43754700029E9A /* fishhook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		38020F3A2C43754700029E9A /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		38020F3B2C43754700029E9A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		38020F3D2C43754700029E9A /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		38020F3E2C43754700029E9A /* utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
+		38020F3F2C43754700029E9A /* JITEnabler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JITEnabler.m; sourceTree = "<group>"; };
+		38020F492C43760A00029E9A /* SudachiScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiScreenView.swift; sourceTree = "<group>"; };
+		38020F4C2C43765400029E9A /* SudachiEmuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmuHandler.swift; sourceTree = "<group>"; };
+		38020F502C43769600029E9A /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		38020F532C4376F300029E9A /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
+		38020F552C43A01D00029E9A /* BootOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootOSView.swift; sourceTree = "<group>"; };
+		38020F592C43AFF300029E9A /* CoreSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSettingsView.swift; sourceTree = "<group>"; };
 		384F188A2C1DCB4F0073375C /* Pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		384F188D2C1DCB4F0073375C /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
-		384F188F2C1DCB4F0073375C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		384F18912C1DCB520073375C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		384F18962C1DCB520073375C /* Pomelo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pomelo.entitlements; sourceTree = "<group>"; };
 		384F23C32C1DCBCC0073375C /* Sudachi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sudachi.xcodeproj; path = Sudachi/Sudachi.xcodeproj; sourceTree = "<group>"; };
-		387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableJIT.swift; sourceTree = "<group>"; };
-		387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectServer.swift; sourceTree = "<group>"; };
-		387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		38966AF82C1DDE680021C1A9 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
-		38B93F792C21256800E219ED /* ThemeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeLoader.swift; sourceTree = "<group>"; };
+		386F6ED92C42E0B900C62EBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		386F6EDA2C42E0B900C62EBE /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		386F6EDC2C42E0B900C62EBE /* SudachiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiGame.swift; sourceTree = "<group>"; };
+		386F6EDE2C42E0B900C62EBE /* GameButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonView.swift; sourceTree = "<group>"; };
+		386F6EE02C42E0B900C62EBE /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		386F6EE22C42E0B900C62EBE /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
+		386F6EED2C42E0EA00C62EBE /* SudachiEmuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmuView.swift; sourceTree = "<group>"; };
+		386F6F2F2C42E63A00C62EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		386F6F332C42E98700C62EBE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D482C1DD7BA0007A953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		38C846682C1DCD2200331706 /* fishhook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
-		38C846692C1DCD2200331706 /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
-		38C8466A2C1DCD2200331706 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		38C8466C2C1DCD2200331706 /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
-		38C8466D2C1DCD2200331706 /* utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
-		38C8466E2C1DCD2200331706 /* JITEnabler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JITEnabler.m; sourceTree = "<group>"; };
-		38C846772C1DCD2200331706 /* SudachiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiGame.swift; sourceTree = "<group>"; };
-		38C846792C1DCD2200331706 /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; tabWidth = 3; };
-		38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButton.swift; sourceTree = "<group>"; };
-		38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerButtonDelegate.swift; sourceTree = "<group>"; };
-		38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualControllerView.swift; sourceTree = "<group>"; };
-		38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulationVirtualControllerController.swift; sourceTree = "<group>"; };
-		38C846972C1DCDC100331706 /* EmulationScreensController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmulationScreensController.swift; sourceTree = "<group>"; };
-		38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		38C846A12C1DCDC100331706 /* INIEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INIEditController.swift; sourceTree = "<group>"; };
 		38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MoltenVK.xcframework; sourceTree = "<group>"; };
 		38C846AD2C1DCE8900331706 /* libavcodec.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavcodec.xcframework; sourceTree = "<group>"; };
 		38C846AE2C1DCE8900331706 /* libavfilter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libavfilter.xcframework; sourceTree = "<group>"; };
@@ -163,8 +169,6 @@
 		38C846C62C1DCE8900331706 /* libSoundTouch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSoundTouch.xcframework; sourceTree = "<group>"; };
 		38C846C72C1DCE8900331706 /* libSPIRV.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSPIRV.xcframework; sourceTree = "<group>"; };
 		38C846C82C1DCE8900331706 /* libteakra.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libteakra.xcframework; sourceTree = "<group>"; };
-		38D350582C37F6AD00CF2A0F /* ReplicatedEmulationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatedEmulationController.swift; sourceTree = "<group>"; };
-		38F284C82C26514F00994A77 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		38F284CB2C2683A000994A77 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +218,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38020F2E2C43566B00029E9A /* AdvancedSettings */ = {
+			isa = PBXGroup;
+			children = (
+				38020F2F2C43567F00029E9A /* AdvancedSettingsView.swift */,
+			);
+			path = AdvancedSettings;
+			sourceTree = "<group>";
+		};
+		38020F332C4371ED00029E9A /* NavigationManager */ = {
+			isa = PBXGroup;
+			children = (
+				38020F342C4371FC00029E9A /* NavView.swift */,
+			);
+			path = NavigationManager;
+			sourceTree = "<group>";
+		};
+		38020F382C43754700029E9A /* SideJITServer */ = {
+			isa = PBXGroup;
+			children = (
+				38020F362C43754700029E9A /* EnableJIT.swift */,
+				38020F372C43754700029E9A /* DetectServer.swift */,
+			);
+			path = SideJITServer;
+			sourceTree = "<group>";
+		};
+		38020F3C2C43754700029E9A /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				38020F392C43754700029E9A /* fishhook.c */,
+				38020F3A2C43754700029E9A /* fishhook.h */,
+				38020F3B2C43754700029E9A /* LICENSE */,
+			);
+			path = fishhook;
+			sourceTree = "<group>";
+		};
+		38020F402C43754700029E9A /* Trollstore */ = {
+			isa = PBXGroup;
+			children = (
+				38020F3C2C43754700029E9A /* fishhook */,
+				38020F3D2C43754700029E9A /* utils.h */,
+				38020F3E2C43754700029E9A /* utils.m */,
+				38020F3F2C43754700029E9A /* JITEnabler.m */,
+			);
+			path = Trollstore;
+			sourceTree = "<group>";
+		};
+		38020F472C4375C300029E9A /* BootOSManager */ = {
+			isa = PBXGroup;
+			children = (
+				38020F552C43A01D00029E9A /* BootOSView.swift */,
+			);
+			path = BootOSManager;
+			sourceTree = "<group>";
+		};
+		38020F482C4375FC00029E9A /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				38020F492C43760A00029E9A /* SudachiScreenView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		38020F4B2C43764100029E9A /* EmuHandler */ = {
+			isa = PBXGroup;
+			children = (
+				38020F4C2C43765400029E9A /* SudachiEmuHandler.swift */,
+			);
+			path = EmuHandler;
+			sourceTree = "<group>";
+		};
+		38020F4F2C43768E00029E9A /* MetalViews */ = {
+			isa = PBXGroup;
+			children = (
+				38020F502C43769600029E9A /* MetalView.swift */,
+			);
+			path = MetalViews;
+			sourceTree = "<group>";
+		};
+		38020F522C4376DE00029E9A /* ControllerHandler */ = {
+			isa = PBXGroup;
+			children = (
+				38020F532C4376F300029E9A /* ControllerView.swift */,
+			);
+			path = ControllerHandler;
+			sourceTree = "<group>";
+		};
+		38020F572C43AFD400029E9A /* CoreSettings */ = {
+			isa = PBXGroup;
+			children = (
+				38020F592C43AFF300029E9A /* CoreSettingsView.swift */,
+			);
+			path = CoreSettings;
+			sourceTree = "<group>";
+		};
 		384F18812C1DCB4F0073375C = {
 			isa = PBXGroup;
 			children = (
@@ -237,47 +335,104 @@
 		384F188C2C1DCB4F0073375C /* Pomelo */ = {
 			isa = PBXGroup;
 			children = (
+				386F6F352C42E9D200C62EBE /* JITClasses */,
+				386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */,
+				386F6ED92C42E0B900C62EBE /* ContentView.swift */,
+				38020F4F2C43768E00029E9A /* MetalViews */,
+				38020F472C4375C300029E9A /* BootOSManager */,
+				38020F332C4371ED00029E9A /* NavigationManager */,
+				386F6F2E2C42E62200C62EBE /* SettingsViews */,
+				386F6EDB2C42E0B900C62EBE /* FilesManager */,
+				386F6EDD2C42E0B900C62EBE /* GameManager */,
+				386F6EE32C42E0B900C62EBE /* LibraryViews */,
+				386F6EEE2C42E0EA00C62EBE /* EmulationView */,
 				38C50D482C1DD7BA0007A953 /* Info.plist */,
 				38C846CA2C1DCE8900331706 /* Dependencies */,
-				38C846A22C1DCDC100331706 /* Controllers */,
-				38C846822C1DCD2200331706 /* Classes */,
-				384F188D2C1DCB4F0073375C /* PomeloApp.swift */,
-				384F188F2C1DCB4F0073375C /* ContentView.swift */,
-				38966AF82C1DDE680021C1A9 /* LibraryView.swift */,
-				38F284C82C26514F00994A77 /* SettingsView.swift */,
 				384F18912C1DCB520073375C /* Assets.xcassets */,
 				384F18962C1DCB520073375C /* Pomelo.entitlements */,
-				387EC3EF2C1EC7DE00314FF4 /* Settings.bundle */,
 			);
 			path = Pomelo;
 			sourceTree = "<group>";
 		};
-		387EC3E92C1EC76100314FF4 /* Trollstore */ = {
+		386F6EDB2C42E0B900C62EBE /* FilesManager */ = {
 			isa = PBXGroup;
 			children = (
-				38C8466B2C1DCD2200331706 /* fishhook */,
-				38C8466C2C1DCD2200331706 /* utils.h */,
-				38C8466D2C1DCD2200331706 /* utils.m */,
-				38C8466E2C1DCD2200331706 /* JITEnabler.m */,
+				386F6EDA2C42E0B900C62EBE /* FileManager.swift */,
 			);
-			path = Trollstore;
+			path = FilesManager;
 			sourceTree = "<group>";
 		};
-		387EC3EA2C1EC76E00314FF4 /* SideJITServer */ = {
+		386F6EDD2C42E0B900C62EBE /* GameManager */ = {
 			isa = PBXGroup;
 			children = (
-				387EC3EB2C1EC78D00314FF4 /* EnableJIT.swift */,
-				387EC3ED2C1EC7A600314FF4 /* DetectServer.swift */,
+				386F6EDC2C42E0B900C62EBE /* SudachiGame.swift */,
 			);
-			path = SideJITServer;
+			path = GameManager;
 			sourceTree = "<group>";
 		};
-		38B93F762C21253000E219ED /* Themes */ = {
+		386F6EDF2C42E0B900C62EBE /* GameButton */ = {
 			isa = PBXGroup;
 			children = (
-				38B93F792C21256800E219ED /* ThemeLoader.swift */,
+				386F6EDE2C42E0B900C62EBE /* GameButtonView.swift */,
 			);
-			path = Themes;
+			path = GameButton;
+			sourceTree = "<group>";
+		};
+		386F6EE12C42E0B900C62EBE /* GameList */ = {
+			isa = PBXGroup;
+			children = (
+				386F6EE02C42E0B900C62EBE /* GameListView.swift */,
+			);
+			path = GameList;
+			sourceTree = "<group>";
+		};
+		386F6EE32C42E0B900C62EBE /* LibraryViews */ = {
+			isa = PBXGroup;
+			children = (
+				386F6EDF2C42E0B900C62EBE /* GameButton */,
+				386F6EE12C42E0B900C62EBE /* GameList */,
+				386F6EE22C42E0B900C62EBE /* LibraryView.swift */,
+			);
+			path = LibraryViews;
+			sourceTree = "<group>";
+		};
+		386F6EEE2C42E0EA00C62EBE /* EmulationView */ = {
+			isa = PBXGroup;
+			children = (
+				386F6EED2C42E0EA00C62EBE /* SudachiEmuView.swift */,
+				38020F522C4376DE00029E9A /* ControllerHandler */,
+				38020F4B2C43764100029E9A /* EmuHandler */,
+				38020F482C4375FC00029E9A /* Screen */,
+			);
+			path = EmulationView;
+			sourceTree = "<group>";
+		};
+		386F6F2E2C42E62200C62EBE /* SettingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				38020F572C43AFD400029E9A /* CoreSettings */,
+				386F6F2F2C42E63A00C62EBE /* SettingsView.swift */,
+				38020F2E2C43566B00029E9A /* AdvancedSettings */,
+				386F6F322C42E71500C62EBE /* InfoView */,
+			);
+			path = SettingsViews;
+			sourceTree = "<group>";
+		};
+		386F6F322C42E71500C62EBE /* InfoView */ = {
+			isa = PBXGroup;
+			children = (
+				386F6F332C42E98700C62EBE /* InfoView.swift */,
+			);
+			path = InfoView;
+			sourceTree = "<group>";
+		};
+		386F6F352C42E9D200C62EBE /* JITClasses */ = {
+			isa = PBXGroup;
+			children = (
+				38020F382C43754700029E9A /* SideJITServer */,
+				38020F402C43754700029E9A /* Trollstore */,
+			);
+			path = JITClasses;
 			sourceTree = "<group>";
 		};
 		38C50CEF2C1DCEA10007A953 /* Products */ = {
@@ -295,91 +450,6 @@
 				38C50D142C1DD4570007A953 /* GameController.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		38C8466B2C1DCD2200331706 /* fishhook */ = {
-			isa = PBXGroup;
-			children = (
-				38C846682C1DCD2200331706 /* fishhook.c */,
-				38C846692C1DCD2200331706 /* fishhook.h */,
-				38C8466A2C1DCD2200331706 /* LICENSE */,
-			);
-			path = fishhook;
-			sourceTree = "<group>";
-		};
-		38C8466F2C1DCD2200331706 /* JITEnabler */ = {
-			isa = PBXGroup;
-			children = (
-				387EC3EA2C1EC76E00314FF4 /* SideJITServer */,
-				387EC3E92C1EC76100314FF4 /* Trollstore */,
-			);
-			path = JITEnabler;
-			sourceTree = "<group>";
-		};
-		38C846782C1DCD2200331706 /* Games */ = {
-			isa = PBXGroup;
-			children = (
-				38C846772C1DCD2200331706 /* SudachiGame.swift */,
-			);
-			path = Games;
-			sourceTree = "<group>";
-		};
-		38C8467A2C1DCD2200331706 /* LibraryManager */ = {
-			isa = PBXGroup;
-			children = (
-				38C846782C1DCD2200331706 /* Games */,
-			);
-			path = LibraryManager;
-			sourceTree = "<group>";
-		};
-		38C846802C1DCD2200331706 /* VirtualController */ = {
-			isa = PBXGroup;
-			children = (
-				38C8467D2C1DCD2200331706 /* VirtualControllerButton.swift */,
-				38C8467E2C1DCD2200331706 /* VirtualControllerButtonDelegate.swift */,
-				38C8467F2C1DCD2200331706 /* VirtualControllerView.swift */,
-			);
-			path = VirtualController;
-			sourceTree = "<group>";
-		};
-		38C846822C1DCD2200331706 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				38B93F762C21253000E219ED /* Themes */,
-				38C8466F2C1DCD2200331706 /* JITEnabler */,
-				38C8467A2C1DCD2200331706 /* LibraryManager */,
-				38C846792C1DCD2200331706 /* LibraryManager.swift */,
-				38C846802C1DCD2200331706 /* VirtualController */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		38C846982C1DCDC100331706 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				38C846962C1DCDC100331706 /* EmulationVirtualControllerController.swift */,
-				38C846972C1DCDC100331706 /* EmulationScreensController.swift */,
-				38D350582C37F6AD00CF2A0F /* ReplicatedEmulationController.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		38C8469D2C1DCDC100331706 /* EmulationControllers */ = {
-			isa = PBXGroup;
-			children = (
-				38C846982C1DCDC100331706 /* Base */,
-				38C8469C2C1DCDC100331706 /* SudachiEmulationController.swift */,
-			);
-			path = EmulationControllers;
-			sourceTree = "<group>";
-		};
-		38C846A22C1DCDC100331706 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				38C8469D2C1DCDC100331706 /* EmulationControllers */,
-				38C846A12C1DCDC100331706 /* INIEditController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		38C846C92C1DCE8900331706 /* XCFrameworks */ = {
@@ -512,8 +582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				387EC3F02C1EC7DF00314FF4 /* Settings.bundle in Resources */,
-				38C846952C1DCD2200331706 /* LICENSE in Resources */,
+				38020F412C43754700029E9A /* LICENSE in Resources */,
 				384F18922C1DCB520073375C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,26 +594,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				384F18902C1DCB4F0073375C /* ContentView.swift in Sources */,
-				384F188E2C1DCB4F0073375C /* PomeloApp.swift in Sources */,
-				387EC3EC2C1EC79300314FF4 /* EnableJIT.swift in Sources */,
-				38B93F7A2C21256800E219ED /* ThemeLoader.swift in Sources */,
-				387EC3EE2C1EC7A600314FF4 /* DetectServer.swift in Sources */,
-				38F284C92C26514F00994A77 /* SettingsView.swift in Sources */,
-				38C846832C1DCD2200331706 /* SudachiGame.swift in Sources */,
-				38C846862C1DCD2200331706 /* JITEnabler.m in Sources */,
-				38C846872C1DCD2200331706 /* fishhook.c in Sources */,
-				38C846882C1DCD2200331706 /* VirtualControllerButton.swift in Sources */,
-				38C846A32C1DCDC100331706 /* SudachiEmulationController.swift in Sources */,
-				38C846A62C1DCDC100331706 /* EmulationScreensController.swift in Sources */,
-				38C846A72C1DCDC100331706 /* INIEditController.swift in Sources */,
-				38D350592C37F6B500CF2A0F /* ReplicatedEmulationController.swift in Sources */,
-				38C846AB2C1DCDC100331706 /* EmulationVirtualControllerController.swift in Sources */,
-				38C846892C1DCD2200331706 /* VirtualControllerView.swift in Sources */,
-				38C846902C1DCD2200331706 /* utils.m in Sources */,
-				38C846922C1DCD2200331706 /* LibraryManager.swift in Sources */,
-				38C846932C1DCD2200331706 /* VirtualControllerButtonDelegate.swift in Sources */,
-				38966AF92C1DDE760021C1A9 /* LibraryView.swift in Sources */,
+				38020F352C43720200029E9A /* NavView.swift in Sources */,
+				386F6EEC2C42E0C800C62EBE /* PomeloApp.swift in Sources */,
+				38020F562C43A02100029E9A /* BootOSView.swift in Sources */,
+				38020F4A2C43760A00029E9A /* SudachiScreenView.swift in Sources */,
+				38020F302C43568500029E9A /* AdvancedSettingsView.swift in Sources */,
+				386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */,
+				386F6EEF2C42E0EA00C62EBE /* SudachiEmuView.swift in Sources */,
+				386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */,
+				386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */,
+				386F6EE72C42E0B900C62EBE /* GameListView.swift in Sources */,
+				386F6EE82C42E0B900C62EBE /* LibraryView.swift in Sources */,
+				386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */,
+				386F6F342C42E98700C62EBE /* InfoView.swift in Sources */,
+				38020F512C43769900029E9A /* MetalView.swift in Sources */,
+				386F6EEA2C42E0B900C62EBE /* SudachiGame.swift in Sources */,
+				38020F542C43770500029E9A /* ControllerView.swift in Sources */,
+				38020F422C43754700029E9A /* JITEnabler.m in Sources */,
+				38020F432C43754700029E9A /* EnableJIT.swift in Sources */,
+				38020F442C43754700029E9A /* DetectServer.swift in Sources */,
+				38020F452C43754700029E9A /* fishhook.c in Sources */,
+				38020F462C43754700029E9A /* utils.m in Sources */,
+				38020F5A2C43AFFA00029E9A /* CoreSettingsView.swift in Sources */,
+				38020F4D2C43765400029E9A /* SudachiEmuHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

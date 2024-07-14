@@ -1,0 +1,68 @@
+//
+//  InfoView.swift
+//  Pomelo
+//
+//  Created by Stossy11 on 14/7/2024.
+//
+
+import SwiftUI
+
+struct InfoView: View {
+    @AppStorage("entitlementNotExists") private var entitlementNotExists: Bool = false
+    @AppStorage("increaseddebugmem") private var increaseddebugmem: Bool = false
+    @AppStorage("extended-virtual-addressing") private var extended: Bool = false
+    let infoDictionary = Bundle.main.infoDictionary
+    
+    var body: some View {
+        ScrollView {
+            VStack {
+                Text("Welcome to Pomelo!")
+                    .font(.largeTitle)
+                Divider()
+                Text("Entitlements:")
+                    .font(.title)
+                    .bold()
+                Spacer()
+                    .frame(height: 10)
+                Group {
+                    Text("Required:")
+                        .font(.title2)
+                        .foregroundColor(.red)
+                        .bold()
+                    Spacer()
+                        .frame(height: 10)
+                    Text("Increased Memory Limit: \(!entitlementNotExists)")
+                    Spacer()
+                        .frame(height: 10)
+                }
+                Group {
+                    Spacer()
+                        .frame(height: 10)
+                    Text("Reccomended(paid):")
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                        .frame(height: 10)
+                    Text("Increased Debugging Memory Limit: \(increaseddebugmem)")
+                        .padding()
+                    Text("Extended Virtual Addressing: \(extended)")
+                }
+                
+            }
+            .padding()
+            
+            Text("Version: \(getAppVersion())")
+                .foregroundColor(.gray)
+        }
+    }
+    func getAppVersion() -> String {
+        guard let version = infoDictionary?["CFBundleShortVersionString"] as? String else {
+            return "Unknown"
+        }
+        return version
+    }
+}
+
+#Preview {
+    InfoView()
+}

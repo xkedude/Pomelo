@@ -58,7 +58,8 @@ public struct Sudachi {
         return sudachiObjC.canGetFullPath()
     }
     
-    public func bootOS1() {
+    
+    public func exit() {
         sudachiObjC.quit()
     }
     

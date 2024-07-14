@@ -19,6 +19,7 @@
 #include "core/file_sys/savedata_factory.h"
 #include "core/loader/nro.h"
 #include "frontend_common/content_manager.h"
+#include "common/settings_enums.h"
 
 #include "common/detached_tasks.h"
 #include "common/dynamic_library.h"
@@ -75,6 +76,7 @@
         EmulationSession::GetInstance().InitializeSystem(false);
         EmulationSession::GetInstance().InitializeGpuDriver();
         
+    
         // YuzuSettings::values.use_asynchronous_shaders.SetValue(true);
         // YuzuSettings::values.astc_recompression.SetValue(YuzuSettings::AstcRecompression::Bc3);
         // YuzuSettings::values.shader_backend.SetValue(YuzuSettings::ShaderBackend::SpirV);
