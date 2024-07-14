@@ -12,7 +12,7 @@ WE DO NOT CONDONE OR SUPPORT PIRACY AT ALL. If you want to use Pomelo you will b
 
 ### NOTE: Some entitlements Pomelo depends on require a PAID Apple Developer Account. Your mileage with a free account or Trollstore might be limited. 
 
-Pomelo is based on the F x Sudachi 1.1.4 code which was orginally sourced from the now defunct Yuzu emulator.
+Pomelo is based on Sudachi which was orginally sourced from the now defunct Yuzu emulator.
 
 ## iOS
 
