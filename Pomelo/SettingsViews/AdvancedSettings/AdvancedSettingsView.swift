@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AdvancedSettingsView: View {
-    @AppStorage("isfullscreen") var isFullScreen: Bool = false
+  //  @AppStorage("isfullscreen") var isFullScreen: Bool = false
     @AppStorage("exitgame") var exitgame: Bool = false
-    @AppStorage("ClearBackingRegion") var kpagetable: Bool = true
+    @AppStorage("ClearBackingRegion") var kpagetable: Bool = false
     @AppStorage("WaitingforJIT") var waitingJIT: Bool = false
     @State var showFileImporter: Bool = false
     var body: some View {
         ScrollView {
-            Rectangle()
+          /*  Rectangle()
                 .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
                 .cornerRadius(10) // Apply rounded corners
                 .frame(width: .infinity, height: 50) // Set the desired dimensions
@@ -25,10 +25,10 @@ struct AdvancedSettingsView: View {
                             .padding()
                     }
                 }
-            Text("This is unstable and can lead to crashes. Use at your own risk.")
+           Text("This is unstable and can lead to crashes. Use at your own risk.")
                 .padding(.bottom)
                 .font(.footnote)
-                .foregroundColor(.gray)
+                .foregroundColor(.gray) */
             Rectangle()
                 .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
                 .cornerRadius(10) // Apply rounded corners
@@ -56,7 +56,7 @@ struct AdvancedSettingsView: View {
                             }
                     }
                 }
-            Text("This is a bit unstable but can lead to slower preformance but also can allow for a bunch more games to be playable")
+            Text("This is a bit unstable and can lead to slower preformance but also can allow for a bunch more games to be playable")
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)
