@@ -74,15 +74,6 @@ class SudachiEmulationViewModel: ObservableObject {
         }
     }
     
-    // Handle touch events on Metal view
-    func handleMetalViewTap(location: CGPoint) {
-        sudachi.touchBegan(at: location, for: 1) // Example
-    }
-
-    func handleMetalViewDrag(_ location: CGPoint) {
-        sudachi.touchMoved(at: location, for: 1) // Example
-    }
-
     func handleOrientationChange(size: CGSize) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
