@@ -17,7 +17,7 @@ struct CoreSettingsView: View {
     @State var configEntries: [ConfigEntry] = parseConfigFile() ?? []
     
     var body: some View {
-        NavigationView {
+     //   NavigationView {
             List {
                 ForEach(configEntries.indices, id: \.self) { index in
                     if configEntries[index].value == nil {
@@ -35,10 +35,13 @@ struct CoreSettingsView: View {
                                         self.configEntries[index].value = toggle
                                     }
                                 )) {
+                                    
                                     Text(title)
+                                   
                                 }
                             } else if let value = configEntries[index].value as? Int {
                                 HStack {
+                                
                                     Text(title)
                                     Spacer()
                                     TextField("", value: Binding(
@@ -49,8 +52,9 @@ struct CoreSettingsView: View {
                                     ), formatter: NumberFormatter())
                                     .keyboardType(.numberPad)
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .frame(width: 100)
+                                    
                                 }
+                                Spacer()
                             } else if let value = configEntries[index].value as? String {
                                 HStack {
                                     Text(title)
@@ -62,8 +66,9 @@ struct CoreSettingsView: View {
                                         }
                                     ))
                                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                                    .frame(width: 200)
+                                    
                                 }
+                                
                             }
                         } else {
                             Text(configEntries[index].value as? String ?? "")
@@ -72,9 +77,11 @@ struct CoreSettingsView: View {
                 }
             }
             .navigationBarTitle("Config Entries")
+       
             .onAppear() {
                 configEntries = parseConfigFile() ?? []
             }
+      
         }
     }
     
@@ -128,7 +135,7 @@ struct CoreSettingsView: View {
             return false
         }
     }
-}
+//}
 
 func parseConfigFile() -> [ConfigEntry]? {
     let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]

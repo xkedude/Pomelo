@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct AdvancedSettingsView: View {
     @AppStorage("isfullscreen") var isFullScreen: Bool = false
     @AppStorage("exitgame") var exitgame: Bool = false
     @AppStorage("ClearBackingRegion") var kpagetable: Bool = true
     @AppStorage("WaitingforJIT") var waitingJIT: Bool = false
-    @State var showFileImporter: Bool = false
+    @State private var showFileImporter = false
     var body: some View {
         ScrollView {
             Rectangle()

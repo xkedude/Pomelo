@@ -6161,6 +6161,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"\"$(HOME)/VulkanSDK/1.3.283.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.283.0/macOS/include/vma\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/Sudachi/Core/include\"";
 				USE_HEADERMAP = NO;
@@ -6200,6 +6205,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"\"$(HOME)/VulkanSDK/1.3.283.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.283.0/macOS/include/vma\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/Sudachi/Core/include\"";
 				USE_HEADERMAP = NO;

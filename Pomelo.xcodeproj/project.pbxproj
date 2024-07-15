@@ -779,7 +779,7 @@
 				);
 				MARKETING_VERSION = 0.0.9;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
@@ -831,7 +831,7 @@
 				);
 				MARKETING_VERSION = 0.0.9;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;

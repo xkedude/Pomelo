@@ -1,0 +1,591 @@
+2024-07-15 15:50:32 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x352cf79b0; archive(resolved)="<IDEArchive: 0x6000414c2100>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x352cf79b0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x352cf2e00; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x352c10120; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x3526951d0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x362998620; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x35253cba0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x352ce0c80; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x352c1ccf0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x352cb6c70; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x600006980d80; teamID='F4QL9A2T88', teamName='Leopold Schaffhauser', teamType='Individual', username='leopold.schaffhauser@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x352cb7b30; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="(null)">
+	<IDEDistributionContext: 0x35050b600; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="(null)">
+	<IDEDistributionContext: 0x352cb73d0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="(null)">
+	<IDEDistributionContext: 0x3563b3dd0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="<IDEDistributionMethodiOSAdHoc: 0x60000b286b00>", team="(null)">
+	<IDEDistributionContext: 0x3462fcf90; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x357ea47e0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="(null)", team="(null)">
+	<IDEDistributionContext: 0x3627abee0; archive = "<IDEArchive: 0x6000414c2100>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x352cf79b0>
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionCreateDestRootStep
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionCopyItemStep
+2024-07-15 15:50:32 +0000  Running /usr/bin/ditto '-V' '/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app'
+2024-07-15 15:50:32 +0000  >>> Copying /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app 
+2024-07-15 15:50:32 +0000  copying file ./_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  14973 bytes for ./_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./LICENSE ... 
+2024-07-15 15:50:32 +0000  1553 bytes for ./LICENSE
+2024-07-15 15:50:32 +0000  copying file ./AppIcon60x60@2x.png ... 
+2024-07-15 15:50:32 +0000  14945 bytes for ./AppIcon60x60@2x.png
+2024-07-15 15:50:32 +0000  copying file ./Pomelo ... 
+2024-07-15 15:50:32 +0000  23293280 bytes for ./Pomelo
+2024-07-15 15:50:32 +0000  copying file ./Assets.car ... 
+1486287 bytes for ./Assets.car
+copying file ./AppIcon76x76@2x~ipad.png ... 
+2024-07-15 15:50:32 +0000  22366 bytes for ./AppIcon76x76@2x~ipad.png
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libswresample.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  2006 bytes for ./Frameworks/libswresample.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libswresample.framework/LICENSE ... 
+2024-07-15 15:50:32 +0000  7651 bytes for ./Frameworks/libswresample.framework/LICENSE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libswresample.framework/libswresample ... 
+2024-07-15 15:50:32 +0000  239232 bytes for ./Frameworks/libswresample.framework/libswresample
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libswresample.framework/Info.plist ... 
+2024-07-15 15:50:32 +0000  933 bytes for ./Frameworks/libswresample.framework/Info.plist
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavfilter.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  2006 bytes for ./Frameworks/libavfilter.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavfilter.framework/libavfilter ... 
+2024-07-15 15:50:32 +0000  2467264 bytes for ./Frameworks/libavfilter.framework/libavfilter
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavfilter.framework/LICENSE ... 
+2024-07-15 15:50:32 +0000  7651 bytes for ./Frameworks/libavfilter.framework/LICENSE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavfilter.framework/Info.plist ... 
+2024-07-15 15:50:32 +0000  925 bytes for ./Frameworks/libavfilter.framework/Info.plist
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavformat.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  2006 bytes for ./Frameworks/libavformat.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavformat.framework/LICENSE ... 
+2024-07-15 15:50:32 +0000  7651 bytes for ./Frameworks/libavformat.framework/LICENSE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavformat.framework/libavformat ... 
+2024-07-15 15:50:32 +0000  1996336 bytes for ./Frameworks/libavformat.framework/libavformat
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavformat.framework/Info.plist ... 
+927 bytes for ./Frameworks/libavformat.framework/Info.plist
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/OpenSSL.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  2034 bytes for ./Frameworks/OpenSSL.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/OpenSSL.framework/PrivacyInfo.xcprivacy ... 
+2024-07-15 15:50:32 +0000  373 bytes for ./Frameworks/OpenSSL.framework/PrivacyInfo.xcprivacy
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/OpenSSL.framework/OpenSSL ... 
+2024-07-15 15:50:32 +0000  3887232 bytes for ./Frameworks/OpenSSL.framework/OpenSSL
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/OpenSSL.framework/Info.plist ... 
+769 bytes for ./Frameworks/OpenSSL.framework/Info.plist
+copying file ./Frameworks/libavutil.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  2006 bytes for ./Frameworks/libavutil.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavutil.framework/libavutil ... 
+2024-07-15 15:50:32 +0000  543904 bytes for ./Frameworks/libavutil.framework/libavutil
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavutil.framework/LICENSE ... 
+2024-07-15 15:50:32 +0000  7651 bytes for ./Frameworks/libavutil.framework/LICENSE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavutil.framework/Info.plist ... 
+2024-07-15 15:50:32 +0000  921 bytes for ./Frameworks/libavutil.framework/Info.plist
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/MoltenVK.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  1798 bytes for ./Frameworks/MoltenVK.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/MoltenVK.framework/MoltenVK ... 
+2024-07-15 15:50:32 +0000  6773616 bytes for ./Frameworks/MoltenVK.framework/MoltenVK
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/MoltenVK.framework/Info.plist ... 
+747 bytes for ./Frameworks/MoltenVK.framework/Info.plist
+copying file ./Frameworks/libswscale.framework/_CodeSignature/CodeResources ... 
+2006 bytes for ./Frameworks/libswscale.framework/_CodeSignature/CodeResources
+copying file ./Frameworks/libswscale.framework/LICENSE ... 
+2024-07-15 15:50:32 +0000  7651 bytes for ./Frameworks/libswscale.framework/LICENSE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libswscale.framework/libswscale ... 
+2024-07-15 15:50:32 +0000  371440 bytes for ./Frameworks/libswscale.framework/libswscale
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libswscale.framework/Info.plist ... 
+2024-07-15 15:50:32 +0000  922 bytes for ./Frameworks/libswscale.framework/Info.plist
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:32 +0000  4598 bytes for ./Frameworks/libavcodec.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.SOXR ... 
+2024-07-15 15:50:32 +0000  26432 bytes for ./Frameworks/libavcodec.framework/LICENSE.SOXR
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.SHINE ... 
+2024-07-15 15:50:32 +0000  25767 bytes for ./Frameworks/libavcodec.framework/LICENSE.SHINE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.VO-AMRWBENC ... 
+2024-07-15 15:50:32 +0000  10271 bytes for ./Frameworks/libavcodec.framework/LICENSE.VO-AMRWBENC
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.OPUS ... 
+2024-07-15 15:50:32 +0000  1928 bytes for ./Frameworks/libavcodec.framework/LICENSE.OPUS
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.LAME ... 
+2024-07-15 15:50:32 +0000  25284 bytes for ./Frameworks/libavcodec.framework/LICENSE.LAME
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE ... 
+2024-07-15 15:50:32 +0000  7651 bytes for ./Frameworks/libavcodec.framework/LICENSE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.LIBSNDFILE ... 
+2024-07-15 15:50:32 +0000  26518 bytes for ./Frameworks/libavcodec.framework/LICENSE.LIBSNDFILE
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.SPEEX ... 
+2024-07-15 15:50:32 +0000  1773 bytes for ./Frameworks/libavcodec.framework/LICENSE.SPEEX
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.LIBVORBIS ... 
+2024-07-15 15:50:32 +0000  1470 bytes for ./Frameworks/libavcodec.framework/LICENSE.LIBVORBIS
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.LIBILBC ... 
+2024-07-15 15:50:32 +0000  1511 bytes for ./Frameworks/libavcodec.framework/LICENSE.LIBILBC
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/libavcodec ... 
+2024-07-15 15:50:32 +0000  9553152 bytes for ./Frameworks/libavcodec.framework/libavcodec
+2024-07-15 15:50:32 +0000  copying file ./Frameworks/libavcodec.framework/LICENSE.TWOLAME ... 
+26428 bytes for ./Frameworks/libavcodec.framework/LICENSE.TWOLAME
+copying file ./Frameworks/libavcodec.framework/LICENSE.OPENCORE-AMR ... 
+10271 bytes for ./Frameworks/libavcodec.framework/LICENSE.OPENCORE-AMR
+copying file ./Frameworks/libavcodec.framework/Info.plist ... 
+924 bytes for ./Frameworks/libavcodec.framework/Info.plist
+copying file ./Frameworks/libavcodec.framework/LICENSE.LIBOGG ... 
+2024-07-15 15:50:32 +0000  1466 bytes for ./Frameworks/libavcodec.framework/LICENSE.LIBOGG
+2024-07-15 15:50:32 +0000  copying file ./embedded.mobileprovision ... 
+2024-07-15 15:50:32 +0000  21318 bytes for ./embedded.mobileprovision
+2024-07-15 15:50:32 +0000  copying file ./Info.plist ... 
+2024-07-15 15:50:32 +0000  1986 bytes for ./Info.plist
+2024-07-15 15:50:32 +0000  copying file ./PkgInfo ... 
+2024-07-15 15:50:32 +0000  8 bytes for ./PkgInfo
+2024-07-15 15:50:32 +0000  /usr/bin/ditto exited with 0
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionEmbedProfileStep
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147a3a0; bundleID='com.moltenvk.framework', path='<DVTFilePath:0x600051ed2180:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600039019310; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.moltenvk.framework', executablePath='<DVTFilePath:0x600051ed2b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework/MoltenVK'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147cb40; bundleID='com.github.krzyzanowskim.OpenSSL', path='<DVTFilePath:0x600051ed1b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375d60; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.github.krzyzanowskim.OpenSSL', executablePath='<DVTFilePath:0x60001db27a30:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework/OpenSSL'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147e0a0; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x600051ed3b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001139a4e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x600051ed2600:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147cfc0; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x600051ed0380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019376b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x600051ed0280:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147cae0; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x600051ed0100:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000193767b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x600051ed3800:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147c120; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x600051ed3500:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019374c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x600051ed1d80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147d740; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x600051ed2380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375db0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x600051ed2b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Skipping profile for item: <IDEDistributionItem: 0x60004147c480; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x600051ed2480:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019377f20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x600051ed2f80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='1'>'>
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionInfoPlistStep
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionSymbolsStep
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionAppThinningStep
+2024-07-15 15:50:32 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionArchThinningStep
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/MoltenVK.framework/MoltenVK' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "MoltenVK" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/OpenSSL.framework/OpenSSL' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "OpenSSL" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavcodec.framework/libavcodec' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "libavcodec" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavfilter.framework/libavfilter' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "libavfilter" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavformat.framework/libavformat' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "libavformat" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavutil.framework/libavutil' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "libavutil" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswresample.framework/libswresample' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "libswresample" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswscale.framework/libswscale' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "libswscale" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app doesn't have the entitlement com.apple.developer.web-browser-engine.host enabled, returning ["arm64e"]
+2024-07-15 15:50:32 +0000  Archs to thin for item /Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app are ["arm64e"]
+2024-07-15 15:50:32 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Pomelo' '-verify_arch' 'arm64e'
+2024-07-15 15:50:32 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-07-15 15:50:32 +0000  Skipping architecture thinning for item "Pomelo" because arch "arm64e" wasn't found
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionODRStep
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionStripXattrsStep
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Skipping stripping extended attributes because the codesign step will strip them.
+2024-07-15 15:50:32 +0000  Processing step: IDEDistributionCodesignStep
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147a3a0; bundleID='com.moltenvk.framework', path='<DVTFilePath:0x600051ed2180:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600039019310; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.moltenvk.framework', executablePath='<DVTFilePath:0x600051ed2b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework/MoltenVK'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147a3a0; bundleID='com.moltenvk.framework', path='<DVTFilePath:0x600051ed2180:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600039019310; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5a700; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.moltenvk.framework', executablePath='<DVTFilePath:0x600051ed2b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework/MoltenVK'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147a3a0; bundleID='com.moltenvk.framework', path='<DVTFilePath:0x600051ed2180:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600039019310; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a740c0; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.moltenvk.framework', executablePath='<DVTFilePath:0x600051ed2b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/MoltenVK.framework/MoltenVK'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~pnnVLj
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~pnnVLj' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/MoltenVK.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/MoltenVK.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/MoltenVK.framework: signed bundle with Mach-O thin (arm64) [com.moltenvk.framework]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147cb40; bundleID='com.github.krzyzanowskim.OpenSSL', path='<DVTFilePath:0x600051ed1b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375d60; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.github.krzyzanowskim.OpenSSL', executablePath='<DVTFilePath:0x60001db27a30:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework/OpenSSL'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147cb40; bundleID='com.github.krzyzanowskim.OpenSSL', path='<DVTFilePath:0x600051ed1b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375d60; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5a700; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.github.krzyzanowskim.OpenSSL', executablePath='<DVTFilePath:0x60001db27a30:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework/OpenSSL'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147cb40; bundleID='com.github.krzyzanowskim.OpenSSL', path='<DVTFilePath:0x600051ed1b00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375d60; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5bf00; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.github.krzyzanowskim.OpenSSL', executablePath='<DVTFilePath:0x60001db27a30:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/OpenSSL.framework/OpenSSL'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~DPKC7v
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~DPKC7v' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/OpenSSL.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/OpenSSL.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/OpenSSL.framework: signed bundle with Mach-O thin (arm64) [com.github.krzyzanowskim.OpenSSL]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147e0a0; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x600051ed3b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001139a4e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x600051ed2600:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147e0a0; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x600051ed3b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001139a4e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5a700; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x600051ed2600:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147e0a0; bundleID='com.arthenica.ffmpegkit.Libavcodec', path='<DVTFilePath:0x600051ed3b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60001139a4e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5bf00; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavcodec', executablePath='<DVTFilePath:0x600051ed2600:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavcodec.framework/libavcodec'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~Dt0vnb
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~Dt0vnb' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavcodec.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavcodec.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavcodec.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavcodec]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147cfc0; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x600051ed0380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019376b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x600051ed0280:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147cfc0; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x600051ed0380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019376b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5a700; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x600051ed0280:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147cfc0; bundleID='com.arthenica.ffmpegkit.Libavfilter', path='<DVTFilePath:0x600051ed0380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019376b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5bf00; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavfilter', executablePath='<DVTFilePath:0x600051ed0280:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavfilter.framework/libavfilter'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~IXwPba
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~IXwPba' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavfilter.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavfilter.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavfilter.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavfilter]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147cae0; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x600051ed0100:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000193767b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a743c0; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x600051ed3800:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147cae0; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x600051ed0100:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000193767b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a740c0; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x600051ed3800:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147cae0; bundleID='com.arthenica.ffmpegkit.Libavformat', path='<DVTFilePath:0x600051ed0100:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000193767b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a74840; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavformat', executablePath='<DVTFilePath:0x600051ed3800:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavformat.framework/libavformat'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~zUZuT9
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~zUZuT9' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavformat.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavformat.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavformat.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavformat]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147c120; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x600051ed3500:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019374c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x600051ed1d80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147c120; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x600051ed3500:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019374c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5a700; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x600051ed1d80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147c120; bundleID='com.arthenica.ffmpegkit.Libavutil', path='<DVTFilePath:0x600051ed3500:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019374c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5bf00; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libavutil', executablePath='<DVTFilePath:0x600051ed1d80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libavutil.framework/libavutil'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~34ZHaR
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~34ZHaR' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavutil.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavutil.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavutil.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libavutil]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147d740; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x600051ed2380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375db0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5b000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x600051ed2b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147d740; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x600051ed2380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375db0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5a700; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x600051ed2b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147d740; bundleID='com.arthenica.ffmpegkit.Libswresample', path='<DVTFilePath:0x600051ed2380:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019375db0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a5bf00; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswresample', executablePath='<DVTFilePath:0x600051ed2b80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswresample.framework/libswresample'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~BQMgc2
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~BQMgc2' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswresample.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswresample.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswresample.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libswresample]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147c480; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x600051ed2480:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019377f20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600004a9b840; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x600051ed2f80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='1'>'>: {
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x60004147c480; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x600051ed2480:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019377f20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a743c0; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x600051ed2f80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='1'>'> are: {
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x60004147c480; bundleID='com.arthenica.ffmpegkit.Libswscale', path='<DVTFilePath:0x600051ed2480:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x600019377f20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a740c0; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='(null)', teamID='F4QL9A2T88', identifier='com.arthenica.ffmpegkit.Libswscale', executablePath='<DVTFilePath:0x600051ed2f80:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Frameworks/libswscale.framework/libswscale'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~GzBK2S
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~GzBK2S' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswscale.framework'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswscale.framework: replacing existing signature
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswscale.framework: signed bundle with Mach-O universal (arm64) [com.arthenica.ffmpegkit.Libswscale]
+2024-07-15 15:50:32 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x600041478600; bundleID='com.stossy11.Pomelo1', path='<DVTFilePath:0x600051e5ad00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003901a260; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a740c0; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='{
+    "application-identifier" = "F4QL9A2T88.com.stossy11.Pomelo1";
+    "com.apple.developer.kernel.extended-virtual-addressing" = 1;
+    "com.apple.developer.kernel.increased-debugging-memory-limit" = 1;
+    "com.apple.developer.kernel.increased-memory-limit" = 1;
+    "com.apple.developer.team-identifier" = F4QL9A2T88;
+    "get-task-allow" = 1;
+}', teamID='F4QL9A2T88', identifier='com.stossy11.Pomelo1', executablePath='<DVTFilePath:0x6000258b1180:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Pomelo'>', hardenedRuntime='1'>'>: {
+    "application-identifier" = "F4QL9A2T88.com.stossy11.Pomelo1";
+    "com.apple.developer.kernel.extended-virtual-addressing" = 1;
+    "com.apple.developer.kernel.increased-debugging-memory-limit" = 1;
+    "com.apple.developer.kernel.increased-memory-limit" = 1;
+    "com.apple.developer.team-identifier" = F4QL9A2T88;
+    "get-task-allow" = 0;
+}
+2024-07-15 15:50:32 +0000  Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-07-15 15:50:32 +0000  Entitlements for <IDEDistributionItem: 0x600041478600; bundleID='com.stossy11.Pomelo1', path='<DVTFilePath:0x600051e5ad00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003901a260; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a74000; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='{
+    "application-identifier" = "F4QL9A2T88.com.stossy11.Pomelo1";
+    "com.apple.developer.kernel.extended-virtual-addressing" = 1;
+    "com.apple.developer.kernel.increased-debugging-memory-limit" = 1;
+    "com.apple.developer.kernel.increased-memory-limit" = 1;
+    "com.apple.developer.team-identifier" = F4QL9A2T88;
+    "get-task-allow" = 1;
+}', teamID='F4QL9A2T88', identifier='com.stossy11.Pomelo1', executablePath='<DVTFilePath:0x6000258b1180:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Pomelo'>', hardenedRuntime='1'>'> are: {
+    "application-identifier" = "F4QL9A2T88.com.stossy11.Pomelo1";
+    "com.apple.developer.kernel.extended-virtual-addressing" = 1;
+    "com.apple.developer.kernel.increased-debugging-memory-limit" = 1;
+    "com.apple.developer.kernel.increased-memory-limit" = 1;
+    "com.apple.developer.team-identifier" = F4QL9A2T88;
+    "get-task-allow" = 0;
+}
+2024-07-15 15:50:32 +0000  Writing entitlements for <IDEDistributionItem: 0x600041478600; bundleID='com.stossy11.Pomelo1', path='<DVTFilePath:0x600051e5ad00:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60003901a260; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600008a75080; name='Apple Development: Leopold Schaffhauser (33J5QM52D6)', hash='8032C58BE65AAFD7E3162196C2F4B3723C959D55', serialNumber='69488A48BC0D1A85FD7CB2ADF302ECE4', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-07-01 17:11:22 +0000''>', entitlements='{
+    "application-identifier" = "F4QL9A2T88.com.stossy11.Pomelo1";
+    "com.apple.developer.kernel.extended-virtual-addressing" = 1;
+    "com.apple.developer.kernel.increased-debugging-memory-limit" = 1;
+    "com.apple.developer.kernel.increased-memory-limit" = 1;
+    "com.apple.developer.team-identifier" = F4QL9A2T88;
+    "get-task-allow" = 1;
+}', teamID='F4QL9A2T88', identifier='com.stossy11.Pomelo1', executablePath='<DVTFilePath:0x6000258b1180:'/Users/ls/Library/Developer/Xcode/Archives/2024-07-15/Pomelo 15-07-2024, 16.49.xcarchive/Products/Applications/Pomelo.app/Pomelo'>', hardenedRuntime='1'>'> to: /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~R15NWV
+2024-07-15 15:50:32 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DEA57E3927E61C16FC4D56159CD032B6D0D6D13B' '--entitlements' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/entitlements~~~R15NWV' '--generate-entitlement-der' '--strip-disallowed-xattrs' '--preserve-metadata=identifier,flags,runtime' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app'
+2024-07-15 15:50:32 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app: replacing existing signature
+2024-07-15 15:50:33 +0000  /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app: signed app bundle with Mach-O thin (arm64) [com.stossy11.Pomelo1]
+2024-07-15 15:50:33 +0000  /usr/bin/codesign exited with 0
+2024-07-15 15:50:33 +0000  Processing step: IDEDistributionZipODRItemStep
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-07-15 15:50:33 +0000  Processing step: IDEDistributionCreateIPAStep
+2024-07-15 15:50:33 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root' '/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Packages/Pomelo.ipa'
+2024-07-15 15:50:33 +0000  >>> Copying /var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root 
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:33 +0000  14973 bytes for ./Payload/Pomelo.app/_CodeSignature/CodeResources
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/LICENSE ... 
+2024-07-15 15:50:33 +0000  1553 bytes for ./Payload/Pomelo.app/LICENSE
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/AppIcon60x60@2x.png ... 
+2024-07-15 15:50:33 +0000  14945 bytes for ./Payload/Pomelo.app/AppIcon60x60@2x.png
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Pomelo ... 
+2024-07-15 15:50:33 +0000  23293280 bytes for ./Payload/Pomelo.app/Pomelo
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Assets.car ... 
+2024-07-15 15:50:33 +0000  1486287 bytes for ./Payload/Pomelo.app/Assets.car
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/AppIcon76x76@2x~ipad.png ... 
+2024-07-15 15:50:33 +0000  22366 bytes for ./Payload/Pomelo.app/AppIcon76x76@2x~ipad.png
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libswresample.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:33 +0000  2006 bytes for ./Payload/Pomelo.app/Frameworks/libswresample.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libswresample.framework/LICENSE ... 
+2024-07-15 15:50:33 +0000  7651 bytes for ./Payload/Pomelo.app/Frameworks/libswresample.framework/LICENSE
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libswresample.framework/libswresample ... 
+2024-07-15 15:50:33 +0000  239488 bytes for ./Payload/Pomelo.app/Frameworks/libswresample.framework/libswresample
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libswresample.framework/Info.plist ... 
+2024-07-15 15:50:33 +0000  933 bytes for ./Payload/Pomelo.app/Frameworks/libswresample.framework/Info.plist
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavfilter.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:33 +0000  2006 bytes for ./Payload/Pomelo.app/Frameworks/libavfilter.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavfilter.framework/libavfilter ... 
+2024-07-15 15:50:33 +0000  2467536 bytes for ./Payload/Pomelo.app/Frameworks/libavfilter.framework/libavfilter
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavfilter.framework/LICENSE ... 
+7651 bytes for ./Payload/Pomelo.app/Frameworks/libavfilter.framework/LICENSE
+copying file ./Payload/Pomelo.app/Frameworks/libavfilter.framework/Info.plist ... 
+925 bytes for ./Payload/Pomelo.app/Frameworks/libavfilter.framework/Info.plist
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavformat.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:33 +0000  2006 bytes for ./Payload/Pomelo.app/Frameworks/libavformat.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavformat.framework/LICENSE ... 
+2024-07-15 15:50:33 +0000  7651 bytes for ./Payload/Pomelo.app/Frameworks/libavformat.framework/LICENSE
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavformat.framework/libavformat ... 
+2024-07-15 15:50:33 +0000  1996608 bytes for ./Payload/Pomelo.app/Frameworks/libavformat.framework/libavformat
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavformat.framework/Info.plist ... 
+927 bytes for ./Payload/Pomelo.app/Frameworks/libavformat.framework/Info.plist
+copying file ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/_CodeSignature/CodeResources ... 
+2034 bytes for ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/_CodeSignature/CodeResources
+copying file ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/PrivacyInfo.xcprivacy ... 
+373 bytes for ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/PrivacyInfo.xcprivacy
+copying file ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/OpenSSL ... 
+2024-07-15 15:50:33 +0000  3887504 bytes for ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/OpenSSL
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/Info.plist ... 
+2024-07-15 15:50:33 +0000  769 bytes for ./Payload/Pomelo.app/Frameworks/OpenSSL.framework/Info.plist
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavutil.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:33 +0000  2006 bytes for ./Payload/Pomelo.app/Frameworks/libavutil.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavutil.framework/libavutil ... 
+2024-07-15 15:50:33 +0000  544176 bytes for ./Payload/Pomelo.app/Frameworks/libavutil.framework/libavutil
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavutil.framework/LICENSE ... 
+2024-07-15 15:50:33 +0000  7651 bytes for ./Payload/Pomelo.app/Frameworks/libavutil.framework/LICENSE
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavutil.framework/Info.plist ... 
+2024-07-15 15:50:33 +0000  921 bytes for ./Payload/Pomelo.app/Frameworks/libavutil.framework/Info.plist
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/MoltenVK.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:33 +0000  1798 bytes for ./Payload/Pomelo.app/Frameworks/MoltenVK.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:33 +0000  copying file ./Payload/Pomelo.app/Frameworks/MoltenVK.framework/MoltenVK ... 
+2024-07-15 15:50:34 +0000  6773872 bytes for ./Payload/Pomelo.app/Frameworks/MoltenVK.framework/MoltenVK
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/MoltenVK.framework/Info.plist ... 
+747 bytes for ./Payload/Pomelo.app/Frameworks/MoltenVK.framework/Info.plist
+copying file ./Payload/Pomelo.app/Frameworks/libswscale.framework/_CodeSignature/CodeResources ... 
+2006 bytes for ./Payload/Pomelo.app/Frameworks/libswscale.framework/_CodeSignature/CodeResources
+copying file ./Payload/Pomelo.app/Frameworks/libswscale.framework/LICENSE ... 
+2024-07-15 15:50:34 +0000  7651 bytes for ./Payload/Pomelo.app/Frameworks/libswscale.framework/LICENSE
+copying file ./Payload/Pomelo.app/Frameworks/libswscale.framework/libswscale ... 
+2024-07-15 15:50:34 +0000  371712 bytes for ./Payload/Pomelo.app/Frameworks/libswscale.framework/libswscale
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libswscale.framework/Info.plist ... 
+922 bytes for ./Payload/Pomelo.app/Frameworks/libswscale.framework/Info.plist
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/_CodeSignature/CodeResources ... 
+2024-07-15 15:50:34 +0000  4598 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/_CodeSignature/CodeResources
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.SOXR ... 
+2024-07-15 15:50:34 +0000  26432 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.SOXR
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.SHINE ... 
+2024-07-15 15:50:34 +0000  25767 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.SHINE
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.VO-AMRWBENC ... 
+2024-07-15 15:50:34 +0000  10271 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.VO-AMRWBENC
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.OPUS ... 
+2024-07-15 15:50:34 +0000  1928 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.OPUS
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LAME ... 
+2024-07-15 15:50:34 +0000  25284 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LAME
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE ... 
+2024-07-15 15:50:34 +0000  7651 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBSNDFILE ... 
+2024-07-15 15:50:34 +0000  26518 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBSNDFILE
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.SPEEX ... 
+2024-07-15 15:50:34 +0000  1773 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.SPEEX
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBVORBIS ... 
+2024-07-15 15:50:34 +0000  1470 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBVORBIS
+copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBILBC ... 
+2024-07-15 15:50:34 +0000  1511 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBILBC
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/libavcodec ... 
+2024-07-15 15:50:34 +0000  9553424 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/libavcodec
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.TWOLAME ... 
+2024-07-15 15:50:34 +0000  26428 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.TWOLAME
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.OPENCORE-AMR ... 
+2024-07-15 15:50:34 +0000  10271 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.OPENCORE-AMR
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/Info.plist ... 
+2024-07-15 15:50:34 +0000  924 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/Info.plist
+copying file ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBOGG ... 
+2024-07-15 15:50:34 +0000  1466 bytes for ./Payload/Pomelo.app/Frameworks/libavcodec.framework/LICENSE.LIBOGG
+copying file ./Payload/Pomelo.app/embedded.mobileprovision ... 
+2024-07-15 15:50:34 +0000  15207 bytes for ./Payload/Pomelo.app/embedded.mobileprovision
+2024-07-15 15:50:34 +0000  copying file ./Payload/Pomelo.app/Info.plist ... 
+2024-07-15 15:50:34 +0000  1986 bytes for ./Payload/Pomelo.app/Info.plist
+copying file ./Payload/Pomelo.app/PkgInfo ... 
+2024-07-15 15:50:34 +0000  8 bytes for ./Payload/Pomelo.app/PkgInfo
+2024-07-15 15:50:34 +0000  /usr/bin/ditto exited with 0
+2024-07-15 15:50:34 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2024-07-15 15:50:34 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2024-07-15 15:50:34 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9f280:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/OpenSSL.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9c780:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswscale.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9f780:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/MoltenVK.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9d300:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavfilter.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9e900:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavformat.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9f380:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavcodec.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9ec80:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libavutil.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9df80:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app/Frameworks/libswresample.framework'>
+2024-07-15 15:50:34 +0000  IDEDistributionItem init <DVTFilePath:0x600051f9dc80:'/var/folders/sr/j4vmrtrd0lqf__x_2dsmkvzh0000gp/T/XcodeDistPipeline.~~~J07HFL/Root/Payload/Pomelo.app'>
+2024-07-15 15:50:34 +0000  Processing step: IDEDistributionCreateManifestStep
