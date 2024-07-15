@@ -8,6 +8,7 @@
 import SwiftUI
 import Sudachi
 
+
 struct ContentView: View {
     @State var core = Core(console: .nSwitch, name: .Pomelo, games: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
     var body: some View {

@@ -90,10 +90,11 @@ class LibraryManager {
     
     func library() throws -> Core {
         func romsDirectoryCrawler(for coreName: Core.Name) throws -> [URL] {
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            guard let enumerator = FileManager.default.enumerator(at: documentsDirectory.appendingPathComponent("roms", conformingTo: .folder), includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles, .skipsPackageDescendants]) else {
+            let documentsDirectory = URL(string: UserDefaults.standard.string(forKey: "SudachiDirectoryURL") ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("roms", conformingTo: .folder).absoluteString)!
+            guard let enumerator = FileManager.default.enumerator(at: documentsDirectory, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles, .skipsPackageDescendants]) else {
                 throw LibraryManagerError.invalidEnumerator
             }
+            let iscustom = documentsDirectory.startAccessingSecurityScopedResource()
             
             var urls: [URL] = []
             try enumerator.forEach { element in
@@ -114,7 +115,9 @@ class LibraryManager {
                     break
                 }
             }
-            
+            if iscustom {
+                documentsDirectory.stopAccessingSecurityScopedResource()
+            }
             return urls
         }
         
@@ -123,11 +126,15 @@ class LibraryManager {
  
             case .Pomelo:
                 core.games = urls.reduce(into: [SudachiGame]()) { partialResult, element in
+                    let iscustom = element.startAccessingSecurityScopedResource()
                     let information = Sudachi.shared.information(for: element)
                 
                     let game = SudachiGame(core: core, developer: information.developer, fileURL: element,
                                            imageData: information.iconData,
                                            title: information.title)
+                    if iscustom {
+                        element.stopAccessingSecurityScopedResource()
+                    }
                     partialResult.append(game)
                 }
             default:

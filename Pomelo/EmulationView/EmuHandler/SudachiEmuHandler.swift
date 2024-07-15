@@ -8,6 +8,7 @@
 import SwiftUI
 import Sudachi
 import Metal
+import Foundation
 
 class SudachiEmulationViewModel: ObservableObject {
     @Published var isShowingCustomButton = true
@@ -17,6 +18,7 @@ class SudachiEmulationViewModel: ObservableObject {
     private let sudachi = Sudachi.shared
     private var thread: Thread!
     private var isRunning = false
+    var doesneedresources = false
 
     init(game: SudachiGame?) {
         self.device = MTLCreateSystemDefaultDevice()
@@ -40,7 +42,13 @@ class SudachiEmulationViewModel: ObservableObject {
         sudachi.configure(layer: mtkView.layer as! CAMetalLayer, with: mtkView.frame.size)
         
         if let sudachiGame = sudachiGame {
-            sudachi.insert(game: sudachiGame.fileURL)
+            let canaccess = sudachiGame.fileURL.startAccessingSecurityScopedResource()
+            if canaccess {
+                doesneedresources = true
+                sudachi.insert(game: sudachiGame.fileURL)
+            } else {
+                sudachi.insert(game: sudachiGame.fileURL)
+            }
         } else {
             sudachi.bootOS()
         }
@@ -71,6 +79,10 @@ class SudachiEmulationViewModel: ObservableObject {
             isRunning = false
             sudachi.exit()
             thread.cancel()
+            if let sudachiGame = sudachiGame, doesneedresources {
+                sudachiGame.fileURL.stopAccessingSecurityScopedResource()
+                doesneedresources = false
+            }
         }
     }
     

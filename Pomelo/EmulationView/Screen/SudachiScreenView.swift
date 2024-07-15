@@ -60,10 +60,10 @@ class SudachiScreenView: UIView {
         primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
         primaryScreen.translatesAutoresizingMaskIntoConstraints = false
         primaryScreen.clipsToBounds = true
-        primaryScreen.layer.borderColor = UIColor.gray.cgColor // Replace with your color
-        primaryScreen.layer.borderWidth = 1.0 // Replace with your width
+        primaryScreen.layer.borderColor = UIColor.gray.cgColor
+        primaryScreen.layer.borderWidth = 1.0
         primaryScreen.layer.cornerCurve = .continuous
-        primaryScreen.layer.cornerRadius = 10.0 // Replace with your radius
+        primaryScreen.layer.cornerRadius = 10.0 
         addSubview(primaryScreen)
         
         primaryBlurredScreen = UIImageView(frame: .zero)

@@ -16,9 +16,9 @@ struct AdvancedSettingsView: View {
     var body: some View {
         ScrollView {
             Rectangle()
-                .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
-                .cornerRadius(10) // Apply rounded corners
-                .frame(width: .infinity, height: 50) // Set the desired dimensions
+                .fill(Color(uiColor: UIColor.secondarySystemBackground))
+                .cornerRadius(10)
+                .frame(width: .infinity, height: 50)
                 .overlay() {
                     HStack {
                         Toggle("FullScreen", isOn: $isFullScreen)
@@ -30,9 +30,9 @@ struct AdvancedSettingsView: View {
                 .font(.footnote)
                 .foregroundColor(.gray)
             Rectangle()
-                .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
-                .cornerRadius(10) // Apply rounded corners
-                .frame(width: .infinity, height: 50) // Set the desired dimensions
+                .fill(Color(uiColor: UIColor.secondarySystemBackground))
+                .cornerRadius(10)
+                .frame(width: .infinity, height: 50)
                 .overlay() {
                     HStack {
                         Toggle("Exit Game Button", isOn: $exitgame)
@@ -44,9 +44,9 @@ struct AdvancedSettingsView: View {
                 .font(.footnote)
                 .foregroundColor(.gray)
             Rectangle()
-                .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
-                .cornerRadius(10) // Apply rounded corners
-                .frame(width: .infinity, height: 50) // Set the desired dimensions
+                .fill(Color(uiColor: UIColor.secondarySystemBackground))
+                .cornerRadius(10)
+                .frame(width: .infinity, height: 50)
                 .overlay() {
                     HStack {
                         Toggle("Ram Usage Decrease", isOn: $kpagetable)
@@ -75,7 +75,7 @@ struct AdvancedSettingsView: View {
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)
-            /*
+            
             Button {
                 showFileImporter = true
             } label: {
@@ -93,7 +93,26 @@ struct AdvancedSettingsView: View {
                         }
                     }
             }
-             */
+            .padding(.bottom)
+            
+            Button {
+                let user = UserDefaults.standard
+                user.setValue(nil, forKey: "SudachiDirectoryURL")
+            } label: {
+                Rectangle()
+                    .fill(Color(uiColor: UIColor.secondarySystemBackground)) // Set the fill color (optional)
+                    .cornerRadius(10) // Apply rounded corners
+                    .frame(width: .infinity, height: 50) // Set the desired dimensions
+                    .overlay() {
+                        HStack {
+                            Text("Reset Directory")
+                                .foregroundColor(.primary)
+                                .padding()
+                            Spacer()
+                                
+                        }
+                    }
+            }
         }
         .fileImporter(
             isPresented: $showFileImporter,
@@ -103,7 +122,7 @@ struct AdvancedSettingsView: View {
             if case .success(let url) = result {
                 // Handle the selected folder URL
                 let user = UserDefaults.standard
-                user.setValue(url, forKey: "SudachiDirectoryURL")
+                user.setValue(url.first!.absoluteString, forKey: "SudachiDirectoryURL")
             }
         }
     }
