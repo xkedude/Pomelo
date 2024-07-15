@@ -34,16 +34,13 @@ class SudachiScreenView: UIView {
             return
         }
         
-        
+        print("Location: \(touch.location(in: primaryScreen))")
         sudachi.touchBegan(at: touch.location(in: primaryScreen), for: 0)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        guard let touch = touches.first else {
-            return
-        }
-        
+        print("Touch Ended")
         sudachi.touchEnded(for: 0)
     }
     
@@ -53,12 +50,9 @@ class SudachiScreenView: UIView {
             return
         }
         
-        func position(in view: UIView, with location: CGPoint) -> (x: Float, y: Float) {
-            let radius = view.frame.width / 2
-            return (Float((location.x - radius) / radius), Float(-(location.y - radius) / radius))
-        }
-        
-        sudachi.touchMoved(at: touch.location(in: primaryScreen), for: 0)
+        let location = touch.location(in: primaryScreen)
+        print("Location Moved: \(location)")
+        sudachi.touchMoved(at: location, for: 0)
     }
     
     
@@ -66,7 +60,7 @@ class SudachiScreenView: UIView {
         primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
         primaryScreen.translatesAutoresizingMaskIntoConstraints = false
         primaryScreen.clipsToBounds = true
-        primaryScreen.layer.borderColor = UIColor.red.cgColor // Replace with your color
+        primaryScreen.layer.borderColor = UIColor.gray.cgColor // Replace with your color
         primaryScreen.layer.borderWidth = 1.0 // Replace with your width
         primaryScreen.layer.cornerCurve = .continuous
         primaryScreen.layer.cornerRadius = 10.0 // Replace with your radius

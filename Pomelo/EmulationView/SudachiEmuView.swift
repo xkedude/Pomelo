@@ -13,8 +13,8 @@ struct SudachiEmulationView: View {
     @StateObject private var viewModel: SudachiEmulationViewModel
     let sudachi = Sudachi.shared
     @State var isPressed = false
-    @AppStorage("isfullscreen") var isfullscreen = false
     @State var mtkview = MTKView()
+    @State private var isBackButtonTapped = false
     
     init(game: SudachiGame?) {
         _viewModel = StateObject(wrappedValue: SudachiEmulationViewModel(game: game))
@@ -29,34 +29,7 @@ struct SudachiEmulationView: View {
                         viewModel.configureMTKView(mtkView)
                     }
                 }
-                .gesture(
-                    DragGesture(minimumDistance: 0)
-                        .onChanged { value in
-                            
-                            if !self.isPressed {
-                                let tapLocation = value.location
-                                // touch.location(in: primaryScreen) print("Tap location: \(touch.location(in: primaryScreen))")
-                                print("Tap location: \(tapLocation)")
-                                sudachi.touchBegan(at: value.location, for: 0)
-                                self.isPressed = true
-                            } else {
-                                let tapLocation = value.location
-                                print("Tap location moved: \(tapLocation)")
-                                sudachi.touchMoved(at: value.location, for: 0)
-                            }
-                            
-                        }
-                        .onEnded { value in
-                            let tapLocation = value.location
-                            print("Tap location let go: \(tapLocation)")
-                            sudachi.touchEnded(for: 0)
-                            self.isPressed = false
-                        }
-                )
                 .edgesIgnoringSafeArea(.all)
-                .onDisappear() {
-                    print("crazy you just closed this window holy crap")
-                }
                 
                 ControllerView(viewModel: viewModel)
             }
@@ -65,6 +38,15 @@ struct SudachiEmulationView: View {
                     viewModel.handleOrientationChange(size: newSize)
                 }
             }
+        }
+        .onDisappear {
+            if isBackButtonTapped {
+                print("Back button was tapped")
+            } else {
+                print("Back button was tapped")
+            }
+            
+            viewModel.customButtonTapped()
         }
     }
 }
