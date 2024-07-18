@@ -50,6 +50,9 @@ Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(F
 
 W.I.P (trollstore will probably never work)
 
+## Home Menu
+
+Put the firmware files inside **nand > system > Contents > registered** in the Pomelo folder in Files
 
 # Discord
 ### [Join the discord!](https://discord.gg/JkuKZezxeJ)
