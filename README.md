@@ -51,7 +51,7 @@ Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(F
 W.I.P (trollstore will probably never work)
 
 
-## Post Setup Guides
+# Post Setup Guides
 
 Check the Wiki [here](https://github.com/Pomelo-Emu/Pomelo/wiki)
 
