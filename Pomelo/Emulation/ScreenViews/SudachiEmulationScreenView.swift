@@ -1,8 +1,8 @@
 //
-//  SudachiScreenView.swift
-//  Pomelo
+//  SudachiEmulationScreenView.swift
+//  Pomelo-V2
 //
-//  Created by Stossy11 on 14/7/2024.
+//  Created by Stossy11 on 16/7/2024.
 //
 
 import SwiftUI
@@ -10,21 +10,29 @@ import Sudachi
 import MetalKit
 
 class SudachiScreenView: UIView {
-    var primaryScreen: MTKView!
-    var primaryBlurredScreen: UIImageView!
-    var portraitConstraints = [NSLayoutConstraint]()
-    var landscapeConstraints = [NSLayoutConstraint]()
+    var primaryScreen: UIView!
+    var portraitconstraints = [NSLayoutConstraint]()
+    var landscapeconstraints = [NSLayoutConstraint]()
+    var fullscreenconstraints = [NSLayoutConstraint]()
     let sudachi = Sudachi.shared
-    
+    let userDefaults = UserDefaults.standard
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupSudachiScreen()
+        if userDefaults.bool(forKey: "isfullscreen") {
+            setupSudachiScreen2()
+        } else {
+            setupSudachiScreen()
+        }
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupSudachiScreen()
+        if userDefaults.bool(forKey: "isfullscreen") {
+            setupSudachiScreen2()
+        } else {
+            setupSudachiScreen()
+        }
         
     }
     
@@ -55,6 +63,27 @@ class SudachiScreenView: UIView {
         sudachi.touchMoved(at: location, for: 0)
     }
     
+    func setupSudachiScreen2() {
+        primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
+        primaryScreen.translatesAutoresizingMaskIntoConstraints = false
+        primaryScreen.clipsToBounds = true
+        primaryScreen.layer.borderColor = UIColor.gray.cgColor
+        primaryScreen.layer.borderWidth = 1.0
+        primaryScreen.layer.cornerCurve = .continuous
+        primaryScreen.layer.cornerRadius = 10.0
+        addSubview(primaryScreen)
+
+        fullscreenconstraints = [
+            primaryScreen.topAnchor.constraint(equalTo: topAnchor),
+            primaryScreen.leadingAnchor.constraint(equalTo: leadingAnchor),
+            primaryScreen.trailingAnchor.constraint(equalTo: trailingAnchor),
+            primaryScreen.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+        
+        addConstraints(fullscreenconstraints)
+    }
+    
+    
     
     func setupSudachiScreen() {
         primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
@@ -63,23 +92,18 @@ class SudachiScreenView: UIView {
         primaryScreen.layer.borderColor = UIColor.gray.cgColor
         primaryScreen.layer.borderWidth = 1.0
         primaryScreen.layer.cornerCurve = .continuous
-        primaryScreen.layer.cornerRadius = 10.0 
+        primaryScreen.layer.cornerRadius = 10.0
         addSubview(primaryScreen)
         
-        primaryBlurredScreen = UIImageView(frame: .zero)
-        primaryBlurredScreen.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(primaryBlurredScreen)
         
-        insertSubview(primaryScreen, belowSubview: primaryBlurredScreen)
-        
-        portraitConstraints = [
+        portraitconstraints = [
             primaryScreen.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             primaryScreen.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
             primaryScreen.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
             primaryScreen.heightAnchor.constraint(equalTo: primaryScreen.widthAnchor, multiplier: 9 / 16),
         ]
         
-        landscapeConstraints = [
+        landscapeconstraints = [
             primaryScreen.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             primaryScreen.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             primaryScreen.widthAnchor.constraint(equalTo: primaryScreen.heightAnchor, multiplier: 16 / 9),
@@ -95,11 +119,18 @@ class SudachiScreenView: UIView {
     }
     
     private func updateConstraintsForOrientation() {
-        removeConstraints(portraitConstraints)
-        removeConstraints(landscapeConstraints)
         
-        let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
-        addConstraints(isPortrait ? portraitConstraints : landscapeConstraints)
+        if userDefaults.bool(forKey: "isfullscreen") {
+            removeConstraints(portraitconstraints)
+            removeConstraints(landscapeconstraints)
+            removeConstraints(fullscreenconstraints)
+            addConstraints(fullscreenconstraints)
+        } else {
+            removeConstraints(portraitconstraints)
+            removeConstraints(landscapeconstraints)
+            
+            let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
+            addConstraints(isPortrait ? portraitconstraints : landscapeconstraints)
+        }
     }
 }
-

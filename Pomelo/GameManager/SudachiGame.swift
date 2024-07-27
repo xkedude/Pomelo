@@ -1,5 +1,5 @@
 //
-//  SudachiGame.swift
+//  PomeloGame.swift
 //  Pomelo
 //
 //  Created by Stossy11 on 13/7/2024.
@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct SudachiGame : Comparable, Hashable, Identifiable {
+struct PomeloGame : Comparable, Hashable, Identifiable {
     var id = UUID()
     
-    let core: Core
     let developer: String
     let fileURL: URL
     let imageData: Data
@@ -24,12 +23,13 @@ struct SudachiGame : Comparable, Hashable, Identifiable {
         hasher.combine(title)
     }
     
-    static func < (lhs: SudachiGame, rhs: SudachiGame) -> Bool {
+    static func < (lhs: PomeloGame, rhs: PomeloGame) -> Bool {
         lhs.title < rhs.title
     }
     
-    static func == (lhs: SudachiGame, rhs: SudachiGame) -> Bool {
+    static func == (lhs: PomeloGame, rhs: PomeloGame) -> Bool {
         lhs.title == rhs.title
     }
 }
+
 

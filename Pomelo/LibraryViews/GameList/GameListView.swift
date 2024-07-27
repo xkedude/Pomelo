@@ -13,12 +13,12 @@ import UniformTypeIdentifiers
 struct GameListView: View {
     @State var core: Core
     @State private var searchText = ""
-    @State var game: SudachiGame? = nil
+    @State var game: PomeloGame? = nil
 
     var body: some View {
         let filteredGames = core.games.filter { game in
-            if let sudachiGame = game as? SudachiGame {
-                return searchText.isEmpty || sudachiGame.title.localizedCaseInsensitiveContains(searchText)
+            if let PomeloGame = game as? PomeloGame {
+                return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
             }
             return false // Default case if the cast fails
         }
@@ -26,7 +26,7 @@ struct GameListView: View {
             VStack(alignment: .leading) {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                     ForEach(0..<filteredGames.count, id: \.self) { index in
-                        if let game = core.games[index] as? SudachiGame {
+                        if let game = core.games[index] as? PomeloGame {
                             
                             NavigationLink(destination: SudachiEmulationView(game: game)) {
                                 GameButtonView(game: game)

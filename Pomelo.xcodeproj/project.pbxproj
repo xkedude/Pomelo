@@ -15,12 +15,14 @@
 		38020F442C43754700029E9A /* DetectServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F372C43754700029E9A /* DetectServer.swift */; };
 		38020F452C43754700029E9A /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 38020F392C43754700029E9A /* fishhook.c */; };
 		38020F462C43754700029E9A /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 38020F3E2C43754700029E9A /* utils.m */; };
-		38020F4A2C43760A00029E9A /* SudachiScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F492C43760A00029E9A /* SudachiScreenView.swift */; };
-		38020F4D2C43765400029E9A /* SudachiEmuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F4C2C43765400029E9A /* SudachiEmuHandler.swift */; };
-		38020F512C43769900029E9A /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F502C43769600029E9A /* MetalView.swift */; };
-		38020F542C43770500029E9A /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F532C4376F300029E9A /* ControllerView.swift */; };
 		38020F562C43A02100029E9A /* BootOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F552C43A01D00029E9A /* BootOSView.swift */; };
 		38020F5A2C43AFFA00029E9A /* CoreSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F592C43AFF300029E9A /* CoreSettingsView.swift */; };
+		3841946A2C4E4D2B00396613 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384194652C4E4D2B00396613 /* MetalView.swift */; };
+		3841946B2C4E4D2B00396613 /* SudachiEmulationScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384194632C4E4D2B00396613 /* SudachiEmulationScreenView.swift */; };
+		3841946C2C4E4D2B00396613 /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384194612C4E4D2B00396613 /* ControllerView.swift */; };
+		3841946D2C4E4D2B00396613 /* SudachiEmulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384194672C4E4D2B00396613 /* SudachiEmulationView.swift */; };
+		384194702C4E540500396613 /* SudachiEmulationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841946F2C4E53FD00396613 /* SudachiEmulationHandler.swift */; };
+		3841947F2C4E5D2E00396613 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 3841947E2C4E5D2E00396613 /* SwiftUIIntrospect */; };
 		384F18922C1DCB520073375C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18912C1DCB520073375C /* Assets.xcassets */; };
 		386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDE2C42E0B900C62EBE /* GameButtonView.swift */; };
 		386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6ED92C42E0B900C62EBE /* ContentView.swift */; };
@@ -29,7 +31,6 @@
 		386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDA2C42E0B900C62EBE /* FileManager.swift */; };
 		386F6EEA2C42E0B900C62EBE /* SudachiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDC2C42E0B900C62EBE /* SudachiGame.swift */; };
 		386F6EEC2C42E0C800C62EBE /* PomeloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */; };
-		386F6EEF2C42E0EA00C62EBE /* SudachiEmuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EED2C42E0EA00C62EBE /* SudachiEmuView.swift */; };
 		386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6F2F2C42E63A00C62EBE /* SettingsView.swift */; };
 		386F6F342C42E98700C62EBE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6F332C42E98700C62EBE /* InfoView.swift */; };
 		38C50D012C1DCF150007A953 /* libavcodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; };
@@ -117,12 +118,13 @@
 		38020F3D2C43754700029E9A /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		38020F3E2C43754700029E9A /* utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
 		38020F3F2C43754700029E9A /* JITEnabler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JITEnabler.m; sourceTree = "<group>"; };
-		38020F492C43760A00029E9A /* SudachiScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiScreenView.swift; sourceTree = "<group>"; };
-		38020F4C2C43765400029E9A /* SudachiEmuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmuHandler.swift; sourceTree = "<group>"; };
-		38020F502C43769600029E9A /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
-		38020F532C4376F300029E9A /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
 		38020F552C43A01D00029E9A /* BootOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootOSView.swift; sourceTree = "<group>"; };
 		38020F592C43AFF300029E9A /* CoreSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSettingsView.swift; sourceTree = "<group>"; };
+		384194612C4E4D2B00396613 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
+		384194632C4E4D2B00396613 /* SudachiEmulationScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationScreenView.swift; sourceTree = "<group>"; };
+		384194652C4E4D2B00396613 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		384194672C4E4D2B00396613 /* SudachiEmulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationView.swift; sourceTree = "<group>"; };
+		3841946F2C4E53FD00396613 /* SudachiEmulationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationHandler.swift; sourceTree = "<group>"; };
 		384F188A2C1DCB4F0073375C /* Pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		384F18912C1DCB520073375C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		384F18962C1DCB520073375C /* Pomelo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pomelo.entitlements; sourceTree = "<group>"; };
@@ -134,7 +136,6 @@
 		386F6EE02C42E0B900C62EBE /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		386F6EE22C42E0B900C62EBE /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
-		386F6EED2C42E0EA00C62EBE /* SudachiEmuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmuView.swift; sourceTree = "<group>"; };
 		386F6F2F2C42E63A00C62EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		386F6F332C42E98700C62EBE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -204,6 +205,7 @@
 				38C50D2E2C1DD5650007A953 /* libmbedcrypto.xcframework in Frameworks */,
 				38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */,
 				38C50D1C2C1DD53C0007A953 /* boost_program_options.xcframework in Frameworks */,
+				3841947F2C4E5D2E00396613 /* SwiftUIIntrospect in Frameworks */,
 				38C50D152C1DD4570007A953 /* GameController.framework in Frameworks */,
 				38C50D1A2C1DD5390007A953 /* boost_iostreams.xcframework in Frameworks */,
 				38C50D052C1DCF1B0007A953 /* libavutil.xcframework in Frameworks */,
@@ -272,44 +274,64 @@
 			path = BootOSManager;
 			sourceTree = "<group>";
 		};
-		38020F482C4375FC00029E9A /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				38020F492C43760A00029E9A /* SudachiScreenView.swift */,
-			);
-			path = Screen;
-			sourceTree = "<group>";
-		};
-		38020F4B2C43764100029E9A /* EmuHandler */ = {
-			isa = PBXGroup;
-			children = (
-				38020F4C2C43765400029E9A /* SudachiEmuHandler.swift */,
-			);
-			path = EmuHandler;
-			sourceTree = "<group>";
-		};
-		38020F4F2C43768E00029E9A /* MetalViews */ = {
-			isa = PBXGroup;
-			children = (
-				38020F502C43769600029E9A /* MetalView.swift */,
-			);
-			path = MetalViews;
-			sourceTree = "<group>";
-		};
-		38020F522C4376DE00029E9A /* ControllerHandler */ = {
-			isa = PBXGroup;
-			children = (
-				38020F532C4376F300029E9A /* ControllerView.swift */,
-			);
-			path = ControllerHandler;
-			sourceTree = "<group>";
-		};
 		38020F572C43AFD400029E9A /* CoreSettings */ = {
 			isa = PBXGroup;
 			children = (
 				38020F592C43AFF300029E9A /* CoreSettingsView.swift */,
 			);
 			path = CoreSettings;
+			sourceTree = "<group>";
+		};
+		384194622C4E4D2B00396613 /* ControllerView */ = {
+			isa = PBXGroup;
+			children = (
+				384194612C4E4D2B00396613 /* ControllerView.swift */,
+			);
+			path = ControllerView;
+			sourceTree = "<group>";
+		};
+		384194642C4E4D2B00396613 /* ScreenViews */ = {
+			isa = PBXGroup;
+			children = (
+				384194632C4E4D2B00396613 /* SudachiEmulationScreenView.swift */,
+			);
+			path = ScreenViews;
+			sourceTree = "<group>";
+		};
+		384194662C4E4D2B00396613 /* MetalView */ = {
+			isa = PBXGroup;
+			children = (
+				384194652C4E4D2B00396613 /* MetalView.swift */,
+			);
+			path = MetalView;
+			sourceTree = "<group>";
+		};
+		384194682C4E4D2B00396613 /* EmulationViews */ = {
+			isa = PBXGroup;
+			children = (
+				384194672C4E4D2B00396613 /* SudachiEmulationView.swift */,
+			);
+			path = EmulationViews;
+			sourceTree = "<group>";
+		};
+		384194692C4E4D2B00396613 /* Emulation */ = {
+			isa = PBXGroup;
+			children = (
+				3841946E2C4E53F100396613 /* EmulationHandlers */,
+				384194622C4E4D2B00396613 /* ControllerView */,
+				384194642C4E4D2B00396613 /* ScreenViews */,
+				384194662C4E4D2B00396613 /* MetalView */,
+				384194682C4E4D2B00396613 /* EmulationViews */,
+			);
+			path = Emulation;
+			sourceTree = "<group>";
+		};
+		3841946E2C4E53F100396613 /* EmulationHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				3841946F2C4E53FD00396613 /* SudachiEmulationHandler.swift */,
+			);
+			path = EmulationHandlers;
 			sourceTree = "<group>";
 		};
 		384F18812C1DCB4F0073375C = {
@@ -335,17 +357,16 @@
 		384F188C2C1DCB4F0073375C /* Pomelo */ = {
 			isa = PBXGroup;
 			children = (
+				384194692C4E4D2B00396613 /* Emulation */,
 				386F6F352C42E9D200C62EBE /* JITClasses */,
 				386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */,
 				386F6ED92C42E0B900C62EBE /* ContentView.swift */,
-				38020F4F2C43768E00029E9A /* MetalViews */,
 				38020F472C4375C300029E9A /* BootOSManager */,
 				38020F332C4371ED00029E9A /* NavigationManager */,
 				386F6F2E2C42E62200C62EBE /* SettingsViews */,
 				386F6EDB2C42E0B900C62EBE /* FilesManager */,
 				386F6EDD2C42E0B900C62EBE /* GameManager */,
 				386F6EE32C42E0B900C62EBE /* LibraryViews */,
-				386F6EEE2C42E0EA00C62EBE /* EmulationView */,
 				38C50D482C1DD7BA0007A953 /* Info.plist */,
 				38C846CA2C1DCE8900331706 /* Dependencies */,
 				384F18912C1DCB520073375C /* Assets.xcassets */,
@@ -394,17 +415,6 @@
 				386F6EE22C42E0B900C62EBE /* LibraryView.swift */,
 			);
 			path = LibraryViews;
-			sourceTree = "<group>";
-		};
-		386F6EEE2C42E0EA00C62EBE /* EmulationView */ = {
-			isa = PBXGroup;
-			children = (
-				386F6EED2C42E0EA00C62EBE /* SudachiEmuView.swift */,
-				38020F522C4376DE00029E9A /* ControllerHandler */,
-				38020F4B2C43764100029E9A /* EmuHandler */,
-				38020F482C4375FC00029E9A /* Screen */,
-			);
-			path = EmulationView;
 			sourceTree = "<group>";
 		};
 		386F6F2E2C42E62200C62EBE /* SettingsViews */ = {
@@ -518,6 +528,7 @@
 				38C846582C1DCC8400331706 /* OpenSSL */,
 				38C50D0F2C1DCF5F0007A953 /* SwiftSyntax */,
 				38C50D112C1DCF690007A953 /* SwiftSyntaxMacros */,
+				3841947E2C4E5D2E00396613 /* SwiftUIIntrospect */,
 			);
 			productName = Pomelo;
 			productReference = 384F188A2C1DCB4F0073375C /* Pomelo.app */;
@@ -551,6 +562,7 @@
 				38C846532C1DCC7200331706 /* XCRemoteSwiftPackageReference "SwiftSDL2" */,
 				38C846572C1DCC8400331706 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */,
+				3841947D2C4E5D2E00396613 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 384F188B2C1DCB4F0073375C /* Products */;
 			projectDirPath = "";
@@ -596,27 +608,27 @@
 			files = (
 				38020F352C43720200029E9A /* NavView.swift in Sources */,
 				386F6EEC2C42E0C800C62EBE /* PomeloApp.swift in Sources */,
+				384194702C4E540500396613 /* SudachiEmulationHandler.swift in Sources */,
 				38020F562C43A02100029E9A /* BootOSView.swift in Sources */,
-				38020F4A2C43760A00029E9A /* SudachiScreenView.swift in Sources */,
 				38020F302C43568500029E9A /* AdvancedSettingsView.swift in Sources */,
 				386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */,
-				386F6EEF2C42E0EA00C62EBE /* SudachiEmuView.swift in Sources */,
 				386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */,
 				386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */,
 				386F6EE72C42E0B900C62EBE /* GameListView.swift in Sources */,
 				386F6EE82C42E0B900C62EBE /* LibraryView.swift in Sources */,
 				386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */,
 				386F6F342C42E98700C62EBE /* InfoView.swift in Sources */,
-				38020F512C43769900029E9A /* MetalView.swift in Sources */,
+				3841946A2C4E4D2B00396613 /* MetalView.swift in Sources */,
+				3841946B2C4E4D2B00396613 /* SudachiEmulationScreenView.swift in Sources */,
+				3841946C2C4E4D2B00396613 /* ControllerView.swift in Sources */,
+				3841946D2C4E4D2B00396613 /* SudachiEmulationView.swift in Sources */,
 				386F6EEA2C42E0B900C62EBE /* SudachiGame.swift in Sources */,
-				38020F542C43770500029E9A /* ControllerView.swift in Sources */,
 				38020F422C43754700029E9A /* JITEnabler.m in Sources */,
 				38020F432C43754700029E9A /* EnableJIT.swift in Sources */,
 				38020F442C43754700029E9A /* DetectServer.swift in Sources */,
 				38020F452C43754700029E9A /* fishhook.c in Sources */,
 				38020F462C43754700029E9A /* utils.m in Sources */,
 				38020F5A2C43AFFA00029E9A /* CoreSettingsView.swift in Sources */,
-				38020F4D2C43765400029E9A /* SudachiEmuHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,7 +765,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = F4QL9A2T88;
+				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -779,7 +791,7 @@
 				);
 				MARKETING_VERSION = 0.0.9;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
@@ -869,6 +881,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3841947D2C4E5D2E00396613 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 		38C846532C1DCC7200331706 /* XCRemoteSwiftPackageReference "SwiftSDL2" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ctreffs/SwiftSDL2";
@@ -896,6 +916,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3841947E2C4E5D2E00396613 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3841947D2C4E5D2E00396613 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
+		};
 		38C50D0F2C1DCF5F0007A953 /* SwiftSyntax */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */;

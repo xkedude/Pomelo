@@ -2,12 +2,13 @@
 //  FileManager.swift
 //  Pomelo
 //
-//  Created by Stossy11 on 13/7/2024.
+//  Created by Stossy11 on 16/7/2024.
 //
 
-import Sudachi
+import SwiftUI
 import Foundation
 import UIKit
+import Sudachi
 
 struct Core : Comparable, Hashable {
     enum Name : String, Hashable {
@@ -20,7 +21,7 @@ struct Core : Comparable, Hashable {
     
     let console: Console
     let name: Name
-    var games: [AnyHashable]
+    var games: [PomeloGame]
     let root: URL
     
     static func < (lhs: Core, rhs: Core) -> Bool {
@@ -29,8 +30,8 @@ struct Core : Comparable, Hashable {
 }
 
 
-class DirectoriesManager {
-    static let shared = DirectoriesManager()
+class PomeloFileManager {
+    static var shared = PomeloFileManager()
     
     func directories() -> [String : [String : String]] {
         [
@@ -53,103 +54,84 @@ class DirectoriesManager {
             "icons" : [:]
         ]
     }
-    
-    func createMissingDirectoriesInDocumentsDirectory() throws {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        try directories().forEach { directory, files in
-            let coreDirectory = documentsDirectory.appendingPathComponent(directory, conformingTo: .folder)
-            if !FileManager.default.fileExists(atPath: coreDirectory.path) {
-                try FileManager.default.createDirectory(at: coreDirectory, withIntermediateDirectories: false)
+
+    func createdirectories() throws {
+        let documentdir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        try directories().forEach() { directory, filename in
+            let directoryURL = documentdir.appendingPathComponent(directory)
+            
+            if !FileManager.default.fileExists(atPath: directoryURL.path) {
+                print("creating dir at \(directoryURL.path)")
+                try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: false, attributes: nil)
             }
         }
     }
     
-    func scanDirectoriesForRequiredFiles(for core: inout Core) {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    func DetectKeys() -> (Bool, Bool) {
+        var prodkeys = false
+        var titlekeys = false
+        let filemanager = FileManager.default
+        let documentdir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let KeysFolderURL = documentdir.appendingPathComponent("keys")
         
-        directories().forEach { directory, fileNames in
-            let coreDirectory = documentsDirectory.appendingPathComponent(directory, conformingTo: .folder)
+        prodkeys = filemanager.fileExists(atPath: KeysFolderURL.appendingPathComponent("prod.keys").path)
             
-            fileNames.forEach { (fileName, fileImportance) in
-                let fileURL = coreDirectory.appendingPathComponent(fileName, conformingTo: .fileURL)
-                
-                if !FileManager.default.fileExists(atPath: fileURL.path) {
-                    // core.missingFiles.append(.init(coreName: core.name, directory: coreDirectory, fileName: fileName))
-                }
-            }
-        }
+        titlekeys = filemanager.fileExists(atPath: KeysFolderURL.appendingPathComponent("title.keys").path)
+        
+        return (prodkeys, titlekeys)
     }
 }
 
-enum LibraryManagerError : Error {
-    case invalidEnumerator, invalidURL
+enum LibManError : Error {
+    case ripenum, urlgobyebye
 }
 
 class LibraryManager {
     static let shared = LibraryManager()
+    let documentdir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("roms", conformingTo: .folder)
     
     func library() throws -> Core {
-        func romsDirectoryCrawler(for coreName: Core.Name) throws -> [URL] {
-            let documentsDirectory = URL(string: UserDefaults.standard.string(forKey: "SudachiDirectoryURL") ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("roms", conformingTo: .folder).absoluteString)!
-            guard let enumerator = FileManager.default.enumerator(at: documentsDirectory, includingPropertiesForKeys: [.isRegularFileKey], options: [.skipsHiddenFiles, .skipsPackageDescendants]) else {
-                throw LibraryManagerError.invalidEnumerator
+        func getromsfromdir() throws -> [URL] {
+            guard let dirContents = FileManager.default.enumerator(at: documentdir, includingPropertiesForKeys: nil, options: []) else {
+                print("uhoh how unfortunate for some reason FileManager.default.enumerator aint workin")
+                throw LibManError.ripenum
             }
-            let iscustom = documentsDirectory.startAccessingSecurityScopedResource()
-            
             var urls: [URL] = []
-            try enumerator.forEach { element in
-                switch element {
-                case let url as URL:
-                    let attributes = try url.resourceValues(forKeys: [.isRegularFileKey])
-                    if let isRegularFile = attributes.isRegularFile, isRegularFile {
-                        switch coreName {
-                        case .Pomelo:
-                            if ["nca", "nro", "nso", "nsp", "xci"].contains(url.pathExtension.lowercased()) {
-                                urls.append(url)
-                            }
-                        default:
-                            break
+            try dirContents.forEach() { files in
+                if let file = files as? URL {
+                    let getaboutfile = try file.resourceValues(forKeys: [.isRegularFileKey])
+                    if let isfile = getaboutfile.isRegularFile, isfile {
+                        if ["nca", "nro", "nsp", "nso", "xci"].contains(file.pathExtension.lowercased()) {
+                            urls.append(file)
                         }
                     }
-                default:
-                    break
                 }
             }
-            if iscustom {
-                documentsDirectory.stopAccessingSecurityScopedResource()
-            }
+            
             return urls
         }
         
-        func games(from urls: [URL], for core: inout Core) {
-            switch core.name {
- 
-            case .Pomelo:
-                core.games = urls.reduce(into: [SudachiGame]()) { partialResult, element in
-                    let iscustom = element.startAccessingSecurityScopedResource()
-                    let information = Sudachi.shared.information(for: element)
+        func games(from urls: [URL], core: inout Core) {
+            core.games = urls.reduce(into: [PomeloGame]()) { partialResult, element in
+                let iscustom = element.startAccessingSecurityScopedResource()
+                let information = Sudachi.shared.information(for: element)
                 
-                    let game = SudachiGame(core: core, developer: information.developer, fileURL: element,
-                                           imageData: information.iconData,
-                                           title: information.title)
-                    if iscustom {
-                        element.stopAccessingSecurityScopedResource()
-                    }
-                    partialResult.append(game)
+                let game = PomeloGame(developer: information.developer, fileURL: element,
+                                      imageData: information.iconData,
+                                      title: information.title)
+                if iscustom {
+                    element.stopAccessingSecurityScopedResource()
                 }
-            default:
-                break
+                partialResult.append(game)
             }
         }
         
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
- 
-        var SudachiCore = Core(console: .nSwitch, name: .Pomelo, games: [], root: directory)
-        games(from: try romsDirectoryCrawler(for: .Pomelo), for: &SudachiCore)
-        DirectoriesManager.shared.scanDirectoriesForRequiredFiles(for: &SudachiCore)
+
+        var PomeloCore = Core(console: .nSwitch, name: .Pomelo, games: [], root: directory)
+        games(from: try getromsfromdir(), core: &PomeloCore)
         
- 
-        return SudachiCore
+        return PomeloCore
     }
 }

@@ -1,8 +1,8 @@
 //
-//  SudachiEmuHandler.swift
+//  SudachiEmulationHandler.swift
 //  Pomelo
 //
-//  Created by Stossy11 on 14/7/2024.
+//  Created by Stossy11 on 22/7/2024.
 //
 
 import SwiftUI
@@ -14,13 +14,13 @@ class SudachiEmulationViewModel: ObservableObject {
     @Published var isShowingCustomButton = true
     var device: MTLDevice?
     var CaLayer: CAMetalLayer?
-    private var sudachiGame: SudachiGame?
+    private var sudachiGame: PomeloGame?
     private let sudachi = Sudachi.shared
     private var thread: Thread!
     private var isRunning = false
     var doesneedresources = false
 
-    init(game: SudachiGame?) {
+    init(game: PomeloGame?) {
         self.device = MTLCreateSystemDefaultDevice()
         self.sudachiGame = game
     }
@@ -42,13 +42,7 @@ class SudachiEmulationViewModel: ObservableObject {
         sudachi.configure(layer: mtkView.layer as! CAMetalLayer, with: mtkView.frame.size)
         
         if let sudachiGame = sudachiGame {
-            let canaccess = sudachiGame.fileURL.startAccessingSecurityScopedResource()
-            if canaccess {
-                doesneedresources = true
-                sudachi.insert(game: sudachiGame.fileURL)
-            } else {
-                sudachi.insert(game: sudachiGame.fileURL)
-            }
+            sudachi.insert(game: sudachiGame.fileURL)
         } else {
             sudachi.bootOS()
         }
@@ -79,10 +73,6 @@ class SudachiEmulationViewModel: ObservableObject {
             isRunning = false
             sudachi.exit()
             thread.cancel()
-            if let sudachiGame = sudachiGame, doesneedresources {
-                sudachiGame.fileURL.stopAccessingSecurityScopedResource()
-                doesneedresources = false
-            }
         }
     }
     

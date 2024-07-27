@@ -15,7 +15,7 @@ struct ContentView: View {
         NavView(core: $core)
             .onAppear() {
                 do {
-                    try DirectoriesManager.shared.createMissingDirectoriesInDocumentsDirectory()
+                    try PomeloFileManager.shared.createdirectories()
                     
                     do {
                         core = try LibraryManager.shared.library()

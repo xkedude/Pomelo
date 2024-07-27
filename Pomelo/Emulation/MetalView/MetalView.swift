@@ -1,17 +1,17 @@
 //
 //  MetalView.swift
-//  Pomelo
+//  Pomelo-V2
 //
-//  Created by Stossy11 on 14/7/2024.
+//  Created by Stossy11 on 16/7/2024.
 //
 
 import SwiftUI
 import Metal
 import Sudachi
 
-struct MTKViewRepresentable: UIViewRepresentable {
+struct MetalView: UIViewRepresentable {
     let device: MTLDevice?
-    let configure: (MTKView) -> Void
+    let configure: (UIView) -> Void
     
     func makeUIView(context: Context) -> SudachiScreenView {
         let view = SudachiScreenView()
@@ -20,6 +20,6 @@ struct MTKViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: SudachiScreenView, context: Context) {
-        // Update the view if needed
+        //
     }
 }

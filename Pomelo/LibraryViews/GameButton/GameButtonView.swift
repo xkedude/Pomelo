@@ -12,7 +12,7 @@ import UniformTypeIdentifiers
 
 
 struct GameButtonView: View {
-    var game: SudachiGame
+    var game: PomeloGame
 
     var body: some View {
         VStack {
