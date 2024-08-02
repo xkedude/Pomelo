@@ -9,11 +9,14 @@
 import SwiftUI
 import GameController
 import Sudachi
+import JoyStickView
 
 struct ControllerView: View {
     let sudachi = Sudachi.shared
     @State var isPressed = false
     @State var controllerconnected = false
+    @State private var x: CGFloat = 0.0
+    @State private var y: CGFloat = 0.0
     
     var body: some View {
         GeometryReader { geometry in
@@ -36,7 +39,7 @@ struct ControllerView: View {
                         VStack {
                             Spacer()
                             HStack {
-                                DPadView()
+                                JoystickViewSwift(x: $x, y: $y)
                                 Spacer()
                                 ABXYView()
                             }
@@ -81,6 +84,23 @@ struct ControllerView: View {
     
     private func setupController(_ controller: GCController) {
         let extendedGamepad = controller.extendedGamepad!
+        
+        extendedGamepad.dpad.up.pressedChangedHandler = { button, value, pressed in
+            pressed ? self.touchDown(.directionalPadUp) : self.touchUpInside(.directionalPadUp)
+        }
+        
+        extendedGamepad.dpad.down.pressedChangedHandler = { button, value, pressed in
+            pressed ? self.touchDown(.directionalPadDown) : self.touchUpInside(.directionalPadDown)
+        }
+        
+        extendedGamepad.dpad.left.pressedChangedHandler = { button, value, pressed in
+            pressed ? self.touchDown(.directionalPadLeft) : self.touchUpInside(.directionalPadLeft)
+        }
+        
+        extendedGamepad.dpad.right.pressedChangedHandler = { button, value, pressed in
+            pressed ? self.touchDown(.directionalPadRight) : self.touchUpInside(.directionalPadRight)
+        }
+        
         
         extendedGamepad.buttonOptions?.pressedChangedHandler = { button, value, pressed in
             pressed ? self.touchDown(.minus) : self.touchUpInside(.minus)

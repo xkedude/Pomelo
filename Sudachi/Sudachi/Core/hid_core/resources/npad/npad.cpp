@@ -183,7 +183,6 @@ void NPad::InitNewlyAddedController(u64 aruid, Core::HID::NpadIdType npad_id) {
     }
 
     // Reset memory values
-    shared_memory->style_tag.raw = Core::HID::NpadStyleSet::None;
     shared_memory->device_type.raw = 0;
     shared_memory->system_properties.raw = 0;
     shared_memory->joycon_color.attribute = ColorAttribute::NoController;

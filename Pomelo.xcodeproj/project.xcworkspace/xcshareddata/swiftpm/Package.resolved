@@ -1,6 +1,15 @@
 {
-  "originHash" : "6c03f826395063b17ba37faf8b55febd7cf25f142e7bab0afa71d1a9491e70e0",
+  "originHash" : "5963f40025eace8ca3f92750c34912d1fb36ab02a3bd334bd47261c6eb838e6d",
   "pins" : [
+    {
+      "identity" : "joystick?",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bradhowes/Joystick?",
+      "state" : {
+        "revision" : "c37e9596dc7756fae3d6720ab09e090a30b6179c",
+        "version" : "3.2.0"
+      }
+    },
     {
       "identity" : "lz4-spm",
       "kind" : "remoteSourceControl",

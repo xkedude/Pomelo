@@ -147,21 +147,9 @@ class SudachiEmulationController : EmulationScreensController {
             return (Float((location.x - radius) / radius), Float(-(location.y - radius) / radius))
         }
         
-        switch touch.view {
-        case virtualControllerView.dpadView:
-            sudachi.thumbstickMoved(.left, x: position(in: virtualControllerView.dpadView,
-                                                           with: touch.location(in: virtualControllerView.dpadView)).x,
-                                   y: position(in: virtualControllerView.dpadView, with: touch.location(in: virtualControllerView.dpadView)).y)
-        case virtualControllerView.xybaView:
-            sudachi.thumbstickMoved(.right, x: position(in: virtualControllerView.xybaView,
-                                                        with: touch.location(in: virtualControllerView.xybaView)).x,
-                                   y: position(in: virtualControllerView.xybaView, with: touch.location(in: virtualControllerView.xybaView)).y)
-        case primaryScreen:
-            print("Tap location: \(touch.location(in: primaryScreen))")
-            sudachi.touchBegan(at: touch.location(in: primaryScreen), for: 0)
-        default:
-            break
-        }
+        sudachi.thumbstickMoved(.left, x: position(in: virtualControllerView.dpadView,
+                                                       with: touch.location(in: virtualControllerView.dpadView)).x,
+                               y: position(in: virtualControllerView.dpadView, with: touch.location(in: virtualControllerView.dpadView)).y)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -170,17 +158,7 @@ class SudachiEmulationController : EmulationScreensController {
             return
         }
         
-        switch touch.view {
-        case virtualControllerView.dpadView:
-            sudachi.thumbstickMoved(.left, x: 0, y: 0)
-        case virtualControllerView.xybaView:
-            sudachi.thumbstickMoved(.right, x: 0, y: 0)
-        case primaryScreen:
-            print("Tap location let go")
-            sudachi.touchEnded(for: 0)
-        default:
-            break
-        }
+        sudachi.thumbstickMoved(.left, x: 0, y: 0)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
