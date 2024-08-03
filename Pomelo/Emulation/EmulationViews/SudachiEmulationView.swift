@@ -46,9 +46,7 @@ struct SudachiEmulationView: View {
             ControllerView()
         }
         .onRotate { size in
-            DispatchQueue.main.async {
-                viewModel.handleOrientationChange(size: size)
-            }
+            viewModel.handleOrientationChange(size: size)
         }
         .introspect(.tabView, on: .iOS(.v13, .v14, .v15, .v16, .v17)) { (tabBarController) in
             tabBarController.tabBar.isHidden = true
@@ -56,6 +54,7 @@ struct SudachiEmulationView: View {
         }
         .onDisappear {
             uiTabBarController?.tabBar.isHidden = false
+            viewModel.customButtonTapped()
         }
         .onAppear {
             print("checking for controller:")

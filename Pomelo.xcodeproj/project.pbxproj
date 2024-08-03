@@ -17,8 +17,8 @@
 		38020F462C43754700029E9A /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 38020F3E2C43754700029E9A /* utils.m */; };
 		38020F562C43A02100029E9A /* BootOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F552C43A01D00029E9A /* BootOSView.swift */; };
 		38020F5A2C43AFFA00029E9A /* CoreSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38020F592C43AFF300029E9A /* CoreSettingsView.swift */; };
-		383FC4472C5B3C0B00A37694 /* JoyStickView in Frameworks */ = {isa = PBXBuildFile; productRef = 383FC4462C5B3C0B00A37694 /* JoyStickView */; };
-		383FC44B2C5B3C8C00A37694 /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383FC44A2C5B3C8C00A37694 /* JoystickView.swift */; };
+		383C55EE2C5D136900A89F85 /* JoyStickView in Frameworks */ = {isa = PBXBuildFile; productRef = 383C55ED2C5D136900A89F85 /* JoyStickView */; };
+		383FC44B2C5B3C8C00A37694 /* JoystickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383FC44A2C5B3C8C00A37694 /* JoystickViewController.swift */; };
 		3841946A2C4E4D2B00396613 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384194652C4E4D2B00396613 /* MetalView.swift */; };
 		3841946B2C4E4D2B00396613 /* SudachiEmulationScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384194632C4E4D2B00396613 /* SudachiEmulationScreenView.swift */; };
 		3841946C2C4E4D2B00396613 /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384194612C4E4D2B00396613 /* ControllerView.swift */; };
@@ -122,7 +122,7 @@
 		38020F3F2C43754700029E9A /* JITEnabler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JITEnabler.m; sourceTree = "<group>"; };
 		38020F552C43A01D00029E9A /* BootOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootOSView.swift; sourceTree = "<group>"; };
 		38020F592C43AFF300029E9A /* CoreSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSettingsView.swift; sourceTree = "<group>"; };
-		383FC44A2C5B3C8C00A37694 /* JoystickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
+		383FC44A2C5B3C8C00A37694 /* JoystickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickViewController.swift; sourceTree = "<group>"; };
 		384194612C4E4D2B00396613 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
 		384194632C4E4D2B00396613 /* SudachiEmulationScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationScreenView.swift; sourceTree = "<group>"; };
 		384194652C4E4D2B00396613 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 				38C50D3E2C1DD57A0007A953 /* libSPIRV.xcframework in Frameworks */,
 				38C50D2A2C1DD5530007A953 /* libGenericCodeGen.xcframework in Frameworks */,
 				38C50D122C1DCF690007A953 /* SwiftSyntaxMacros in Frameworks */,
-				383FC4472C5B3C0B00A37694 /* JoyStickView in Frameworks */,
+				383C55EE2C5D136900A89F85 /* JoyStickView in Frameworks */,
 				38C50D092C1DCF3E0007A953 /* libswresample.xcframework in Frameworks */,
 				38C50D0B2C1DCF420007A953 /* libswscale.xcframework in Frameworks */,
 				38C50D202C1DD5450007A953 /* libcryptopp.xcframework in Frameworks */,
@@ -286,18 +286,18 @@
 			path = CoreSettings;
 			sourceTree = "<group>";
 		};
-		383FC4492C5B3C7700A37694 /* JoystickView */ = {
+		383FC4492C5B3C7700A37694 /* JoystickViewController */ = {
 			isa = PBXGroup;
 			children = (
-				383FC44A2C5B3C8C00A37694 /* JoystickView.swift */,
+				383FC44A2C5B3C8C00A37694 /* JoystickViewController.swift */,
 			);
-			path = JoystickView;
+			path = JoystickViewController;
 			sourceTree = "<group>";
 		};
 		384194622C4E4D2B00396613 /* ControllerView */ = {
 			isa = PBXGroup;
 			children = (
-				383FC4492C5B3C7700A37694 /* JoystickView */,
+				383FC4492C5B3C7700A37694 /* JoystickViewController */,
 				384194612C4E4D2B00396613 /* ControllerView.swift */,
 			);
 			path = ControllerView;
@@ -542,7 +542,7 @@
 				38C50D0F2C1DCF5F0007A953 /* SwiftSyntax */,
 				38C50D112C1DCF690007A953 /* SwiftSyntaxMacros */,
 				3841947E2C4E5D2E00396613 /* SwiftUIIntrospect */,
-				383FC4462C5B3C0B00A37694 /* JoyStickView */,
+				383C55ED2C5D136900A89F85 /* JoyStickView */,
 			);
 			productName = Pomelo;
 			productReference = 384F188A2C1DCB4F0073375C /* Pomelo.app */;
@@ -577,7 +577,7 @@
 				38C846572C1DCC8400331706 /* XCRemoteSwiftPackageReference "OpenSSL" */,
 				38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */,
 				3841947D2C4E5D2E00396613 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
-				383FC4452C5B3C0B00A37694 /* XCRemoteSwiftPackageReference "Joystick" */,
+				383C55EC2C5D136900A89F85 /* XCRemoteSwiftPackageReference "Joystick" */,
 			);
 			productRefGroup = 384F188B2C1DCB4F0073375C /* Products */;
 			projectDirPath = "";
@@ -629,7 +629,7 @@
 				386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */,
 				386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */,
 				386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */,
-				383FC44B2C5B3C8C00A37694 /* JoystickView.swift in Sources */,
+				383FC44B2C5B3C8C00A37694 /* JoystickViewController.swift in Sources */,
 				386F6EE72C42E0B900C62EBE /* GameListView.swift in Sources */,
 				386F6EE82C42E0B900C62EBE /* LibraryView.swift in Sources */,
 				386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */,
@@ -897,7 +897,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		383FC4452C5B3C0B00A37694 /* XCRemoteSwiftPackageReference "Joystick" */ = {
+		383C55EC2C5D136900A89F85 /* XCRemoteSwiftPackageReference "Joystick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bradhowes/Joystick?";
 			requirement = {
@@ -940,9 +940,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		383FC4462C5B3C0B00A37694 /* JoyStickView */ = {
+		383C55ED2C5D136900A89F85 /* JoyStickView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 383FC4452C5B3C0B00A37694 /* XCRemoteSwiftPackageReference "Joystick" */;
+			package = 383C55EC2C5D136900A89F85 /* XCRemoteSwiftPackageReference "Joystick" */;
 			productName = JoyStickView;
 		};
 		3841947E2C4E5D2E00396613 /* SwiftUIIntrospect */ = {

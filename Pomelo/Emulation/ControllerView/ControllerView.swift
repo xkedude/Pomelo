@@ -9,7 +9,7 @@
 import SwiftUI
 import GameController
 import Sudachi
-import JoyStickView
+ 
 
 struct ControllerView: View {
     let sudachi = Sudachi.shared
@@ -22,28 +22,55 @@ struct ControllerView: View {
         GeometryReader { geometry in
             ZStack {
                 if !controllerconnected {
-                    if geometry.size.height > geometry.size.width {
-                        // Portrait layout
+                    if geometry.size.height > geometry.size.width { // geometry reader stuff took me like how long to figure it out
+                        // this might be portrait
                         VStack {
                             Spacer()
                             HStack {
-                                DPadView()
+                                VStack {
+                                    ShoulderButtonsViewLeft()
+                                    ZStack {
+                                        JoystickViewSwiftUI()
+                                        DPadView()
+                                    }
+                                }
                                 Spacer()
-                                ABXYView()
+                                VStack {
+                                    ShoulderButtonsViewRight()
+                                    ZStack {
+                                        JoystickViewRightSwiftUI() // hope this works
+                                        ABXYView()
+                                    }
+                                }
                             }
-                            .padding(.bottom, geometry.size.height / 3.2) // Move the buttons up
+                            .padding(.bottom, geometry.size.height / 3.2) // very broken
                             .padding(.horizontal)
                         }
                     } else {
-                        // Landscape layout
+                        // could be landscape
                         VStack {
                             Spacer()
-                            HStack {
-                                JoystickViewSwift(x: $x, y: $y)
-                                Spacer()
-                                ABXYView()
+                            VStack {
+                                HStack {
+                                    VStack {
+                                        ShoulderButtonsViewLeft()
+                                        ZStack {
+                                            JoystickViewSwiftUI()
+                                            DPadView()
+                                        }
+                                    }
+                                    Spacer()
+                                    VStack {
+                                        ShoulderButtonsViewRight()
+                                        ZStack {
+                                            JoystickViewRightSwiftUI() // hope this works
+                                            ABXYView()
+                                        }
+                                    }
+                                }
+                                
                             }
-                            .padding(.bottom, geometry.size.height / 3.2) // Move the buttons up
+                            .padding(.bottom, geometry.size.height / 3.2) // also extre=mally broken (
                         }
                     }
                 }
@@ -53,7 +80,7 @@ struct ControllerView: View {
             print("checking for controller:")
             controllerconnected = false
             DispatchQueue.main.async {
-                setupControllers()
+                setupControllers() // i dont know what half of this shit does
             }
         }
     }
@@ -61,11 +88,11 @@ struct ControllerView: View {
     private func setupControllers() {
         NotificationCenter.default.addObserver(forName: .GCControllerDidConnect, object: nil, queue: .main) { notification in
             if let controller = notification.object as? GCController {
-                print("wow controller onstart")
+                print("wow controller onstart") // yippeeee
                 setupController(controller)
                 controllerconnected = true
             } else {
-                print("not GCController :((((((")
+                print("not GCController :((((((") // wahhhhhhh
             }
         }
         
@@ -127,7 +154,7 @@ struct ControllerView: View {
         }
         
         extendedGamepad.leftShoulder.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.L) : self.touchUpInside(.L)
+            pressed ? self.touchDown(.triggerL) : self.touchUpInside(.L)
         }
         
         extendedGamepad.leftTrigger.pressedChangedHandler = { button, value, pressed in
@@ -135,7 +162,7 @@ struct ControllerView: View {
         }
         
         extendedGamepad.rightShoulder.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.R) : self.touchUpInside(.R)
+            pressed ? self.touchDown(.triggerR) : self.touchUpInside(.R)
         }
         
         extendedGamepad.rightTrigger.pressedChangedHandler = { button, value, pressed in
@@ -178,6 +205,35 @@ struct ControllerView: View {
     }
 }
 
+struct ShoulderButtonsViewLeft: View {
+    var body: some View {
+        HStack {
+            ButtonView(button: .triggerZL)
+                .padding(.horizontal)
+            ButtonView(button: .triggerL)
+                .padding(.horizontal)
+        }
+        .frame(width: 160, height: 60)
+    }
+}
+
+struct ShoulderButtonsViewRight: View {
+    var body: some View {
+        HStack {
+            ButtonView(button: .triggerR)
+                .padding(.horizontal)
+            ButtonView(button: .triggerZR)
+                .padding(.horizontal)
+        }
+        .frame(width: 160, height: 60)
+
+    }
+}
+
+//            Spacer(minLength: 20)
+// ButtonView(button: .triggerZR)
+// ButtonView(button: .R)
+
 struct DPadView: View {
     var body: some View {
         VStack {
@@ -211,15 +267,21 @@ struct ABXYView: View {
 struct ButtonView: View {
     let button: VirtualControllerButtonType
     let sudachi = Sudachi.shared
+    @State var width: CGFloat = 50
     @State var isPressed = false
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         Image(systemName: buttonText)
             .resizable()
-            .frame(width: 50, height: 50)
+            .frame(width: width, height: 50)
             .foregroundColor(colorScheme == .dark ? Color.gray : Color.gray) // Adjust color based on mode
             .opacity(isPressed ? 0.5 : 1)
+            .onAppear() {
+                if button == .triggerL || button == .triggerZL || button == .triggerZR || button == .triggerR{
+                    width = 65
+                }
+            }
             .gesture(
                 DragGesture(minimumDistance: 0)
                     .onChanged { _ in
@@ -257,6 +319,14 @@ struct ButtonView: View {
             return "arrowtriangle.left.circle.fill"
         case .directionalPadRight:
             return "arrowtriangle.right.circle.fill"
+        case .triggerZL:
+            return "zl.button.roundedtop.horizontal.fill"
+        case .triggerZR:
+            return "zr.button.roundedtop.horizontal.fill"
+        case .triggerL:
+            return "l.button.roundedbottom.horizontal.fill"
+        case .triggerR:
+            return "r.button.roundedbottom.horizontal.fill"
         // Add cases for other button types as needed
         default:
             return ""
