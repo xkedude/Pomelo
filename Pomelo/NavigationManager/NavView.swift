@@ -19,6 +19,7 @@ struct NavView: View {
                 }
                 .tag(0)
             BootOSView(currentnavigarion: $selectedTab)
+                .toolbar(.hidden, for: .tabBar)
                 .tabItem {
                     Label("Boot OS", systemImage: "house")
                 }

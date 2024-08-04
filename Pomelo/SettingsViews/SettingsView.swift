@@ -17,10 +17,12 @@ struct SettingsView: View {
             ScrollView {
                 VStack(alignment: .center) {
                     if iconused == 1 {
-                        Image("AppIcon")
-                            .resizable()
-                            .frame(width: 200, height: 200)
-                            .cornerRadius(20)
+                        if let image = UIImage(named: AppIconProvider.appIcon()) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                        }
                     }
                     Text("Welcome To Pomelo")
                         .padding()

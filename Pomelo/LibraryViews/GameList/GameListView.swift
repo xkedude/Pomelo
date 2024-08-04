@@ -28,7 +28,7 @@ struct GameListView: View {
                     ForEach(0..<filteredGames.count, id: \.self) { index in
                         if let game = core.games[index] as? PomeloGame {
                             
-                            NavigationLink(destination: SudachiEmulationView(game: game)) {
+                            NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                 GameButtonView(game: game)
                                     .frame(maxWidth: .infinity, minHeight: 200) // Set a consistent height for each row
                             }
