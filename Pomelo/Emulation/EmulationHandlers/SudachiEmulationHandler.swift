@@ -12,6 +12,7 @@ import Foundation
 
 class SudachiEmulationViewModel: ObservableObject {
     @Published var isShowingCustomButton = true
+    @State var should = false
     var device: MTLDevice?
     var CaLayer: CAMetalLayer?
     private var sudachiGame: PomeloGame?

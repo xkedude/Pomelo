@@ -290,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				383FC44A2C5B3C8C00A37694 /* JoystickViewController.swift */,
+				384194612C4E4D2B00396613 /* ControllerView.swift */,
 			);
 			path = JoystickViewController;
 			sourceTree = "<group>";
@@ -298,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				383FC4492C5B3C7700A37694 /* JoystickViewController */,
-				384194612C4E4D2B00396613 /* ControllerView.swift */,
 			);
 			path = ControllerView;
 			sourceTree = "<group>";
@@ -833,7 +833,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = F4QL9A2T88;
+				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -859,7 +859,7 @@
 				);
 				MARKETING_VERSION = 0.0.9;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;

@@ -5,7 +5,6 @@
 //  Created by Stossy11 on 16/7/2024.
 //
 
-
 import SwiftUI
 import GameController
 import Sudachi
@@ -17,37 +16,13 @@ struct ControllerView: View {
     @State var controllerconnected = false
     @State private var x: CGFloat = 0.0
     @State private var y: CGFloat = 0.0
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 if !controllerconnected {
                     if geometry.size.height > geometry.size.width { // geometry reader stuff took me like how long to figure it out
                         // this might be portrait
-                        VStack {
-                            Spacer()
-                            HStack {
-                                VStack {
-                                    ShoulderButtonsViewLeft()
-                                    ZStack {
-                                        JoystickViewSwiftUI()
-                                        DPadView()
-                                    }
-                                }
-                                Spacer()
-                                VStack {
-                                    ShoulderButtonsViewRight()
-                                    ZStack {
-                                        JoystickViewRightSwiftUI() // hope this works
-                                        ABXYView()
-                                    }
-                                }
-                            }
-                            .padding(.bottom, geometry.size.height / 3.2) // very broken
-                            .padding(.horizontal)
-                        }
-                    } else {
-                        // could be landscape
                         VStack {
                             Spacer()
                             VStack {
@@ -59,18 +34,61 @@ struct ControllerView: View {
                                             DPadView()
                                         }
                                     }
-                                    Spacer()
                                     VStack {
                                         ShoulderButtonsViewRight()
                                         ZStack {
-                                            JoystickViewRightSwiftUI() // hope this works
+                                            JoystickViewSwiftUI(iscool: true) // hope this works
+                                            ABXYView()
+                                        }
+                                    }
+                                }
+                                
+                                HStack {
+                                    ButtonView(button: .plus) // Adding the + button
+                                        .padding(.horizontal)
+                                    ButtonView(button: .minus) // Adding the - button
+                                        .padding(.horizontal)
+                                }
+                            }
+                            .padding(.bottom, geometry.size.height / 4.2) // very broken
+                        }
+                    } else {
+                        // could be landscape
+                        VStack {
+                            Spacer()
+                            VStack {
+                                HStack {
+                                    
+                                    // gotta fuckin add + and - now
+                                    VStack {
+                                        ShoulderButtonsViewLeft()
+                                        ZStack {
+                                            JoystickViewSwiftUI()
+                                            DPadView()
+                                        }
+                                    }
+                                    HStack {
+                                        VStack {
+                                            Spacer()
+                                            ButtonView(button: .plus) // Adding the + button
+                                        }
+                                        Spacer()
+                                        VStack {
+                                            Spacer()
+                                            ButtonView(button: .minus) // Adding the - button
+                                        }
+                                    }
+                                    VStack {
+                                        ShoulderButtonsViewRight()
+                                        ZStack {
+                                            JoystickViewSwiftUI(iscool: true) // hope this work s
                                             ABXYView()
                                         }
                                     }
                                 }
                                 
                             }
-                            .padding(.bottom, geometry.size.height / 3.2) // also extre=mally broken (
+                            .padding(.bottom, geometry.size.height / 3.2) // also extremally broken (
                         }
                     }
                 }
@@ -230,10 +248,6 @@ struct ShoulderButtonsViewRight: View {
     }
 }
 
-//            Spacer(minLength: 20)
-// ButtonView(button: .triggerZR)
-// ButtonView(button: .R)
-
 struct DPadView: View {
     var body: some View {
         VStack {
@@ -259,46 +273,64 @@ struct ABXYView: View {
                 ButtonView(button: .A)
             }
             ButtonView(button: .B)
+                .padding(.horizontal)
         }
         .frame(width: 160, height: 170)
     }
 }
 
 struct ButtonView: View {
-    let button: VirtualControllerButtonType
+    var button: VirtualControllerButtonType
+    @StateObject private var viewModel: SudachiEmulationViewModel = SudachiEmulationViewModel(game: nil)
     let sudachi = Sudachi.shared
+    @State var mtkView: MTKView?
     @State var width: CGFloat = 50
+    @State var height: CGFloat = 50
     @State var isPressed = false
     @Environment(\.colorScheme) var colorScheme
+
     
     var body: some View {
         Image(systemName: buttonText)
             .resizable()
-            .frame(width: width, height: 50)
-            .foregroundColor(colorScheme == .dark ? Color.gray : Color.gray) // Adjust color based on mode
+            .frame(width: width, height: height)
+            .foregroundColor(colorScheme == .dark ? Color.gray : Color.gray) // this is way to complicated, it should just be Color.gray
             .opacity(isPressed ? 0.5 : 1)
-            .onAppear() {
-                if button == .triggerL || button == .triggerZL || button == .triggerZR || button == .triggerR{
-                    width = 65
-                }
-            }
             .gesture(
                 DragGesture(minimumDistance: 0)
                     .onChanged { _ in
                         if !self.isPressed {
                             self.isPressed = true
                             DispatchQueue.main.async {
-                                sudachi.virtualControllerButtonDown(button)
+                                if button == .home {
+                                    sudachi.exit()
+                                } else {
+                                    sudachi.virtualControllerButtonDown(button)
+                                }
                             }
                         }
                     }
                     .onEnded { _ in
                         self.isPressed = false
                         DispatchQueue.main.async {
-                            sudachi.virtualControllerButtonUp(button)
+                            if button == .home {
+                                
+                            } else {
+                                sudachi.virtualControllerButtonUp(button)
+                            }
                         }
                     }
             )
+            .onAppear() {
+                if button == .triggerL || button == .triggerZL || button == .triggerZR || button == .triggerR {
+                    width = 65
+                }
+                
+                if button == .minus || button == .plus || button == .home {
+                    width = 45
+                    height = 45
+                }
+            }
     }
     
     private var buttonText: String {
@@ -327,7 +359,13 @@ struct ButtonView: View {
             return "l.button.roundedbottom.horizontal.fill"
         case .triggerR:
             return "r.button.roundedbottom.horizontal.fill"
-        // Add cases for other button types as needed
+        case .plus:
+            return "plus.circle.fill" // System symbol for +
+        case .minus:
+            return "minus.circle.fill" // System symbol for -
+        case .home:
+            return "house.circle.fill"
+        // This should be all the cases
         default:
             return ""
         }

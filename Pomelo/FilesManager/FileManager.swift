@@ -11,12 +11,12 @@ import UIKit
 import Sudachi
 
 struct Core : Comparable, Hashable {
-    enum Name : String, Hashable {
+    enum Name : String, Hashable { // i dunno why i have this, i know what emulator this is
         case Pomelo = "Pomelo"
     }
     
     enum Console : String, Hashable {
-        case nSwitch = "Nintendo Switch"
+        case nSwitch = "Nintendo Switch" // no shit sherlock
     }
     
     let console: Console
@@ -61,7 +61,7 @@ class PomeloFileManager {
             let directoryURL = documentdir.appendingPathComponent(directory)
             
             if !FileManager.default.fileExists(atPath: directoryURL.path) {
-                print("creating dir at \(directoryURL.path)")
+                print("creating dir at \(directoryURL.path)") // yippee
                 try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: false, attributes: nil)
             }
         }

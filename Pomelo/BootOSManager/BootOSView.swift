@@ -14,9 +14,6 @@ struct BootOSView: View {
     var body: some View {
         if sudachi.canGetFullPath() {
             SudachiEmulationView(game: nil)
-                .onAppear() {
-                    currentnavigarion = 0
-                }
         } else {
             VStack {
                 Text("Unable Launch Switch OS")

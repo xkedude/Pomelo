@@ -37,8 +37,9 @@ struct JoyStickViewRepresentable: UIViewRepresentable {
 }
 
 struct JoystickViewSwiftUI: View {
-    @State var x: CGFloat = 0.0
+    @State var x: CGFloat = 0.0 // accedentially made it so both x and y went to the same var for both the right and left joystick :\
     @State var y: CGFloat = 0.0
+    @State var iscool: Any?
     var sudachi = Sudachi.shared
 
     var body: some View {
@@ -50,7 +51,7 @@ struct JoystickViewSwiftUI: View {
                 .onChange(of: y) { newY in
                     updateThumbstick()
                 }
-                .frame(width: 200, height: 200) // im wondering if i even need this anymore
+                .frame(width: 160, height: 160) // im wondering if i even need this anymore
         }
         .padding()
     }
@@ -60,34 +61,10 @@ struct JoystickViewSwiftUI: View {
         let scaledY = Float(y) // my dumbass broke this by having -y instead of y :/
         print("Joystick Position: (\(scaledX), \(scaledY))")
         
-        sudachi.thumbstickMoved(.left, x: scaledX, y: scaledY)
-    }
-}
-
-struct JoystickViewRightSwiftUI: View {
-    @State var x: CGFloat = 0.0
-    @State var y: CGFloat = 0.0
-    var sudachi = Sudachi.shared
-
-    var body: some View {
-        VStack {
-            JoyStickViewRepresentable(x: $x, y: $y) // very representable
-                .onChange(of: x) { newX in
-                    updateThumbstick()
-                }
-                .onChange(of: y) { newY in
-                    updateThumbstick()
-                }
-                .frame(width: 200, height: 200) // im wondering if i even need this anymore
+        if iscool != nil {
+            sudachi.thumbstickMoved(.right, x: scaledX, y: scaledY)
+        } else {
+            sudachi.thumbstickMoved(.left, x: scaledX, y: scaledY)
         }
-        .padding()
-    }
-
-    private func updateThumbstick() {
-        let scaledX = Float(x)
-        let scaledY = Float(y) // my dumbass broke this by having -y instead of y :/
-        print("Joystick Right Position: (\(scaledX), \(scaledY))")
-        
-        sudachi.thumbstickMoved(.right, x: scaledX, y: scaledY)
     }
 }

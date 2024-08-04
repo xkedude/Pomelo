@@ -19,6 +19,7 @@ struct SudachiEmulationView: View {
     @State var sudachi = Sudachi.shared
     var device: MTLDevice? = MTLCreateSystemDefaultDevice()
     @State var CaLayer: CAMetalLayer?
+    @State var ShowPopup: Bool = false  
     @State var mtkview: MTKView?
     @State private var thread: Thread!
     @State var uiTabBarController: UITabBarController?
@@ -45,6 +46,7 @@ struct SudachiEmulationView: View {
             
             ControllerView()
         }
+        .background(AlertController(isPresented: viewModel.$should))
         .onRotate { size in
             viewModel.handleOrientationChange(size: size)
         }
@@ -54,6 +56,7 @@ struct SudachiEmulationView: View {
         }
         .onDisappear {
             uiTabBarController?.tabBar.isHidden = false
+
             viewModel.customButtonTapped()
         }
         .onAppear {
@@ -61,6 +64,29 @@ struct SudachiEmulationView: View {
         }
     }
 }
+
+struct AlertController: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
+
+    func makeUIViewController(context: Context) -> UIViewController {
+        return UIViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        if isPresented && uiViewController.presentedViewController == nil {
+            let alert = UIAlertController(title: "Exiting Emulation", message: "Pomelo currently does not support exiting emulation as it will cause extra crashes", preferredStyle: .alert)
+
+            uiViewController.present(alert, animated: true, completion: nil)
+        }
+        
+        print(isPresented)
+
+        if !isPresented && uiViewController.presentedViewController != nil {
+            uiViewController.dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
 
 
 extension View {

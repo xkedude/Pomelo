@@ -11,7 +11,7 @@ import SwiftUI
 struct PomeloApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView() // i dont know if i should change anything
         }
     }
 }
