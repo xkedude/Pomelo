@@ -1,4 +1,4 @@
-![Icon](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png=30x30)
+![Icon](https://github.com/Pomelo-Emu/Pomelo/blob/main/Pomelo/Assets.xcassets/AppIcon.appiconset/fun%201.png=30x30)
 # Pomelo
 
 Pomelo is a Nintendo Switch Emulator based off of Sudachi for iOS devices.
