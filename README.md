@@ -53,7 +53,7 @@ TrollStore works on iOS 17+ and enables all the entitlements for you. It doesnt 
 
 # Post Setup Guides
 
-Check the Wiki [here](https://github.com/Pomelo-Emu/Pomelo/wiki)
+Check the Wiki [here](https://github.com/Pomelo-Emu/Pomelo/wiki/Post-Setup-Guide)
 
 # Discord
 ### [Join the discord!](https://discord.gg/JkuKZezxeJ)
