@@ -28,7 +28,6 @@
 		384F18922C1DCB520073375C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 384F18912C1DCB520073375C /* Assets.xcassets */; };
 		386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDE2C42E0B900C62EBE /* GameButtonView.swift */; };
 		386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6ED92C42E0B900C62EBE /* ContentView.swift */; };
-		386F6EE72C42E0B900C62EBE /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EE02C42E0B900C62EBE /* GameListView.swift */; };
 		386F6EE82C42E0B900C62EBE /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EE22C42E0B900C62EBE /* LibraryView.swift */; };
 		386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDA2C42E0B900C62EBE /* FileManager.swift */; };
 		386F6EEA2C42E0B900C62EBE /* SudachiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EDC2C42E0B900C62EBE /* SudachiGame.swift */; };
@@ -77,6 +76,8 @@
 		38C846592C1DCC8400331706 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846582C1DCC8400331706 /* OpenSSL */; };
 		38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */; };
 		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
+		499A5E0C2C74A1B200EC0925 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0B2C74A1B200EC0925 /* GameListView.swift */; };
+		499A5E0F2C74A22D00EC0925 /* GameButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */; };
 		4EE593FF2C5FA1D1000939C4 /* AppIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +138,6 @@
 		386F6EDA2C42E0B900C62EBE /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		386F6EDC2C42E0B900C62EBE /* SudachiGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiGame.swift; sourceTree = "<group>"; };
 		386F6EDE2C42E0B900C62EBE /* GameButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonView.swift; sourceTree = "<group>"; };
-		386F6EE02C42E0B900C62EBE /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		386F6EE22C42E0B900C62EBE /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
 		386F6F2F2C42E63A00C62EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -175,6 +175,8 @@
 		38C846C72C1DCE8900331706 /* libSPIRV.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libSPIRV.xcframework; sourceTree = "<group>"; };
 		38C846C82C1DCE8900331706 /* libteakra.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libteakra.xcframework; sourceTree = "<group>"; };
 		38F284CB2C2683A000994A77 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		499A5E0B2C74A1B200EC0925 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
+		499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonListView.swift; sourceTree = "<group>"; };
 		4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -410,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				386F6EDE2C42E0B900C62EBE /* GameButtonView.swift */,
+				499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */,
 			);
 			path = GameButton;
 			sourceTree = "<group>";
@@ -417,7 +420,7 @@
 		386F6EE12C42E0B900C62EBE /* GameList */ = {
 			isa = PBXGroup;
 			children = (
-				386F6EE02C42E0B900C62EBE /* GameListView.swift */,
+				499A5E0B2C74A1B200EC0925 /* GameListView.swift */,
 			);
 			path = GameList;
 			sourceTree = "<group>";
@@ -643,12 +646,13 @@
 				386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */,
 				386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */,
 				383FC44B2C5B3C8C00A37694 /* JoystickViewController.swift in Sources */,
-				386F6EE72C42E0B900C62EBE /* GameListView.swift in Sources */,
+				499A5E0C2C74A1B200EC0925 /* GameListView.swift in Sources */,
 				386F6EE82C42E0B900C62EBE /* LibraryView.swift in Sources */,
 				386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */,
 				386F6F342C42E98700C62EBE /* InfoView.swift in Sources */,
 				3841946A2C4E4D2B00396613 /* MetalView.swift in Sources */,
 				3841946B2C4E4D2B00396613 /* SudachiEmulationScreenView.swift in Sources */,
+				499A5E0F2C74A22D00EC0925 /* GameButtonListView.swift in Sources */,
 				3841946C2C4E4D2B00396613 /* ControllerView.swift in Sources */,
 				3841946D2C4E4D2B00396613 /* SudachiEmulationView.swift in Sources */,
 				386F6EEA2C42E0B900C62EBE /* SudachiGame.swift in Sources */,
@@ -794,7 +798,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 95J8WZ4TN8;
+				DEVELOPMENT_TEAM = F4QL9A2T88;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -822,7 +826,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
@@ -848,7 +852,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 95J8WZ4TN8;
+				DEVELOPMENT_TEAM = F4QL9A2T88;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -876,7 +880,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
