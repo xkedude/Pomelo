@@ -12,6 +12,7 @@ import UIKit
 
 struct GameButtonListView: View {
     var game: PomeloGame
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         HStack(spacing: 15) {
@@ -29,7 +30,8 @@ struct GameButtonListView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(game.title)
                     .font(.headline)
-                    .foregroundColor(.blue)
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
+
                 
                 Text(game.developer)
                     .font(.subheadline)

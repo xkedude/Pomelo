@@ -41,6 +41,7 @@ struct GameListView: View {
             }
             //.padding(.top, -65)
             //.padding(.bottom, 30)
+        
 
         ScrollView {
             VStack(alignment: .leading) {

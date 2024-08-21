@@ -13,6 +13,7 @@ import UniformTypeIdentifiers
 
 struct GameButtonView: View {
     var game: PomeloGame
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         VStack {
@@ -32,7 +33,7 @@ struct GameButtonView: View {
                         .padding(.horizontal, 8)
                         .bold()
                         .font(.system(size: 15))
-                        .foregroundColor(.white)
+                        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     Text(game.developer)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.leading)
