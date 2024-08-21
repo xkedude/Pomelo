@@ -48,7 +48,7 @@ struct SudachiEmulationView: View {
                 .overlay(
                     // Loading screen overlay on top of MetalView
                     Group {
-                        if !isFirstFrameShown {
+                        if !isFirstFrameShown && !isairplay {
                             LoadingView()
                         }
                     }
@@ -74,7 +74,6 @@ struct SudachiEmulationView: View {
                         DispatchQueue.main.async {
                             if let metalView = view as? MTKView {
                                 mtkview = metalView
-                                isFirstFrameShown = false
                                 viewModel.configureSudachi(with: metalView)
                             } else {
                                 print("Error: view is not of type MTKView")
