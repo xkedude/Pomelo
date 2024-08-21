@@ -64,10 +64,17 @@ typedef NS_ENUM(NSUInteger, VirtualControllerButtonType) {
 -(void) touchEndedForIndex:(NSUInteger)index;
 -(void) touchMovedAtPoint:(CGPoint)point index:(NSUInteger)index NS_SWIFT_NAME(touchMoved(at:for:));
 
--(void) thumbstickMoved:(VirtualControllerAnalogType)analog x:(CGFloat)x y:(CGFloat)y;
+-(void) thumbstickMoved:(VirtualControllerAnalogType)analog
+                      x:(CGFloat)x
+                      y:(CGFloat)y
+             controllerId:(int)controllerId;
 
--(void) virtualControllerButtonDown:(VirtualControllerButtonType)button;
--(void) virtualControllerButtonUp:(VirtualControllerButtonType)button;
+-(void) virtualControllerButtonDown:(VirtualControllerButtonType)button
+                       controllerId:(int)controllerId;
+
+-(void) virtualControllerButtonUp:(VirtualControllerButtonType)button
+                     controllerId:(int)controllerId;
+
 
 -(void) orientationChanged:(UIInterfaceOrientation)orientation with:(CAMetalLayer *)layer size:(CGSize)size NS_SWIFT_NAME(orientationChanged(orientation:with:size:));
 

@@ -87,16 +87,16 @@ public struct Sudachi {
         sudachiObjC.touchMoved(at: point, for: index)
     }
     
-    public func thumbstickMoved(_ analog: VirtualControllerAnalogType, x: Float, y: Float) {
-        sudachiObjC.thumbstickMoved(analog, x: CGFloat(x), y: CGFloat(y))
+    public func thumbstickMoved(analog: VirtualControllerAnalogType, x: Float, y: Float, controllerid: Int) {
+        sudachiObjC.thumbstickMoved(analog, x: CGFloat(x), y: CGFloat(y), controllerId: Int32(controllerid))
     }
     
-    public func virtualControllerButtonDown(_ button: VirtualControllerButtonType) {
-        sudachiObjC.virtualControllerButtonDown(button)
+    public func virtualControllerButtonDown(button: VirtualControllerButtonType, controllerid: Int) {
+        sudachiObjC.virtualControllerButtonDown(button, controllerId: Int32(controllerid))
     }
     
-    public func virtualControllerButtonUp(_ button: VirtualControllerButtonType) {
-        sudachiObjC.virtualControllerButtonUp(button)
+    public func virtualControllerButtonUp(button: VirtualControllerButtonType, controllerid: Int) {
+        sudachiObjC.virtualControllerButtonUp(button, controllerId: Int32(controllerid))
     }
     
     public func settingsSaved() {

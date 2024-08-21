@@ -103,123 +103,116 @@ struct ControllerView: View {
         }
     }
     
+    // Add a dictionary to track controller IDs
+    @State var controllerIDs: [GCController: Int] = [:]
+
     private func setupControllers() {
         NotificationCenter.default.addObserver(forName: .GCControllerDidConnect, object: nil, queue: .main) { notification in
             if let controller = notification.object as? GCController {
                 print("wow controller onstart") // yippeeee
-                setupController(controller)
-                controllerconnected = true
+                self.setupController(controller)
+                self.controllerconnected = true
             } else {
                 print("not GCController :((((((") // wahhhhhhh
             }
         }
         
         NotificationCenter.default.addObserver(forName: .GCControllerDidDisconnect, object: nil, queue: .main) { notification in
-            // crazy
-            print("wow controller gone")
-            controllerconnected = false
+            if let controller = notification.object as? GCController {
+                print("wow controller gone")
+                self.controllerconnected = false
+                self.controllerIDs.removeValue(forKey: controller) // Remove the controller ID
+            }
         }
         
         GCController.controllers().forEach { controller in
             print("wow controller")
-            controllerconnected = true
-            setupController(controller)
+            self.controllerconnected = true
+            self.setupController(controller)
         }
     }
-    
+
     private func setupController(_ controller: GCController) {
+        // Assign a unique ID to the controller, max 5 controllers
+        if controllerIDs.count < 6, controllerIDs[controller] == nil {
+            controllerIDs[controller] = controllerIDs.count
+        }
+        
+        guard let controllerId = controllerIDs[controller] else { return }
+        
         let extendedGamepad = controller.extendedGamepad!
         
         extendedGamepad.dpad.up.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.directionalPadUp) : self.touchUpInside(.directionalPadUp)
+            pressed ? self.touchDown(.directionalPadUp, controllerId: controllerId) : self.touchUpInside(.directionalPadUp, controllerId: controllerId)
         }
         
         extendedGamepad.dpad.down.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.directionalPadDown) : self.touchUpInside(.directionalPadDown)
+            pressed ? self.touchDown(.directionalPadDown, controllerId: controllerId) : self.touchUpInside(.directionalPadDown, controllerId: controllerId)
         }
         
         extendedGamepad.dpad.left.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.directionalPadLeft) : self.touchUpInside(.directionalPadLeft)
+            pressed ? self.touchDown(.directionalPadLeft, controllerId: controllerId) : self.touchUpInside(.directionalPadLeft, controllerId: controllerId)
         }
         
         extendedGamepad.dpad.right.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.directionalPadRight) : self.touchUpInside(.directionalPadRight)
+            pressed ? self.touchDown(.directionalPadRight, controllerId: controllerId) : self.touchUpInside(.directionalPadRight, controllerId: controllerId)
         }
         
-        
         extendedGamepad.buttonOptions?.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.minus) : self.touchUpInside(.minus)
+            pressed ? self.touchDown(.minus, controllerId: controllerId) : self.touchUpInside(.minus, controllerId: controllerId)
         }
         
         extendedGamepad.buttonMenu.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.plus) : self.touchUpInside(.plus)
+            pressed ? self.touchDown(.plus, controllerId: controllerId) : self.touchUpInside(.plus, controllerId: controllerId)
         }
         
         extendedGamepad.buttonA.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.A) : self.touchUpInside(.A)
+            pressed ? self.touchDown(.A, controllerId: controllerId) : self.touchUpInside(.A, controllerId: controllerId)
         }
         
         extendedGamepad.buttonB.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.B) : self.touchUpInside(.B)
+            pressed ? self.touchDown(.B, controllerId: controllerId) : self.touchUpInside(.B, controllerId: controllerId)
         }
         
         extendedGamepad.buttonX.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.X) : self.touchUpInside(.X)
+            pressed ? self.touchDown(.X, controllerId: controllerId) : self.touchUpInside(.X, controllerId: controllerId)
         }
         
         extendedGamepad.buttonY.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.Y) : self.touchUpInside(.Y)
+            pressed ? self.touchDown(.Y, controllerId: controllerId) : self.touchUpInside(.Y, controllerId: controllerId)
         }
         
         extendedGamepad.leftShoulder.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.triggerL) : self.touchUpInside(.L)
+            pressed ? self.touchDown(.triggerL, controllerId: controllerId) : self.touchUpInside(.L, controllerId: controllerId)
         }
         
         extendedGamepad.leftTrigger.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.triggerZL) : self.touchUpInside(.triggerZL)
+            pressed ? self.touchDown(.triggerZL, controllerId: controllerId) : self.touchUpInside(.triggerZL, controllerId: controllerId)
         }
         
         extendedGamepad.rightShoulder.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.triggerR) : self.touchUpInside(.R)
+            pressed ? self.touchDown(.triggerR, controllerId: controllerId) : self.touchUpInside(.R, controllerId: controllerId)
         }
         
         extendedGamepad.rightTrigger.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.triggerZR) : self.touchUpInside(.triggerZR)
+            pressed ? self.touchDown(.triggerZR, controllerId: controllerId) : self.touchUpInside(.triggerZR, controllerId: controllerId)
         }
         
         extendedGamepad.leftThumbstick.valueChangedHandler = { dpad, x, y in
-            self.sudachi.thumbstickMoved(.left, x: x, y: y)
+            self.sudachi.thumbstickMoved(analog: .left, x: x, y: y, controllerid: controllerId)
         }
         
         extendedGamepad.rightThumbstick.valueChangedHandler = { dpad, x, y in
-            self.sudachi.thumbstickMoved(.right, x: x, y: y)
+            self.sudachi.thumbstickMoved(analog: .right, x: x, y: y, controllerid: controllerId)
         }
     }
-    
-    
-    private func touchDown(_ button: VirtualControllerButtonType) {
-        sudachi.virtualControllerButtonDown(button)
+
+    private func touchDown(_ button: VirtualControllerButtonType, controllerId: Int) {
+        sudachi.virtualControllerButtonDown(button: button, controllerid: controllerId)
     }
-    
-    private func touchUpInside(_ button: VirtualControllerButtonType) {
-        sudachi.virtualControllerButtonUp(button)
-    }
-    
-    private func handleDPad(_ dpad: GCControllerDirectionPad) {
-        handleButton(dpad.up, virtualButton: .directionalPadUp)
-        handleButton(dpad.down, virtualButton: .directionalPadDown)
-        handleButton(dpad.left, virtualButton: .directionalPadLeft)
-        handleButton(dpad.right, virtualButton: .directionalPadRight)
-    }
-    
-    private func handleButton(_ button: GCControllerButtonInput, virtualButton: VirtualControllerButtonType) {
-        button.pressedChangedHandler = { button, _, pressed in
-            if pressed {
-                sudachi.virtualControllerButtonDown(virtualButton)
-            } else {
-                sudachi.virtualControllerButtonUp(virtualButton)
-            }
-        }
+
+    private func touchUpInside(_ button: VirtualControllerButtonType, controllerId: Int) {
+        sudachi.virtualControllerButtonUp(button: button, controllerid: controllerId)
     }
 }
 
@@ -305,7 +298,7 @@ struct ButtonView: View {
                                 if button == .home {
                                     sudachi.exit()
                                 } else {
-                                    sudachi.virtualControllerButtonDown(button)
+                                    sudachi.virtualControllerButtonDown(button: button, controllerid: 0)
                                 }
                             }
                         }
@@ -316,7 +309,7 @@ struct ButtonView: View {
                             if button == .home {
                                 
                             } else {
-                                sudachi.virtualControllerButtonUp(button)
+                                sudachi.virtualControllerButtonUp(button: button, controllerid: 0)
                             }
                         }
                     }
