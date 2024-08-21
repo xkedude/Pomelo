@@ -34,6 +34,8 @@
 		386F6EEC2C42E0C800C62EBE /* PomeloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */; };
 		386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6F2F2C42E63A00C62EBE /* SettingsView.swift */; };
 		386F6F342C42E98700C62EBE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F6F332C42E98700C62EBE /* InfoView.swift */; };
+		38B7FDFF2C760DE400D274FB /* Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B7FDFD2C760DE400D274FB /* Air.swift */; };
+		38B7FE022C7610A600D274FB /* AirPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B7FE012C7610A600D274FB /* AirPlay.swift */; };
 		38C50D012C1DCF150007A953 /* libavcodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; };
 		38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AD2C1DCE8900331706 /* libavcodec.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AF2C1DCE8900331706 /* libavformat.xcframework */; };
@@ -128,7 +130,7 @@
 		384194612C4E4D2B00396613 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
 		384194632C4E4D2B00396613 /* SudachiEmulationScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationScreenView.swift; sourceTree = "<group>"; };
 		384194652C4E4D2B00396613 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
-		384194672C4E4D2B00396613 /* SudachiEmulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationView.swift; sourceTree = "<group>"; };
+		384194672C4E4D2B00396613 /* SudachiEmulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationView.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		3841946F2C4E53FD00396613 /* SudachiEmulationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudachiEmulationHandler.swift; sourceTree = "<group>"; };
 		384F188A2C1DCB4F0073375C /* Pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		384F18912C1DCB520073375C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +145,8 @@
 		386F6F2F2C42E63A00C62EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		386F6F332C42E98700C62EBE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		38B7FDF82C7553D200D274FB /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = ../../VulkanSDK/1.3.275.0/iOS/lib/libMoltenVK.dylib; sourceTree = "<group>"; };
+		38B7FDFD2C760DE400D274FB /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
+		38B7FE012C7610A600D274FB /* AirPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlay.swift; sourceTree = "<group>"; };
 		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D482C1DD7BA0007A953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 		384194692C4E4D2B00396613 /* Emulation */ = {
 			isa = PBXGroup;
 			children = (
+				38B7FDFB2C760CF600D274FB /* AirPlay */,
 				3841946E2C4E53F100396613 /* EmulationHandlers */,
 				384194622C4E4D2B00396613 /* ControllerView */,
 				384194642C4E4D2B00396613 /* ScreenViews */,
@@ -463,6 +468,15 @@
 				38020F402C43754700029E9A /* Trollstore */,
 			);
 			path = JITClasses;
+			sourceTree = "<group>";
+		};
+		38B7FDFB2C760CF600D274FB /* AirPlay */ = {
+			isa = PBXGroup;
+			children = (
+				38B7FDFD2C760DE400D274FB /* Air.swift */,
+				38B7FE012C7610A600D274FB /* AirPlay.swift */,
+			);
+			path = AirPlay;
 			sourceTree = "<group>";
 		};
 		38C50CEF2C1DCEA10007A953 /* Products */ = {
@@ -656,6 +670,7 @@
 				3841946B2C4E4D2B00396613 /* SudachiEmulationScreenView.swift in Sources */,
 				499A5E0F2C74A22D00EC0925 /* GameButtonListView.swift in Sources */,
 				3841946C2C4E4D2B00396613 /* ControllerView.swift in Sources */,
+				38B7FE022C7610A600D274FB /* AirPlay.swift in Sources */,
 				3841946D2C4E4D2B00396613 /* SudachiEmulationView.swift in Sources */,
 				386F6EEA2C42E0B900C62EBE /* SudachiGame.swift in Sources */,
 				38020F422C43754700029E9A /* JITEnabler.m in Sources */,
@@ -663,6 +678,7 @@
 				38020F442C43754700029E9A /* DetectServer.swift in Sources */,
 				38020F452C43754700029E9A /* fishhook.c in Sources */,
 				38020F462C43754700029E9A /* utils.m in Sources */,
+				38B7FDFF2C760DE400D274FB /* Air.swift in Sources */,
 				38020F5A2C43AFFA00029E9A /* CoreSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,36 +19,90 @@ struct SudachiEmulationView: View {
     @State var sudachi = Sudachi.shared
     var device: MTLDevice? = MTLCreateSystemDefaultDevice()
     @State var CaLayer: CAMetalLayer?
-    @State var ShowPopup: Bool = false  
+    @State var ShowPopup: Bool = false
     @State var mtkview: MTKView?
     @State private var thread: Thread!
     @State var uiTabBarController: UITabBarController?
+    @State private var isFirstFrameShown = false
+    @State private var timer: Timer?
+    @AppStorage("isairplay") private var isairplay: Bool = true
     
     init(game: PomeloGame?) {
         _viewModel = StateObject(wrappedValue: SudachiEmulationViewModel(game: game))
     }
 
-    
     var body: some View {
         ZStack {
-            MetalView(device: device) { view in
-                DispatchQueue.main.async {
-                    if let metalView = view as? MTKView {
-                        mtkview = metalView
-                        viewModel.configureSudachi(with: metalView)
-                    } else {
-                        print("Error: view is not of type MTKView")
+            if !isairplay {
+                MetalView(device: device) { view in
+                    DispatchQueue.main.async {
+                        if let metalView = view as? MTKView {
+                            mtkview = metalView
+                            viewModel.configureSudachi(with: metalView)
+                        } else {
+                            print("Error: view is not of type MTKView")
+                        }
                     }
                 }
+                .edgesIgnoringSafeArea(.all)
+                .overlay(
+                    // Loading screen overlay on top of MetalView
+                    Group {
+                        if !isFirstFrameShown {
+                            LoadingView()
+                        }
+                    }
+                        .transition(.opacity)
+                )
             }
-            .edgesIgnoringSafeArea(.all)
-            
             ControllerView()
+        }
+        .onAppear {
+            
+            print("AirPlay + \(Air.shared.connected)")
+            
+            isairplay = Air.shared.connected
+            DispatchQueue.main.async {
+                Air.connection({ fun in
+                    print("AirPlay + \(fun)")
+                    isairplay = fun
+                })
+                
+                if isairplay {
+                    Air.play(AnyView(
+                    MetalView(device: device) { view in
+                        DispatchQueue.main.async {
+                            if let metalView = view as? MTKView {
+                                mtkview = metalView
+                                isFirstFrameShown = false
+                                viewModel.configureSudachi(with: metalView)
+                            } else {
+                                print("Error: view is not of type MTKView")
+                            }
+                        }
+                    }
+                    .edgesIgnoringSafeArea(.all)
+                    )
+                    )
+
+                }
+            }
+            
+            if !isairplay {
+                startPollingFirstFrameShowed()
+            }
+        }
+        .onDisappear {
+            if !isairplay {
+                stopPollingFirstFrameShowed()
+            }
+            uiTabBarController?.tabBar.isHidden = false
+            viewModel.customButtonTapped()
         }
         .navigationBarBackButtonHidden(true)
         .background(AlertController(isPresented: viewModel.$should))
         .onRotate { size in
-            if sudachi.FirstFrameShowed() {
+            if sudachi.FirstFrameShowed() && !isairplay {
                 viewModel.handleOrientationChange(size: size)
             }
         }
@@ -56,17 +110,38 @@ struct SudachiEmulationView: View {
             tabBarController.tabBar.isHidden = true
             uiTabBarController = tabBarController
         }
-        .onDisappear {
-            uiTabBarController?.tabBar.isHidden = false
+    }
+    
+    private func startPollingFirstFrameShowed() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            if sudachi.FirstFrameShowed() {
+                withAnimation {
+                    isFirstFrameShown = true
+                }
+                stopPollingFirstFrameShowed()
+            }
+        }
+    }
 
-            viewModel.customButtonTapped()
-        }
-        .onAppear {
-            print("checking for controller:")
-        }
+    private func stopPollingFirstFrameShowed() {
+        timer?.invalidate()
+        timer = nil
     }
 }
 
+struct LoadingView: View {
+    var body: some View {
+        VStack {
+            ProgressView("Loading...")
+                .progressViewStyle(CircularProgressViewStyle())
+                .padding()
+            Text("Please wait while the game loads.")
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.opacity(0.8))
+        .foregroundColor(.white)
+    }
+}
 struct AlertController: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
 

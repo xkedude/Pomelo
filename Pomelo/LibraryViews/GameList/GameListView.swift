@@ -14,7 +14,7 @@ struct GameListView: View {
     @State var core: Core
     @State private var searchText = ""
     @State var game: PomeloGame? = nil
-    @State private var isGridView = true
+    @Binding var isGridView: Bool
 
     var body: some View {
         let filteredGames = core.games.filter { game in
@@ -27,21 +27,6 @@ struct GameListView: View {
 
         ScrollView {
             VStack {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        isGridView.toggle()
-                    }) {
-                        Image(systemName: isGridView ? "rectangle.grid.1x2" : "square.grid.2x2")
-                            .imageScale(.large)
-                            .padding()
-                        Spacer()
-                    }
-                
-                    Spacer()
-                }
-                //.padding(.top, -65)
-                //.padding(.bottom, 30)
                 
             VStack(alignment: .leading) {
                 

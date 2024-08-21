@@ -78,7 +78,7 @@
         EmulationSession::GetInstance().InitializeGpuDriver();
         
     
-        // YuzuSettings::values.use_asynchronous_shaders.SetValue(true);
+        YuzuSettings::values.use_asynchronous_shaders.SetValue(true);
         // YuzuSettings::values.astc_recompression.SetValue(YuzuSettings::AstcRecompression::Bc3);
         // YuzuSettings::values.shader_backend.SetValue(YuzuSettings::ShaderBackend::SpirV);
         // YuzuSettings::values.resolution_setup.SetValue(YuzuSettings::ResolutionSetup::Res1X);
@@ -111,8 +111,15 @@
 }
 
 -(BOOL)hasfirstfame {
-    return EmulationSession::GetInstance().Window().HasFirstFrame();
+    auto* window = &EmulationSession::GetInstance().Window();
+    if (window) {
+        return window->HasFirstFrame();
+    } else {
+        // Handle the invalid window case, maybe return a default value
+        return NO;
+    }
 }
+
 
 - (BOOL)canGetFullPath {
     @try {

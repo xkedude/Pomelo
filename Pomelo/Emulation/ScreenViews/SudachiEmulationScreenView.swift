@@ -21,6 +21,8 @@ class SudachiScreenView: UIView {
         super.init(frame: frame)
         if userDefaults.bool(forKey: "isfullscreen") {
             setupSudachiScreen2()
+        } else if userDefaults.bool(forKey: "isairplay") {
+            setupSudachiScreen2()
         } else if UIDevice.current.userInterfaceIdiom == .pad {
             setupSudachiScreenforiPad()
         } else {
@@ -31,6 +33,8 @@ class SudachiScreenView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         if userDefaults.bool(forKey: "isfullscreen") {
+            setupSudachiScreen2()
+        } else if userDefaults.bool(forKey: "isairplay") {
             setupSudachiScreen2()
         } else if UIDevice.current.userInterfaceIdiom == .pad {
             setupSudachiScreenforiPad()
@@ -102,11 +106,12 @@ class SudachiScreenView: UIView {
         ]
         
         landscapeconstraints = [
-            primaryScreen.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
-            primaryScreen.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -95),
+            primaryScreen.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
+            primaryScreen.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -100),
             primaryScreen.widthAnchor.constraint(equalTo: primaryScreen.heightAnchor, multiplier: 16 / 9),
             primaryScreen.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
         ]
+
         
         updateConstraintsForOrientation()
     }

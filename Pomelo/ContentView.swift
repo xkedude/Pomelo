@@ -14,6 +14,11 @@ struct ContentView: View {
     var body: some View {
         NavView(core: $core) // pain and suffering
             .onAppear() {
+                Air.play(AnyView(
+                    Text("Select Game")
+                        .font(.system(size: 20))
+                    
+                ))
                 do {
                     try PomeloFileManager.shared.createdirectories() // this took a while to create the proper directories
                     

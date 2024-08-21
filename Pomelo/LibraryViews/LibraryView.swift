@@ -9,12 +9,13 @@ import SwiftUI
 
 struct LibraryView: View {
     @Binding var core: Core
+    @State var isGridView: Bool = true
     @State var doesitexist = (false, false)
     var body: some View {
         NavigationStack {
             VStack {
                 if doesitexist.0 && doesitexist.1 {
-                    GameListView(core: core)
+                    GameListView(core: core, isGridView: $isGridView)
                 } else {
                     let (doesKeyExist, doesProdExist) = doeskeysexist()
                     ScrollView {
@@ -47,6 +48,17 @@ struct LibraryView: View {
                 doesitexist = doeskeysexist()
             }
             .navigationBarTitle("Library", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) { // why did this take me so long to figure out lmfao
+                    Button(action: {
+                        isGridView.toggle()
+                    }) {
+                        Image(systemName: isGridView ? "rectangle.grid.1x2" : "square.grid.2x2")
+                            .imageScale(.large)
+                            .padding()
+                    }
+                }
+            }
         }
     }
     
