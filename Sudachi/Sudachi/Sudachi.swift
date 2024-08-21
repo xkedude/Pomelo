@@ -54,6 +54,10 @@ public struct Sudachi {
         return sudachiObjC.ispaused()
     }
     
+    public func FirstFrameShowed() -> Bool {
+        return sudachiObjC.hasfirstfame()
+    }
+    
     public func canGetFullPath() -> Bool {
         return sudachiObjC.canGetFullPath()
     }

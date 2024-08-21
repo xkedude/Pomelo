@@ -58,6 +58,7 @@ typedef NS_ENUM(NSUInteger, VirtualControllerButtonType) {
 -(void) insertGame:(NSURL *)url NS_SWIFT_NAME(insert(game:));
 -(void) insertGames:(NSArray<NSURL *> *)games NS_SWIFT_NAME(insert(games:));
 -(void) step;
+-(BOOL) hasfirstfame;
 
 -(void) touchBeganAtPoint:(CGPoint)point index:(NSUInteger)index NS_SWIFT_NAME(touchBegan(at:for:));
 -(void) touchEndedForIndex:(NSUInteger)index;
@@ -71,6 +72,7 @@ typedef NS_ENUM(NSUInteger, VirtualControllerButtonType) {
 -(void) orientationChanged:(UIInterfaceOrientation)orientation with:(CAMetalLayer *)layer size:(CGSize)size NS_SWIFT_NAME(orientationChanged(orientation:with:size:));
 
 -(void) settingsChanged;
+
 @end
 
 NS_ASSUME_NONNULL_END

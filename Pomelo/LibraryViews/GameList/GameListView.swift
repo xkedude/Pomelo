@@ -24,25 +24,25 @@ struct GameListView: View {
             return false
         }
 
-        
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    isGridView.toggle()
-                }) {
-                    Image(systemName: isGridView ? "rectangle.grid.1x2" : "square.grid.2x2")
-                        .imageScale(.large)
-                        .padding()
-                    Spacer()
-                }
-            
-                Spacer()
-            }
-            //.padding(.top, -65)
-            //.padding(.bottom, 30)
 
         ScrollView {
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isGridView.toggle()
+                    }) {
+                        Image(systemName: isGridView ? "rectangle.grid.1x2" : "square.grid.2x2")
+                            .imageScale(.large)
+                            .padding()
+                        Spacer()
+                    }
+                
+                    Spacer()
+                }
+                //.padding(.top, -65)
+                //.padding(.bottom, 30)
+                
             VStack(alignment: .leading) {
                 
                 if isGridView {

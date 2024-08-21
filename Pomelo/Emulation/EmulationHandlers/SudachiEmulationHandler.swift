@@ -26,18 +26,8 @@ class SudachiEmulationViewModel: ObservableObject {
         self.sudachiGame = game
     }
 
-    func configureMTKView(_ mtkView: MTKView) {
+    func configureSudachi(with mtkView: MTKView) {
         mtkView.device = device
-        mtkView.translatesAutoresizingMaskIntoConstraints = false
-        mtkView.clipsToBounds = true
-        mtkView.layer.borderColor = UIColor.secondarySystemBackground.cgColor
-        mtkView.layer.borderWidth = 3
-        mtkView.layer.cornerCurve = .continuous
-        mtkView.layer.cornerRadius = 10
-        configureSudachi(with: mtkView)
-    }
-
-    private func configureSudachi(with mtkView: MTKView) {
         guard !isRunning else { return }
         isRunning = true
         sudachi.configure(layer: mtkView.layer as! CAMetalLayer, with: mtkView.frame.size)

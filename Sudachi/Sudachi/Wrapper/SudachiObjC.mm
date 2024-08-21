@@ -68,6 +68,7 @@
 -(SudachiObjC *) init {
     if (self = [super init]) {
         _gameInformation = [SudachiGameInformation sharedInstance];
+
         
         Common::FS::SetAppDirectory(DirectoryManager::SudachiDirectory());
         Config{"config", Config::ConfigType::GlobalConfig};
@@ -84,6 +85,7 @@
         // YuzuSettings::values.scaling_filter.SetValue(YuzuSettings::ScalingFilter::Bilinear);
     } return self;
 }
+
 
 +(SudachiObjC *) sharedInstance {
     static SudachiObjC *sharedInstance = NULL;
@@ -106,6 +108,10 @@
 -(void) play {
     EmulationSession::GetInstance().System().Run();
     void(EmulationSession::GetInstance().UnPauseEmulation());
+}
+
+-(BOOL)hasfirstfame {
+    return EmulationSession::GetInstance().Window().HasFirstFrame();
 }
 
 - (BOOL)canGetFullPath {
@@ -212,4 +218,7 @@
 -(void) settingsChanged {
     Config{"config", Config::ConfigType::GlobalConfig};
 }
+
+
+
 @end

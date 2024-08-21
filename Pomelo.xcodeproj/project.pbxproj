@@ -142,6 +142,7 @@
 		386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
 		386F6F2F2C42E63A00C62EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		386F6F332C42E98700C62EBE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		38B7FDF82C7553D200D274FB /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = ../../VulkanSDK/1.3.275.0/iOS/lib/libMoltenVK.dylib; sourceTree = "<group>"; };
 		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		38C50D482C1DD7BA0007A953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -475,6 +476,7 @@
 		38C50D132C1DD4570007A953 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38B7FDF82C7553D200D274FB /* libMoltenVK.dylib */,
 				38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */,
 				38C50D142C1DD4570007A953 /* GameController.framework */,
 			);
@@ -798,10 +800,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = F4QL9A2T88;
+				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
 				INFOPLIST_FILE = Pomelo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pomelo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -819,6 +822,7 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks/MoltenVK.framework",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -826,7 +830,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
@@ -836,6 +840,10 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include/vma\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -852,10 +860,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = F4QL9A2T88;
+				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
 				INFOPLIST_FILE = Pomelo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pomelo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -873,6 +882,7 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks/MoltenVK.framework",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -880,7 +890,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lSudachi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
@@ -890,6 +900,10 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include/vma\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
