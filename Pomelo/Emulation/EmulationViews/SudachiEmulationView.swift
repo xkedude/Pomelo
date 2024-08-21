@@ -35,8 +35,7 @@ struct SudachiEmulationView: View {
                 DispatchQueue.main.async {
                     if let metalView = view as? MTKView {
                         mtkview = metalView
-                        viewModel.configureMTKView(metalView)
-
+                        viewModel.configureSudachi(with: metalView)
                     } else {
                         print("Error: view is not of type MTKView")
                     }
@@ -46,9 +45,12 @@ struct SudachiEmulationView: View {
             
             ControllerView()
         }
+        .navigationBarBackButtonHidden(true)
         .background(AlertController(isPresented: viewModel.$should))
         .onRotate { size in
-            viewModel.handleOrientationChange(size: size)
+            if sudachi.FirstFrameShowed() {
+                viewModel.handleOrientationChange(size: size)
+            }
         }
         .introspect(.tabView, on: .iOS(.v13, .v14, .v15, .v16, .v17)) { (tabBarController) in
             tabBarController.tabBar.isHidden = true

@@ -68,6 +68,7 @@
 -(SudachiObjC *) init {
     if (self = [super init]) {
         _gameInformation = [SudachiGameInformation sharedInstance];
+
         
         Common::FS::SetAppDirectory(DirectoryManager::SudachiDirectory());
         Config{"config", Config::ConfigType::GlobalConfig};
@@ -84,6 +85,7 @@
         // YuzuSettings::values.scaling_filter.SetValue(YuzuSettings::ScalingFilter::Bilinear);
     } return self;
 }
+
 
 +(SudachiObjC *) sharedInstance {
     static SudachiObjC *sharedInstance = NULL;
@@ -106,6 +108,10 @@
 -(void) play {
     EmulationSession::GetInstance().System().Run();
     void(EmulationSession::GetInstance().UnPauseEmulation());
+}
+
+-(BOOL)hasfirstfame {
+    return EmulationSession::GetInstance().Window().HasFirstFrame();
 }
 
 - (BOOL)canGetFullPath {
@@ -188,20 +194,26 @@
                                                           ((point.y) * [[UIScreen mainScreen] nativeScale] * h_ratio));
 }
 
--(void) thumbstickMoved:(VirtualControllerAnalogType)analog x:(CGFloat)x y:(CGFloat)y {
-    EmulationSession::GetInstance().OnGamepadConnectEvent(0);
-    EmulationSession::GetInstance().Window().OnGamepadJoystickEvent(0, [[NSNumber numberWithUnsignedInteger:analog] intValue], CGFloat(x), CGFloat(y));
+-(void) thumbstickMoved:(VirtualControllerAnalogType)analog
+                      x:(CGFloat)x
+                      y:(CGFloat)y
+           controllerId:(int)controllerId {
+    EmulationSession::GetInstance().OnGamepadConnectEvent(controllerId);
+    EmulationSession::GetInstance().Window().OnGamepadJoystickEvent(controllerId, [[NSNumber numberWithUnsignedInteger:analog] intValue], CGFloat(x), CGFloat(y));
 }
 
--(void) virtualControllerButtonDown:(VirtualControllerButtonType)button {
-    EmulationSession::GetInstance().OnGamepadConnectEvent(0);
-    EmulationSession::GetInstance().Window().OnGamepadButtonEvent(0, [[NSNumber numberWithUnsignedInteger:button] intValue], true);
+-(void) virtualControllerButtonDown:(VirtualControllerButtonType)button
+                       controllerId:(int)controllerId {
+    EmulationSession::GetInstance().OnGamepadConnectEvent(controllerId);
+    EmulationSession::GetInstance().Window().OnGamepadButtonEvent(controllerId, [[NSNumber numberWithUnsignedInteger:button] intValue], true);
 }
 
--(void) virtualControllerButtonUp:(VirtualControllerButtonType)button {
-    EmulationSession::GetInstance().OnGamepadConnectEvent(0);
-    EmulationSession::GetInstance().Window().OnGamepadButtonEvent(0, [[NSNumber numberWithUnsignedInteger:button] intValue], false);
+-(void) virtualControllerButtonUp:(VirtualControllerButtonType)button
+                     controllerId:(int)controllerId {
+    EmulationSession::GetInstance().OnGamepadConnectEvent(controllerId);
+    EmulationSession::GetInstance().Window().OnGamepadButtonEvent(controllerId, [[NSNumber numberWithUnsignedInteger:button] intValue], false);
 }
+
 
 -(void) orientationChanged:(UIInterfaceOrientation)orientation with:(CAMetalLayer *)layer size:(CGSize)size {
     _layer = layer;
@@ -212,4 +224,7 @@
 -(void) settingsChanged {
     Config{"config", Config::ConfigType::GlobalConfig};
 }
+
+
+
 @end

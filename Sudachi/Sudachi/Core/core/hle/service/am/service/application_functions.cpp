@@ -412,6 +412,7 @@ Result IApplicationFunctions::QueryApplicationPlayStatisticsByUid(
 
 Result IApplicationFunctions::ExecuteProgram(ProgramSpecifyKind kind, u64 value) {
     LOG_WARNING(Service_AM, "(STUBBED) called, kind={}, value={}", kind, value);
+    LOG_WARNING(Service_AM, "peepee poopoo");
     ASSERT(kind == ProgramSpecifyKind::ExecuteProgram ||
            kind == ProgramSpecifyKind::RestartProgram);
 

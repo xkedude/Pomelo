@@ -24,7 +24,7 @@ void EmulationWindow::OnSurfaceChanged(CA::MetalLayer* surface, CGSize size) {
 
     // Ensures that we emulate with the correct aspect ratio.
     // Seems to be broken on Pomelo, will look into it
-    // UpdateCurrentFramebufferLayout(m_window_width, m_window_height);
+    UpdateCurrentFramebufferLayout(m_window_width, m_window_height);
 
     window_info.render_surface = reinterpret_cast<void*>(surface);
     window_info.render_surface_scale = [[UIScreen mainScreen] nativeScale];

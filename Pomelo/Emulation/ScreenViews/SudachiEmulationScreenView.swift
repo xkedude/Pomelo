@@ -21,6 +21,8 @@ class SudachiScreenView: UIView {
         super.init(frame: frame)
         if userDefaults.bool(forKey: "isfullscreen") {
             setupSudachiScreen2()
+        } else if UIDevice.current.userInterfaceIdiom == .pad {
+            setupSudachiScreenforiPad()
         } else {
             setupSudachiScreen()
         }
@@ -30,6 +32,8 @@ class SudachiScreenView: UIView {
         super.init(coder: coder)
         if userDefaults.bool(forKey: "isfullscreen") {
             setupSudachiScreen2()
+        } else if UIDevice.current.userInterfaceIdiom == .pad {
+            setupSudachiScreenforiPad()
         } else {
             setupSudachiScreen()
         }
@@ -67,10 +71,6 @@ class SudachiScreenView: UIView {
         primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
         primaryScreen.translatesAutoresizingMaskIntoConstraints = false
         primaryScreen.clipsToBounds = true
-        primaryScreen.layer.borderColor = UIColor.gray.cgColor
-        primaryScreen.layer.borderWidth = 1.0
-        primaryScreen.layer.cornerCurve = .continuous
-        primaryScreen.layer.cornerRadius = 10.0
         addSubview(primaryScreen)
 
         fullscreenconstraints = [
@@ -83,16 +83,44 @@ class SudachiScreenView: UIView {
         addConstraints(fullscreenconstraints)
     }
     
+    func setupSudachiScreenforiPad() {
+        primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
+        primaryScreen.translatesAutoresizingMaskIntoConstraints = false
+        primaryScreen.clipsToBounds = true
+        primaryScreen.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        primaryScreen.layer.borderWidth = 3
+        primaryScreen.layer.cornerCurve = .continuous
+        primaryScreen.layer.cornerRadius = 10
+        addSubview(primaryScreen)
+        
+        
+        portraitconstraints = [
+            primaryScreen.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            primaryScreen.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            primaryScreen.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            primaryScreen.heightAnchor.constraint(equalTo: primaryScreen.widthAnchor, multiplier: 9 / 16),
+        ]
+        
+        landscapeconstraints = [
+            primaryScreen.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
+            primaryScreen.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -95),
+            primaryScreen.widthAnchor.constraint(equalTo: primaryScreen.heightAnchor, multiplier: 16 / 9),
+            primaryScreen.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+        ]
+        
+        updateConstraintsForOrientation()
+    }
+    
     
     
     func setupSudachiScreen() {
         primaryScreen = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
         primaryScreen.translatesAutoresizingMaskIntoConstraints = false
         primaryScreen.clipsToBounds = true
-        primaryScreen.layer.borderColor = UIColor.gray.cgColor
-        primaryScreen.layer.borderWidth = 1.0
+        primaryScreen.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        primaryScreen.layer.borderWidth = 3
         primaryScreen.layer.cornerCurve = .continuous
-        primaryScreen.layer.cornerRadius = 10.0
+        primaryScreen.layer.cornerRadius = 10
         addSubview(primaryScreen)
         
         

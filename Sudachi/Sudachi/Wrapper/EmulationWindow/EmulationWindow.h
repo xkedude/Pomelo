@@ -57,6 +57,11 @@ public:
     std::unique_ptr<Core::Frontend::GraphicsContext> CreateSharedContext() const override {
         return {std::make_unique<GraphicsContext_Apple>(m_driver_library)};
     }
+    
+    bool HasFirstFrame() const {
+        return m_first_frame;
+    }
+    
     bool IsShown() const override {
         return true;
     };
