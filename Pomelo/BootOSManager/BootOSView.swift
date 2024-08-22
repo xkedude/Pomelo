@@ -9,6 +9,7 @@ import SwiftUI
 import Sudachi
 
 struct BootOSView: View {
+    @Binding var core: Core
     @Binding var currentnavigarion: Int
     @State var sudachi = Sudachi.shared
     var body: some View {

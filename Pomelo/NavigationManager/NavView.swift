@@ -18,12 +18,20 @@ struct NavView: View {
                     Label("Library", systemImage: "rectangle.on.rectangle")
                 }
                 .tag(0)
-            BootOSView(currentnavigarion: $selectedTab)
-                .toolbar(.hidden, for: .tabBar)
-                .tabItem {
-                    Label("Boot OS", systemImage: "house")
-                }
-                .tag(1)
+            if #available(iOS 16.0, *) {
+                BootOSView(core: $core, currentnavigarion: $selectedTab)
+                    .toolbar(.hidden, for: .tabBar)
+                    .tabItem {
+                        Label("Boot OS", systemImage: "house")
+                    }
+                    .tag(1)
+            } else {
+                BootOSView(core: $core, currentnavigarion: $selectedTab)
+                    .tabItem {
+                        Label("Boot OS", systemImage: "house")
+                    }
+                    .tag(1)
+            }
             SettingsView(core: core)
                 .tabItem {
                     Label("Settings", systemImage: "gear")

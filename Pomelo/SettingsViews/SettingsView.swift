@@ -13,7 +13,7 @@ struct SettingsView: View {
     
     @AppStorage("icon") var iconused = 1
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ScrollView {
                 VStack(alignment: .center) {
                     if iconused == 1 {
@@ -133,7 +133,9 @@ struct SettingsView: View {
                     }
                     .padding()
                 }
+                
             }
+            .navigationViewStyle(StackNavigationViewStyle())
             .onAppear() {
                 do {
                     core = try LibraryManager.shared.library()

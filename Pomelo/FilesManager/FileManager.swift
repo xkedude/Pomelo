@@ -96,6 +96,7 @@ class LibraryManager {
                 print("uhoh how unfortunate for some reason FileManager.default.enumerator aint workin")
                 throw LibManError.ripenum
             }
+            let sudachi = Sudachi.shared
             var urls: [URL] = []
             try dirContents.forEach() { files in
                 if let file = files as? URL {
@@ -103,10 +104,14 @@ class LibraryManager {
                     if let isfile = getaboutfile.isRegularFile, isfile {
                         if ["nca", "nro", "nsp", "nso", "xci"].contains(file.pathExtension.lowercased()) {
                             urls.append(file)
+                            
                         }
                     }
                 }
             }
+            
+            
+            sudachi.insert(games: urls)
             
             return urls
         }

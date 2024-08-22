@@ -597,7 +597,7 @@ class Instance : public Handle<VkInstance, NoOwner, InstanceDispatch> {
 public:
     /// Creates a Vulkan instance.
     /// @throw Exception on initialization error.
-    static Instance Create(u32 version, Span<const char*> layers, Span<const char*> extensions,
+    static Instance Create(u32 version, std::vector<const char*> layers, std::vector<const char*> extensions,
                            InstanceDispatch& dispatch);
 
     /// Enumerates physical devices.

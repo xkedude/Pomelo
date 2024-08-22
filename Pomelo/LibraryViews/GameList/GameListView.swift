@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 import UIKit
 import UniformTypeIdentifiers
+import Sudachi
 
 struct GameListView: View {
     @State var core: Core
@@ -34,9 +35,16 @@ struct GameListView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
                             if let game = core.games[index] as? PomeloGame {
-                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
-                                    GameButtonView(game: game)
-                                        .frame(maxWidth: .infinity, minHeight: 200)
+                                if #available(iOS 16.0, *) {
+                                    NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                        GameButtonView(game: game)
+                                            .frame(maxWidth: .infinity, minHeight: 200)
+                                    }
+                                } else {
+                                    NavigationLink(destination: SudachiEmulationView(game: game)) {
+                                        GameButtonView(game: game)
+                                            .frame(maxWidth: .infinity, minHeight: 200)
+                                    }
                                 }
                             }
                         }
@@ -45,9 +53,16 @@ struct GameListView: View {
                     LazyVStack() {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
                             if let game = core.games[index] as? PomeloGame {
-                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
-                                    GameButtonListView(game: game)
-                                        .frame(maxWidth: .infinity, minHeight: 75)
+                                if #available(iOS 16.0, *) {
+                                    NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                        GameButtonListView(game: game)
+                                            .frame(maxWidth: .infinity, minHeight: 200)
+                                    }
+                                } else {
+                                    NavigationLink(destination: SudachiEmulationView(game: game)) {
+                                        GameButtonListView(game: game)
+                                            .frame(maxWidth: .infinity, minHeight: 200)
+                                    }
                                 }
                             }
                         }
@@ -59,6 +74,8 @@ struct GameListView: View {
             }
             .onAppear() {
                 refreshcore()
+
+                
             }
             .refreshable {
                 core = Core(console: Core.Console.nSwitch, name: .Pomelo, games: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first ?? URL(string: "/")!)

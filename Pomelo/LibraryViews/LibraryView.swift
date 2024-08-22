@@ -12,7 +12,7 @@ struct LibraryView: View {
     @State var isGridView: Bool = true
     @State var doesitexist = (false, false)
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 if doesitexist.0 && doesitexist.1 {
                     GameListView(core: core, isGridView: $isGridView)
@@ -42,8 +42,9 @@ struct LibraryView: View {
                         doesitexist = doeskeysexist()
                     }
                 }
-                
             }
+            .navigationViewStyle(.stack)
+            
             .onAppear() {
                 doesitexist = doeskeysexist()
             }

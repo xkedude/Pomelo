@@ -420,8 +420,13 @@ VkResult Free(VkDevice device, VkCommandPool handle, Span<VkCommandBuffer> buffe
     return VK_SUCCESS;
 }
 
-Instance Instance::Create(u32 version, Span<const char*> layers, Span<const char*> extensions,
-                          InstanceDispatch& dispatch) {
+// Instance Instance::Create(u32 version, Span<const char*> layers, Span<const char*> extensions,
+//                          InstanceDispatch& dispatch) {
+
+Instance Instance::Create(u32 version, std::vector<const char*> layers, std::vector<const char*> extensions,
+                           InstanceDispatch& dispatch) {
+     
+     
 #ifdef __APPLE__
     constexpr VkFlags ci_flags{VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR};
 #else
@@ -431,9 +436,9 @@ Instance Instance::Create(u32 version, Span<const char*> layers, Span<const char
     const VkApplicationInfo application_info{
         .sType = VK_STRUCTURE_TYPE_APPLICATION_INFO,
         .pNext = nullptr,
-        .pApplicationName = "yuzu Emulator",
+        .pApplicationName = "Pomelo Emulator",
         .applicationVersion = VK_MAKE_VERSION(0, 1, 0),
-        .pEngineName = "yuzu Emulator",
+        .pEngineName = "Pomelo Emulator",
         .engineVersion = VK_MAKE_VERSION(0, 1, 0),
         .apiVersion = VK_API_VERSION_1_3,
     };
@@ -442,9 +447,9 @@ Instance Instance::Create(u32 version, Span<const char*> layers, Span<const char
         .pNext = nullptr,
         .flags = ci_flags,
         .pApplicationInfo = &application_info,
-        .enabledLayerCount = layers.size(),
+        .enabledLayerCount = static_cast<uint32_t>(layers.size()),
         .ppEnabledLayerNames = layers.data(),
-        .enabledExtensionCount = extensions.size(),
+        .enabledExtensionCount = static_cast<uint32_t>(extensions.size()),
         .ppEnabledExtensionNames = extensions.data(),
     };
     VkInstance instance;

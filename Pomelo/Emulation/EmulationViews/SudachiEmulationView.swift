@@ -44,19 +44,24 @@ struct SudachiEmulationView: View {
                         }
                     }
                 }
-                .edgesIgnoringSafeArea(.all)
-                .overlay(
-                    // Loading screen overlay on top of MetalView
-                    Group {
-                        if !isFirstFrameShown && !isairplay {
-                            LoadingView()
-                        }
+                .onRotate { size in
+                    if sudachi.FirstFrameShowed() && !isairplay {
+                        viewModel.handleOrientationChange(size: size)
                     }
-                        .transition(.opacity)
-                )
+                }
+                .edgesIgnoringSafeArea(.all)
             }
             ControllerView()
         }
+        .overlay(
+            // Loading screen overlay on top of MetalView
+            Group {
+                if !isFirstFrameShown && !isairplay {
+                    LoadingView()
+                }
+            }
+                .transition(.opacity)
+        )
         .onAppear {
             
             print("AirPlay + \(Air.shared.connected)")
@@ -100,11 +105,6 @@ struct SudachiEmulationView: View {
         }
         .navigationBarBackButtonHidden(true)
         .background(AlertController(isPresented: viewModel.$should))
-        .onRotate { size in
-            if sudachi.FirstFrameShowed() && !isairplay {
-                viewModel.handleOrientationChange(size: size)
-            }
-        }
         .introspect(.tabView, on: .iOS(.v13, .v14, .v15, .v16, .v17)) { (tabBarController) in
             tabBarController.tabBar.isHidden = true
             uiTabBarController = tabBarController
@@ -132,6 +132,7 @@ struct LoadingView: View {
     var body: some View {
         VStack {
             ProgressView("Loading...")
+                // .font(.system(size: 90))
                 .progressViewStyle(CircularProgressViewStyle())
                 .padding()
             Text("Please wait while the game loads.")
