@@ -2,7 +2,8 @@
 //  LibraryView.swift
 //  Pomelo
 //
-//  Created by Stossy11 on 13/7/2024.
+//  Created by Stossy11 on 
+//  Copyright © 2024 Stossy11. All rights reserved.13/7/2024.
 //
 
 import SwiftUI
@@ -12,7 +13,7 @@ struct LibraryView: View {
     @State var isGridView: Bool = true
     @State var doesitexist = (false, false)
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if doesitexist.0 && doesitexist.1 {
                     GameListView(core: core, isGridView: $isGridView)
@@ -42,8 +43,8 @@ struct LibraryView: View {
                         doesitexist = doeskeysexist()
                     }
                 }
+                
             }
-            .navigationViewStyle(.stack)
             
             .onAppear() {
                 doesitexist = doeskeysexist()

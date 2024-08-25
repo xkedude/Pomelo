@@ -256,6 +256,7 @@ Core::SystemResultStatus EmulationSession::InitializeEmulation(const std::string
     return Core::SystemResultStatus::Success;
 }
 
+
 Core::SystemResultStatus EmulationSession::BootOS() {
     std::scoped_lock lock(m_mutex);
 

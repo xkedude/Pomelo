@@ -16,7 +16,7 @@ struct ContentView: View {
             .onAppear() {
                 Air.play(AnyView(
                     Text("Select Game")
-                        .font(.system(size: 20))
+                        .font(.system(size: 100))
                     
                 ))
                 do {

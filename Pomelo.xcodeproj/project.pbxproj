@@ -73,13 +73,15 @@
 		38C50D382C1DD5740007A953 /* libopus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C42C1DCE8900331706 /* libopus.xcframework */; };
 		38C50D3A2C1DD5760007A953 /* libsirit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C52C1DCE8900331706 /* libsirit.xcframework */; };
 		38C50D3C2C1DD5780007A953 /* libSoundTouch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C62C1DCE8900331706 /* libSoundTouch.xcframework */; };
-		38C50D3E2C1DD57A0007A953 /* libSPIRV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; };
 		38C846552C1DCC7200331706 /* SDL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846542C1DCC7200331706 /* SDL */; };
 		38C846592C1DCC8400331706 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846582C1DCC8400331706 /* OpenSSL */; };
 		38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */; };
 		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
 		499A5E0C2C74A1B200EC0925 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0B2C74A1B200EC0925 /* GameListView.swift */; };
 		499A5E0F2C74A22D00EC0925 /* GameButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */; };
+		4E0E35E22C7A01EA001D24EE /* KeyboardHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */; };
+		4E0E35EA2C7AB5CB001D24EE /* libSPIRV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; };
+		4E0E35EB2C7AB5CB001D24EE /* libSPIRV.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EE593FF2C5FA1D1000939C4 /* AppIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,7 @@
 				38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */,
 				38C50D062C1DCF1B0007A953 /* libavutil.xcframework in Embed Frameworks */,
 				38C50D0C2C1DCF420007A953 /* libswscale.xcframework in Embed Frameworks */,
+				4E0E35EB2C7AB5CB001D24EE /* libSPIRV.xcframework in Embed Frameworks */,
 				38C50D0A2C1DCF3E0007A953 /* libswresample.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -182,6 +185,8 @@
 		38F284CB2C2683A000994A77 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		499A5E0B2C74A1B200EC0925 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonListView.swift; sourceTree = "<group>"; };
+		4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHostingController.swift; sourceTree = "<group>"; };
+		4E0E35E52C7A0E81001D24EE /* libvulkan.1.3.275.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.3.275.dylib; path = ../../VulkanSDK/1.3.275.0/iOS/lib/libvulkan.1.3.275.dylib; sourceTree = "<group>"; };
 		4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,8 +204,8 @@
 				38C50D182C1DD5370007A953 /* boost_context.xcframework in Frameworks */,
 				38C50D3C2C1DD5780007A953 /* libSoundTouch.xcframework in Frameworks */,
 				38C50D382C1DD5740007A953 /* libopus.xcframework in Frameworks */,
-				38C50D3E2C1DD57A0007A953 /* libSPIRV.xcframework in Frameworks */,
 				38C50D2A2C1DD5530007A953 /* libGenericCodeGen.xcframework in Frameworks */,
+				4E0E35EA2C7AB5CB001D24EE /* libSPIRV.xcframework in Frameworks */,
 				38C50D122C1DCF690007A953 /* SwiftSyntaxMacros in Frameworks */,
 				383C55EE2C5D136900A89F85 /* JoyStickView in Frameworks */,
 				38C50D092C1DCF3E0007A953 /* libswresample.xcframework in Frameworks */,
@@ -299,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				383FC44A2C5B3C8C00A37694 /* JoystickViewController.swift */,
-				384194612C4E4D2B00396613 /* ControllerView.swift */,
 			);
 			path = JoystickViewController;
 			sourceTree = "<group>";
@@ -307,6 +311,7 @@
 		384194622C4E4D2B00396613 /* ControllerView */ = {
 			isa = PBXGroup;
 			children = (
+				384194612C4E4D2B00396613 /* ControllerView.swift */,
 				383FC4492C5B3C7700A37694 /* JoystickViewController */,
 			);
 			path = ControllerView;
@@ -339,6 +344,7 @@
 		384194692C4E4D2B00396613 /* Emulation */ = {
 			isa = PBXGroup;
 			children = (
+				4E0E35DF2C7A01E6001D24EE /* Keyboard */,
 				38B7FDFB2C760CF600D274FB /* AirPlay */,
 				3841946E2C4E53F100396613 /* EmulationHandlers */,
 				384194622C4E4D2B00396613 /* ControllerView */,
@@ -490,6 +496,7 @@
 		38C50D132C1DD4570007A953 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E0E35E52C7A0E81001D24EE /* libvulkan.1.3.275.dylib */,
 				38B7FDF82C7553D200D274FB /* libMoltenVK.dylib */,
 				38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */,
 				38C50D142C1DD4570007A953 /* GameController.framework */,
@@ -539,6 +546,14 @@
 				38C846C92C1DCE8900331706 /* XCFrameworks */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		4E0E35DF2C7A01E6001D24EE /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */,
+			);
+			path = Keyboard;
 			sourceTree = "<group>";
 		};
 		4EE593FD2C5FA1C4000939C4 /* AppIcon */ = {
@@ -659,6 +674,7 @@
 				38020F562C43A02100029E9A /* BootOSView.swift in Sources */,
 				38020F302C43568500029E9A /* AdvancedSettingsView.swift in Sources */,
 				386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */,
+				4E0E35E22C7A01EA001D24EE /* KeyboardHostingController.swift in Sources */,
 				386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */,
 				386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */,
 				383FC44B2C5B3C8C00A37694 /* JoystickViewController.swift in Sources */,
@@ -834,11 +850,11 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@executable_path/../Frameworks/MoltenVK.framework",
+					"@executable_path/Frameworks/MoltenVK.framework",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -856,10 +872,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = (
-					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
-					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include/vma\"",
-				);
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -894,11 +907,11 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@executable_path/../Frameworks/MoltenVK.framework",
+					"@executable_path/Frameworks/MoltenVK.framework",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -916,10 +929,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = (
-					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
-					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include/vma\"",
-				);
+				SYSTEM_HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

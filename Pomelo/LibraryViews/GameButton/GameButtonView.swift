@@ -2,7 +2,8 @@
 //  GameButtonView.swift
 //  Pomelo
 //
-//  Created by Stossy11 on 13/7/2024.
+//  Created by Stossy11 on 
+//  Copyright © 2024 Stossy11. All rights reserved.13/7/2024.
 //
 
 import SwiftUI
@@ -31,7 +32,7 @@ struct GameButtonView: View {
                     Text(game.title)
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal, 8)
-                        .font(Font.headline.weight(.bold))
+                        .bold()
                         .font(.system(size: 15))
                         .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     Text(game.developer)

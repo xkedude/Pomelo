@@ -20,6 +20,9 @@
 #include "core/loader/nro.h"
 #include "frontend_common/content_manager.h"
 #include "common/settings_enums.h"
+#include "network/announce_multiplayer_session.h"
+#include "common/announce_multiplayer_room.h"
+#include "network/network.h"
 
 #include "common/detached_tasks.h"
 #include "common/dynamic_library.h"
@@ -77,7 +80,7 @@
         EmulationSession::GetInstance().InitializeSystem(false);
         EmulationSession::GetInstance().InitializeGpuDriver();
         
-    
+
         YuzuSettings::values.use_asynchronous_shaders.SetValue(true);
         // YuzuSettings::values.astc_recompression.SetValue(YuzuSettings::AstcRecompression::Bc3);
         // YuzuSettings::values.shader_backend.SetValue(YuzuSettings::ShaderBackend::SpirV);
@@ -148,9 +151,7 @@
 }
 
 -(void) quit {
-    EmulationSession::GetInstance().HaltEmulation();
-    EmulationSession::GetInstance().System().Exit();
-    void(EmulationSession::GetInstance().ShutdownEmulation());
+    EmulationSession::GetInstance().ShutdownEmulation();
 }
 
 -(void) configureLayer:(CAMetalLayer *)layer withSize:(CGSize)size {

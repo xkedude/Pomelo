@@ -23,7 +23,6 @@ void EmulationWindow::OnSurfaceChanged(CA::MetalLayer* surface, CGSize size) {
     m_window_height = size.height;
 
     // Ensures that we emulate with the correct aspect ratio.
-    // Seems to be broken on Pomelo, will look into it
     UpdateCurrentFramebufferLayout(m_window_width, m_window_height);
 
     window_info.render_surface = reinterpret_cast<void*>(surface);

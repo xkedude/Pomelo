@@ -14,6 +14,7 @@ class SudachiEmulationViewModel: ObservableObject {
     @Published var isShowingCustomButton = true
     @State var should = false
     var device: MTLDevice?
+    @State var mtkView: MTKView = MTKView()
     var CaLayer: CAMetalLayer?
     private var sudachiGame: PomeloGame?
     private let sudachi = Sudachi.shared
@@ -27,21 +28,25 @@ class SudachiEmulationViewModel: ObservableObject {
     }
 
     func configureSudachi(with mtkView: MTKView) {
-        mtkView.device = device
+        self.mtkView = mtkView
+        device = self.mtkView.device
         guard !isRunning else { return }
         isRunning = true
         sudachi.configure(layer: mtkView.layer as! CAMetalLayer, with: mtkView.frame.size)
         
-        if let sudachiGame = sudachiGame {
-            sudachi.insert(game: sudachiGame.fileURL)
-        } else {
-            sudachi.bootOS()
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            do {
+                if let sudachiGame = self.sudachiGame {
+                    try self.sudachi.insert(game: sudachiGame.fileURL)
+                } else {
+                    try self.sudachi.bootOS()
+                }
+            } catch {
+                print("Failed to insert game or boot OS: \(error)")
+            }
         }
         
-        do {
-            CaLayer = mtkView.layer as? CAMetalLayer
-        }
-
         thread = Thread { [weak self] in self?.step() }
         thread.name = "Pomelo"
         thread.qualityOfService = .userInteractive
@@ -71,7 +76,7 @@ class SudachiEmulationViewModel: ObservableObject {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             let interfaceOrientation = self.getInterfaceOrientation(from: UIDevice.current.orientation)
-            self.sudachi.orientationChanged(orientation: interfaceOrientation, with: self.CaLayer!, size: size)
+            self.sudachi.orientationChanged(orientation: interfaceOrientation, with: self.mtkView.layer as! CAMetalLayer, size: size)
         }
     }
 

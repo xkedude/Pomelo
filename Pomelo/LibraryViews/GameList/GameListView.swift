@@ -2,7 +2,8 @@
 //  GameListView.swift
 //  Pomelo
 //
-//  Created by Stossy11 on 14/7/2024.
+//  Created by Stossy11 on 
+//  Copyright © 2024 Stossy11. All rights reserved.14/7/2024.
 //
 
 import SwiftUI
@@ -19,11 +20,10 @@ struct GameListView: View {
 
     var body: some View {
         let filteredGames = core.games.filter { game in
-            if let PomeloGame = game as? PomeloGame {
-                return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
-            }
-            return false
+            guard let PomeloGame = game as? PomeloGame else { return false }
+            return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
         }
+        
 
 
         ScrollView {
@@ -34,36 +34,20 @@ struct GameListView: View {
                 if isGridView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
-                            if let game = core.games[index] as? PomeloGame {
-                                if #available(iOS 16.0, *) {
-                                    NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
-                                        GameButtonView(game: game)
-                                            .frame(maxWidth: .infinity, minHeight: 200)
-                                    }
-                                } else {
-                                    NavigationLink(destination: SudachiEmulationView(game: game)) {
-                                        GameButtonView(game: game)
-                                            .frame(maxWidth: .infinity, minHeight: 200)
-                                    }
-                                }
+                            let game = core.games[index]
+                            NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                GameButtonView(game: game)
+                                    .frame(maxWidth: .infinity, minHeight: 200)
                             }
                         }
                     }
                 } else {
                     LazyVStack() {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
-                            if let game = core.games[index] as? PomeloGame {
-                                if #available(iOS 16.0, *) {
-                                    NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
-                                        GameButtonListView(game: game)
-                                            .frame(maxWidth: .infinity, minHeight: 200)
-                                    }
-                                } else {
-                                    NavigationLink(destination: SudachiEmulationView(game: game)) {
-                                        GameButtonListView(game: game)
-                                            .frame(maxWidth: .infinity, minHeight: 200)
-                                    }
-                                }
+                            let game = core.games[index]
+                            NavigationLink(destination: SudachiEmulationView(game: nil).toolbar(.hidden, for: .tabBar)) {
+                                GameButtonListView(game: game)
+                                    .frame(maxWidth: .infinity, minHeight: 75)
                             }
                         }
                     }

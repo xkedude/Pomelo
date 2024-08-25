@@ -51,7 +51,12 @@ struct SudachiEmulationView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
             }
-            ControllerView()
+            
+            if #available(iOS 17.0, *) {
+                KeyboardHandler()
+            } else {
+                ControllerView()
+            }
         }
         .overlay(
             // Loading screen overlay on top of MetalView
@@ -125,6 +130,41 @@ struct SudachiEmulationView: View {
     private func stopPollingFirstFrameShowed() {
         timer?.invalidate()
         timer = nil
+    }
+}
+
+
+@available(iOS 17.0, *)
+struct KeyboardHandler: View {
+    @State var sudachi = Sudachi.shared
+    
+    var body: some View {
+        ControllerView()
+            .onKeyPress(.upArrow, phases: .down) { keyPress in
+                
+                sudachi.virtualControllerButtonDown(button: .directionalPadUp, controllerid: 0)
+                
+                return KeyPress.Result.handled
+            }
+            .onKeyPress(.upArrow, phases: .up) { keyPress in
+                
+                sudachi.virtualControllerButtonUp(button: .directionalPadUp, controllerid: 0)
+                
+                return KeyPress.Result.handled
+            }
+            .onKeyPress(.downArrow, phases: .down) { keyPress in
+                
+                sudachi.virtualControllerButtonDown(button: .directionalPadDown, controllerid: 0)
+                
+                return KeyPress.Result.handled
+            }
+            .onKeyPress(.downArrow, phases: .up) { keyPress in
+                
+                sudachi.virtualControllerButtonUp(button: .directionalPadDown, controllerid: 0)
+                
+                return KeyPress.Result.handled
+            }
+        
     }
 }
 
