@@ -60,6 +60,4 @@ Check the Wiki [here](https://github.com/Pomelo-Emu/Pomelo/wiki/Post-Setup-Guide
 
 # Screenshots
 
-<img src="https://github.com/stossy11/Pomelo/blob/main/images/IMG_081EF53F67C9-1.jpeg" width="400" style="border-radius:50%">
-
 ![hbmenu](https://github.com/stossy11/Pomelo/blob/main/images/IMG_1807.png)
