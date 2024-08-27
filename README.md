@@ -48,7 +48,7 @@ Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(F
 
 ## Trollstore
 
-TrollStore works on iOS 17+ and enables all the entitlements for you. It doesnt work on iOS 16- cause of a MoltenVK issue on iOS(its a W.I.P)
+TrollStore doesn't seem to work on iOS 16 or iOS 17, We are looking into Fixing it. Sorry for the inconvenience.
 
 
 # Post Setup Guides
