@@ -22,81 +22,7 @@ struct ControllerView: View {
         GeometryReader { geometry in
             ZStack {
                 if !controllerconnected {
-                    if geometry.size.height > geometry.size.width { // geometry reader stuff took me like how long to figure it out
-                        // this might be portrait
-                        VStack {
-                            Spacer()
-                            VStack {
-                                HStack {
-                                    VStack {
-                                        ShoulderButtonsViewLeft()
-                                        ZStack {
-                                            JoystickViewSwiftUI()
-                                            DPadView()
-                                        }
-                                    }
-                                    VStack {
-                                        ShoulderButtonsViewRight()
-                                        ZStack {
-                                            JoystickViewSwiftUI(iscool: true) // hope this works
-                                            ABXYView()
-                                        }
-                                    }
-                                }
-                                
-                                HStack {
-                                    ButtonView(button: .plus) // Adding the + button
-                                        .padding(.horizontal)
-                                    ButtonView(button: .minus) // Adding the - button
-                                        .padding(.horizontal)
-                                }
-                            }
-                            .padding(.bottom, geometry.size.height / 4.2) // very broken
-                        }
-                    } else {
-                        // could be landscape
-                        VStack {
-                            HStack {
-                                Spacer()
-                                ButtonView(button: .home)
-                                    .padding(.horizontal)
-                            }
-                            Spacer()
-                            VStack {
-                                HStack {
-                                    
-                                    // gotta fuckin add + and - now
-                                    VStack {
-                                        ShoulderButtonsViewLeft()
-                                        ZStack {
-                                            JoystickViewSwiftUI()
-                                            DPadView()
-                                        }
-                                    }
-                                    HStack {
-                                        VStack {
-                                            Spacer()
-                                            ButtonView(button: .plus) // Adding the + button
-                                        }
-                                        Spacer()
-                                        VStack {
-                                            Spacer()
-                                            ButtonView(button: .minus) // Adding the - button
-                                        }
-                                    }
-                                    VStack {
-                                        ShoulderButtonsViewRight()
-                                        ZStack {
-                                            JoystickViewSwiftUI(iscool: true) // hope this work s
-                                            ABXYView()
-                                        }
-                                    }
-                                }
-                                
-                            }
-                            .padding(.bottom, geometry.size.height / 3.2) // also extremally broken (
-                        }
-                    }
+                    OnScreenController(geometry: geometry) // i did this to clean it up as it was quite long lmfao
                 }
             }
         }
@@ -236,6 +162,87 @@ struct ControllerView: View {
     private func touchUpInside(_ button: VirtualControllerButtonType, controllerId: Int) {
         if sudachi.FirstFrameShowed() {
             sudachi.virtualControllerButtonUp(button: button, controllerid: controllerId)
+        }
+    }
+}
+
+struct OnScreenController: View {
+    @State var geometry: GeometryProxy
+    var body: some View {
+        if geometry.size.height > geometry.size.width && UIDevice.current.userInterfaceIdiom != .pad {
+            // portrait
+            VStack {
+                Spacer()
+                VStack {
+                    HStack {
+                        VStack {
+                            ShoulderButtonsViewLeft()
+                            ZStack {
+                                JoystickViewSwiftUI()
+                                DPadView()
+                            }
+                        }
+                        VStack {
+                            ShoulderButtonsViewRight()
+                            ZStack {
+                                JoystickViewSwiftUI(iscool: true) // hope this works
+                                ABXYView()
+                            }
+                        }
+                    }
+                    
+                    HStack {
+                        ButtonView(button: .plus) // Adding the + button
+                            .padding(.horizontal)
+                        ButtonView(button: .minus) // Adding the - button
+                            .padding(.horizontal)
+                    }
+                }
+                .padding(.bottom, geometry.size.height / 4.2) // very broken
+            }
+        } else {
+            // could be landscape
+            VStack {
+                HStack {
+                    Spacer()
+                    ButtonView(button: .home)
+                        .padding(.horizontal)
+                }
+                Spacer()
+                VStack {
+                    HStack {
+                        
+                        // gotta fuckin add + and - now
+                        VStack {
+                            ShoulderButtonsViewLeft()
+                            ZStack {
+                                JoystickViewSwiftUI()
+                                DPadView()
+                            }
+                        }
+                        HStack {
+                            VStack {
+                                Spacer()
+                                ButtonView(button: .plus) // Adding the + button
+                            }
+                            Spacer()
+                            VStack {
+                                Spacer()
+                                ButtonView(button: .minus) // Adding the - button
+                            }
+                        }
+                        VStack {
+                            ShoulderButtonsViewRight()
+                            ZStack {
+                                JoystickViewSwiftUI(iscool: true) // hope this work s
+                                ABXYView()
+                            }
+                        }
+                    }
+                    
+                }
+                .padding(.bottom, geometry.size.height / 3.2) // also extremally broken (
+            }
         }
     }
 }

@@ -48,8 +48,6 @@
 		38C50D0A2C1DCF3E0007A953 /* libswresample.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B12C1DCE8900331706 /* libswresample.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C50D0B2C1DCF420007A953 /* libswscale.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B22C1DCE8900331706 /* libswscale.xcframework */; };
 		38C50D0C2C1DCF420007A953 /* libswscale.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B22C1DCE8900331706 /* libswscale.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		38C50D0D2C1DCF480007A953 /* MoltenVK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; };
-		38C50D0E2C1DCF480007A953 /* MoltenVK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C50D102C1DCF5F0007A953 /* SwiftSyntax in Frameworks */ = {isa = PBXBuildFile; productRef = 38C50D0F2C1DCF5F0007A953 /* SwiftSyntax */; };
 		38C50D122C1DCF690007A953 /* SwiftSyntaxMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 38C50D112C1DCF690007A953 /* SwiftSyntaxMacros */; };
 		38C50D152C1DD4570007A953 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C50D142C1DD4570007A953 /* GameController.framework */; };
@@ -82,6 +80,8 @@
 		4E0E35E22C7A01EA001D24EE /* KeyboardHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */; };
 		4E0E35EA2C7AB5CB001D24EE /* libSPIRV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; };
 		4E0E35EB2C7AB5CB001D24EE /* libSPIRV.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E48D2452C894AC8006095D1 /* MoltenVK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; };
+		4E48D2462C894AC8006095D1 /* MoltenVK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EE593FF2C5FA1D1000939C4 /* AppIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,10 +102,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38C50D0E2C1DCF480007A953 /* MoltenVK.xcframework in Embed Frameworks */,
 				38C50D082C1DCF1E0007A953 /* libavfilter.xcframework in Embed Frameworks */,
 				38C50D042C1DCF190007A953 /* libavformat.xcframework in Embed Frameworks */,
 				38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */,
+				4E48D2462C894AC8006095D1 /* MoltenVK.xcframework in Embed Frameworks */,
 				38C50D062C1DCF1B0007A953 /* libavutil.xcframework in Embed Frameworks */,
 				38C50D0C2C1DCF420007A953 /* libswscale.xcframework in Embed Frameworks */,
 				4E0E35EB2C7AB5CB001D24EE /* libSPIRV.xcframework in Embed Frameworks */,
@@ -187,6 +187,10 @@
 		499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonListView.swift; sourceTree = "<group>"; };
 		4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHostingController.swift; sourceTree = "<group>"; };
 		4E0E35E52C7A0E81001D24EE /* libvulkan.1.3.275.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.3.275.dylib; path = ../../VulkanSDK/1.3.275.0/iOS/lib/libvulkan.1.3.275.dylib; sourceTree = "<group>"; };
+		4E48D2312C892540006095D1 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = "../Downloads/MoltenVK 3/MoltenVK/dylib/iOS/libMoltenVK.dylib"; sourceTree = "<group>"; };
+		4E48D2342C892590006095D1 /* MoltenVK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MoltenVK.xcframework; path = ../Developer/Pomelo/Pomelo/Dependencies/XCFrameworks/MoltenVK.xcframework; sourceTree = "<group>"; };
+		4E48D23D2C892703006095D1 /* MoltenVK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MoltenVK.xcframework; path = "../../Downloads/MoltenVK 3/MoltenVK/MoltenVK.xcframework"; sourceTree = "<group>"; };
+		4E48D2402C89270F006095D1 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = "../../Downloads/MoltenVK 3/MoltenVK/dylib/iOS/libMoltenVK.dylib"; sourceTree = "<group>"; };
 		4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,8 +216,8 @@
 				38C50D0B2C1DCF420007A953 /* libswscale.xcframework in Frameworks */,
 				38C50D202C1DD5450007A953 /* libcryptopp.xcframework in Frameworks */,
 				38C50D172C1DD45F0007A953 /* CoreBluetooth.framework in Frameworks */,
-				38C50D0D2C1DCF480007A953 /* MoltenVK.xcframework in Frameworks */,
 				38C50D1E2C1DD5400007A953 /* boost_serialization.xcframework in Frameworks */,
+				4E48D2452C894AC8006095D1 /* MoltenVK.xcframework in Frameworks */,
 				38C50D342C1DD56E0007A953 /* libmcl.xcframework in Frameworks */,
 				38C50D362C1DD5710007A953 /* libOpenAL.xcframework in Frameworks */,
 				38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */,
@@ -496,6 +500,10 @@
 		38C50D132C1DD4570007A953 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E48D2402C89270F006095D1 /* libMoltenVK.dylib */,
+				4E48D2342C892590006095D1 /* MoltenVK.xcframework */,
+				4E48D23D2C892703006095D1 /* MoltenVK.xcframework */,
+				4E48D2312C892540006095D1 /* libMoltenVK.dylib */,
 				4E0E35E52C7A0E81001D24EE /* libvulkan.1.3.275.dylib */,
 				38B7FDF82C7553D200D274FB /* libMoltenVK.dylib */,
 				38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */,
@@ -836,7 +844,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/iOS/include\"",
+				);
 				INFOPLIST_FILE = Pomelo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pomelo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -872,7 +883,10 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/iOS/include\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -893,7 +907,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/iOS/include\"",
+				);
 				INFOPLIST_FILE = Pomelo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pomelo;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
@@ -929,7 +946,10 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				SYSTEM_HEADER_SEARCH_PATHS = "\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"";
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					"\"$(HOME)/VulkanSDK/1.3.275.0/macOS/include\"",
+					"\"$(HOME)/VulkanSDK/1.3.275.0/iOS/include\"",
+				);
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

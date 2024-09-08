@@ -34,20 +34,15 @@ class SudachiEmulationViewModel: ObservableObject {
         isRunning = true
         sudachi.configure(layer: mtkView.layer as! CAMetalLayer, with: mtkView.frame.size)
         
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let self = self else { return }
-            do {
-                if let sudachiGame = self.sudachiGame {
-                    try self.sudachi.insert(game: sudachiGame.fileURL)
-                } else {
-                    try self.sudachi.bootOS()
-                }
-            } catch {
-                print("Failed to insert game or boot OS: \(error)")
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
+            if let sudachiGame = self.sudachiGame {
+                self.sudachi.insert(game: sudachiGame.fileURL)
+            } else {
+                self.sudachi.bootOS()
             }
         }
         
-        thread = Thread { [weak self] in self?.step() }
+        thread = Thread { [self] in self.step() }
         thread.name = "Pomelo"
         thread.qualityOfService = .userInteractive
         thread.threadPriority = 0.9

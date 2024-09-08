@@ -130,8 +130,16 @@ struct SettingsView: View {
                                     Spacer()
                                 }
                             }
+                
                     }
                     .padding()
+                    
+                    HStack(alignment: .center) {
+                        Spacer()
+                        Text("By \(getDeveloperNames())")
+                            .font(.caption2)
+                        Spacer()
+                    }
                 }
             }
             .onAppear() {

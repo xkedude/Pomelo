@@ -250,6 +250,7 @@ Core::SystemResultStatus EmulationSession::InitializeEmulation(const std::string
     m_system.RegisterExecuteProgramCallback([&](std::size_t program_index_) {
         m_next_program_index = program_index_;
         EmulationSession::GetInstance().HaltEmulation();
+        ChangeProgram(m_next_program_index);
     });
 
     OnEmulationStarted();
@@ -420,7 +421,18 @@ void EmulationSession::OnEmulationStopped(Core::SystemResultStatus result) {
 }
 
 void EmulationSession::ChangeProgram(std::size_t program_index) {
-    
+    LOG_INFO(Frontend, "Trying To Switch Program");
+    // Halt current emulation session
+    EmulationSession::GetInstance().HaltEmulation();
+    // Save the current state if necessary
+
+    // Shutdown the current emulation session cleanly
+        // Update the program index
+    EmulationSession::GetInstance().m_next_program_index = program_index;
+
+    // Initialize the new program
+    // Start the new emulation session
+    EmulationSession::GetInstance().RunEmulation();
 }
 
 u64 EmulationSession::GetProgramId(std::string programId) {

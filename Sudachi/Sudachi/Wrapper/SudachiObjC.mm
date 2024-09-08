@@ -81,9 +81,10 @@
         EmulationSession::GetInstance().InitializeGpuDriver();
         
 
+        YuzuSettings::values.dump_shaders.SetValue(true);
         YuzuSettings::values.use_asynchronous_shaders.SetValue(true);
         // YuzuSettings::values.astc_recompression.SetValue(YuzuSettings::AstcRecompression::Bc3);
-        // YuzuSettings::values.shader_backend.SetValue(YuzuSettings::ShaderBackend::SpirV);
+        YuzuSettings::values.shader_backend.SetValue(YuzuSettings::ShaderBackend::SpirV);
         // YuzuSettings::values.resolution_setup.SetValue(YuzuSettings::ResolutionSetup::Res1X);
         // YuzuSettings::values.scaling_filter.SetValue(YuzuSettings::ScalingFilter::Bilinear);
     } return self;
