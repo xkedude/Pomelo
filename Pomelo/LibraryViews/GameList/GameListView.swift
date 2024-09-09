@@ -45,7 +45,7 @@ struct GameListView: View {
                     LazyVStack() {
                         ForEach(0..<filteredGames.count, id: \.self) { index in
                             let game = core.games[index]
-                            NavigationLink(destination: SudachiEmulationView(game: nil).toolbar(.hidden, for: .tabBar)) {
+                            NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                 GameButtonListView(game: game)
                                     .frame(maxWidth: .infinity, minHeight: 75)
                             }
