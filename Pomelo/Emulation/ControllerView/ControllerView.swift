@@ -141,28 +141,19 @@ struct ControllerView: View {
         }
         
         extendedGamepad.leftThumbstick.valueChangedHandler = { dpad, x, y in
-            if sudachi.FirstFrameShowed() {
-                self.sudachi.thumbstickMoved(analog: .left, x: x, y: y, controllerid: controllerId)
-            }
+            self.sudachi.thumbstickMoved(analog: .left, x: x, y: y, controllerid: controllerId)
         }
         
         extendedGamepad.rightThumbstick.valueChangedHandler = { dpad, x, y in
-            if sudachi.FirstFrameShowed() {
-                self.sudachi.thumbstickMoved(analog: .right, x: x, y: y, controllerid: controllerId)
-            }
+            self.sudachi.thumbstickMoved(analog: .right, x: x, y: y, controllerid: controllerId)
         }
     }
 
     private func touchDown(_ button: VirtualControllerButtonType, controllerId: Int) {
-        if sudachi.FirstFrameShowed() {
-            sudachi.virtualControllerButtonDown(button: button, controllerid: controllerId)
-        }
-    }
+        sudachi.virtualControllerButtonDown(button: button, controllerid: controllerId)    }
 
     private func touchUpInside(_ button: VirtualControllerButtonType, controllerId: Int) {
-        if sudachi.FirstFrameShowed() {
-            sudachi.virtualControllerButtonUp(button: button, controllerid: controllerId)
-        }
+        sudachi.virtualControllerButtonUp(button: button, controllerid: controllerId)
     }
 }
 
@@ -331,12 +322,8 @@ struct ButtonView: View {
                                     presentationMode.wrappedValue.dismiss()
                                     sudachi.exit()
                                 } else {
-                                    if sudachi.FirstFrameShowed() {
-                                        sudachi.virtualControllerButtonDown(button: button, controllerid: 0)
-                                        Haptics.shared.play(.heavy)
-                                    } else {
-                                        Haptics.shared.notify(.error)
-                                    }
+                                    sudachi.virtualControllerButtonDown(button: button, controllerid: 0)
+                                    Haptics.shared.play(.heavy)
                                 }
                             }
                         }
@@ -345,9 +332,7 @@ struct ButtonView: View {
                         self.isPressed = false
                         DispatchQueue.main.async {
                             if button != .home {
-                                if sudachi.FirstFrameShowed() {
-                                    sudachi.virtualControllerButtonUp(button: button, controllerid: 0)
-                                }
+                                sudachi.virtualControllerButtonUp(button: button, controllerid: 0)
                             }
                         }
                     }

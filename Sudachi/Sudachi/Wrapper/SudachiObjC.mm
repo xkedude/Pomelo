@@ -115,15 +115,19 @@
 }
 
 -(BOOL)hasfirstfame {
-    auto* window = &EmulationSession::GetInstance().Window();
-    if (window) {
-        return window->HasFirstFrame();
-    } else {
-        // Handle the invalid window case, maybe return a default value
+    @try {
+        auto* window = &EmulationSession::GetInstance().Window();
+        if (window && window->HasFirstFrame()) {
+            return YES;
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception occurred: %@", exception);
+        // Handle the exception, maybe return a default value
         return NO;
     }
+    return NO;
 }
-
 
 - (BOOL)canGetFullPath {
     @try {

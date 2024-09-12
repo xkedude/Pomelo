@@ -30,7 +30,6 @@ struct GameListView: View {
         
         ScrollView {
             VStack {
-                
                 VStack(alignment: .leading) {
                     
                     if isGridView {
@@ -40,6 +39,9 @@ struct GameListView: View {
                                 NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                     GameButtonView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 200)
+                                        .onTapGesture {
+                                            Haptics.shared.play(.rigid)
+                                        }
                                 }
                                 .contextMenu {
                                     Button(action: {
@@ -74,6 +76,9 @@ struct GameListView: View {
                                 NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                     GameButtonListView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 75)
+                                        .onTapGesture {
+                                            Haptics.shared.play(.rigid)
+                                        }
                                 }
                                 .contextMenu {
                                     Button(action: {
