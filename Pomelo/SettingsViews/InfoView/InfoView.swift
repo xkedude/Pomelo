@@ -39,7 +39,7 @@ struct InfoView: View {
                 Group {
                     Spacer()
                         .frame(height: 10)
-                    Text("Reccomended(paid):")
+                    Text("Reccomended (paid):")
                         .font(.title2)
                         .font(Font.headline.weight(.bold))
                     Spacer()
@@ -62,8 +62,4 @@ struct InfoView: View {
         }
         return version
     }
-}
-
-#Preview {
-    InfoView()
 }

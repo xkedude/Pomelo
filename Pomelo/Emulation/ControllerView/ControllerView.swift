@@ -126,7 +126,7 @@ struct ControllerView: View {
         }
         
         extendedGamepad.rightShoulder.pressedChangedHandler = { button, value, pressed in
-            pressed ? self.touchDown(.triggerR, controllerId: controllerId) : self.touchUpInside(.R, controllerId: controllerId)
+            pressed ? self.touchDown(.triggerR, controllerId: controllerId) : self.touchUpInside(.triggerR, controllerId: controllerId)
         }
         
         extendedGamepad.rightTrigger.pressedChangedHandler = { button, value, pressed in
@@ -319,7 +319,7 @@ struct ButtonView: View {
         Image(systemName: buttonText)
             .resizable()
             .frame(width: width, height: height)
-            .foregroundColor(colorScheme == .dark ? Color.gray : Color.gray) // this is way to complicated, it should just be Color.gray
+            .foregroundColor(colorScheme == .dark ? Color.gray : Color.gray)
             .opacity(isPressed ? 0.5 : 1)
             .gesture(
                 DragGesture(minimumDistance: 0)
@@ -333,6 +333,9 @@ struct ButtonView: View {
                                 } else {
                                     if sudachi.FirstFrameShowed() {
                                         sudachi.virtualControllerButtonDown(button: button, controllerid: 0)
+                                        Haptics.shared.play(.heavy)
+                                    } else {
+                                        Haptics.shared.notify(.error)
                                     }
                                 }
                             }
@@ -341,9 +344,7 @@ struct ButtonView: View {
                     .onEnded { _ in
                         self.isPressed = false
                         DispatchQueue.main.async {
-                            if button == .home {
-                                
-                            } else {
+                            if button != .home {
                                 if sudachi.FirstFrameShowed() {
                                     sudachi.virtualControllerButtonUp(button: button, controllerid: 0)
                                 }
@@ -401,3 +402,5 @@ struct ButtonView: View {
         }
     }
 }
+
+

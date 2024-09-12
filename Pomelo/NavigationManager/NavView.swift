@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Sudachi
 
 struct NavView: View {
     @Binding var core: Core
@@ -18,25 +19,17 @@ struct NavView: View {
                     Label("Library", systemImage: "rectangle.on.rectangle")
                 }
                 .tag(0)
-            if #available(iOS 16.0, *) {
-                BootOSView(core: $core, currentnavigarion: $selectedTab)
-                    .toolbar(.hidden, for: .tabBar)
-                    .tabItem {
-                        Label("Boot OS", systemImage: "house")
-                    }
-                    .tag(1)
-            } else {
-                BootOSView(core: $core, currentnavigarion: $selectedTab)
-                    .tabItem {
-                        Label("Boot OS", systemImage: "house")
-                    }
-                    .tag(1)
-            }
+            BootOSView(core: $core, currentnavigarion: $selectedTab)
+                .toolbar(.hidden, for: .tabBar)
+                .tabItem {
+                    Label("Boot OS", systemImage: "house")
+                }
+                .tag(1)
             SettingsView(core: core)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-                .tag(3)
+                .tag(2)
         }
     }
 }

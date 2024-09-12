@@ -10,7 +10,7 @@ import Sudachi
 
 
 struct ContentView: View {
-    @State var core = Core(console: .nSwitch, name: .Pomelo, games: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
+    @State var core = Core(games: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
     var body: some View {
         NavView(core: $core) // pain and suffering
             .onAppear() {
@@ -19,6 +19,8 @@ struct ContentView: View {
                         .font(.system(size: 100))
                     
                 ))
+                
+                
                 do {
                     try PomeloFileManager.shared.createdirectories() // this took a while to create the proper directories
                     

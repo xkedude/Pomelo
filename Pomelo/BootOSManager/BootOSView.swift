@@ -12,8 +12,9 @@ struct BootOSView: View {
     @Binding var core: Core
     @Binding var currentnavigarion: Int
     @State var sudachi = Sudachi.shared
+    @AppStorage("cangetfullpath") var canGetFullPath: Bool = false
     var body: some View {
-        if sudachi.canGetFullPath() {
+        if (sudachi.canGetFullPath() -- canGetFullPath) {
             SudachiEmulationView(game: nil)
         } else {
             VStack {

@@ -52,11 +52,7 @@ struct SudachiEmulationView: View {
                 .edgesIgnoringSafeArea(.all)
             }
             
-            if #available(iOS 17.0, *) {
-                KeyboardHandler()
-            } else {
-                ControllerView()
-            }
+            ControllerView()
         }
         .overlay(
             // Loading screen overlay on top of MetalView
@@ -109,7 +105,6 @@ struct SudachiEmulationView: View {
             viewModel.customButtonTapped()
         }
         .navigationBarBackButtonHidden(true)
-        .background(AlertController(isPresented: viewModel.$should))
         .introspect(.tabView, on: .iOS(.v13, .v14, .v15, .v16, .v17)) { (tabBarController) in
             tabBarController.tabBar.isHidden = true
             uiTabBarController = tabBarController
@@ -134,40 +129,6 @@ struct SudachiEmulationView: View {
 }
 
 
-@available(iOS 17.0, *)
-struct KeyboardHandler: View {
-    @State var sudachi = Sudachi.shared
-    
-    var body: some View {
-        ControllerView()
-            .onKeyPress(.upArrow, phases: .down) { keyPress in
-                
-                sudachi.virtualControllerButtonDown(button: .directionalPadUp, controllerid: 0)
-                
-                return KeyPress.Result.handled
-            }
-            .onKeyPress(.upArrow, phases: .up) { keyPress in
-                
-                sudachi.virtualControllerButtonUp(button: .directionalPadUp, controllerid: 0)
-                
-                return KeyPress.Result.handled
-            }
-            .onKeyPress(.downArrow, phases: .down) { keyPress in
-                
-                sudachi.virtualControllerButtonDown(button: .directionalPadDown, controllerid: 0)
-                
-                return KeyPress.Result.handled
-            }
-            .onKeyPress(.downArrow, phases: .up) { keyPress in
-                
-                sudachi.virtualControllerButtonUp(button: .directionalPadDown, controllerid: 0)
-                
-                return KeyPress.Result.handled
-            }
-        
-    }
-}
-
 struct LoadingView: View {
     var body: some View {
         VStack {
@@ -182,29 +143,6 @@ struct LoadingView: View {
         .foregroundColor(.white)
     }
 }
-struct AlertController: UIViewControllerRepresentable {
-    @Binding var isPresented: Bool
-
-    func makeUIViewController(context: Context) -> UIViewController {
-        return UIViewController()
-    }
-
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        if isPresented && uiViewController.presentedViewController == nil {
-            let alert = UIAlertController(title: "Exiting Emulation", message: "Pomelo currently does not support exiting emulation as it will cause extra crashes", preferredStyle: .alert)
-
-            uiViewController.present(alert, animated: true, completion: nil)
-        }
-        
-        print(isPresented)
-
-        if !isPresented && uiViewController.presentedViewController != nil {
-            uiViewController.dismiss(animated: true, completion: nil)
-        }
-    }
-}
-
-
 
 extension View {
     func onRotate(perform action: @escaping (CGSize) -> Void) -> some View {

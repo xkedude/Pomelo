@@ -77,11 +77,12 @@
 		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
 		499A5E0C2C74A1B200EC0925 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0B2C74A1B200EC0925 /* GameListView.swift */; };
 		499A5E0F2C74A22D00EC0925 /* GameButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */; };
-		4E0E35E22C7A01EA001D24EE /* KeyboardHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */; };
 		4E0E35EA2C7AB5CB001D24EE /* libSPIRV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; };
 		4E0E35EB2C7AB5CB001D24EE /* libSPIRV.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4E48D2452C894AC8006095D1 /* MoltenVK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; };
-		4E48D2462C894AC8006095D1 /* MoltenVK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E4AF11B2C919C0F00BBF2DE /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AF11A2C919C0F00BBF2DE /* Haptics.swift */; };
+		4E4AF1272C9243B500BBF2DE /* MoltenVK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; };
+		4E4AF1282C9243B500BBF2DE /* MoltenVK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E4AF12D2C926BBD00BBF2DE /* FolderMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AF12C2C926BBD00BBF2DE /* FolderMonitor.swift */; };
 		4EE593FF2C5FA1D1000939C4 /* AppIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +106,7 @@
 				38C50D082C1DCF1E0007A953 /* libavfilter.xcframework in Embed Frameworks */,
 				38C50D042C1DCF190007A953 /* libavformat.xcframework in Embed Frameworks */,
 				38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */,
-				4E48D2462C894AC8006095D1 /* MoltenVK.xcframework in Embed Frameworks */,
+				4E4AF1282C9243B500BBF2DE /* MoltenVK.xcframework in Embed Frameworks */,
 				38C50D062C1DCF1B0007A953 /* libavutil.xcframework in Embed Frameworks */,
 				38C50D0C2C1DCF420007A953 /* libswscale.xcframework in Embed Frameworks */,
 				4E0E35EB2C7AB5CB001D24EE /* libSPIRV.xcframework in Embed Frameworks */,
@@ -147,7 +148,6 @@
 		386F6EEB2C42E0C800C62EBE /* PomeloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomeloApp.swift; sourceTree = "<group>"; };
 		386F6F2F2C42E63A00C62EBE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		386F6F332C42E98700C62EBE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		38B7FDF82C7553D200D274FB /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = ../../VulkanSDK/1.3.275.0/iOS/lib/libMoltenVK.dylib; sourceTree = "<group>"; };
 		38B7FDFD2C760DE400D274FB /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
 		38B7FE012C7610A600D274FB /* AirPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlay.swift; sourceTree = "<group>"; };
 		38C50D142C1DD4570007A953 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
@@ -185,12 +185,8 @@
 		38F284CB2C2683A000994A77 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		499A5E0B2C74A1B200EC0925 /* GameListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListView.swift; sourceTree = "<group>"; };
 		499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonListView.swift; sourceTree = "<group>"; };
-		4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHostingController.swift; sourceTree = "<group>"; };
-		4E0E35E52C7A0E81001D24EE /* libvulkan.1.3.275.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libvulkan.1.3.275.dylib; path = ../../VulkanSDK/1.3.275.0/iOS/lib/libvulkan.1.3.275.dylib; sourceTree = "<group>"; };
-		4E48D2312C892540006095D1 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = "../Downloads/MoltenVK 3/MoltenVK/dylib/iOS/libMoltenVK.dylib"; sourceTree = "<group>"; };
-		4E48D2342C892590006095D1 /* MoltenVK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MoltenVK.xcframework; path = ../Developer/Pomelo/Pomelo/Dependencies/XCFrameworks/MoltenVK.xcframework; sourceTree = "<group>"; };
-		4E48D23D2C892703006095D1 /* MoltenVK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MoltenVK.xcframework; path = "../../Downloads/MoltenVK 3/MoltenVK/MoltenVK.xcframework"; sourceTree = "<group>"; };
-		4E48D2402C89270F006095D1 /* libMoltenVK.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMoltenVK.dylib; path = "../../Downloads/MoltenVK 3/MoltenVK/dylib/iOS/libMoltenVK.dylib"; sourceTree = "<group>"; };
+		4E4AF11A2C919C0F00BBF2DE /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		4E4AF12C2C926BBD00BBF2DE /* FolderMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderMonitor.swift; sourceTree = "<group>"; };
 		4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,7 +213,7 @@
 				38C50D202C1DD5450007A953 /* libcryptopp.xcframework in Frameworks */,
 				38C50D172C1DD45F0007A953 /* CoreBluetooth.framework in Frameworks */,
 				38C50D1E2C1DD5400007A953 /* boost_serialization.xcframework in Frameworks */,
-				4E48D2452C894AC8006095D1 /* MoltenVK.xcframework in Frameworks */,
+				4E4AF1272C9243B500BBF2DE /* MoltenVK.xcframework in Frameworks */,
 				38C50D342C1DD56E0007A953 /* libmcl.xcframework in Frameworks */,
 				38C50D362C1DD5710007A953 /* libOpenAL.xcframework in Frameworks */,
 				38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */,
@@ -315,6 +311,7 @@
 		384194622C4E4D2B00396613 /* ControllerView */ = {
 			isa = PBXGroup;
 			children = (
+				4E4AF1182C919C0700BBF2DE /* Haptics */,
 				384194612C4E4D2B00396613 /* ControllerView.swift */,
 				383FC4492C5B3C7700A37694 /* JoystickViewController */,
 			);
@@ -348,7 +345,6 @@
 		384194692C4E4D2B00396613 /* Emulation */ = {
 			isa = PBXGroup;
 			children = (
-				4E0E35DF2C7A01E6001D24EE /* Keyboard */,
 				38B7FDFB2C760CF600D274FB /* AirPlay */,
 				3841946E2C4E53F100396613 /* EmulationHandlers */,
 				384194622C4E4D2B00396613 /* ControllerView */,
@@ -412,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				386F6EDA2C42E0B900C62EBE /* FileManager.swift */,
+				4E4AF12B2C926BB600BBF2DE /* FolderMonitor */,
 			);
 			path = FilesManager;
 			sourceTree = "<group>";
@@ -500,12 +497,6 @@
 		38C50D132C1DD4570007A953 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E48D2402C89270F006095D1 /* libMoltenVK.dylib */,
-				4E48D2342C892590006095D1 /* MoltenVK.xcframework */,
-				4E48D23D2C892703006095D1 /* MoltenVK.xcframework */,
-				4E48D2312C892540006095D1 /* libMoltenVK.dylib */,
-				4E0E35E52C7A0E81001D24EE /* libvulkan.1.3.275.dylib */,
-				38B7FDF82C7553D200D274FB /* libMoltenVK.dylib */,
 				38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */,
 				38C50D142C1DD4570007A953 /* GameController.framework */,
 			);
@@ -556,12 +547,20 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		4E0E35DF2C7A01E6001D24EE /* Keyboard */ = {
+		4E4AF1182C919C0700BBF2DE /* Haptics */ = {
 			isa = PBXGroup;
 			children = (
-				4E0E35E12C7A01EA001D24EE /* KeyboardHostingController.swift */,
+				4E4AF11A2C919C0F00BBF2DE /* Haptics.swift */,
 			);
-			path = Keyboard;
+			path = Haptics;
+			sourceTree = "<group>";
+		};
+		4E4AF12B2C926BB600BBF2DE /* FolderMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				4E4AF12C2C926BBD00BBF2DE /* FolderMonitor.swift */,
+			);
+			path = FolderMonitor;
 			sourceTree = "<group>";
 		};
 		4EE593FD2C5FA1C4000939C4 /* AppIcon */ = {
@@ -682,11 +681,11 @@
 				38020F562C43A02100029E9A /* BootOSView.swift in Sources */,
 				38020F302C43568500029E9A /* AdvancedSettingsView.swift in Sources */,
 				386F6EE52C42E0B900C62EBE /* GameButtonView.swift in Sources */,
-				4E0E35E22C7A01EA001D24EE /* KeyboardHostingController.swift in Sources */,
 				386F6F302C42E64000C62EBE /* SettingsView.swift in Sources */,
 				386F6EE62C42E0B900C62EBE /* ContentView.swift in Sources */,
 				383FC44B2C5B3C8C00A37694 /* JoystickViewController.swift in Sources */,
 				499A5E0C2C74A1B200EC0925 /* GameListView.swift in Sources */,
+				4E4AF11B2C919C0F00BBF2DE /* Haptics.swift in Sources */,
 				386F6EE82C42E0B900C62EBE /* LibraryView.swift in Sources */,
 				386F6EE92C42E0B900C62EBE /* FileManager.swift in Sources */,
 				386F6F342C42E98700C62EBE /* InfoView.swift in Sources */,
@@ -701,6 +700,7 @@
 				38020F432C43754700029E9A /* EnableJIT.swift in Sources */,
 				38020F442C43754700029E9A /* DetectServer.swift in Sources */,
 				38020F452C43754700029E9A /* fishhook.c in Sources */,
+				4E4AF12D2C926BBD00BBF2DE /* FolderMonitor.swift in Sources */,
 				38020F462C43754700029E9A /* utils.m in Sources */,
 				38B7FDFF2C760DE400D274FB /* Air.swift in Sources */,
 				38020F5A2C43AFFA00029E9A /* CoreSettingsView.swift in Sources */,

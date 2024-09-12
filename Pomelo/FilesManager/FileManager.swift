@@ -12,21 +12,13 @@ import UIKit
 import Sudachi
 
 struct Core : Comparable, Hashable {
-    enum Name : String, Hashable { // i dunno why i have this, i know what emulator this is
-        case Pomelo = "Pomelo"
-    }
     
-    enum Console : String, Hashable {
-        case nSwitch = "Nintendo Switch" // no shit sherlock
-    }
-    
-    let console: Console
-    let name: Name
+    let name = "Pomelo"
     var games: [PomeloGame]
     let root: URL
     
     static func < (lhs: Core, rhs: Core) -> Bool {
-        lhs.name.rawValue < rhs.name.rawValue
+        lhs.name < rhs.name
     }
 }
 
@@ -91,6 +83,15 @@ class LibraryManager {
     static let shared = LibraryManager()
     let documentdir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("roms", conformingTo: .folder)
     
+    
+    func removerom(_ game: PomeloGame) throws {
+        do {
+            try FileManager.default.removeItem(at: game.fileURL)
+        } catch {
+            throw error
+        }
+    }
+    
     func library() throws -> Core {
         func getromsfromdir() throws -> [URL] {
             guard let dirContents = FileManager.default.enumerator(at: documentdir, includingPropertiesForKeys: nil, options: []) else {
@@ -105,7 +106,6 @@ class LibraryManager {
                     if let isfile = getaboutfile.isRegularFile, isfile {
                         if ["nca", "nro", "nsp", "nso", "xci"].contains(file.pathExtension.lowercased()) {
                             urls.append(file)
-                            
                         }
                     }
                 }
@@ -135,7 +135,7 @@ class LibraryManager {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
 
-        var PomeloCore = Core(console: .nSwitch, name: .Pomelo, games: [], root: directory)
+        var PomeloCore = Core(games: [], root: directory)
         games(from: try getromsfromdir(), core: &PomeloCore)
         
         return PomeloCore

@@ -6,6 +6,11 @@
 //
 
 import SwiftUI
+infix operator --: LogicalDisjunctionPrecedence
+
+func --(lhs: Bool, rhs: Bool) -> Bool {
+    return lhs || rhs
+}
 
 @main
 struct PomeloApp: App {

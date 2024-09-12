@@ -13,7 +13,7 @@ struct AdvancedSettingsView: View {
     @AppStorage("exitgame") var exitgame: Bool = false
     @AppStorage("ClearBackingRegion") var kpagetable: Bool = true
     @AppStorage("WaitingforJIT") var waitingJIT: Bool = false
-    @State private var showFileImporter = false
+    @AppStorage("cangetfullpath") var canGetFullPath: Bool = false
     var body: some View {
         ScrollView {
             Rectangle()
@@ -61,17 +61,21 @@ struct AdvancedSettingsView: View {
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)
-        }
-        .fileImporter(
-            isPresented: $showFileImporter,
-            allowedContentTypes: [.folder],
-            allowsMultipleSelection: false
-        ) { result in
-            if case .success(let url) = result {
-                // Handle the selected folder URL
-                let user = UserDefaults.standard
-                user.setValue(url.first!.absoluteString, forKey: "SudachiDirectoryURL")
-            }
+            
+            Rectangle()
+                .fill(Color(uiColor: UIColor.secondarySystemBackground))
+                .cornerRadius(10)
+                .frame(width: .infinity, height: 50)
+                .overlay() {
+                    HStack {
+                        Toggle("Check for Booting OS", isOn: $canGetFullPath)
+                            .padding()
+                    }
+                }
+            Text("If you do not have the neccesary files for Booting the Switch OS, it will just crash almost instantly.")
+                .padding(.bottom)
+                .font(.footnote)
+                .foregroundColor(.gray)
         }
     }
 }

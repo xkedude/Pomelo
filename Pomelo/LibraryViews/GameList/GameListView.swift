@@ -17,53 +17,118 @@ struct GameListView: View {
     @State private var searchText = ""
     @State var game: PomeloGame? = nil
     @Binding var isGridView: Bool
-
+    @State var showAlert = false
+    @State var alertMessage: Alert? = nil
+    
     var body: some View {
         let filteredGames = core.games.filter { game in
             guard let PomeloGame = game as? PomeloGame else { return false }
             return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
         }
         
-
-
+        
+        
         ScrollView {
             VStack {
                 
-            VStack(alignment: .leading) {
-                
-                if isGridView {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
-                        ForEach(0..<filteredGames.count, id: \.self) { index in
-                            let game = core.games[index]
-                            NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
-                                GameButtonView(game: game)
-                                    .frame(maxWidth: .infinity, minHeight: 200)
+                VStack(alignment: .leading) {
+                    
+                    if isGridView {
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
+                            ForEach(0..<filteredGames.count, id: \.self) { index in
+                                let game = core.games[index]
+                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                    GameButtonView(game: game)
+                                        .frame(maxWidth: .infinity, minHeight: 200)
+                                }
+                                .contextMenu {
+                                    Button(action: {
+                                        do {
+                                            try LibraryManager.shared.removerom(core.games[index])
+                                        } catch {
+                                            showAlert = true
+                                            alertMessage = Alert(title: Text("Unable to Remove Game"), message: Text(error.localizedDescription))
+                                        }
+                                    }) {
+                                        Text("Remove")
+                                    }
+                                    Button(action: {
+                                        if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appending(path: "roms") {
+                                            // Open the directory in the Files app
+                                            UIApplication.shared.open(documentsURL, options: [:], completionHandler: nil)
+                                        }
+                                    }) {
+                                        if ProcessInfo.processInfo.isMacCatalystApp {
+                                            Text("Open in Finder")
+                                        } else {
+                                            Text("Open in Files")
+                                        }
+                                    }
+                                }
+                                .onTapHaptic(.heavy)
                             }
                         }
-                    }
-                } else {
-                    LazyVStack() {
-                        ForEach(0..<filteredGames.count, id: \.self) { index in
-                            let game = core.games[index]
-                            NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
-                                GameButtonListView(game: game)
-                                    .frame(maxWidth: .infinity, minHeight: 75)
+                    } else {
+                        LazyVStack() {
+                            ForEach(0..<filteredGames.count, id: \.self) { index in
+                                let game = core.games[index]
+                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                    GameButtonListView(game: game)
+                                        .frame(maxWidth: .infinity, minHeight: 75)
+                                }
+                                .contextMenu {
+                                    Button(action: {
+                                        do {
+                                            try LibraryManager.shared.removerom(core.games[index])
+                                        } catch {
+                                            showAlert = true
+                                            alertMessage = Alert(title: Text("Unable to Remove Game"), message: Text(error.localizedDescription))
+                                        }
+                                    }) {
+                                        Text("Remove")
+                                    }
+                                    
+                                    Button(action: {
+                                        if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appending(path: "roms") {
+                                            // Open the directory in the Files app
+                                            UIApplication.shared.open(documentsURL, options: [:], completionHandler: nil)
+                                        }
+                                    }) {
+                                        if ProcessInfo.processInfo.isMacCatalystApp {
+                                            Text("Open in Finder")
+                                        } else {
+                                            Text("Open in Files")
+                                        }
+                                    }
+                                }
+                                .onTapHaptic(.heavy)
                             }
                         }
                     }
                 }
-            }
                 .searchable(text: $searchText)
                 .padding()
             }
             .onAppear() {
                 refreshcore()
-
                 
+                if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    let romsFolderURL = documentsDirectory.appendingPathComponent("roms")
+                    
+                    let folderMonitor = FolderMonitor(folderURL: romsFolderURL) {
+                        // This will be called whenever a file is added/removed in the "roms" folder
+                        do {
+                            core = Core(games: [], root: documentsDirectory)
+                            core = try LibraryManager.shared.library()
+                        } catch {
+                            print("Error refreshing core: \(error)")
+                        }
+                    }
+                }
+
             }
-            .refreshable {
-                core = Core(console: Core.Console.nSwitch, name: .Pomelo, games: [], root: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first ?? URL(string: "/")!)
-                refreshcore()
+            .alert(isPresented: $showAlert) {
+                alertMessage ?? Alert(title: Text("Error Not Found"))
             }
         }
     }
