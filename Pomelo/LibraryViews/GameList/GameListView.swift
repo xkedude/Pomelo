@@ -65,7 +65,6 @@ struct GameListView: View {
                                         }
                                     }
                                 }
-                                .onTapHaptic(.heavy)
                             }
                         }
                     } else {
@@ -101,7 +100,6 @@ struct GameListView: View {
                                         }
                                     }
                                 }
-                                .onTapHaptic(.heavy)
                             }
                         }
                     }

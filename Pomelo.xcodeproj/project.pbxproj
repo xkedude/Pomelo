@@ -57,7 +57,6 @@
 		38C50D1C2C1DD53C0007A953 /* boost_program_options.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B82C1DCE8900331706 /* boost_program_options.xcframework */; };
 		38C50D1E2C1DD5400007A953 /* boost_serialization.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B92C1DCE8900331706 /* boost_serialization.xcframework */; };
 		38C50D202C1DD5450007A953 /* libcryptopp.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BA2C1DCE8900331706 /* libcryptopp.xcframework */; };
-		38C50D222C1DD5490007A953 /* libdynarmic.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BB2C1DCE8900331706 /* libdynarmic.xcframework */; };
 		38C50D242C1DD54B0007A953 /* libenet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BC2C1DCE8900331706 /* libenet.xcframework */; };
 		38C50D262C1DD54E0007A953 /* libfaad.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BD2C1DCE8900331706 /* libfaad.xcframework */; };
 		38C50D282C1DD5510007A953 /* libfmt.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BE2C1DCE8900331706 /* libfmt.xcframework */; };
@@ -74,7 +73,6 @@
 		38C846552C1DCC7200331706 /* SDL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846542C1DCC7200331706 /* SDL */; };
 		38C846592C1DCC8400331706 /* OpenSSL in Frameworks */ = {isa = PBXBuildFile; productRef = 38C846582C1DCC8400331706 /* OpenSSL */; };
 		38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846B52C1DCE8900331706 /* libMachineIndependent.xcframework */; };
-		38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
 		499A5E0C2C74A1B200EC0925 /* GameListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0B2C74A1B200EC0925 /* GameListView.swift */; };
 		499A5E0F2C74A22D00EC0925 /* GameButtonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */; };
 		4E0E35EA2C7AB5CB001D24EE /* libSPIRV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C72C1DCE8900331706 /* libSPIRV.xcframework */; };
@@ -83,6 +81,10 @@
 		4E4AF1272C9243B500BBF2DE /* MoltenVK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; };
 		4E4AF1282C9243B500BBF2DE /* MoltenVK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846AC2C1DCE8900331706 /* MoltenVK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4E4AF12D2C926BBD00BBF2DE /* FolderMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AF12C2C926BBD00BBF2DE /* FolderMonitor.swift */; };
+		4E4AF12E2C927E8E00BBF2DE /* libdynarmic.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BB2C1DCE8900331706 /* libdynarmic.xcframework */; };
+		4E4AF12F2C927E8E00BBF2DE /* libdynarmic.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846BB2C1DCE8900331706 /* libdynarmic.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E4AF1302C92867F00BBF2DE /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
+		4E4AF1312C92867F00BBF2DE /* libteakra.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EE593FF2C5FA1D1000939C4 /* AppIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,8 +106,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				38C50D082C1DCF1E0007A953 /* libavfilter.xcframework in Embed Frameworks */,
+				4E4AF1312C92867F00BBF2DE /* libteakra.xcframework in Embed Frameworks */,
 				38C50D042C1DCF190007A953 /* libavformat.xcframework in Embed Frameworks */,
 				38C50D022C1DCF160007A953 /* libavcodec.xcframework in Embed Frameworks */,
+				4E4AF12F2C927E8E00BBF2DE /* libdynarmic.xcframework in Embed Frameworks */,
 				4E4AF1282C9243B500BBF2DE /* MoltenVK.xcframework in Embed Frameworks */,
 				38C50D062C1DCF1B0007A953 /* libavutil.xcframework in Embed Frameworks */,
 				38C50D0C2C1DCF420007A953 /* libswscale.xcframework in Embed Frameworks */,
@@ -198,6 +202,7 @@
 				38C50D3A2C1DD5760007A953 /* libsirit.xcframework in Frameworks */,
 				38C846552C1DCC7200331706 /* SDL in Frameworks */,
 				38C50D302C1DD5690007A953 /* libmbedtls.xcframework in Frameworks */,
+				4E4AF1302C92867F00BBF2DE /* libteakra.xcframework in Frameworks */,
 				38C846CE2C1DCE8900331706 /* libMachineIndependent.xcframework in Frameworks */,
 				38C50D242C1DD54B0007A953 /* libenet.xcframework in Frameworks */,
 				38C50D2C2C1DD5590007A953 /* libglslang.xcframework in Frameworks */,
@@ -210,6 +215,7 @@
 				383C55EE2C5D136900A89F85 /* JoyStickView in Frameworks */,
 				38C50D092C1DCF3E0007A953 /* libswresample.xcframework in Frameworks */,
 				38C50D0B2C1DCF420007A953 /* libswscale.xcframework in Frameworks */,
+				4E4AF12E2C927E8E00BBF2DE /* libdynarmic.xcframework in Frameworks */,
 				38C50D202C1DD5450007A953 /* libcryptopp.xcframework in Frameworks */,
 				38C50D172C1DD45F0007A953 /* CoreBluetooth.framework in Frameworks */,
 				38C50D1E2C1DD5400007A953 /* boost_serialization.xcframework in Frameworks */,
@@ -218,10 +224,8 @@
 				38C50D362C1DD5710007A953 /* libOpenAL.xcframework in Frameworks */,
 				38C50D032C1DCF190007A953 /* libavformat.xcframework in Frameworks */,
 				38C50D262C1DD54E0007A953 /* libfaad.xcframework in Frameworks */,
-				38C50D222C1DD5490007A953 /* libdynarmic.xcframework in Frameworks */,
 				38C50D072C1DCF1E0007A953 /* libavfilter.xcframework in Frameworks */,
 				38C50D2E2C1DD5650007A953 /* libmbedcrypto.xcframework in Frameworks */,
-				38C846E02C1DCE8900331706 /* libteakra.xcframework in Frameworks */,
 				38C50D1C2C1DD53C0007A953 /* boost_program_options.xcframework in Frameworks */,
 				3841947F2C4E5D2E00396613 /* SwiftUIIntrospect in Frameworks */,
 				38C50D152C1DD4570007A953 /* GameController.framework in Frameworks */,
@@ -838,7 +842,7 @@
 				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -871,7 +875,7 @@
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = "-lSudachi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -901,7 +905,7 @@
 				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 95J8WZ4TN8;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -934,7 +938,7 @@
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = "-lSudachi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stossy11.Pomelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

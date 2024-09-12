@@ -93,7 +93,7 @@ struct LibraryView: View {
 }
 
 func getDeveloperNames() -> String {
-    var maindevelopername = "ajdlajwdiawdoajdiojawoidjaowijd"
+    var maindevelopername = "Stossy11"
     
     let hiddenKey = createHiddenKey()
 

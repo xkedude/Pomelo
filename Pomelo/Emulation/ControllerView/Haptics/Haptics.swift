@@ -26,14 +26,3 @@ class Haptics {
 }
 
 
-public extension View {
-    
-    func onTapHaptic(_ feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle) -> some View {
-        self
-            .onTapGesture {
-                Haptics.shared.play(feedbackStyle)
-            }
-    }
-    
-}
-
