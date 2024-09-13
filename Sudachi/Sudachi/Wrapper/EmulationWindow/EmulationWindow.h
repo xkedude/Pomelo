@@ -58,6 +58,7 @@ public:
         return {std::make_unique<GraphicsContext_Apple>(m_driver_library)};
     }
     
+    
     bool HasFirstFrame() const {
         return m_first_frame;
     }

@@ -27,10 +27,6 @@ struct GameListView: View {
             return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
         }
         
-        NavigationLink(destination: SudachiEmulationView(game: core.games[game]).toolbar(.hidden, for: .tabBar), isActive: $startgame) {
-            EmptyView()
-        }
-        .hidden()
         
         ScrollView {
             VStack {
@@ -69,12 +65,7 @@ struct GameListView: View {
                                     }
                                     
                                     
-                                    Button(action: {
-                                        self.game = index
-                                        DispatchQueue.main.async {
-                                            startgame = true
-                                        }
-                                    }) {
+                                    NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                         Text("Launch")
                                     }
                                 }
@@ -113,12 +104,7 @@ struct GameListView: View {
                                         }
                                     }
                                     
-                                    Button(action: {
-                                        self.game = index
-                                        DispatchQueue.main.async {
-                                            startgame = true
-                                        }
-                                    }) {
+                                    NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                         Text("Launch")
                                     }
                                 }

@@ -150,10 +150,10 @@ extension View {
     }
 }
 
-
-
 struct DeviceRotationModifier: ViewModifier {
     let action: (CGSize) -> Void
+    @State private var initialSize: CGSize = .zero
+    @State private var hasAppeared = false
 
     func body(content: Content) -> some View {
         content
@@ -161,8 +161,20 @@ struct DeviceRotationModifier: ViewModifier {
                 Color.clear
                     .preference(key: SizePreferenceKey.self, value: geometry.size)
             })
+            .onAppear {
+                hasAppeared = true
+            }
             .onPreferenceChange(SizePreferenceKey.self) { newSize in
-                action(newSize)
+                if hasAppeared {
+                    if initialSize == .zero {
+                        // Set the initial size on first load
+                        initialSize = newSize
+                    } else if initialSize != newSize {
+                        // Trigger action only when size changes (likely due to rotation)
+                        action(newSize)
+                        initialSize = newSize // Update to new size after rotation
+                    }
+                }
             }
     }
 }

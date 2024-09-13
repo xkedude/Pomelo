@@ -77,6 +77,7 @@ struct ControllerView: View {
         
         let extendedGamepad = controller.extendedGamepad!
         
+        
         extendedGamepad.dpad.up.pressedChangedHandler = { button, value, pressed in
             pressed ? self.touchDown(.directionalPadUp, controllerId: controllerId) : self.touchUpInside(.directionalPadUp, controllerId: controllerId)
         }
