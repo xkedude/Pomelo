@@ -15,17 +15,22 @@ import Sudachi
 struct GameListView: View {
     @State var core: Core
     @State private var searchText = ""
-    @State var game: PomeloGame? = nil
+    @State var game: Int = 1
+    @State var startgame: Bool = false
     @Binding var isGridView: Bool
     @State var showAlert = false
     @State var alertMessage: Alert? = nil
-    @State private var selectedGame: PomeloGame? = nil // State to control navigation
-
+    
     var body: some View {
         let filteredGames = core.games.filter { game in
             guard let PomeloGame = game as? PomeloGame else { return false }
             return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
         }
+        
+        NavigationLink(destination: SudachiEmulationView(game: core.games[game]).toolbar(.hidden, for: .tabBar), isActive: $startgame) {
+            EmptyView()
+        }
+        .hidden()
         
         ScrollView {
             VStack {
@@ -35,10 +40,7 @@ struct GameListView: View {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                             ForEach(0..<filteredGames.count, id: \.self) { index in
                                 let game = core.games[index]
-                                Button(action: {
-                                    selectedGame = game // Set selected game on button tap
-                                    Haptics.shared.play(.rigid)
-                                }) {
+                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                     GameButtonView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 200)
                                 }
@@ -65,6 +67,16 @@ struct GameListView: View {
                                             Text("Open in Files")
                                         }
                                     }
+                                    
+                                    
+                                    Button(action: {
+                                        self.game = index
+                                        DispatchQueue.main.async {
+                                            startgame = true
+                                        }
+                                    }) {
+                                        Text("Launch")
+                                    }
                                 }
                             }
                         }
@@ -72,10 +84,7 @@ struct GameListView: View {
                         LazyVStack() {
                             ForEach(0..<filteredGames.count, id: \.self) { index in
                                 let game = core.games[index]
-                                Button(action: {
-                                    selectedGame = game // Set selected game on button tap
-                                    Haptics.shared.play(.rigid)
-                                }) {
+                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                     GameButtonListView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 75)
                                 }
@@ -104,6 +113,14 @@ struct GameListView: View {
                                         }
                                     }
                                     
+                                    Button(action: {
+                                        self.game = index
+                                        DispatchQueue.main.async {
+                                            startgame = true
+                                        }
+                                    }) {
+                                        Text("Launch")
+                                    }
                                 }
                             }
                         }
@@ -113,8 +130,6 @@ struct GameListView: View {
                 .padding()
             }
             .onAppear() {
-                
-                UIApplication.shared.isIdleTimerDisabled = false
                 refreshcore()
                 
                 if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -135,13 +150,6 @@ struct GameListView: View {
             .alert(isPresented: $showAlert) {
                 alertMessage ?? Alert(title: Text("Error Not Found"))
             }
-            // Use .navigationDestination to trigger navigation when a game is selected
-            .navigationDestination(for: PomeloGame?.self, destination: { game in
-                if let game = game {
-                    SudachiEmulationView(game: game)
-                        .toolbar(.hidden, for: .tabBar)
-                }
-            })
         }
     }
     
@@ -154,4 +162,3 @@ struct GameListView: View {
         }
     }
 }
-

@@ -20,7 +20,8 @@ struct GameButtonListView: View {
                 Image(uiImage: image)
                     .resizable()
                     .frame(width: 60, height: 60)
-                    .cornerRadius(8)             } else {
+                    .cornerRadius(8)
+            } else {
                 Image(systemName: "photo")
                     .resizable()
                     .frame(width: 60, height: 60)
@@ -40,6 +41,6 @@ struct GameButtonListView: View {
             
             Spacer()
         }
-        .padding(.vertical, 8) 
+        .padding(.vertical, 8)
     }
 }
