@@ -19,14 +19,13 @@ struct GameListView: View {
     @Binding var isGridView: Bool
     @State var showAlert = false
     @State var alertMessage: Alert? = nil
-    
+    @State private var selectedGame: PomeloGame? = nil // State to control navigation
+
     var body: some View {
         let filteredGames = core.games.filter { game in
             guard let PomeloGame = game as? PomeloGame else { return false }
             return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
         }
-        
-        
         
         ScrollView {
             VStack {
@@ -36,12 +35,12 @@ struct GameListView: View {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                             ForEach(0..<filteredGames.count, id: \.self) { index in
                                 let game = core.games[index]
-                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                Button(action: {
+                                    selectedGame = game // Set selected game on button tap
+                                    Haptics.shared.play(.rigid)
+                                }) {
                                     GameButtonView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 200)
-                                        .onTapGesture {
-                                            Haptics.shared.play(.rigid)
-                                        }
                                 }
                                 .contextMenu {
                                     Button(action: {
@@ -73,12 +72,12 @@ struct GameListView: View {
                         LazyVStack() {
                             ForEach(0..<filteredGames.count, id: \.self) { index in
                                 let game = core.games[index]
-                                NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                Button(action: {
+                                    selectedGame = game // Set selected game on button tap
+                                    Haptics.shared.play(.rigid)
+                                }) {
                                     GameButtonListView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 75)
-                                        .onTapGesture {
-                                            Haptics.shared.play(.rigid)
-                                        }
                                 }
                                 .contextMenu {
                                     Button(action: {
@@ -104,6 +103,7 @@ struct GameListView: View {
                                             Text("Open in Files")
                                         }
                                     }
+                                    
                                 }
                             }
                         }
@@ -113,6 +113,8 @@ struct GameListView: View {
                 .padding()
             }
             .onAppear() {
+                
+                UIApplication.shared.isIdleTimerDisabled = false
                 refreshcore()
                 
                 if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -133,6 +135,13 @@ struct GameListView: View {
             .alert(isPresented: $showAlert) {
                 alertMessage ?? Alert(title: Text("Error Not Found"))
             }
+            // Use .navigationDestination to trigger navigation when a game is selected
+            .navigationDestination(for: PomeloGame?.self, destination: { game in
+                if let game = game {
+                    SudachiEmulationView(game: game)
+                        .toolbar(.hidden, for: .tabBar)
+                }
+            })
         }
     }
     
@@ -145,3 +154,4 @@ struct GameListView: View {
         }
     }
 }
+

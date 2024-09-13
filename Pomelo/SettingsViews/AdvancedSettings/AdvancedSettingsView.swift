@@ -50,14 +50,11 @@ struct AdvancedSettingsView: View {
                 .frame(width: .infinity, height: 50)
                 .overlay() {
                     HStack {
-                        Toggle("Ram Usage Decrease", isOn: $kpagetable)
+                        Toggle("Memory Usage Increase", isOn: $kpagetable)
                             .padding()
-                            .onChange(of: kpagetable) { NewValue in
-                                UserDefaults.standard.setValue(NewValue, forKey: "ClearBackingRegion")
-                            }
                     }
                 }
-            Text("This is a bit unstable but can lead to slower preformance but also can allow for a bunch more games to be playable")
+            Text("This makes games way more stable but a lot of games will crash as you will run out of Memory way quicker. (Don't Enable this on devices with less then 8GB of memory as most games will crash)")
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)

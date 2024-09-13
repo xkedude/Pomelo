@@ -64,7 +64,7 @@ struct SudachiEmulationView: View {
                 .transition(.opacity)
         )
         .onAppear {
-            
+            UIApplication.shared.isIdleTimerDisabled = true
             print("AirPlay + \(Air.shared.connected)")
             
             isairplay = Air.shared.connected
