@@ -48,7 +48,7 @@ Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(F
 
 ## Trollstore
 
-TrollStore doesn't seem to work on iOS 16 or iOS 17, We are looking into Fixing it. Sorry for the inconvenience.
+TrollStore doesn't seem to work on iOS 16, It seems to work on iOS 17 (21A329), We are looking into Fixing iOS 16. Sorry for any inconvenience.
 
 
 # Post Setup Guides
