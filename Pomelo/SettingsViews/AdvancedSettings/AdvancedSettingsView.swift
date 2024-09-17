@@ -85,7 +85,7 @@ struct AdvancedSettingsView: View {
                             .padding()
                     }
                 }
-            Text("You need in Pomelo Settings to set \"use_docked_mode = 0\"")
+            Text("You need in Core Settings to set \"use_docked_mode = 0\"")
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)

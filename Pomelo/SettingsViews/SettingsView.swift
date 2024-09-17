@@ -57,8 +57,8 @@ struct SettingsView: View {
                             .overlay() {
                                 VStack {
                                     HStack {
-                                        Text("Pomelo Settings")
-                                            .foregroundColor(.gray)
+                                        Text("Core Settings")
+                                            .foregroundColor(.primary)
                                             .padding()
                                         Spacer()
                                     }
