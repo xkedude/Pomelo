@@ -22,8 +22,6 @@ struct JoyStickViewRepresentable: UIViewRepresentable {
         }
         // didnt expect this to work actually
         joystickView.baseAlpha = -1
-        
-        
     
         // peepee poopoo
         joystickView.handleSizeRatio = 0.2
@@ -41,6 +39,13 @@ struct JoystickViewSwiftUI: View {
     @State var y: CGFloat = 0.0
     @State var iscool: Any?
     var sudachi = Sudachi.shared
+    var id: Int {
+        if onscreenjoy {
+            return 8
+        }
+        return 0
+    }
+    @AppStorage("onscreenhandheld") var onscreenjoy: Bool = false
 
     var body: some View {
         VStack {
@@ -62,9 +67,9 @@ struct JoystickViewSwiftUI: View {
         print("Joystick Position: (\(scaledX), \(scaledY))")
         
         if iscool != nil {
-            sudachi.thumbstickMoved(analog: .right, x: scaledX, y: scaledY, controllerid: 8)
+            sudachi.thumbstickMoved(analog: .right, x: scaledX, y: scaledY, controllerid: id)
         } else {
-            sudachi.thumbstickMoved(analog: .left, x: scaledX, y: scaledY, controllerid: 8)
+            sudachi.thumbstickMoved(analog: .left, x: scaledX, y: scaledY, controllerid: id)
         }
     }
 }

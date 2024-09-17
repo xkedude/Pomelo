@@ -303,6 +303,12 @@ struct ButtonView: View {
     @State var width: CGFloat = 50
     @State var height: CGFloat = 50
     @State var isPressed = false
+    var id: Int {
+        if onscreenjoy {
+            return 8
+        }
+        return 0
+    }
     @AppStorage("onscreenhandheld") var onscreenjoy: Bool = false
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
@@ -324,7 +330,7 @@ struct ButtonView: View {
                                     presentationMode.wrappedValue.dismiss()
                                     sudachi.exit()
                                 } else {
-                                    sudachi.virtualControllerButtonDown(button: button, controllerid: 8)
+                                    sudachi.virtualControllerButtonDown(button: button, controllerid: id)
                                     Haptics.shared.play(.heavy)
                                 }
                             }
@@ -334,7 +340,7 @@ struct ButtonView: View {
                         self.isPressed = false
                         DispatchQueue.main.async {
                             if button != .home {
-                                sudachi.virtualControllerButtonUp(button: button, controllerid: 8)
+                                sudachi.virtualControllerButtonUp(button: button, controllerid: id)
                             }
                         }
                     }
@@ -343,6 +349,7 @@ struct ButtonView: View {
                 if button == .triggerL || button == .triggerZL || button == .triggerZR || button == .triggerR {
                     width = 65
                 }
+            
                 
                 if button == .minus || button == .plus || button == .home {
                     width = 45
