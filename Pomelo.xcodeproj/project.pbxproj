@@ -191,6 +191,7 @@
 		499A5E0E2C74A22D00EC0925 /* GameButtonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonListView.swift; sourceTree = "<group>"; };
 		4E4AF11A2C919C0F00BBF2DE /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		4E4AF12C2C926BBD00BBF2DE /* FolderMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderMonitor.swift; sourceTree = "<group>"; };
+		4E7E03662C9667D200C10AFD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -501,6 +502,7 @@
 		38C50D132C1DD4570007A953 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E7E03662C9667D200C10AFD /* OpenGLES.framework */,
 				38C50D162C1DD45F0007A953 /* CoreBluetooth.framework */,
 				38C50D142C1DD4570007A953 /* GameController.framework */,
 			);
@@ -546,9 +548,17 @@
 		38C846CA2C1DCE8900331706 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				4E2E693A2C97F7F900BCFFCC /* Dynamic Libraries */,
 				38C846C92C1DCE8900331706 /* XCFrameworks */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		4E2E693A2C97F7F900BCFFCC /* Dynamic Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Dynamic Libraries";
 			sourceTree = "<group>";
 		};
 		4E4AF1182C919C0700BBF2DE /* Haptics */ = {
@@ -873,7 +883,9 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
+					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries\"",
+					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
+					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
 				);
 				MARKETING_VERSION = 1.5;
 				OTHER_LDFLAGS = "-lSudachi";
@@ -936,7 +948,9 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\\\\\\\ Libraries\"",
+					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries\"",
+					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
+					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
 				);
 				MARKETING_VERSION = 1.5;
 				OTHER_LDFLAGS = "-lSudachi";

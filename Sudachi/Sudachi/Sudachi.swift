@@ -42,14 +42,6 @@ public struct Sudachi {
         sudachiObjC.play()
     }
     
-    public func togglepause() {
-        if sudachiObjC.ispaused() {
-            sudachiObjC.play()
-        } else {
-            sudachiObjC.pause()
-        }
-    }
-    
     public func ispaused() -> Bool {
         return sudachiObjC.ispaused()
     }

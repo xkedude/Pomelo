@@ -428,7 +428,7 @@ Instance Instance::Create(u32 version, std::vector<const char*> layers, std::vec
      
      
 #ifdef __APPLE__
-    constexpr VkFlags ci_flags{VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR};
+    constexpr VkFlags ci_flags{VK_INSTANCE_CREATE_FLAG_BITS_MAX_ENUM};
 #else
     constexpr VkFlags ci_flags{};
 #endif
@@ -572,7 +572,7 @@ DescriptorSets DescriptorPool::Allocate(const VkDescriptorSetAllocateInfo& ai) c
     case VK_ERROR_OUT_OF_POOL_MEMORY:
         return {};
     default:
-        throw Exception(result);
+        return {};
     }
 }
 

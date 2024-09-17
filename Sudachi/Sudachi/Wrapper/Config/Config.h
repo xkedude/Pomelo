@@ -99,19 +99,19 @@ motionright=
 
 # Enable debug pad inputs to the guest
 # 0 (default): Disabled, 1: Enabled
-debug_pad_enabled = 0
+debug_pad_enabled = 
 
 # Whether to enable or disable vibration
 # 0: Disabled, 1 (default): Enabled
-vibration_enabled = 1
+vibration_enabled = 
 
 # Whether to enable or disable accurate vibrations
 # 0 (default): Disabled, 1: Enabled
-enable_accurate_vibrations = 0
+enable_accurate_vibrations = 
 
 # Enables controller motion inputs
 # 0: Disabled, 1 (default): Enabled
-motion_enabled = 1
+motion_enabled = 
 
 # Defines the udp device's touch screen coordinate system for cemuhookudp devices
 #  - "min_x", "min_y", "max_x", "max_y"
@@ -128,36 +128,36 @@ touch_device=
 # List of Cemuhook UDP servers, delimited by ','.
 # Default: 127.0.0.1:26760
 # Example: 127.0.0.1:26760,123.4.5.67:26761
-udp_input_servers = 127.0.0.1:26760
+udp_input_servers = 
 
 # Enable controlling an axis via a mouse input.
 # 0 (default): Off, 1: On
-mouse_panning = 0
+mouse_panning = 
 
 # Set mouse sensitivity.
 # Default: 1.0
-mouse_panning_sensitivity = 1.0
+mouse_panning_sensitivity = 
 
 # Emulate an analog control stick from keyboard inputs.
 # 0 (default): Disabled, 1: Enabled
-emulate_analog_keyboard = 0
+emulate_analog_keyboard = 
 
 # Enable mouse inputs to the guest
 # 0 (default): Disabled, 1: Enabled
-mouse_enabled = 0
+mouse_enabled = 
 
 # Enable keyboard inputs to the guest
 # 0 (default): Disabled, 1: Enabled
-keyboard_enabled = 0
+keyboard_enabled = 
 
 [Core]
 # Whether to use multi-core for CPU emulation
 # 0: Disabled, 1 (default): Enabled
-use_multi_core = 1
+use_multi_core = 
 
 # Enable unsafe extended guest system memory layout (8GB DRAM)
 # 0 (default): Disabled, 1: Enabled
-use_unsafe_extended_memory_layout = 1
+use_unsafe_extended_memory_layout = 
 
 [Cpu]
 # Adjusts various optimizations.
@@ -165,121 +165,121 @@ use_unsafe_extended_memory_layout = 1
 # Accurate enables only safe optimizations.
 # Unsafe allows any unsafe optimizations.
 # 0 (default): Auto-select, 1: Accurate, 2: Enable unsafe optimizations
-cpu_accuracy = 0
+cpu_accuracy = 
 
 # Allow disabling safe optimizations.
 # 0 (default): Disabled, 1: Enabled
-cpu_debug_mode = 0
+cpu_debug_mode = 
 
 # Enable inline page tables optimization (faster guest memory access)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_page_tables = 1
+cpuopt_page_tables = 
 
 # Enable block linking CPU optimization (reduce block dispatcher use during predictable jumps)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_block_linking = 1
+cpuopt_block_linking = 
 
 # Enable return stack buffer CPU optimization (reduce block dispatcher use during predictable returns)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_return_stack_buffer = 1
+cpuopt_return_stack_buffer = 
 
 # Enable fast dispatcher CPU optimization (use a two-tiered dispatcher architecture)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_fast_dispatcher = 1
+cpuopt_fast_dispatcher = 
 
 # Enable context elimination CPU Optimization (reduce host memory use for guest context)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_context_elimination = 1
+cpuopt_context_elimination = 
 
 # Enable constant propagation CPU optimization (basic IR optimization)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_const_prop = 1
+cpuopt_const_prop = 
 
 # Enable miscellaneous CPU optimizations (basic IR optimization)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_misc_ir = 1
+cpuopt_misc_ir = 
 
 # Enable reduction of memory misalignment checks (reduce memory fallbacks for misaligned access)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_reduce_misalign_checks = 1
+cpuopt_reduce_misalign_checks = 
 
 # Enable Host MMU Emulation (faster guest memory access)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_fastmem = 1
+cpuopt_fastmem = 
 
 # Enable Host MMU Emulation for exclusive memory instructions (faster guest memory access)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_fastmem_exclusives = 1
+cpuopt_fastmem_exclusives = 
 
 # Enable fallback on failure of fastmem of exclusive memory instructions (faster guest memory access)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_recompile_exclusives = 1
+cpuopt_recompile_exclusives = 
 
 # Enable optimization to ignore invalid memory accesses (faster guest memory access)
 # 0: Disabled, 1 (default): Enabled
-cpuopt_ignore_memory_aborts = 1
+cpuopt_ignore_memory_aborts = 
 
 # Enable unfuse FMA (improve performance on CPUs without FMA)
 # Only enabled if cpu_accuracy is set to Unsafe. Automatically chosen with cpu_accuracy = Auto-select.
 # 0: Disabled, 1 (default): Enabled
-cpuopt_unsafe_unfuse_fma = 1
+cpuopt_unsafe_unfuse_fma = 
 
 # Enable faster FRSQRTE and FRECPE
 # Only enabled if cpu_accuracy is set to Unsafe.
 # 0: Disabled, 1 (default): Enabled
-cpuopt_unsafe_reduce_fp_error = 1
+cpuopt_unsafe_reduce_fp_error = 
 
 # Enable faster ASIMD instructions (32 bits only)
 # Only enabled if cpu_accuracy is set to Unsafe. Automatically chosen with cpu_accuracy = Auto-select.
 # 0: Disabled, 1 (default): Enabled
-cpuopt_unsafe_ignore_standard_fpcr = 1
+cpuopt_unsafe_ignore_standard_fpcr = 
 
 # Enable inaccurate NaN handling
 # Only enabled if cpu_accuracy is set to Unsafe. Automatically chosen with cpu_accuracy = Auto-select.
 # 0: Disabled, 1 (default): Enabled
-cpuopt_unsafe_inaccurate_nan = 1
+cpuopt_unsafe_inaccurate_nan = 
 
 # Disable address space checks (64 bits only)
 # Only enabled if cpu_accuracy is set to Unsafe. Automatically chosen with cpu_accuracy = Auto-select.
 # 0: Disabled, 1 (default): Enabled
-cpuopt_unsafe_fastmem_check = 1
+cpuopt_unsafe_fastmem_check = 
 
 # Enable faster exclusive instructions
 # Only enabled if cpu_accuracy is set to Unsafe. Automatically chosen with cpu_accuracy = Auto-select.
 # 0: Disabled, 1 (default): Enabled
-cpuopt_unsafe_ignore_global_monitor = 1
+cpuopt_unsafe_ignore_global_monitor = 
 
 [Renderer]
 # Which backend API to use.
 # 0: OpenGL (unsupported), 1 (default): Vulkan, 2: Null
-backend = 1
+backend = 
 
 # Whether to enable asynchronous presentation (Vulkan only)
 # 0: Off, 1 (default): On
-async_presentation = 1
+async_presentation = 
 
 # Forces the GPU to run at the maximum possible clocks (thermal constraints will still be applied).
 # 0 (default): Disabled, 1: Enabled
-force_max_clock = 0
+force_max_clock = 
 
 # Enable graphics API debugging mode.
 # 0 (default): Disabled, 1: Enabled
-debug = 0
+debug = 
 
 # Enable shader feedback.
 # 0 (default): Disabled, 1: Enabled
-renderer_shader_feedback = 0
+renderer_shader_feedback = 
 
 # Enable Nsight Aftermath crash dumps
 # 0 (default): Disabled, 1: Enabled
-nsight_aftermath = 0
+nsight_aftermath = 
 
 # Disable shader loop safety checks, executing the shader without loop logic changes
 # 0 (default): Disabled, 1: Enabled
-disable_shader_loop_safety_checks = 0
+disable_shader_loop_safety_checks = 
 
 # Which Vulkan physical device to use (defaults to 0)
-vulkan_device = 0
+vulkan_device = 
 
 # 0: 0.5x (360p/540p) [EXPERIMENTAL]
 # 1: 0.75x (540p/810p) [EXPERIMENTAL]
@@ -289,7 +289,7 @@ vulkan_device = 0
 # 5: 4x (2880p/4320p)
 # 6: 5x (3600p/5400p)
 # 7: 6x (4320p/6480p)
-resolution_setup = 2
+resolution_setup = 
 
 # Pixel filter to use when up- or down-sampling rendered frames.
 # 0: Nearest Neighbor
@@ -298,19 +298,19 @@ resolution_setup = 2
 # 3: Gaussian
 # 4: ScaleForce
 # 5: AMD FidelityFX™️ Super Resolution [Vulkan Only]
-scaling_filter = 1
+scaling_filter = 
 
 # Anti-Aliasing (AA)
 # 0 (default): None, 1: FXAA
-anti_aliasing = 0
+anti_aliasing = 
 
 # Whether to use fullscreen or borderless window mode
 # 0 (Windows default): Borderless window, 1 (All other default): Exclusive fullscreen
-fullscreen_mode = 0
+fullscreen_mode = 
 
 # Aspect ratio
 # 0: Default (16:9), 1: Force 4:3, 2: Force 21:9, 3: Force 16:10, 4: Stretch to Window
-aspect_ratio = 0
+aspect_ratio = 
 
 # Anisotropic filtering
 # 0: Default, 1: 2x, 2: 4x, 3: 8x, 4: 16x
@@ -423,7 +423,7 @@ gamecard_path =
 [System]
 # Whether the system is docked
 # 1 (default): Yes, 0: No
-use_docked_mode =
+use_docked_mode = 0
 
 # Sets the seed for the RNG generator built into the switch
 # rng_seed will be ignored and randomly generated if rng_seed_enabled is false

@@ -62,9 +62,9 @@ struct JoystickViewSwiftUI: View {
         print("Joystick Position: (\(scaledX), \(scaledY))")
         
         if iscool != nil {
-            sudachi.thumbstickMoved(analog: .right, x: scaledX, y: scaledY, controllerid: 0)
+            sudachi.thumbstickMoved(analog: .right, x: scaledX, y: scaledY, controllerid: 8)
         } else {
-            sudachi.thumbstickMoved(analog: .left, x: scaledX, y: scaledY, controllerid: 0)
+            sudachi.thumbstickMoved(analog: .left, x: scaledX, y: scaledY, controllerid: 8)
         }
     }
 }

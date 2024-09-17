@@ -11,9 +11,10 @@ import UniformTypeIdentifiers
 struct AdvancedSettingsView: View {
     @AppStorage("isfullscreen") var isFullScreen: Bool = false
     @AppStorage("exitgame") var exitgame: Bool = false
-    @AppStorage("ClearBackingRegion") var kpagetable: Bool = true
+    @AppStorage("ClearBackingRegion") var kpagetable: Bool = false
     @AppStorage("WaitingforJIT") var waitingJIT: Bool = false
     @AppStorage("cangetfullpath") var canGetFullPath: Bool = false
+    @AppStorage("onscreenhandheld") var onscreenjoy: Bool = false
     var body: some View {
         ScrollView {
             Rectangle()
@@ -70,6 +71,21 @@ struct AdvancedSettingsView: View {
                     }
                 }
             Text("If you do not have the neccesary files for Booting the Switch OS, it will just crash almost instantly.")
+                .padding(.bottom)
+                .font(.footnote)
+                .foregroundColor(.gray)
+            
+            Rectangle()
+                .fill(Color(uiColor: UIColor.secondarySystemBackground))
+                .cornerRadius(10)
+                .frame(width: .infinity, height: 50)
+                .overlay() {
+                    HStack {
+                        Toggle("Set OnScreen Controls to Handheld", isOn: $onscreenjoy)
+                            .padding()
+                    }
+                }
+            Text("You need in Pomelo Settings to set \"use_docked_mode = 0\"")
                 .padding(.bottom)
                 .font(.footnote)
                 .foregroundColor(.gray)

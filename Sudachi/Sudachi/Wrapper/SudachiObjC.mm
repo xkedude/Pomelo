@@ -106,12 +106,15 @@
 
 -(void) pause {
     EmulationSession::GetInstance().System().Pause();
-    void(EmulationSession::GetInstance().PauseEmulation());
+    EmulationSession::GetInstance().HaltEmulation();
+    EmulationSession::GetInstance().PauseEmulation();
 }
 
 -(void) play {
+    
     EmulationSession::GetInstance().System().Run();
-    void(EmulationSession::GetInstance().UnPauseEmulation());
+    EmulationSession::GetInstance().RunEmulation();
+    EmulationSession::GetInstance().UnPauseEmulation();
 }
 
 -(BOOL)hasfirstfame {

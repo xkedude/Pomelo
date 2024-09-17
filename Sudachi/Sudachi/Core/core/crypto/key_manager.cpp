@@ -646,16 +646,10 @@ void KeyManager::ReloadKeys() {
         LOG_ERROR(Core, "Failed to create the keys directory.");
     }
 
-    if (YuzuSettings::values.use_dev_keys) {
-        dev_mode = true;
-        LoadFromFile(yuzu_keys_dir / "dev.keys", false);
-    } else {
-        dev_mode = false;
-        LoadFromFile(yuzu_keys_dir / "prod.keys", false);
-    }
+    dev_mode = false;
+    LoadFromFile(yuzu_keys_dir / "prod.keys", false);
 
     LoadFromFile(yuzu_keys_dir / "title.keys", true);
-    LoadFromFile(yuzu_keys_dir / "console.keys", false);
 }
 
 static bool ValidCryptoRevisionString(std::string_view base, size_t begin, size_t length) {
@@ -919,10 +913,6 @@ bool KeyManager::KeyFileExists(bool title) {
 
     if (title) {
         return Common::FS::Exists(yuzu_keys_dir / "title.keys");
-    }
-
-    if (YuzuSettings::values.use_dev_keys) {
-        return Common::FS::Exists(yuzu_keys_dir / "dev.keys");
     }
 
     return Common::FS::Exists(yuzu_keys_dir / "prod.keys");

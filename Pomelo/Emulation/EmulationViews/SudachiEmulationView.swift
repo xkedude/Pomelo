@@ -25,6 +25,7 @@ struct SudachiEmulationView: View {
     @State var uiTabBarController: UITabBarController?
     @State private var isFirstFrameShown = false
     @State private var timer: Timer?
+    @Environment(\.scenePhase) var scenePhase
     @AppStorage("isairplay") private var isairplay: Bool = true
     
     init(game: PomeloGame?) {
@@ -44,13 +45,9 @@ struct SudachiEmulationView: View {
                         }
                     }
                 }
-                .onRotate { size in
-                    if sudachi.FirstFrameShowed() && !isairplay {
-                        viewModel.handleOrientationChange(size: size)
-                    }
-                }
                 .edgesIgnoringSafeArea(.all)
             }
+            
             
             ControllerView()
         }
@@ -76,20 +73,20 @@ struct SudachiEmulationView: View {
                 
                 if isairplay {
                     Air.play(AnyView(
-                    MetalView(device: device) { view in
-                        DispatchQueue.main.async {
-                            if let metalView = view as? MTKView {
-                                mtkview = metalView
-                                viewModel.configureSudachi(with: metalView)
-                            } else {
-                                print("Error: view is not of type MTKView")
+                        MetalView(device: device) { view in
+                            DispatchQueue.main.async {
+                                if let metalView = view as? MTKView {
+                                    mtkview = metalView
+                                    viewModel.configureSudachi(with: metalView)
+                                } else {
+                                    print("Error: view is not of type MTKView")
+                                }
                             }
                         }
-                    }
-                    .edgesIgnoringSafeArea(.all)
+                            .edgesIgnoringSafeArea(.all)
                     )
                     )
-
+                    
                 }
             }
             
@@ -98,7 +95,7 @@ struct SudachiEmulationView: View {
             }
         }
         .onDisappear {
-            if !isairplay {
+            if sudachi.FirstFrameShowed() || !isairplay {
                 stopPollingFirstFrameShowed()
             }
             uiTabBarController?.tabBar.isHidden = false
@@ -125,6 +122,7 @@ struct SudachiEmulationView: View {
     private func stopPollingFirstFrameShowed() {
         timer?.invalidate()
         timer = nil
+        print("Timer Invalidated")
     }
 }
 
@@ -150,10 +148,11 @@ extension View {
     }
 }
 
+
+
 struct DeviceRotationModifier: ViewModifier {
     let action: (CGSize) -> Void
-    @State private var initialSize: CGSize = .zero
-    @State private var hasAppeared = false
+    @State var startedfirst: Bool = false
 
     func body(content: Content) -> some View {
         content
@@ -161,19 +160,11 @@ struct DeviceRotationModifier: ViewModifier {
                 Color.clear
                     .preference(key: SizePreferenceKey.self, value: geometry.size)
             })
-            .onAppear {
-                hasAppeared = true
-            }
             .onPreferenceChange(SizePreferenceKey.self) { newSize in
-                if hasAppeared {
-                    if initialSize == .zero {
-                        // Set the initial size on first load
-                        initialSize = newSize
-                    } else if initialSize != newSize {
-                        // Trigger action only when size changes (likely due to rotation)
-                        action(newSize)
-                        initialSize = newSize // Update to new size after rotation
-                    }
+                if startedfirst {
+                    action(newSize)
+                } else {
+                    startedfirst = true
                 }
             }
     }

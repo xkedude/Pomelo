@@ -32,7 +32,6 @@ struct GameButtonView: View {
                     Text(game.title)
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal, 8)
-                        .bold()
                         .font(.system(size: 15))
                         .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     Text(game.developer)

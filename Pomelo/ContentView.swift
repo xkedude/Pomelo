@@ -20,7 +20,6 @@ struct ContentView: View {
                     
                 ))
                 
-                
                 do {
                     try PomeloFileManager.shared.createdirectories() // this took a while to create the proper directories
                     

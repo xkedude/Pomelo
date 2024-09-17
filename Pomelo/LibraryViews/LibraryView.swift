@@ -8,15 +8,32 @@
 
 import SwiftUI
 import CryptoKit
+import Sudachi
 
 struct LibraryView: View {
     @Binding var core: Core
     @State var isGridView: Bool = true
     @State var doesitexist = (false, false)
+    @State var importedgame: PomeloGame? = nil
+    @State var importgame: Bool = false
+    @State var launchGame: Bool = false
     var body: some View {
         NavigationStack {
+            if let importedgame = importedgame {
+                NavigationLink(
+                    isActive: $launchGame,
+                    destination: {
+                        SudachiEmulationView(game: importedgame).toolbar(.hidden, for: .tabBar)
+                    },
+                    label: {
+                        EmptyView() // This keeps the link hidden
+                    }
+                )
+                .hidden()
+            }
+            
             VStack {
-                if doesitexist.0 && doesitexist.1 {
+                if doesitexist.0, doesitexist.1 {
                     GameListView(core: core, isGridView: $isGridView)
                 } else {
                     let (doesKeyExist, doesProdExist) = doeskeysexist()
@@ -39,14 +56,54 @@ struct LibraryView: View {
                         Text("These goes into the Keys folder")
                             .font(.caption)
                             .foregroundColor(.red)
+                            .padding(.bottom)
+                        
+                        if !LibraryManager.shared.homebrewroms().isEmpty {
+                            Text("Homebrew Roms:")
+                                .font(.headline)
+                            LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
+                                ForEach(LibraryManager.shared.homebrewroms()) { game in
+                                    NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
+                                        GameButtonView(game: game)
+                                            .frame(maxWidth: .infinity, minHeight: 200)
+                                    }
+                                    .contextMenu {
+                                        NavigationLink(destination: SudachiEmulationView(game: game)) {
+                                            Text("Launch")
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     .refreshable {
                         doesitexist = doeskeysexist()
                     }
+                    
+                
                 }
                 
             }
-            
+            .fileImporter(isPresented: $importgame, allowedContentTypes: [.item], onCompletion: { result in
+                switch result {
+                case .success(let elements):
+                    
+                    let information = Sudachi.shared.information(for: elements)
+                    
+                    let game = PomeloGame(developer: information.developer, fileURL: elements,
+                                          imageData: information.iconData,
+                                          title: information.title)
+                    
+                    importedgame = game
+                    
+                    DispatchQueue.main.async {
+                        launchGame = true
+                    }
+                case .failure(let error):
+                    
+                    print(error.localizedDescription)
+                }
+            })
             .onAppear() {
                 doesitexist = doeskeysexist()
             }
@@ -57,6 +114,17 @@ struct LibraryView: View {
                         isGridView.toggle()
                     }) {
                         Image(systemName: isGridView ? "rectangle.grid.1x2" : "square.grid.2x2")
+                            .imageScale(.large)
+                            .padding()
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) { // funsies
+                    Button(action: {
+                        importgame = true // this part took a while
+                        
+                    }) {
+                        Image(systemName: "plus.circle.fill")
                             .imageScale(.large)
                             .padding()
                     }

@@ -23,7 +23,7 @@ std::shared_ptr<Common::DynamicLibrary> OpenLibrary(
 #ifdef __APPLE__
 #if defined(TARGET_OS_IPHONE)
     const auto libvulkan_filename =
-        Common::FS::GetBundleDirectory() / "Contents/Frameworks/libvulkan.1.dylib";
+        Common::FS::GetBundleDirectory() / "Contents/Frameworks/libvulkan.1.3.275.dylib";
     const auto libmoltenvk_filename = "@rpath/MoltenVK.framework/MoltenVK";
 #else
     const auto libvulkan_filename =

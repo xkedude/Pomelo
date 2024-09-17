@@ -42,7 +42,7 @@ class SudachiEmulationViewModel: ObservableObject {
             }
         }
         
-        thread = Thread { [self] in self.step() }
+        thread = .init(block: self.step)
         thread.name = "Pomelo"
         thread.qualityOfService = .userInteractive
         thread.threadPriority = 0.9

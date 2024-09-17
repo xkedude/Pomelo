@@ -92,12 +92,113 @@ class LibraryManager {
         }
     }
     
+    func homebrewroms() -> [PomeloGame] {
+        
+        var urls: [URL] = []
+        
+        let sdmc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("sdmc", conformingTo: .folder)
+        let sdfolder = sdmc.appendingPathComponent("switch", conformingTo: .folder)
+        if FileManager.default.fileExists(atPath: sdfolder.path) {
+            if let dirContents = FileManager.default.enumerator(at: sdmc, includingPropertiesForKeys: nil, options: []) {
+                do {
+                    try dirContents.forEach() { files in
+                        if let file = files as? URL {
+                            let getaboutfile = try file.resourceValues(forKeys: [.isRegularFileKey])
+                            if let isfile = getaboutfile.isRegularFile, isfile {
+                                if ["nso", "nro"].contains(file.pathExtension.lowercased()) {
+                                    urls.append(file)
+                                }
+                            }
+                        }
+                    }
+                } catch {
+                    if let dirContents = FileManager.default.enumerator(at: documentdir, includingPropertiesForKeys: nil, options: []) {
+                        do {
+                            try dirContents.forEach() { files in
+                                if let file = files as? URL {
+                                    let getaboutfile = try file.resourceValues(forKeys: [.isRegularFileKey])
+                                    if let isfile = getaboutfile.isRegularFile, isfile {
+                                        if ["nso", "nro"].contains(file.pathExtension.lowercased()) {
+                                            urls.append(file)
+                                        }
+                                    }
+                                }
+                            }
+                        } catch {
+                            print("damn")
+                            
+                            if let dirContents = FileManager.default.enumerator(at: documentdir, includingPropertiesForKeys: nil, options: []) {
+                                do {
+                                    try dirContents.forEach() { files in
+                                        if let file = files as? URL {
+                                            let getaboutfile = try file.resourceValues(forKeys: [.isRegularFileKey])
+                                            if let isfile = getaboutfile.isRegularFile, isfile {
+                                                if ["nso", "nro"].contains(file.pathExtension.lowercased()) {
+                                                    urls.append(file)
+                                                }
+                                            }
+                                        }
+                                    }
+                                } catch {
+                                    return []
+                                }
+                            } else {
+                                return []
+                            }
+    
+                        }
+                    }
+                }
+            }
+        }
+        
+        if let dirContents = FileManager.default.enumerator(at: documentdir, includingPropertiesForKeys: nil, options: []) {
+            do {
+                try dirContents.forEach() { files in
+                    if let file = files as? URL {
+                        let getaboutfile = try file.resourceValues(forKeys: [.isRegularFileKey])
+                        if let isfile = getaboutfile.isRegularFile, isfile {
+                            if ["nso", "nro"].contains(file.pathExtension.lowercased()) {
+                                urls.append(file)
+                            }
+                        }
+                    }
+                }
+            } catch {
+                return []
+            }
+        } else {
+            return []
+        }
+        
+        func games(from urls: [URL]) -> [PomeloGame] {
+            var pomelogames: [PomeloGame] = []
+            pomelogames = urls.reduce(into: [PomeloGame]()) { partialResult, element in
+                let iscustom = element.startAccessingSecurityScopedResource()
+                let information = Sudachi.shared.information(for: element)
+                
+                let game = PomeloGame(developer: information.developer, fileURL: element,
+                                      imageData: information.iconData,
+                                      title: information.title)
+                if iscustom {
+                    element.stopAccessingSecurityScopedResource()
+                }
+                partialResult.append(game)
+            }
+            
+            return pomelogames
+        }
+        
+        return games(from: urls)
+    }
+    
     func library() throws -> Core {
         func getromsfromdir() throws -> [URL] {
             guard let dirContents = FileManager.default.enumerator(at: documentdir, includingPropertiesForKeys: nil, options: []) else {
                 print("uhoh how unfortunate for some reason FileManager.default.enumerator aint workin")
                 throw LibManError.ripenum
             }
+            
             let sudachi = Sudachi.shared
             var urls: [URL] = []
             try dirContents.forEach() { files in
@@ -111,6 +212,22 @@ class LibraryManager {
                 }
             }
             
+            let sdmc = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("sdmc", conformingTo: .folder)
+            let sdfolder = sdmc.appendingPathComponent("switch", conformingTo: .folder)
+            if FileManager.default.fileExists(atPath: sdfolder.path) {
+                if let dirContents = FileManager.default.enumerator(at: sdmc, includingPropertiesForKeys: nil, options: []) {
+                    try dirContents.forEach() { files in
+                        if let file = files as? URL {
+                            let getaboutfile = try file.resourceValues(forKeys: [.isRegularFileKey])
+                            if let isfile = getaboutfile.isRegularFile, isfile {
+                                if ["nso", "nro"].contains(file.pathExtension.lowercased()) {
+                                    urls.append(file)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             
             sudachi.insert(games: urls)
             

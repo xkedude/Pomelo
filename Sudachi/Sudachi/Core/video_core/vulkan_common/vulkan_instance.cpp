@@ -72,9 +72,6 @@ namespace {
         extensions.push_back(VK_KHR_SURFACE_EXTENSION_NAME);
     }
 #ifdef __APPLE__
-    if (AreExtensionsSupported(dld, std::array{VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME})) {
-        extensions.push_back(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
-    }
 #endif
     if (enable_validation &&
         AreExtensionsSupported(dld, std::array{VK_EXT_DEBUG_UTILS_EXTENSION_NAME})) {
@@ -129,7 +126,7 @@ vk::Instance CreateInstance(const Common::DynamicLibrary& library, vk::InstanceD
     const std::vector<const char*> extensions =
         RequiredExtensions(dld, window_type, enable_validation);
     if (!AreExtensionsSupported(dld, extensions)) {
-        throw vk::Exception(VK_ERROR_EXTENSION_NOT_PRESENT);
+        LOG_ERROR(Render_Vulkan, "Failed to load Vulkan Extentions, Continuing Anyway....");
     }
     std::vector<const char*> layers = Layers(enable_validation);
     RemoveUnavailableLayers(dld, layers);

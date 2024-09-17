@@ -83,6 +83,7 @@ struct GameListView: View {
                                     Button(action: {
                                         do {
                                             try LibraryManager.shared.removerom(core.games[index])
+                                            try FileManager.default.removeItem(atPath: game.fileURL.path)
                                         } catch {
                                             showAlert = true
                                             alertMessage = Alert(title: Text("Unable to Remove Game"), message: Text(error.localizedDescription))

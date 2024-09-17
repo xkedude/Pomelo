@@ -18,6 +18,27 @@
 #include "video_core/vulkan_common/vma.h"
 #include "video_core/vulkan_common/vulkan_device.h"
 #include "video_core/vulkan_common/vulkan_wrapper.h"
+#include <iostream>
+#include <sys/utsname.h>
+#include <string>
+
+bool isiOS16OrBelow() {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+
+    std::string versionString = systemInfo.release;
+
+    // Extract major and minor version numbers from the release string
+    int majorVersion = std::stoi(versionString.substr(0, versionString.find('.')));
+    
+    // For iOS 16, the major version is 16.x.x
+    if (majorVersion <= 16) {
+        return true; // iOS 16 or below
+    } else {
+        return false; // iOS 17 or above
+    }
+}
+
 
 #if defined(ANDROID) && defined(ARCHITECTURE_arm64)
 #include <adrenotools/bcenabler.h>
@@ -1047,7 +1068,7 @@ bool Device::GetSuitability(bool requires_swapchain) {
 #define CHECK_FEATURE(feature, name)                                                               \
     if (!features.feature.name) {                                                                  \
         LOG_ERROR(Render_Vulkan, "Missing required feature {}", #name);                            \
-        suitable = false;                                                                          \
+        suitable = true;                                                                          \
     }
 
 #define LOG_FEATURE(feature, name)                                                                 \
@@ -1150,13 +1171,26 @@ void Device::RemoveUnsuitableExtensions() {
                                        VK_EXT_DEPTH_CLIP_CONTROL_EXTENSION_NAME);
 
     // VK_EXT_extended_dynamic_state
-    extensions.extended_dynamic_state = features.extended_dynamic_state.extendedDynamicState;
+    if (isiOS16OrBelow()) {
+        extensions.extended_dynamic_state = false;
+        LOG_INFO(Render_Vulkan,
+                 "Extended Dynamic State is missing because of current iOS Version");
+    } else {
+        extensions.extended_dynamic_state = features.extended_dynamic_state.extendedDynamicState;
+        LOG_INFO(Render_Vulkan,
+                 "Extended Dynamic State exists");
+    }
+    
     RemoveExtensionFeatureIfUnsuitable(extensions.extended_dynamic_state,
                                        features.extended_dynamic_state,
                                        VK_EXT_EXTENDED_DYNAMIC_STATE_EXTENSION_NAME);
 
     // VK_EXT_extended_dynamic_state2
-    extensions.extended_dynamic_state2 = features.extended_dynamic_state2.extendedDynamicState2;
+    if (isiOS16OrBelow()) {
+        extensions.extended_dynamic_state2 = false;
+    } else {
+        extensions.extended_dynamic_state2 = features.extended_dynamic_state2.extendedDynamicState2;
+    }
     RemoveExtensionFeatureIfUnsuitable(extensions.extended_dynamic_state2,
                                        features.extended_dynamic_state2,
                                        VK_EXT_EXTENDED_DYNAMIC_STATE_2_EXTENSION_NAME);
@@ -1169,10 +1203,17 @@ void Device::RemoveUnsuitableExtensions() {
     dynamic_state3_enables =
         features.extended_dynamic_state3.extendedDynamicState3DepthClampEnable &&
         features.extended_dynamic_state3.extendedDynamicState3LogicOpEnable;
+    
+    if (isiOS16OrBelow()) {
+        extensions.extended_dynamic_state3 = false;
+        dynamic_state3_blending = false;
+        dynamic_state3_enables = false;
+    } else {
+        extensions.extended_dynamic_state3 = dynamic_state3_blending || dynamic_state3_enables;
+        dynamic_state3_blending = dynamic_state3_blending && extensions.extended_dynamic_state3;
+        dynamic_state3_enables = dynamic_state3_enables && extensions.extended_dynamic_state3;
+    }
 
-    extensions.extended_dynamic_state3 = dynamic_state3_blending || dynamic_state3_enables;
-    dynamic_state3_blending = dynamic_state3_blending && extensions.extended_dynamic_state3;
-    dynamic_state3_enables = dynamic_state3_enables && extensions.extended_dynamic_state3;
     RemoveExtensionFeatureIfUnsuitable(extensions.extended_dynamic_state3,
                                        features.extended_dynamic_state3,
                                        VK_EXT_EXTENDED_DYNAMIC_STATE_3_EXTENSION_NAME);
