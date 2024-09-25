@@ -1,3 +1,10 @@
+# User settings
+xcuserdata/
 
-Pomelo/Emulation/.DS_Store
+# Configuration files
+CodeSigning.xcconfig
+
+# macOS files
 .DS_Store
+
+Package.resolved
