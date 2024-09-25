@@ -382,37 +382,13 @@ struct ButtonView: View {
         case .directionalPadRight:
             return "arrowtriangle.right.circle.fill"
         case .triggerZL:
-            let rawValue = "zl.button.roundedtop.horizontal"
-            if #available(iOS 17, *) {
-                return rawValue.appending(".fill")
-            } else {
-                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
-                                 .replacingOccurrences(of: "horizontal", with: "fill")
-            }
+            return"zl.rectangle.roundedtop.fill"
         case .triggerZR:
-            let rawValue = "zr.button.roundedtop.horizontal"
-            if #available(iOS 17, *) {
-                return rawValue.appending(".fill")
-            } else {
-                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
-                                 .replacingOccurrences(of: "horizontal", with: "fill")
-            }
+            return "zr.rectangle.roundedtop.fill"
         case .triggerL:
-            let rawValue = "l.button.roundedbottom.horizontal"
-            if #available(iOS 17, *) {
-                return rawValue.appending(".fill")
-            } else {
-                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
-                                 .replacingOccurrences(of: "horizontal", with: "fill")
-            }
+            return "l.rectangle.roundedbottom.fill"
         case .triggerR:
-            let rawValue = "r.button.roundedbottom.horizontal"
-            if #available(iOS 17, *) {
-                return rawValue.appending(".fill")
-            } else {
-                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
-                                 .replacingOccurrences(of: "horizontal", with: "fill")
-            }
+            return "r.rectangle.roundedbottom.fill"
         case .plus:
             return "plus.circle.fill" // System symbol for +
         case .minus:

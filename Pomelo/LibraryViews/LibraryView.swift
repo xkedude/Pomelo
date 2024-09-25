@@ -84,32 +84,37 @@ struct LibraryView: View {
                 }
                 
             }
+            .fileImporter(isPresented: $isimportingfirm, allowedContentTypes: [.zip], onCompletion: { result in
+                switch result {
+                case .success(let elements):
+                    DispatchQueue.main.async {
+                        core.AddFirmware(at: elements)
+                    }
+                case .failure(let error):
+                    
+                    print(error.localizedDescription)
+                }
+            })
             .fileImporter(isPresented: $importgame, allowedContentTypes: [.item], onCompletion: { result in
                 switch result {
                 case .success(let elements):
-                    if self.isimportingfirm {
-                        if elements.pathExtension.lowercased() == "zip" {
-                            core.AddFirmware(at: elements)
+                    let iscustom = elements.startAccessingSecurityScopedResource()
+                    let information = Sudachi.shared.information(for: elements)
+                    
+                    let game = PomeloGame(developer: information.developer, fileURL: elements,
+                                          imageData: information.iconData,
+                                          title: information.title)
+                    
+                    importedgame = game
+                    
+                    
+                    DispatchQueue.main.async {
+                        
+                        if iscustom {
+                            elements.stopAccessingSecurityScopedResource()
                         }
-                    } else {
-                        let iscustom = elements.startAccessingSecurityScopedResource()
-                        let information = Sudachi.shared.information(for: elements)
                         
-                        let game = PomeloGame(developer: information.developer, fileURL: elements,
-                                              imageData: information.iconData,
-                                              title: information.title)
-                        
-                        importedgame = game
-                        
-                        
-                        DispatchQueue.main.async {
-                            
-                            if iscustom {
-                                elements.stopAccessingSecurityScopedResource()
-                            }
-                            
-                            launchGame = true
-                        }
+                        launchGame = true
                     }
                 case .failure(let error):
                     
@@ -141,13 +146,7 @@ struct LibraryView: View {
                         }
                         
                         Button(action: {
-                            DispatchQueue.main.async {
-                                isimportingfirm = true
-                            }
-                            
-                            
-                            importgame = true // this part took a while
-                            
+                            isimportingfirm = true
                         }) {
                             Text("Import Firmware")
                         }
