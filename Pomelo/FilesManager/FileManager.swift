@@ -10,6 +10,7 @@ import SwiftUI
 import Foundation
 import UIKit
 import Sudachi
+import Zip
 
 struct Core : Comparable, Hashable {
     
@@ -19,6 +20,26 @@ struct Core : Comparable, Hashable {
     
     static func < (lhs: Core, rhs: Core) -> Bool {
         lhs.name < rhs.name
+    }
+    
+    func AddFirmware(at fileURL: URL) {
+        do {
+            let fileManager = FileManager.default
+            let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let destinationURL = documentsDirectory.appendingPathComponent("nand/system/Contents/registered")
+            
+            
+            if !fileManager.fileExists(atPath: destinationURL.path) {
+                try fileManager.createDirectory(at: destinationURL, withIntermediateDirectories: true, attributes: nil)
+            }
+
+            
+            try Zip.unzipFile(fileURL, destination: destinationURL, overwrite: true, password: nil)
+            print("File unzipped successfully to \(destinationURL.path)")
+
+        } catch {
+            print("Failed to unzip file: \(error)")
+        }
     }
 }
 
@@ -176,7 +197,6 @@ class LibraryManager {
             pomelogames = urls.reduce(into: [PomeloGame]()) { partialResult, element in
                 let iscustom = element.startAccessingSecurityScopedResource()
                 let information = Sudachi.shared.information(for: element)
-                
                 let game = PomeloGame(developer: information.developer, fileURL: element,
                                       imageData: information.iconData,
                                       title: information.title)

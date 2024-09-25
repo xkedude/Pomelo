@@ -32,7 +32,7 @@ struct InfoView: View {
                         .font(Font.headline.weight(.bold))
                     Spacer()
                         .frame(height: 10)
-                    Text("Increased Memory Limit: \(!entitlementNotExists)")
+                    Text("Increased Memory Limit: \(String(describing: !entitlementNotExists))")
                     Spacer()
                         .frame(height: 10)
                 }
@@ -44,9 +44,9 @@ struct InfoView: View {
                         .font(Font.headline.weight(.bold))
                     Spacer()
                         .frame(height: 10)
-                    Text("Increased Debugging Memory Limit: \(increaseddebugmem)")
+                    Text("Increased Debugging Memory Limit: \(String(describing: increaseddebugmem))")
                         .padding()
-                    Text("Extended Virtual Addressing: \(extended)")
+                    Text("Extended Virtual Addressing: \(String(describing: extended))")
                 }
                 
             }

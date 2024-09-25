@@ -11,6 +11,7 @@ import Foundation
 struct CoreSettingsView: View {
     @State private var text: String = ""
     @State private var isLoading: Bool = true
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         VStack {
@@ -20,6 +21,28 @@ struct CoreSettingsView: View {
             } else {
                 TextEditor(text: $text)
                     .padding()
+                
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                    let configfolder = documentDirectory.appendingPathComponent("config", conformingTo: .folder)
+                    let fileURL = configfolder.appendingPathComponent("config.ini")
+                
+                    presentationMode.wrappedValue.dismiss()
+                    
+                    do {
+                        try FileManager.default.removeItem(at: fileURL)
+                    } catch {
+                        print("\(error.localizedDescription)")
+                    }
+                    
+                    
+                } label: {
+                    Text("Reset File")
+                }
             }
         }
         .onAppear {

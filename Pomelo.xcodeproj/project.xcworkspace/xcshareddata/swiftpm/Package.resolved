@@ -1,10 +1,10 @@
 {
-  "originHash" : "779ca2a01b43da23789c36d45297e413b61f6147dddf082d145fd6d1d668ce55",
+  "originHash" : "fca29c9ce42f9bb658054c8b20b968ea3e917b49f2be689036b2308c2087ab65",
   "pins" : [
     {
-      "identity" : "joystick?",
+      "identity" : "joystick",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/bradhowes/Joystick?",
+      "location" : "https://github.com/bradhowes/Joystick",
       "state" : {
         "revision" : "c37e9596dc7756fae3d6720ab09e090a30b6179c",
         "version" : "3.2.0"
@@ -53,6 +53,15 @@
       "state" : {
         "revision" : "807f73ce09a9b9723f12385e592b4e0aaebd3336",
         "version" : "1.3.0"
+      }
+    },
+    {
+      "identity" : "zip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/Zip",
+      "state" : {
+        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76",
+        "version" : "2.1.2"
       }
     },
     {

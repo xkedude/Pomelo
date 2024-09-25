@@ -86,6 +86,7 @@
 		4E4AF1302C92867F00BBF2DE /* libteakra.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; };
 		4E4AF1312C92867F00BBF2DE /* libteakra.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C846C82C1DCE8900331706 /* libteakra.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EE593FF2C5FA1D1000939C4 /* AppIconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE593FE2C5FA1D1000939C4 /* AppIconProvider.swift */; };
+		4EEA0CFA2CA376AB0029A55D /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 4EEA0CF92CA376AB0029A55D /* Zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,7 @@
 				38C50D382C1DD5740007A953 /* libopus.xcframework in Frameworks */,
 				38C50D2A2C1DD5530007A953 /* libGenericCodeGen.xcframework in Frameworks */,
 				4E0E35EA2C7AB5CB001D24EE /* libSPIRV.xcframework in Frameworks */,
+				4EEA0CFA2CA376AB0029A55D /* Zip in Frameworks */,
 				38C50D122C1DCF690007A953 /* SwiftSyntaxMacros in Frameworks */,
 				383C55EE2C5D136900A89F85 /* JoyStickView in Frameworks */,
 				38C50D092C1DCF3E0007A953 /* libswresample.xcframework in Frameworks */,
@@ -609,6 +611,7 @@
 				38C50D112C1DCF690007A953 /* SwiftSyntaxMacros */,
 				3841947E2C4E5D2E00396613 /* SwiftUIIntrospect */,
 				383C55ED2C5D136900A89F85 /* JoyStickView */,
+				4EEA0CF92CA376AB0029A55D /* Zip */,
 			);
 			productName = Pomelo;
 			productReference = 384F188A2C1DCB4F0073375C /* Pomelo.app */;
@@ -645,6 +648,7 @@
 				38C8465A2C1DCCA100331706 /* XCRemoteSwiftPackageReference "swift-syntax" */,
 				3841947D2C4E5D2E00396613 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				383C55EC2C5D136900A89F85 /* XCRemoteSwiftPackageReference "Joystick" */,
+				4EEA0CF82CA376AB0029A55D /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 384F188B2C1DCB4F0073375C /* Products */;
 			projectDirPath = "";
@@ -849,7 +853,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = all;
-				CODE_SIGN_ENTITLEMENTS = Pomelo/Pomelo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Pomelo/PomeloDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -884,6 +888,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries\"",
+					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
 					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
 					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
 				);
@@ -951,6 +956,7 @@
 					"\"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries\"",
 					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
 					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
+					"$(PROJECT_DIR)/Pomelo/Dependencies/Dynamic\\ Libraries",
 				);
 				MARKETING_VERSION = 1.5;
 				OTHER_LDFLAGS = "-lSudachi";
@@ -998,7 +1004,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		383C55EC2C5D136900A89F85 /* XCRemoteSwiftPackageReference "Joystick" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bradhowes/Joystick?";
+			repositoryURL = "https://github.com/bradhowes/Joystick";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.2.0;
@@ -1036,6 +1042,14 @@
 				minimumVersion = 510.0.2;
 			};
 		};
+		4EEA0CF82CA376AB0029A55D /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1068,6 +1082,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 38C846572C1DCC8400331706 /* XCRemoteSwiftPackageReference "OpenSSL" */;
 			productName = OpenSSL;
+		};
+		4EEA0CF92CA376AB0029A55D /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EEA0CF82CA376AB0029A55D /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

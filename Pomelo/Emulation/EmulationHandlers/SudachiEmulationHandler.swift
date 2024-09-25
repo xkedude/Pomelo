@@ -21,6 +21,7 @@ class SudachiEmulationViewModel: ObservableObject {
     private var thread: Thread!
     private var isRunning = false
     var doesneedresources = false
+    @State var iscustom: Bool = false
 
     init(game: PomeloGame?) {
         self.device = MTLCreateSystemDefaultDevice()
@@ -33,6 +34,8 @@ class SudachiEmulationViewModel: ObservableObject {
         guard !isRunning else { return }
         isRunning = true
         sudachi.configure(layer: mtkView.layer as! CAMetalLayer, with: mtkView.frame.size)
+        
+        iscustom = ((sudachiGame?.fileURL.startAccessingSecurityScopedResource()) != nil)
         
         DispatchQueue.global(qos: .userInitiated).async { [self] in
             if let sudachiGame = self.sudachiGame {
@@ -64,14 +67,17 @@ class SudachiEmulationViewModel: ObservableObject {
             isRunning = false
             sudachi.exit()
             thread.cancel()
+            if iscustom {
+                sudachiGame?.fileURL.stopAccessingSecurityScopedResource()
+            }
         }
     }
     
-    func handleOrientationChange(size: CGSize) {
+    func handleOrientationChange() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             let interfaceOrientation = self.getInterfaceOrientation(from: UIDevice.current.orientation)
-            self.sudachi.orientationChanged(orientation: interfaceOrientation, with: self.mtkView.layer as! CAMetalLayer, size: size)
+            self.sudachi.orientationChanged(orientation: interfaceOrientation, with: self.mtkView.layer as! CAMetalLayer, size: mtkView.frame.size)
         }
     }
 

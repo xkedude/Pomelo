@@ -1171,26 +1171,19 @@ void Device::RemoveUnsuitableExtensions() {
                                        VK_EXT_DEPTH_CLIP_CONTROL_EXTENSION_NAME);
 
     // VK_EXT_extended_dynamic_state
-    if (isiOS16OrBelow()) {
-        extensions.extended_dynamic_state = false;
-        LOG_INFO(Render_Vulkan,
-                 "Extended Dynamic State is missing because of current iOS Version");
-    } else {
-        extensions.extended_dynamic_state = features.extended_dynamic_state.extendedDynamicState;
-        LOG_INFO(Render_Vulkan,
-                 "Extended Dynamic State exists");
-    }
+    // extensions.extended_dynamic_state = features.extended_dynamic_state.extendedDynamicState;
+    extensions.extended_dynamic_state = false;
+    
+    extensions.extended_dynamic_state = false;
     
     RemoveExtensionFeatureIfUnsuitable(extensions.extended_dynamic_state,
                                        features.extended_dynamic_state,
                                        VK_EXT_EXTENDED_DYNAMIC_STATE_EXTENSION_NAME);
 
     // VK_EXT_extended_dynamic_state2
-    if (isiOS16OrBelow()) {
-        extensions.extended_dynamic_state2 = false;
-    } else {
-        extensions.extended_dynamic_state2 = features.extended_dynamic_state2.extendedDynamicState2;
-    }
+    // extensions.extended_dynamic_state2 = features.extended_dynamic_state2.extendedDynamicState2;
+    extensions.extended_dynamic_state2 = false;
+    
     RemoveExtensionFeatureIfUnsuitable(extensions.extended_dynamic_state2,
                                        features.extended_dynamic_state2,
                                        VK_EXT_EXTENDED_DYNAMIC_STATE_2_EXTENSION_NAME);
@@ -1204,15 +1197,13 @@ void Device::RemoveUnsuitableExtensions() {
         features.extended_dynamic_state3.extendedDynamicState3DepthClampEnable &&
         features.extended_dynamic_state3.extendedDynamicState3LogicOpEnable;
     
-    if (isiOS16OrBelow()) {
-        extensions.extended_dynamic_state3 = false;
-        dynamic_state3_blending = false;
-        dynamic_state3_enables = false;
-    } else {
-        extensions.extended_dynamic_state3 = dynamic_state3_blending || dynamic_state3_enables;
-        dynamic_state3_blending = dynamic_state3_blending && extensions.extended_dynamic_state3;
-        dynamic_state3_enables = dynamic_state3_enables && extensions.extended_dynamic_state3;
-    }
+    // extensions.extended_dynamic_state3 = dynamic_state3_blending || dynamic_state3_enables;
+    // dynamic_state3_blending = dynamic_state3_blending && extensions.extended_dynamic_state3;
+    // dynamic_state3_enables = dynamic_state3_enables && extensions.extended_dynamic_state3;
+    
+    extensions.extended_dynamic_state3 = false;
+    dynamic_state3_blending = false;
+    dynamic_state3_enables = false;
 
     RemoveExtensionFeatureIfUnsuitable(extensions.extended_dynamic_state3,
                                        features.extended_dynamic_state3,

@@ -16,6 +16,7 @@ struct LibraryView: View {
     @State var doesitexist = (false, false)
     @State var importedgame: PomeloGame? = nil
     @State var importgame: Bool = false
+    @State var isimportingfirm: Bool = false
     @State var launchGame: Bool = false
     var body: some View {
         NavigationStack {
@@ -29,7 +30,6 @@ struct LibraryView: View {
                         EmptyView() // This keeps the link hidden
                     }
                 )
-                .hidden()
             }
             
             VStack {
@@ -87,17 +87,29 @@ struct LibraryView: View {
             .fileImporter(isPresented: $importgame, allowedContentTypes: [.item], onCompletion: { result in
                 switch result {
                 case .success(let elements):
-                    
-                    let information = Sudachi.shared.information(for: elements)
-                    
-                    let game = PomeloGame(developer: information.developer, fileURL: elements,
-                                          imageData: information.iconData,
-                                          title: information.title)
-                    
-                    importedgame = game
-                    
-                    DispatchQueue.main.async {
-                        launchGame = true
+                    if self.isimportingfirm {
+                        if elements.pathExtension.lowercased() == "zip" {
+                            core.AddFirmware(at: elements)
+                        }
+                    } else {
+                        let iscustom = elements.startAccessingSecurityScopedResource()
+                        let information = Sudachi.shared.information(for: elements)
+                        
+                        let game = PomeloGame(developer: information.developer, fileURL: elements,
+                                              imageData: information.iconData,
+                                              title: information.title)
+                        
+                        importedgame = game
+                        
+                        
+                        DispatchQueue.main.async {
+                            
+                            if iscustom {
+                                elements.stopAccessingSecurityScopedResource()
+                            }
+                            
+                            launchGame = true
+                        }
                     }
                 case .failure(let error):
                     
@@ -120,14 +132,31 @@ struct LibraryView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) { // funsies
-                    Button(action: {
-                        importgame = true // this part took a while
+                    Menu {
+                        Button(action: {
+                            importgame = true // this part took a while
+                            
+                        }) {
+                            Text("Launch Game")
+                        }
                         
-                    }) {
+                        Button(action: {
+                            DispatchQueue.main.async {
+                                isimportingfirm = true
+                            }
+                            
+                            
+                            importgame = true // this part took a while
+                            
+                        }) {
+                            Text("Import Firmware")
+                        }
+                    } label: {
                         Image(systemName: "plus.circle.fill")
                             .imageScale(.large)
                             .padding()
                     }
+
                 }
             }
         }

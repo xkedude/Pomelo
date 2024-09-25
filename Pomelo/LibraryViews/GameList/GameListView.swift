@@ -27,7 +27,6 @@ struct GameListView: View {
             return searchText.isEmpty || PomeloGame.title.localizedCaseInsensitiveContains(searchText)
         }
         
-        
         ScrollView {
             VStack {
                 VStack(alignment: .leading) {
@@ -35,7 +34,7 @@ struct GameListView: View {
                     if isGridView {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 10) {
                             ForEach(0..<filteredGames.count, id: \.self) { index in
-                                let game = core.games[index]
+                                let game = filteredGames[index] // Use filteredGames here
                                 NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                     GameButtonView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 200)
@@ -43,7 +42,7 @@ struct GameListView: View {
                                 .contextMenu {
                                     Button(action: {
                                         do {
-                                            try LibraryManager.shared.removerom(core.games[index])
+                                            try LibraryManager.shared.removerom(filteredGames[index])
                                         } catch {
                                             showAlert = true
                                             alertMessage = Alert(title: Text("Unable to Remove Game"), message: Text(error.localizedDescription))
@@ -53,7 +52,6 @@ struct GameListView: View {
                                     }
                                     Button(action: {
                                         if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appending(path: "roms") {
-                                            // Open the directory in the Files app
                                             UIApplication.shared.open(documentsURL, options: [:], completionHandler: nil)
                                         }
                                     }) {
@@ -63,8 +61,6 @@ struct GameListView: View {
                                             Text("Open in Files")
                                         }
                                     }
-                                    
-                                    
                                     NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                         Text("Launch")
                                     }
@@ -74,7 +70,7 @@ struct GameListView: View {
                     } else {
                         LazyVStack() {
                             ForEach(0..<filteredGames.count, id: \.self) { index in
-                                let game = core.games[index]
+                                let game = filteredGames[index] // Use filteredGames here
                                 NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                     GameButtonListView(game: game)
                                         .frame(maxWidth: .infinity, minHeight: 75)
@@ -82,7 +78,7 @@ struct GameListView: View {
                                 .contextMenu {
                                     Button(action: {
                                         do {
-                                            try LibraryManager.shared.removerom(core.games[index])
+                                            try LibraryManager.shared.removerom(filteredGames[index])
                                             try FileManager.default.removeItem(atPath: game.fileURL.path)
                                         } catch {
                                             showAlert = true
@@ -94,7 +90,6 @@ struct GameListView: View {
                                     
                                     Button(action: {
                                         if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appending(path: "roms") {
-                                            // Open the directory in the Files app
                                             UIApplication.shared.open(documentsURL, options: [:], completionHandler: nil)
                                         }
                                     }) {
@@ -104,7 +99,6 @@ struct GameListView: View {
                                             Text("Open in Files")
                                         }
                                     }
-                                    
                                     NavigationLink(destination: SudachiEmulationView(game: game).toolbar(.hidden, for: .tabBar)) {
                                         Text("Launch")
                                     }
@@ -116,14 +110,13 @@ struct GameListView: View {
                 .searchable(text: $searchText)
                 .padding()
             }
-            .onAppear() {
+            .onAppear {
                 refreshcore()
                 
                 if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                     let romsFolderURL = documentsDirectory.appendingPathComponent("roms")
                     
                     let folderMonitor = FolderMonitor(folderURL: romsFolderURL) {
-                        // This will be called whenever a file is added/removed in the "roms" folder
                         do {
                             core = Core(games: [], root: documentsDirectory)
                             core = try LibraryManager.shared.library()
@@ -132,7 +125,6 @@ struct GameListView: View {
                         }
                     }
                 }
-
             }
             .alert(isPresented: $showAlert) {
                 alertMessage ?? Alert(title: Text("Error Not Found"))

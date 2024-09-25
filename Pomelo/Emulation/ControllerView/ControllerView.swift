@@ -185,9 +185,9 @@ struct OnScreenController: View {
                     
                     HStack {
                         ButtonView(button: .plus) // Adding the + button
-                            .padding(.horizontal)
+                            .padding(.horizontal, 40)
                         ButtonView(button: .minus) // Adding the - button
-                            .padding(.horizontal)
+                            .padding(.horizontal, 40)
                     }
                 }
                 .padding(.bottom, geometry.size.height / 4.2) // very broken
@@ -213,15 +213,16 @@ struct OnScreenController: View {
                             }
                         }
                         HStack {
+                            Spacer()
                             VStack {
                                 Spacer()
                                 ButtonView(button: .plus) // Adding the + button
                             }
-                            Spacer()
                             VStack {
                                 Spacer()
                                 ButtonView(button: .minus) // Adding the - button
                             }
+                            Spacer()
                         }
                         VStack {
                             ShoulderButtonsViewRight()
@@ -233,7 +234,7 @@ struct OnScreenController: View {
                     }
                     
                 }
-                .padding(.bottom, geometry.size.height / 3.2) // also extremally broken (
+                .padding(.bottom, geometry.size.height / 11) // also extremally broken (
             }
         }
     }
@@ -247,7 +248,7 @@ struct ShoulderButtonsViewLeft: View {
             ButtonView(button: .triggerL)
                 .padding(.horizontal)
         }
-        .frame(width: 160, height: 60)
+        .frame(width: 160, height: 20)
     }
 }
 
@@ -259,7 +260,7 @@ struct ShoulderButtonsViewRight: View {
             ButtonView(button: .triggerZR)
                 .padding(.horizontal)
         }
-        .frame(width: 160, height: 60)
+        .frame(width: 160, height: 20)
 
     }
 }
@@ -274,8 +275,9 @@ struct DPadView: View {
                 ButtonView(button: .directionalPadRight)
             }
             ButtonView(button: .directionalPadDown)
+                .padding(.horizontal)
         }
-        .frame(width: 160, height: 170)
+        .frame(width: 145, height: 145)
     }
 }
 
@@ -291,7 +293,7 @@ struct ABXYView: View {
             ButtonView(button: .B)
                 .padding(.horizontal)
         }
-        .frame(width: 160, height: 170)
+        .frame(width: 145, height: 145)
     }
 }
 
@@ -300,8 +302,8 @@ struct ButtonView: View {
     @StateObject private var viewModel: SudachiEmulationViewModel = SudachiEmulationViewModel(game: nil)
     let sudachi = Sudachi.shared
     @State var mtkView: MTKView?
-    @State var width: CGFloat = 50
-    @State var height: CGFloat = 50
+    @State var width: CGFloat = 45
+    @State var height: CGFloat = 45
     @State var isPressed = false
     var id: Int {
         if onscreenjoy {
@@ -312,6 +314,7 @@ struct ButtonView: View {
     @AppStorage("onscreenhandheld") var onscreenjoy: Bool = false
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode
+    
 
     
     var body: some View {
@@ -352,11 +355,13 @@ struct ButtonView: View {
             
                 
                 if button == .minus || button == .plus || button == .home {
-                    width = 45
-                    height = 45
+                    width = 35
+                    height = 35
                 }
             }
     }
+    
+
     
     private var buttonText: String {
         switch button {
@@ -377,13 +382,37 @@ struct ButtonView: View {
         case .directionalPadRight:
             return "arrowtriangle.right.circle.fill"
         case .triggerZL:
-            return "zl.button.roundedtop.horizontal.fill"
+            let rawValue = "zl.button.roundedtop.horizontal"
+            if #available(iOS 17, *) {
+                return rawValue.appending(".fill")
+            } else {
+                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
+                                 .replacingOccurrences(of: "horizontal", with: "fill")
+            }
         case .triggerZR:
-            return "zr.button.roundedtop.horizontal.fill"
+            let rawValue = "zr.button.roundedtop.horizontal"
+            if #available(iOS 17, *) {
+                return rawValue.appending(".fill")
+            } else {
+                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
+                                 .replacingOccurrences(of: "horizontal", with: "fill")
+            }
         case .triggerL:
-            return "l.button.roundedbottom.horizontal.fill"
+            let rawValue = "l.button.roundedbottom.horizontal"
+            if #available(iOS 17, *) {
+                return rawValue.appending(".fill")
+            } else {
+                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
+                                 .replacingOccurrences(of: "horizontal", with: "fill")
+            }
         case .triggerR:
-            return "r.button.roundedbottom.horizontal.fill"
+            let rawValue = "r.button.roundedbottom.horizontal"
+            if #available(iOS 17, *) {
+                return rawValue.appending(".fill")
+            } else {
+                return rawValue.replacingOccurrences(of: "button", with: "rectangle")
+                                 .replacingOccurrences(of: "horizontal", with: "fill")
+            }
         case .plus:
             return "plus.circle.fill" // System symbol for +
         case .minus:
