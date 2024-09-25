@@ -18,6 +18,7 @@ Pomelo is based on Sudachi which was orginally sourced from the now defunct Yuzu
 
 1. This needs a Paid Apple developer account or you can build it with Xcode (Guide under the "Free Dev Account" heading)
 2. you need JIT if your on iOS 17+ you can use [SideJITServer](https://github.com/nythepegasus/SideJITServer) if your on iOS 16.7+ then you can just use SideStore or Jitterbug
+3. Lowest Reccomended device is an iPhone 12 Pro
 
 
 # Setup Guide
@@ -46,10 +47,15 @@ Presto you can now play games!
 
 Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(Free-Dev-Acc))
 
-## Trollstore
+## TrollStore
 
-TrollStore doesn't seem to work on iOS 16, It seems to work on iOS 17 (21A329), We are looking into Fixing iOS 16. Sorry for any inconvenience.
+1. Install the iPA With TrollStore
 
+2. Add all the files, guide [here](https://github.com/Pomelo-Emu/Pomelo/wiki/Post-Setup-Guide)
+
+3. Enable JIT from inside TrollStore
+
+Presto you can now play games!
 
 # Post Setup Guides
 
