@@ -10,7 +10,7 @@ WE DO NOT CONDONE OR SUPPORT PIRACY AT ALL. If you want to use Pomelo you will b
 
 # Info and FAQ
 
-### NOTE: Some entitlements Pomelo depends on require a PAID Apple Developer Account. Your mileage with a free account or Trollstore might be limited. 
+### NOTE: Some entitlements Pomelo depends on require a PAID Apple Developer Account. Your mileage with a free account might be limited. 
 
 Pomelo is based on Sudachi which was orginally sourced from the now defunct Yuzu emulator.
 
