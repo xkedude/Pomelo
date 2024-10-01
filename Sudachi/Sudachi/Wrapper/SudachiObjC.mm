@@ -224,6 +224,20 @@
     EmulationSession::GetInstance().Window().OnGamepadButtonEvent(controllerId, [[NSNumber numberWithUnsignedInteger:button] intValue], true);
 }
 
+-(void) virtualControllerGyro:(int)controllerId
+            deltaTimestamp:(int)delta_timestamp
+                    gyroX:(float)gyro_x
+                    gyroY:(float)gyro_y
+                    gyroZ:(float)gyro_z
+                  accelX:(float)accel_x
+                  accelY:(float)accel_y
+                  accelZ:(float)accel_z
+{
+    EmulationSession::GetInstance().OnGamepadConnectEvent(controllerId);
+    EmulationSession::GetInstance().Window().OnGamepadMotionEvent(controllerId, delta_timestamp, gyro_x, gyro_y, gyro_z, accel_x, accel_y, accel_z);
+}
+
+
 -(void) virtualControllerButtonUp:(VirtualControllerButtonType)button
                      controllerId:(int)controllerId {
     EmulationSession::GetInstance().OnGamepadConnectEvent(controllerId);

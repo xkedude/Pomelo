@@ -87,9 +87,7 @@ struct LibraryView: View {
             .fileImporter(isPresented: $isimportingfirm, allowedContentTypes: [.zip], onCompletion: { result in
                 switch result {
                 case .success(let elements):
-                    DispatchQueue.main.async {
-                        core.AddFirmware(at: elements)
-                    }
+                    core.AddFirmware(at: elements)
                 case .failure(let error):
                     
                     print(error.localizedDescription)

@@ -694,7 +694,7 @@ struct RangedBarrierRange {
     case Shader::ImageFormat::R32G32_UINT:
         return VK_FORMAT_R32G32_UINT;
     case Shader::ImageFormat::R32G32B32A32_UINT:
-        return VK_FORMAT_R32G32B32A32_UINT;
+        return VK_FORMAT_R32G32B32A32_SFLOAT;
     }
     ASSERT_MSG(false, "Invalid image format={}", format);
     return VK_FORMAT_R32_UINT;

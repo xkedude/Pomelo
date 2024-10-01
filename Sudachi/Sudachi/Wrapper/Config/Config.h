@@ -422,8 +422,8 @@ gamecard_path =
 
 [System]
 # Whether the system is docked
-# 1 (default): Yes, 0: No
-use_docked_mode = 0
+# 1: Yes, 0 (default): No
+use_docked_mode = 
 
 # Sets the seed for the RNG generator built into the switch
 # rng_seed will be ignored and randomly generated if rng_seed_enabled is false

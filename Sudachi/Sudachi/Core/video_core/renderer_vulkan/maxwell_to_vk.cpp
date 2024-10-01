@@ -139,7 +139,7 @@ struct FormatTuple {
     {VK_FORMAT_R16G16B16A16_SINT, Attachable | Storage},   // R16G16B16A16_SINT
     {VK_FORMAT_R16G16B16A16_UINT, Attachable | Storage},   // R16G16B16A16_UINT
     {VK_FORMAT_B10G11R11_UFLOAT_PACK32, Attachable | Storage}, // B10G11R11_FLOAT
-    {VK_FORMAT_R32G32B32A32_UINT, Attachable | Storage},       // R32G32B32A32_UINT
+    {VK_FORMAT_R32G32B32A32_SFLOAT, Attachable | Storage},       // R32G32B32A32_UINT
     {VK_FORMAT_BC1_RGBA_UNORM_BLOCK},                          // BC1_RGBA_UNORM
     {VK_FORMAT_BC2_UNORM_BLOCK},                               // BC2_UNORM
     {VK_FORMAT_BC3_UNORM_BLOCK},                               // BC3_UNORM
@@ -517,7 +517,7 @@ VkFormat VertexFormat(const Device& device, Maxwell::VertexAttribute::Type type,
             case Maxwell::VertexAttribute::Size::Size_R32_G32_B32:
                 return VK_FORMAT_R32G32B32_UINT;
             case Maxwell::VertexAttribute::Size::Size_R32_G32_B32_A32:
-                return VK_FORMAT_R32G32B32A32_UINT;
+                return VK_FORMAT_R32G32B32A32_SFLOAT;
             case Maxwell::VertexAttribute::Size::Size_A2_B10_G10_R10:
                 return VK_FORMAT_A2B10G10R10_UINT_PACK32;
             default:

@@ -69,6 +69,15 @@ typedef NS_ENUM(NSUInteger, VirtualControllerButtonType) {
                       y:(CGFloat)y
              controllerId:(int)controllerId;
 
+-(void) virtualControllerGyro:(int)controllerId
+            deltaTimestamp:(int)delta_timestamp
+                    gyroX:(float)gyro_x
+                    gyroY:(float)gyro_y
+                    gyroZ:(float)gyro_z
+                  accelX:(float)accel_x
+                  accelY:(float)accel_y
+                       accelZ:(float)accel_z;
+
 -(void) virtualControllerButtonDown:(VirtualControllerButtonType)button
                        controllerId:(int)controllerId;
 

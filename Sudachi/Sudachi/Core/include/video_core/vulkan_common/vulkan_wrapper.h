@@ -1134,7 +1134,7 @@ public:
     }
 
     void PushDescriptorSetWithTemplateKHR(VkDescriptorUpdateTemplate update_template,
-                                          VkPipelineLayout layout, u32 set,
+                                          VkPipelineLayout layout, uint8_t set,
                                           const void* data) const noexcept {
         dld->vkCmdPushDescriptorSetWithTemplateKHR(handle, update_template, layout, set, data);
     }

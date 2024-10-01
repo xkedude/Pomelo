@@ -47,7 +47,9 @@ struct SudachiEmulationView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
                 .onRotate { size in
-                    viewModel.handleOrientationChange()
+                    if !isairplay {
+                        viewModel.handleOrientationChange()
+                    }
                 }
             }
             

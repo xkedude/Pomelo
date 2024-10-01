@@ -152,7 +152,7 @@ void Config::ReadValues() {
     YuzuSettings::values.current_user = std::clamp<int>(YuzuSettings::values.current_user.GetValue(), 0,
                                                     Service::Account::MAX_USERS - 1);
 
-    // Disable docked mode by default on Android
+    // Enable docked mode by default on iOS
     YuzuSettings::values.use_docked_mode.SetValue(config->GetBoolean("System", "use_docked_mode", false)
                                                   ? YuzuSettings::ConsoleMode::Docked
                                                   : YuzuSettings::ConsoleMode::Handheld);
@@ -242,7 +242,7 @@ void Config::ReadValues() {
     YuzuSettings::values.max_anisotropy =
         static_cast<YuzuSettings::AnisotropyMode>(config->GetInteger("Renderer", "max_anisotropy", 1));
 
-    // Disable ASTC compute by default on Android
+    // Disable ASTC compute by default on iOS
     YuzuSettings::values.accelerate_astc.SetValue(
         config->GetBoolean("Renderer", "accelerate_astc", false) ? YuzuSettings::AstcDecodeMode::Gpu
                                                                  : YuzuSettings::AstcDecodeMode::Cpu);

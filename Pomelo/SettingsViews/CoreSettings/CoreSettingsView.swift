@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Sudachi
 
 struct CoreSettingsView: View {
     @State private var text: String = ""
@@ -39,6 +40,7 @@ struct CoreSettingsView: View {
                         print("\(error.localizedDescription)")
                     }
                     
+                    Sudachi.shared.settingsSaved()
                     
                 } label: {
                     Text("Reset File")
@@ -79,6 +81,7 @@ struct CoreSettingsView: View {
         
         do {
             try text.write(to: fileURL, atomically: true, encoding: .utf8)
+            Sudachi.shared.settingsSaved()
             print("File saved successfully!")
         } catch {
             print("Error saving file: \(error)")
