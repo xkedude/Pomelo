@@ -41,11 +41,15 @@ Pomelo is based on Sudachi which was orginally sourced from the now defunct Yuzu
 
 5. Enable JIT Through your prefered method.
 
-Presto you can now play games!
+Presto you can now play games! (If you have any issues please join the discord for the most up to date information)
 
 ## Free Dev Account
 
-Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(Free-Dev-Acc))
+1. Follow the Guide [Here](https://github.com/Pomelo-Emu/Pomelo/wiki/Installing-With-Xcode-(Without-Paid-Dev-Acc))
+
+2. Add all the files, guide [here](https://github.com/Pomelo-Emu/Pomelo/wiki/Post-Setup-Guide)
+
+Presto you can now play games! (If you have any issues please join the discord for the most up to date information)
 
 ## TrollStore
 
@@ -55,7 +59,7 @@ Guide is [Here](https://github.com/stossy11/Pomelo/wiki/Installing-With-Xcode-(F
 
 3. Enable JIT from inside TrollStore
 
-Presto you can now play games!
+Presto you can now play games! (If you have any issues please join the discord for the most up to date information)
 
 # Post Setup Guides
 
