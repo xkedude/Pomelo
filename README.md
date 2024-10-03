@@ -18,7 +18,7 @@ Pomelo is based on Sudachi which was orginally sourced from the now defunct Yuzu
 
 1. This needs a Paid Apple developer account or you can build it with Xcode (Guide under the "Free Dev Account" heading)
 2. you need JIT if your on iOS 17+ you can use [SideJITServer](https://github.com/nythepegasus/SideJITServer) or Xcode if you use a Free Dev Account if your on iOS 16.7+ then you can just use SideStore or Jitterbug
-3. Lowest Reccomended device is an iPhone 12 Pro
+3. Reccomended Device is an iPhone 15+ Pro (Lowest Device Compatible is an iPhone XR)
 
 
 # Setup Guide
